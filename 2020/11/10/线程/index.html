@@ -15,12 +15,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to Daniel&#39;s Blog !">
-<meta property="og:url" content="http://example.com/archives/2020/index.html">
+<meta name="description" content="线程###线程的定义    -定义：线程是一个基本的CPU执行单元，也是程序执行流的最小单位    -作用：引入线程后，不仅进程之间可宏观上并发执行，进程内的线程也可以并发执行，提升了系统的并发度    -组成：线程ID + 线程控制块(TCB)，类似于进程的PCB    -基本状态：就绪，阻塞，运行。和进程一样 -引入线程后的变化：     1.资源分配与调度：         引入前：进程是资">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线程">
+<meta property="og:url" content="http://example.com/2020/11/10/%E7%BA%BF%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Welcome to Daniel&#39;s Blog !">
+<meta property="og:description" content="线程###线程的定义    -定义：线程是一个基本的CPU执行单元，也是程序执行流的最小单位    -作用：引入线程后，不仅进程之间可宏观上并发执行，进程内的线程也可以并发执行，提升了系统的并发度    -组成：线程ID + 线程控制块(TCB)，类似于进程的PCB    -基本状态：就绪，阻塞，运行。和进程一样 -引入线程后的变化：     1.资源分配与调度：         引入前：进程是资">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-10T15:17:10.000Z">
+<meta property="article:modified_time" content="2020-11-10T15:38:18.862Z">
 <meta property="article:author" content="daniel">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -55,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2020 | Welcome to Daniel&#39;s Blog !</title>
+<title>线程 | Welcome to Daniel&#39;s Blog !</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -65,8 +70,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -263,217 +268,181 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-线程" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2020/11/10/%E7%BA%BF%E7%A8%8B/" class="article-date">
+      <time datetime="2020-11-10T15:17:10.000Z" itemprop="datePublished">2020-11-10</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      线程
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2020/11/10/%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-      <time datetime="2020-11-10T15:17:10.000Z" itemprop="datePublished">11-10</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/10/%E7%BA%BF%E7%A8%8B/">线程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>###线程的定义<br>    -定义：线程是一个基本的CPU执行单元，也是程序执行流的最小单位<br>    -作用：引入线程后，不仅进程之间可宏观上并发执行，进程内的线程也可以并发执行，提升了系统的并发度<br>    -组成：线程ID + 线程控制块(TCB)，类似于进程的PCB<br>    -基本状态：就绪，阻塞，运行。和进程一样</p>
+<pre><code>-引入线程后的变化：
+    1.资源分配与调度：
+        引入前：进程是资源分配和调度的基本单位
+        引入后：进程是资源分配的基本单位，线城市调度的基本单位
+    2.并发性：
+        引入前：只有进程能并发执行
+        引入后：进程和线程都能并发执行
+    3.系统开销：
+        引入前：进程并发需切换进程的运行环境，系统开销大
+        引入后：而同一进程内的线程切换，不需要切换运行环境，系统开销小</code></pre>
+<h3 id="线程的属性"><a href="#线程的属性" class="headerlink" title="线程的属性"></a>线程的属性</h3><pre><code>1.线程是处理机调度的基本单位
+2.多CPU计算机中，各个线程可占用不同的CPU
+3.因为进程才是资源调度的基本单位，所以线程几乎不拥有系统资源
+4.同一进程的线程之间能共享该进程的资源，共享不是占有噢
+5.同一线程之间共享了地址空间，他们通信不需要系统的干预
+6.同一进程间的线程切换，不会引起进程切换；不同进程间的线程切换，会引起进程切换。(别晕，很简单的)</code></pre>
+<p>###线程的实现方式<br>    两种实现方式：<br>    1.用户级线程(User-Level Thread,ULT)</p>
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/11/10/%E7%BA%BF%E7%A8%8B/">线程</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2020-11-10, 23:17:10</p>
+        <p><span>最后更新:</span>2020-11-10, 23:38:18</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/11/10/%E7%BA%BF%E7%A8%8B/" title="线程">http://example.com/2020/11/10/%E7%BA%BF%E7%A8%8B/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/10/%E7%BA%BF%E7%A8%8B/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2020/11/10/%E8%BF%9B%E7%A8%8B/">
+                    进程
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2020/11/10/%E8%BF%9B%E7%A8%8B/" class="archive-article-date">
-      <time datetime="2020-11-10T15:14:51.000Z" itemprop="datePublished">11-10</time>
-</a>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.</span> <span class="toc-text">线程的属性</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/10/%E8%BF%9B%E7%A8%8B/">进程</a>
-    </h1>
-  
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"线程　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
-        <div class="article-info info-on-archive">
-          
+    
+</div>
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2020/11/10/%E8%BF%9B%E7%A8%8B/" title="下一篇: 进程">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2020/11/10/%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/" class="archive-article-date">
-      <time datetime="2020-11-10T13:18:14.000Z" itemprop="datePublished">11-10</time>
-</a>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/11/10/%E7%BA%BF%E7%A8%8B/">线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/10/%E8%BF%9B%E7%A8%8B/">进程</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/10/%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/">中断与系统调用</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/09/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">常用排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/07/%E5%89%91%E6%8C%87offer/">剑指offer</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/06/Welcome/">Hello there~</a></li></ul>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/10/%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/">中断与系统调用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2020/11/09/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="archive-article-date">
-      <time datetime="2020-11-09T15:28:09.000Z" itemprop="datePublished">11-09</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/09/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">常用排序算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2020/11/07/%E5%89%91%E6%8C%87offer/" class="archive-article-date">
-      <time datetime="2020-11-07T01:37:10.000Z" itemprop="datePublished">11-07</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/07/%E5%89%91%E6%8C%87offer/">剑指offer</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2020/11/06/Welcome/" class="archive-article-date">
-      <time datetime="2020-11-06T13:41:13.211Z" itemprop="datePublished">11-06</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/06/Welcome/">Hello there~</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">

@@ -270,11 +270,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-操作系统" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-线程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/11/10/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="article-date">
-      <time datetime="2020-11-10T13:18:14.000Z" itemprop="datePublished">2020-11-10</time>
+      <a href="/2020/11/10/%E7%BA%BF%E7%A8%8B/" class="article-date">
+      <time datetime="2020-11-10T15:17:10.000Z" itemprop="datePublished">2020-11-10</time>
 </a>
 
 
@@ -289,7 +289,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/10/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+      <a class="article-title" href="/2020/11/10/%E7%BA%BF%E7%A8%8B/">线程</a>
     </h1>
   
 
@@ -299,33 +299,84 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h2><h3 id="中断机制的诞生"><a href="#中断机制的诞生" class="headerlink" title="中断机制的诞生"></a>中断机制的诞生</h3><pre><code>为了实现多道程序并发执行而引入的技术</code></pre>
-<h3 id="中断的作用"><a href="#中断的作用" class="headerlink" title="中断的作用"></a>中断的作用</h3><pre><code>中断发生时，操作系统介入开展工作，CPU进入核心态
-中断是从用户态进入到核心态的唯一途径</code></pre>
-<h3 id="中断的分类"><a href="#中断的分类" class="headerlink" title="中断的分类"></a>中断的分类</h3><pre><code>-内中断（异常、例外、陷入）：信号来源于CPU内部，与当前执行的指令有关
-        --自愿中断：例如指令中断
-        --强迫中断：
-                1.硬件中断（缺页等）
-                2.软件中断（整数除零等）    
--外中断：信号来源于CPU外部，与当前执行的指令无关
-        --外设请求：如I/O操作完成后发出的中断信号
-        --人工干预：用户强制终止一个进程</code></pre>
-<h3 id="外中断的处理过程"><a href="#外中断的处理过程" class="headerlink" title="外中断的处理过程"></a>外中断的处理过程</h3><pre><code>这有1图片要加
-step1：顺序执行CPU中的指令，每条指令执行结束后都会检查是否有外部中断信号
-step2：若检测到外部中断信号，需要保护被中断进程的CPU环境
-step3：根据中断类型转入相应的中断处理程序
-step4：恢复原进程的CPU环境并退出中断，返回原进程继续顺序往下执行指令</code></pre>
-<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><h3 id="系统调用的概念"><a href="#系统调用的概念" class="headerlink" title="系统调用的概念"></a>系统调用的概念</h3><pre><code>是操作系统提供给应用程序使用的接口，可以抽象的理解为程序调用的特殊函数。
-应用程序可以发出系统调用请求来获得操作系统的服务。</code></pre>
-<h3 id="系统调用的作用"><a href="#系统调用的作用" class="headerlink" title="系统调用的作用"></a>系统调用的作用</h3><pre><code>为了保证程序的稳定性与安全性，对于打印机等共享资源不允许用户程序来控制，而应该是通过系统调用的方法来向操作系统提出服务的请求。</code></pre>
-<h3 id="系统调用的状态"><a href="#系统调用的状态" class="headerlink" title="系统调用的状态"></a>系统调用的状态</h3><pre><code>系统调用的某些功能需要的权限比较高，涉及到了软硬件的使用权限，所以有些操作只能在核心态下才能完成</code></pre>
-<h3 id="系统调用和库函数的区别"><a href="#系统调用和库函数的区别" class="headerlink" title="系统调用和库函数的区别"></a>系统调用和库函数的区别</h3><pre><code>这有1图片要加</code></pre>
-<h3 id="系统调用的过程"><a href="#系统调用的过程" class="headerlink" title="系统调用的过程"></a>系统调用的过程</h3><pre><code>比如高级语言调用了库函数write(“abc”)：
-传递系统调用的参数-&gt;在用户态下执行陷入指令-&gt;产生中断，进入核心态去执行系统调用的相应服务程序-&gt;返回到最开始的用户程序 
-在这个过程中，陷入指令是在用户态执行的，而执行陷入指令后会立即产生内中断而进入核心态，
-因此陷入指令是唯一一个只能在用户态执行，而不可以在核心态执行的指令。
-发出系统调用请求（用户态）-&gt;系统调用进行相关的处理（核心态），这一过程通过执行陷入指令产生中断来完成状态的转移</code></pre>
-<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h3 id="进程实体（进程映像）"><a href="#进程实体（进程映像）" class="headerlink" title="进程实体（进程映像）"></a>进程实体（进程映像）</h3><pre><code>PCB、程序段（存放程序代码）、数据段（存放程序执行时运用、产生的数据）</code></pre>
+        <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>###线程的定义<br>    -定义：线程是一个基本的CPU执行单元，也是程序执行流的最小单位<br>    -作用：引入线程后，不仅进程之间可宏观上并发执行，进程内的线程也可以并发执行，提升了系统的并发度<br>    -组成：线程ID + 线程控制块(TCB)，类似于进程的PCB<br>    -基本状态：就绪，阻塞，运行。和进程一样</p>
+<pre><code>-引入线程后的变化：
+    1.资源分配与调度：
+        引入前：进程是资源分配和调度的基本单位
+        引入后：进程是资源分配的基本单位，线城市调度的基本单位
+    2.并发性：
+        引入前：只有进程能并发执行
+        引入后：进程和线程都能并发执行
+    3.系统开销：
+        引入前：进程并发需切换进程的运行环境，系统开销大
+        引入后：而同一进程内的线程切换，不需要切换运行环境，系统开销小</code></pre>
+<h3 id="线程的属性"><a href="#线程的属性" class="headerlink" title="线程的属性"></a>线程的属性</h3><pre><code>1.线程是处理机调度的基本单位
+2.多CPU计算机中，各个线程可占用不同的CPU
+3.因为进程才是资源调度的基本单位，所以线程几乎不拥有系统资源
+4.同一进程的线程之间能共享该进程的资源，共享不是占有噢
+5.同一线程之间共享了地址空间，他们通信不需要系统的干预
+6.同一进程间的线程切换，不会引起进程切换；不同进程间的线程切换，会引起进程切换。(别晕，很简单的)</code></pre>
+<p>###线程的实现方式<br>    两种实现方式：<br>    1.用户级线程(User-Level Thread,ULT)</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-进程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/10/%E8%BF%9B%E7%A8%8B/" class="article-date">
+      <time datetime="2020-11-10T15:14:51.000Z" itemprop="datePublished">2020-11-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/10/%E8%BF%9B%E7%A8%8B/">进程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h3 id="进程实体（进程映像）"><a href="#进程实体（进程映像）" class="headerlink" title="进程实体（进程映像）"></a>进程实体（进程映像）</h3><pre><code>PCB、程序段（存放程序代码）、数据段（存放程序执行时运用、产生的数据）</code></pre>
 <h3 id="PCB"><a href="#PCB" class="headerlink" title="PCB"></a>PCB</h3><pre><code>概念：进程控制块，用来扫描进程的各种信息。创建进程的本质就是创建进程实体的PCB，撤销进程则是撤销进程实体中的PCB。 
   PCB的组成：
       -进程描述信息：进程标识符PID、用户标识符UID
@@ -398,6 +449,109 @@ c.进程时具有独立功能的程序在数据集合上的运行过程，是系
     -有更高优先级的进程到达
     -前进程主动阻塞
     -前进程终止</code></pre>
+<h3 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h3><pre><code>-三种方式：共享存储、消息传递、管道通信
+
+-共享存储：在内存中开辟一个共享空间，两个进程都可以对其进行读写操作，但是两个进程
+            对共享空间的访问是互斥的，进程A访问了，进程B只能等A访问结束才可访问。
+-共享存储分为两种方式：基于数据结构的共享(低级通信)、基于存储区的共享(高级通信)
+
+-管道通信：采用半双工通信，即可以双向通信，但是同一时间内只能从一个方向通信
+            想要双向同时通信，得设置两个管道
+-管道通信的特点：1.写0满时，写端阻塞，读端此时才能开始读；
+                 2.读的过程中，写段不允许写入；
+                 3.读取完毕时，读端关闭，读的数据被抛弃，写段不再阻塞；
+                 4.写的过程中，读端不允许读出
+
+-消息传递：1.传递结构化的消息（消息由消息头和消息体组成）
+          2.系统提供”发送/接受原语“
+-消息传递的两种方式：
+                1.直接通信方式：消息直接挂到对方进程的消息队列中
+                2.间接通信方式：消息先发送到中间体</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-中断与系统调用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/10/%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/" class="article-date">
+      <time datetime="2020-11-10T13:18:14.000Z" itemprop="datePublished">2020-11-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/10/%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/">中断与系统调用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h2><h3 id="中断机制的诞生"><a href="#中断机制的诞生" class="headerlink" title="中断机制的诞生"></a>中断机制的诞生</h3><pre><code>为了实现多道程序并发执行而引入的技术</code></pre>
+<h3 id="中断的作用"><a href="#中断的作用" class="headerlink" title="中断的作用"></a>中断的作用</h3><pre><code>中断发生时，操作系统介入开展工作，CPU进入核心态
+中断是从用户态进入到核心态的唯一途径</code></pre>
+<h3 id="中断的分类"><a href="#中断的分类" class="headerlink" title="中断的分类"></a>中断的分类</h3><pre><code>-内中断（异常、例外、陷入）：信号来源于CPU内部，与当前执行的指令有关
+        --自愿中断：例如指令中断
+        --强迫中断：
+                1.硬件中断（缺页等）
+                2.软件中断（整数除零等）    
+-外中断：信号来源于CPU外部，与当前执行的指令无关
+        --外设请求：如I/O操作完成后发出的中断信号
+        --人工干预：用户强制终止一个进程</code></pre>
+<h3 id="外中断的处理过程"><a href="#外中断的处理过程" class="headerlink" title="外中断的处理过程"></a>外中断的处理过程</h3><pre><code>这有1图片要加
+step1：顺序执行CPU中的指令，每条指令执行结束后都会检查是否有外部中断信号
+step2：若检测到外部中断信号，需要保护被中断进程的CPU环境
+step3：根据中断类型转入相应的中断处理程序
+step4：恢复原进程的CPU环境并退出中断，返回原进程继续顺序往下执行指令</code></pre>
+<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><h3 id="系统调用的概念"><a href="#系统调用的概念" class="headerlink" title="系统调用的概念"></a>系统调用的概念</h3><pre><code>是操作系统提供给应用程序使用的接口，可以抽象的理解为程序调用的特殊函数。
+应用程序可以发出系统调用请求来获得操作系统的服务。</code></pre>
+<h3 id="系统调用的作用"><a href="#系统调用的作用" class="headerlink" title="系统调用的作用"></a>系统调用的作用</h3><pre><code>为了保证程序的稳定性与安全性，对于打印机等共享资源不允许用户程序来控制，而应该是通过系统调用的方法来向操作系统提出服务的请求。</code></pre>
+<h3 id="系统调用的状态"><a href="#系统调用的状态" class="headerlink" title="系统调用的状态"></a>系统调用的状态</h3><pre><code>系统调用的某些功能需要的权限比较高，涉及到了软硬件的使用权限，所以有些操作只能在核心态下才能完成</code></pre>
+<h3 id="系统调用和库函数的区别"><a href="#系统调用和库函数的区别" class="headerlink" title="系统调用和库函数的区别"></a>系统调用和库函数的区别</h3><pre><code>这有1图片要加</code></pre>
+<h3 id="系统调用的过程"><a href="#系统调用的过程" class="headerlink" title="系统调用的过程"></a>系统调用的过程</h3><pre><code>比如高级语言调用了库函数write(“abc”)：
+传递系统调用的参数-&gt;在用户态下执行陷入指令-&gt;产生中断，进入核心态去执行系统调用的相应服务程序-&gt;返回到最开始的用户程序 
+在这个过程中，陷入指令是在用户态执行的，而执行陷入指令后会立即产生内中断而进入核心态，
+因此陷入指令是唯一一个只能在用户态执行，而不可以在核心态执行的指令。
+发出系统调用请求（用户态）-&gt;系统调用进行相关的处理（核心态），这一过程通过执行陷入指令产生中断来完成状态的转移</code></pre>
 
       
     </div>
@@ -609,9 +763,8 @@ c.进程时具有独立功能的程序在数据集合上的运行过程，是系
       
           
         <p>Welcome to <a target="_blank" rel="noopener" href="https://www.qguizhan.top/">daniel’s blog</a>!  If you get any problems ,you can ask me on <a target="_blank" rel="noopener" href="https://github.com/DanielCorleone2001">GitHub</a>.</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  博客主要用于记录自己学习路上的心路体验，记记代码，记录进步，项目源码等等都会放上来。</p>
-<p>  如果源码对你有帮助，请记得给我的github点个star~</p>
-
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>###操作系统</p>
+<h4 id="1-中断与系统调用"><a href="#1-中断与系统调用" class="headerlink" title="1.中断与系统调用"></a>1.<a href="">中断与系统调用</a></h4><h4 id="2-进程"><a href="#2-进程" class="headerlink" title="2.进程"></a>2.<a href="">进程</a></h4><h4 id="3-线程"><a href="#3-线程" class="headerlink" title="3.线程"></a>3.<a href="">线程</a></h4>
       
     </div>
     
