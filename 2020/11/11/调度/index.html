@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="Welcome to daniel’s blog!  If you get any problems ,you can ask me on GitHub. 索引操作系统1.中断与系统调用2.进程3.线程">
+<meta name="description" content="调度三层调度    1.高级调度(作业调度)：按一定的原则从外存中处于后备队列的作业中挑选一个或多个作业，     给他们分配必要的资源，并建立PCB以创建进程，创建了进程就拥有了竞争处理机的权力。       2.中级调度(内存调度)：因为有虚拟存储技术的存在，可以将暂时不能运行的进程从内存调到外存等待，     等具备了运行条件并且内存有空闲时才会重新调进内存。这样，就提高了内存利用率和系统吞">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文章目录">
-<meta property="og:url" content="http://example.com/2020/11/06/Welcome/index.html">
+<meta property="og:title" content="调度">
+<meta property="og:url" content="http://example.com/2020/11/11/%E8%B0%83%E5%BA%A6/index.html">
 <meta property="og:site_name" content="Welcome to Daniel&#39;s Blog !">
-<meta property="og:description" content="Welcome to daniel’s blog!  If you get any problems ,you can ask me on GitHub. 索引操作系统1.中断与系统调用2.进程3.线程">
+<meta property="og:description" content="调度三层调度    1.高级调度(作业调度)：按一定的原则从外存中处于后备队列的作业中挑选一个或多个作业，     给他们分配必要的资源，并建立PCB以创建进程，创建了进程就拥有了竞争处理机的权力。       2.中级调度(内存调度)：因为有虚拟存储技术的存在，可以将暂时不能运行的进程从内存调到外存等待，     等具备了运行条件并且内存有空闲时才会重新调进内存。这样，就提高了内存利用率和系统吞">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-06T13:41:13.211Z">
-<meta property="article:modified_time" content="2020-11-10T15:50:49.160Z">
+<meta property="article:published_time" content="2020-11-11T02:29:41.000Z">
+<meta property="article:modified_time" content="2020-11-11T03:56:04.810Z">
 <meta property="article:author" content="daniel">
-<meta property="article:tag" content="索引">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -60,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>文章目录 | Welcome to Daniel&#39;s Blog !</title>
+<title>调度 | Welcome to Daniel&#39;s Blog !</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Welcome" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-调度" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/11/06/Welcome/" class="article-date">
-      <time datetime="2020-11-06T13:41:13.211Z" itemprop="datePublished">2020-11-06</time>
+      <a href="/2020/11/11/%E8%B0%83%E5%BA%A6/" class="article-date">
+      <time datetime="2020-11-11T02:29:41.000Z" itemprop="datePublished">2020-11-11</time>
 </a>
 
 
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      文章目录
+      调度
     </h1>
   
 
@@ -298,7 +298,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -308,8 +308,82 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://www.qguizhan.top/">daniel’s blog</a>!  If you get any problems ,you can ask me on <a target="_blank" rel="noopener" href="https://github.com/DanielCorleone2001">GitHub</a>.</p>
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h4 id="1-中断与系统调用"><a href="#1-中断与系统调用" class="headerlink" title="1.中断与系统调用"></a>1.<a target="_blank" rel="noopener" href="https://qguizhan.top/2020/11/10/%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/">中断与系统调用</a></h4><h4 id="2-进程"><a href="#2-进程" class="headerlink" title="2.进程"></a>2.<a target="_blank" rel="noopener" href="https://qguizhan.top/2020/11/10/%E8%BF%9B%E7%A8%8B/">进程</a></h4><h4 id="3-线程"><a href="#3-线程" class="headerlink" title="3.线程"></a>3.<a target="_blank" rel="noopener" href="https://qguizhan.top/2020/11/10/%E7%BA%BF%E7%A8%8B/">线程</a></h4>
+        <h2 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h2><h3 id="三层调度"><a href="#三层调度" class="headerlink" title="三层调度"></a>三层调度</h3><pre><code>    1.高级调度(作业调度)：按一定的原则从外存中处于后备队列的作业中挑选一个或多个作业，
+    给他们分配必要的资源，并建立PCB以创建进程，创建了进程就拥有了竞争处理机的权力。 
+
+    2.中级调度(内存调度)：因为有虚拟存储技术的存在，可以将暂时不能运行的进程从内存调到外存等待，
+    等具备了运行条件并且内存有空闲时才会重新调进内存。这样，就提高了内存利用率和系统吞吐量
+    要点：
+        ·暂时处在外存等待的进程状态称为挂起状态。
+        ·虽然进程会被调到外存，但其实PCB一直都在内存中。
+         PCB记录进程数据在外存中的存放位置和进程状态等信息，操作系统通过PCB就可以对进程进行监控、管理。
+        ·一个进程可能会被多次调出、调入内存，因此中级调度发生的频率比高级调度高很多
+
+    3.低级调度(进程调度)：按照某种规则，从就绪队列中选择一个进程为其分配处理及</code></pre>
+<h3 id="三层调度的联系与对比"><a href="#三层调度的联系与对比" class="headerlink" title="三层调度的联系与对比"></a>三层调度的联系与对比</h3><pre><code>调度发生的位置：
+    高级调度：外存-&gt;内存(面向作业)
+    中级调度：外存-&gt;内存(面向进程)
+    低级调度：内存-&gt;CPU
+
+发生频率:
+    低级调度&gt;中级调度&gt;高级调度
+
+对进程状态的影响：
+    高级调度：无-&gt;创建态-&gt;就绪态
+    中级调度：挂起态-&gt;就绪态
+    低级调度：就绪态-&gt;运行态</code></pre>
+<h2 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h2><h3 id="进程调度的时机"><a href="#进程调度的时机" class="headerlink" title="进程调度的时机"></a>进程调度的时机</h3><pre><code>   1.需要进行进程调度与切换的情况
+    -当前进程主动放弃处理机
+        ·进程正常终止
+        ·运行过程发生异常而终止
+        ·进程主动请求阻塞(等待I/O)
+    -当前进程被迫放弃处理机
+        ·分配给进程的时间片用完了
+        ·有更紧急的事需要处理(I/O中断)
+        ·有更高优先级的进程进入就绪队列
+
+   2.不需要进程调度与切换的情况
+    -处理中断的过程中
+    -进程在操作系统内核程序临界区中
+    -在原子操作中(原语)</code></pre>
+<h3 id="进程调度的方式"><a href="#进程调度的方式" class="headerlink" title="进程调度的方式"></a>进程调度的方式</h3><pre><code>1.非剥夺调度方式(非抢占方式)
+    ·概念：只允许进程主动放弃处理机，即使在运行过程中有更紧急的任务也不允许切换。
+    由此可知只有当前进程终止或主动要求进入阻塞态才可以切换。
+    ·特点：系统开销小，但是无法及时处理紧急任务
+    ·应用：早期的批处理系统
+
+2.剥夺调度方式(抢占方式)
+    ·概念：当前进程在处理机上执行，若有更紧急的任务到达时，会立即暂停当前进程，将处理机分配给更紧急的进程
+    ·特点：可优先处理更紧急的进程，也可通过时钟中断来让各进程按时间片轮流执行功能
+    ·应用：分时操作系统、实时操作系统</code></pre>
+<h3 id="进程的切换与过程"><a href="#进程的切换与过程" class="headerlink" title="进程的切换与过程"></a>进程的切换与过程</h3><pre><code>1.概念区分：
+    狭义的进程调度：从就绪队列中取出要运行的进程
+    进程切换：一个进程让出处理机，让另一进程占用处理机
+    广义的进程调度：选择进程+进程切换
+2.进程切换的过程：
+    -对原来进程的数据进行保存
+    -对新进程的数据恢复(比如保存在进程控制块(PCB)中的程序计数器、程序状态字)
+
+3.要点：
+    ·通过进程切换的过程可知，进程切换是有代价的，过于频繁的进行进程调度和切换，
+    使得执行过程时间减少，反而会导致操作系统效率降低。</code></pre>
+<h2 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h2><h3 id="调度算法的评价指标"><a href="#调度算法的评价指标" class="headerlink" title="调度算法的评价指标"></a>调度算法的评价指标</h3><pre><code>1.CPU利用率
+    ·利用率=忙碌时间/总时间
+2.系统吞吐量
+    ·其实就是单位时间内完成作业的数量，也就是完成作业的速度
+    ·系统吞吐量=完成作业的道数/花费的时间
+3.周转时间
+    ·通俗理解：从作业提交到操作系统开始到作业完成所需要的时间
+    ·包含的过程：
+        a.作业从外存后备队列上等待作业调度(高级调度)的时间
+        b.进程在酒席队列上等待进程调度(低级调度)的时间
+        c.进程在CPU上的执行时间
+        d.进程等待I/O操作完成的时间
+    ·周转时间=作业完成的时间-作业提交的时间
+    ·平均周转时间=各作业周转时间之和/作业数
+4.等待时间
+5.响应时间</code></pre>
+
       
     </div>
     
@@ -317,13 +391,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/11/06/Welcome/">文章目录</a></p>
+        <p><span>本文标题:</span><a href="/2020/11/11/%E8%B0%83%E5%BA%A6/">调度</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
-        <p><span>发布时间:</span>2020-11-06, 21:41:13</p>
-        <p><span>最后更新:</span>2020-11-10, 23:50:49</p>
+        <p><span>发布时间:</span>2020-11-11, 10:29:41</p>
+        <p><span>最后更新:</span>2020-11-11, 11:56:04</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/11/06/Welcome/" title="文章目录">http://example.com/2020/11/06/Welcome/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/06/Welcome/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/11/11/%E8%B0%83%E5%BA%A6/" title="调度">http://example.com/2020/11/11/%E8%B0%83%E5%BA%A6/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/11/%E8%B0%83%E5%BA%A6/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -335,12 +409,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2020/11/07/%E5%89%91%E6%8C%87offer/">
-                    剑指offer
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2020/11/10/%E7%BA%BF%E7%A8%8B/">
+                    线程
                 </a>
             </div>
-        
         
     </nav>
 
@@ -350,7 +424,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">1.</span> <span class="toc-text">索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text">操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.中断与系统调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BF%9B%E7%A8%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.线程</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6"><span class="toc-number">1.</span> <span class="toc-text">调度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E5%B1%82%E8%B0%83%E5%BA%A6"><span class="toc-number">1.1.</span> <span class="toc-text">三层调度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E5%B1%82%E8%B0%83%E5%BA%A6%E7%9A%84%E8%81%94%E7%B3%BB%E4%B8%8E%E5%AF%B9%E6%AF%94"><span class="toc-number">1.2.</span> <span class="toc-text">三层调度的联系与对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="toc-number">2.</span> <span class="toc-text">进程调度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%97%B6%E6%9C%BA"><span class="toc-number">2.1.</span> <span class="toc-text">进程调度的时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">进程调度的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%88%87%E6%8D%A2%E4%B8%8E%E8%BF%87%E7%A8%8B"><span class="toc-number">2.3.</span> <span class="toc-text">进程的切换与过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">调度算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95%E7%9A%84%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-number">3.1.</span> <span class="toc-text">调度算法的评价指标</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -386,7 +460,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"文章目录　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"调度　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -406,15 +480,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/11/07/%E5%89%91%E6%8C%87offer/" title="上一篇: 剑指offer">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2020/11/10/%E7%BA%BF%E7%A8%8B/" title="下一篇: 线程">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
