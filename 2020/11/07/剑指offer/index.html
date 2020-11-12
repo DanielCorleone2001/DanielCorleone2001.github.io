@@ -23,7 +23,7 @@
 <meta property="og:description" content="面试题1问题描述赋值运算符函数。 考察点要实现连续赋值，需要把返回值的类型声明为该类型的引用，在函数结束前返回该实例自身的引用。例如若返回void，下面的语句是无法通过编译的： 1str1.assgin(str2).assgin(str3)  需要判断传入的参数与this是否为同一个实例。    如果不判断，那么先释放this的内存，再用参数（即this）赋值，这时候是无法进行赋值的。 Code&amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-07T01:37:10.000Z">
-<meta property="article:modified_time" content="2020-11-12T08:19:25.794Z">
+<meta property="article:modified_time" content="2020-11-12T08:22:19.008Z">
 <meta property="article:author" content="daniel">
 <meta property="article:tag" content="面试题">
 <meta name="twitter:card" content="summary">
@@ -331,14 +331,20 @@
 <p>leetcode原题：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-the-duplicate-number/">寻找重复数</a>,码字好累，详情见leetcode解析，评论区大佬的思路清奇无比，菜鸡只能仰慕qwq<br>话不多说，<a target="_blank" rel="noopener" href="https://github.com/DanielCorleone2001/CodingInterviews/tree/master">code</a>奉上,觉得ok可以star一下~</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public int getDuplication(int[] nums)&#123;</span><br><span class="line">        if(nums.length&#x3D;&#x3D;0||nums&#x3D;&#x3D;null) return -1;</span><br><span class="line">        int start&#x3D;1;</span><br><span class="line">        int end&#x3D;nums.length-1;</span><br><span class="line">        while(start&lt;&#x3D;end)&#123;</span><br><span class="line">            int middle&#x3D;((end-start)&gt;&gt;1)+start;</span><br><span class="line">            int count&#x3D;countRange(nums,start,middle);</span><br><span class="line">            if(start&#x3D;&#x3D;end)&#123;</span><br><span class="line">                if(count&gt;1) return start;</span><br><span class="line">                else break;</span><br><span class="line">            &#125;</span><br><span class="line">            if(count&gt;(middle-start+1)) end&#x3D;middle;</span><br><span class="line">            else start&#x3D;middle+1;</span><br><span class="line">        &#125;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="面试题五"><a href="#面试题五" class="headerlink" title="面试题五"></a>面试题五</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</p>
-<p>示例 1：<br>输入：head = [1,3,2]<br>输出：[2,3,1]
- </p>
-<p>限制：<br>0 &lt;= 链表长度 &lt;= 10000</p>
+<h2 id="面试题五"><a href="#面试题五" class="headerlink" title="面试题五"></a>面试题五</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><pre><code>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
+
+示例 1：
+输入：head = [1,3,2]
+输出：[2,3,1]
+
+限制：
+0 &lt;= 链表长度 &lt;= 10000</code></pre>
 <h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public String replaceSpace(String s) &#123;</span><br><span class="line">        char[] nums&#x3D;s.toCharArray();</span><br><span class="line">        StringBuffer sb&#x3D;new StringBuffer();</span><br><span class="line">        for(int i&#x3D;0;i&lt;nums.length;i++)&#123;</span><br><span class="line">            if(nums[i]&#x3D;&#x3D;&#39; &#39;) sb.append(&quot;%20&quot;);</span><br><span class="line">            else sb.append(nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="面试题六"><a href="#面试题六" class="headerlink" title="面试题六"></a>面试题六</h2><h3 id="问题描述-2"><a href="#问题描述-2" class="headerlink" title="问题描述"></a>问题描述</h3><p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</p>
-<p>示例 1：输入：head = [1,3,2]  输出：[2,3,1]</p>
-<p>限制：0 &lt;= 链表长度 &lt;= 10000</p>
+<h2 id="面试题六"><a href="#面试题六" class="headerlink" title="面试题六"></a>面试题六</h2><h3 id="问题描述-2"><a href="#问题描述-2" class="headerlink" title="问题描述"></a>问题描述</h3><pre><code>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
+
+示例 1：输入：head = [1,3,2]  输出：[2,3,1]
+
+限制：0 &lt;= 链表长度 &lt;= 10000</code></pre>
 <h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> *&#x2F;</span><br><span class="line">class Solution &#123;</span><br><span class="line">    int i&#x3D;0;</span><br><span class="line">    int j&#x3D;0;</span><br><span class="line">    int[] result;</span><br><span class="line">    public int[] reversePrint(ListNode head) &#123;</span><br><span class="line">        recur(head);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">    public void recur(ListNode head)&#123;</span><br><span class="line">        if(head&#x3D;&#x3D;null)&#123;</span><br><span class="line">            result&#x3D;new int[i];</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">        recur(head.next);</span><br><span class="line">        result[j]&#x3D;head.val;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -351,7 +357,7 @@
         <p><span>本文标题:</span><a href="/2020/11/07/%E5%89%91%E6%8C%87offer/">剑指offer</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
         <p><span>发布时间:</span>2020-11-07, 09:37:10</p>
-        <p><span>最后更新:</span>2020-11-12, 16:19:25</p>
+        <p><span>最后更新:</span>2020-11-12, 16:22:19</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2020/11/07/%E5%89%91%E6%8C%87offer/" title="剑指offer">http://example.com/2020/11/07/%E5%89%91%E6%8C%87offer/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/07/%E5%89%91%E6%8C%87offer/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
