@@ -189,7 +189,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
                     </div>
                 </section>
                 
@@ -269,6 +269,89 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-计算机网络体系结构" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="article-date">
+      <time datetime="2020-11-21T13:24:33.000Z" itemprop="datePublished">2020-11-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">体系结构与性能指标</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><pre><code>1.数据通信
+2.资源共享
+3.分布式处理
+4.提高可靠性 
+5.负载均衡</code></pre>
+<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><pre><code>组成部分：硬件、软件、协议</code></pre>
+<h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><pre><code>单位：b/s,kb/s,Mb/s,Gb/s,Tb/s 要与存储容量进行区分
+速率                                存储容量
+1kb/s=10^3b/s                    1KB=2^10B=1024B
+iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
+<h3 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h3><pre><code>单位时间内通过某个网络的数据量</code></pre>
+<h3 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h3><pre><code>·由发送时延、传播时延、排队时延、处理时延组成
+-发送时延：数据长度/信道带宽，高速链路是提高了信道带宽从而降低发送时延
+-传播时延：取决于电磁波的传播速度和链路长度，是固定不变的
+-排队时延：在路由器上等待输入/出链路是否可用
+-处理时延：检测出错口    </code></pre>
+<h3 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h3><pre><code>通俗理解：某段链路此时有多少比特
+时延带宽积=传播时延*带宽</code></pre>
+<h3 id="往返时延RTT"><a href="#往返时延RTT" class="headerlink" title="往返时延RTT"></a>往返时延RTT</h3><pre><code>·从发送方发送数据到发送发接收到接收方的确认，总共经历的时延
+·组成：
+    -往返传播时延（值为传播时延*2）
+    -末端处理时间：接收方接收到信号后处理所需的时间</code></pre>
+<h3 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h3><pre><code>-信道利用率：有数据通过时间/（有数据通过时间+无数据通过时间）
+-网络利用率：信道利用率的加权平均值</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-调度" class="article article-type-post" itemscope itemprop="blogPost">
   
