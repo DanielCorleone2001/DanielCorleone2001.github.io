@@ -15,15 +15,15 @@
 
 
 
-<meta name="description" content="体系结构功能1.数据通信 2.资源共享 3.分布式处理 4.提高可靠性  5.负载均衡 组成组成部分：硬件、软件、协议 性能指标速率单位：b&#x2F;s,kb&#x2F;s,Mb&#x2F;s,Gb&#x2F;s,Tb&#x2F;s 要与存储容量进行区分 ------------------------------------------------- 速率                                存储容量 1kb&#x2F;s&#x3D;1">
+<meta name="description" content="ISO&#x2F;OSI参考模型七层结构1.物理层 2.数据链路层 3.网络层 4.传输层 5.会话层 6.表示层 7.应用层 ###应用层    概念：所有能与用户交互产生网络流量的程序 典型应用层服务：     -文件传输（FTP）     -电子邮件（SMTP）     -万维网（HTTP） ###表示层    概念：用于处理在两个通信系统中交换信息的表示方式 功能：     -数据格式变换">
 <meta property="og:type" content="article">
-<meta property="og:title" content="体系结构与性能指标">
-<meta property="og:url" content="http://example.com/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:title" content="OSI参考模型">
+<meta property="og:url" content="http://example.com/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="Welcome to Daniel&#39;s Blog !">
-<meta property="og:description" content="体系结构功能1.数据通信 2.资源共享 3.分布式处理 4.提高可靠性  5.负载均衡 组成组成部分：硬件、软件、协议 性能指标速率单位：b&#x2F;s,kb&#x2F;s,Mb&#x2F;s,Gb&#x2F;s,Tb&#x2F;s 要与存储容量进行区分 ------------------------------------------------- 速率                                存储容量 1kb&#x2F;s&#x3D;1">
+<meta property="og:description" content="ISO&#x2F;OSI参考模型七层结构1.物理层 2.数据链路层 3.网络层 4.传输层 5.会话层 6.表示层 7.应用层 ###应用层    概念：所有能与用户交互产生网络流量的程序 典型应用层服务：     -文件传输（FTP）     -电子邮件（SMTP）     -万维网（HTTP） ###表示层    概念：用于处理在两个通信系统中交换信息的表示方式 功能：     -数据格式变换">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-21T13:24:33.000Z">
-<meta property="article:modified_time" content="2020-11-22T06:38:06.932Z">
+<meta property="article:published_time" content="2020-11-24T08:05:47.000Z">
+<meta property="article:modified_time" content="2020-11-24T08:46:43.141Z">
 <meta property="article:author" content="daniel">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>体系结构与性能指标 | Welcome to Daniel&#39;s Blog !</title>
+<title>OSI参考模型 | Welcome to Daniel&#39;s Blog !</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-计算机网络体系结构" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-OSI参考模型" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="article-date">
-      <time datetime="2020-11-21T13:24:33.000Z" itemprop="datePublished">2020-11-21</time>
+      <a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="article-date">
+      <time datetime="2020-11-24T08:05:47.000Z" itemprop="datePublished">2020-11-24</time>
 </a>
 
 
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      体系结构与性能指标
+      OSI参考模型
     </h1>
   
 
@@ -308,31 +308,57 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><pre><code>1.数据通信
-2.资源共享
-3.分布式处理
-4.提高可靠性 
-5.负载均衡</code></pre>
-<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><pre><code>组成部分：硬件、软件、协议</code></pre>
-<h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><pre><code>单位：b/s,kb/s,Mb/s,Gb/s,Tb/s 要与存储容量进行区分
--------------------------------------------------
-速率                                存储容量
-1kb/s=10^3b/s                    1KB=2^10B=1024B
-iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
-<h3 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h3><pre><code>单位时间内通过某个网络的数据量</code></pre>
-<h3 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h3><pre><code>·由发送时延、传播时延、排队时延、处理时延组成
--发送时延：数据长度/信道带宽，高速链路是提高了信道带宽从而降低发送时延
--传播时延：取决于电磁波的传播速度和链路长度，是固定不变的
--排队时延：在路由器上等待输入/出链路是否可用
--处理时延：检测出错口    </code></pre>
-<h3 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h3><pre><code>通俗理解：某段链路此时有多少比特
-时延带宽积=传播时延*带宽</code></pre>
-<h3 id="往返时延RTT"><a href="#往返时延RTT" class="headerlink" title="往返时延RTT"></a>往返时延RTT</h3><pre><code>·从发送方发送数据到发送发接收到接收方的确认，总共经历的时延
-·组成：
-    -往返传播时延（值为传播时延*2）
-    -末端处理时间：接收方接收到信号后处理所需的时间</code></pre>
-<h3 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h3><pre><code>-信道利用率：有数据通过时间/（有数据通过时间+无数据通过时间）
--网络利用率：信道利用率的加权平均值</code></pre>
+        <h2 id="ISO-OSI参考模型"><a href="#ISO-OSI参考模型" class="headerlink" title="ISO/OSI参考模型"></a>ISO/OSI参考模型</h2><h3 id="七层结构"><a href="#七层结构" class="headerlink" title="七层结构"></a>七层结构</h3><pre><code>1.物理层
+2.数据链路层
+3.网络层
+4.传输层
+5.会话层
+6.表示层
+7.应用层</code></pre>
+<p>###应用层<br>    概念：所有能与用户交互产生网络流量的程序</p>
+<pre><code>典型应用层服务：
+    -文件传输（FTP）
+    -电子邮件（SMTP）
+    -万维网（HTTP）</code></pre>
+<p>###表示层<br>    概念：用于处理在两个通信系统中交换信息的表示方式</p>
+<pre><code>功能：
+    -数据格式变换
+    -数据加密解密
+    -数据的压缩与恢复</code></pre>
+<h3 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h3><pre><code>概念：向表示层实体（或用户进程）建立连接，并有序的传输数据，即建立同步
+
+功能：
+    -建立会话，管理、终止会话
+    -使用校验点使会话在通信失效时从校验点/同步点回复通信，从而实现数据同步</code></pre>
+<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><pre><code>任务：负责主机中两个进程的通信（端到端的通信）
+传输单位：报文段或用户数据段
+
+功能：
+    -可靠传输、不可靠传输
+    -差错控制
+    -流量控制
+    -复用分用
+
+主要协议：TCP、UDP</code></pre>
+<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><pre><code>任务：把分组从源段传到目的端，为分组交换网上的不同主机提供通信服务
+传输单位：数据报
+
+功能：
+    -路由选择（选择合适的路由器来达到传输的最佳路径）
+    -流量控制（控制速度）
+    -差错控制
+    -拥塞控制
+
+主要协议：IP、IPX、ICMP、IGMP、ARP、RARP、OSRF</code></pre>
+<p>#数据链路层<br>    任务：将网络层传下来的数据报组装成帧<br>    传输单位：帧</p>
+<pre><code>功能：
+    -成帧：定义帧的开始和结束
+    -差错控制：检验是否有帧错和位错
+    -流量控制
+    -访问控制：控制对信道的访问
+
+主要协议：SDLC、HDLC、PPP、STP</code></pre>
+<p>#物理层<br>    任务:在物理媒体上实现比特流的透明传输<br>    传输单位：比特</p>
 
       
     </div>
@@ -341,13 +367,13 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">体系结构与性能指标</a></p>
+        <p><span>本文标题:</span><a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">OSI参考模型</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
-        <p><span>发布时间:</span>2020-11-21, 21:24:33</p>
-        <p><span>最后更新:</span>2020-11-22, 14:38:06</p>
+        <p><span>发布时间:</span>2020-11-24, 16:05:47</p>
+        <p><span>最后更新:</span>2020-11-24, 16:46:43</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" title="体系结构与性能指标">http://example.com/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" title="OSI参考模型">http://example.com/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -360,15 +386,15 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">
-                    OSI参考模型
+                <a href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">
+                    TCP/IP参考模型
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2020/11/11/%E8%B0%83%E5%BA%A6/">
-                    调度
+                <a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
+                    体系结构与性能指标
                 </a>
             </div>
         
@@ -380,7 +406,7 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">1.1.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%88%90"><span class="toc-number">1.2.</span> <span class="toc-text">组成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">2.</span> <span class="toc-text">性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9F%E7%8E%87"><span class="toc-number">2.1.</span> <span class="toc-text">速率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E9%87%8F"><span class="toc-number">2.2.</span> <span class="toc-text">吞吐量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BB%B6"><span class="toc-number">2.3.</span> <span class="toc-text">时延</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF"><span class="toc-number">2.4.</span> <span class="toc-text">时延带宽积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%80%E8%BF%94%E6%97%B6%E5%BB%B6RTT"><span class="toc-number">2.5.</span> <span class="toc-text">往返时延RTT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E7%8E%87"><span class="toc-number">2.6.</span> <span class="toc-text">利用率</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ISO-OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">ISO&#x2F;OSI参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">七层结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%9A%E8%AF%9D%E5%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">会话层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">1.4.</span> <span class="toc-text">网络层</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -416,7 +442,7 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"体系结构与性能指标　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"OSI参考模型　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -436,7 +462,7 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" title="上一篇: OSI参考模型">
+            <a href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" title="上一篇: TCP/IP参考模型">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -444,7 +470,7 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2020/11/11/%E8%B0%83%E5%BA%A6/" title="下一篇: 调度">
+            <a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" title="下一篇: 体系结构与性能指标">
                 <i class="fa fa-angle-right"></i>
             </a>
         

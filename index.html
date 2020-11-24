@@ -270,6 +270,194 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-TCP-IP参考模型" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="article-date">
+      <time datetime="2020-11-24T08:47:14.000Z" itemprop="datePublished">2020-11-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">TCP/IP参考模型</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>##TCP/IP参考模型</p>
+<h3 id="四层结构"><a href="#四层结构" class="headerlink" title="四层结构"></a>四层结构</h3><pre><code>1.网络接口层    
+    -协议：Ethernet、ATM、Frame Relay
+2.网际层
+    -协议：IP
+3.传输层
+    -协议：TCP、UDP
+4.应用层
+    -协议：HTTP、FTP、DNS</code></pre>
+<h3 id="TCP-IP与ISO-OSI对比"><a href="#TCP-IP与ISO-OSI对比" class="headerlink" title="TCP/IP与ISO/OSI对比"></a>TCP/IP与ISO/OSI对比</h3><pre><code>         ISO/OSI                TCP/IP
+网络层    无连接+面向连接          无连接
+传输层       面向连接                无连接+面向连接</code></pre>
+<h3 id="五层参考模型"><a href="#五层参考模型" class="headerlink" title="五层参考模型"></a>五层参考模型</h3><pre><code>综合了TIP/IP和ISO/OSI的优点
+结构：（自顶向下）
+    -应用层
+    -传输层
+    -网络层
+    -数据链路层
+    -物理层</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-OSI参考模型" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="article-date">
+      <time datetime="2020-11-24T08:05:47.000Z" itemprop="datePublished">2020-11-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">OSI参考模型</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="ISO-OSI参考模型"><a href="#ISO-OSI参考模型" class="headerlink" title="ISO/OSI参考模型"></a>ISO/OSI参考模型</h2><h3 id="七层结构"><a href="#七层结构" class="headerlink" title="七层结构"></a>七层结构</h3><pre><code>1.物理层
+2.数据链路层
+3.网络层
+4.传输层
+5.会话层
+6.表示层
+7.应用层</code></pre>
+<p>###应用层<br>    概念：所有能与用户交互产生网络流量的程序</p>
+<pre><code>典型应用层服务：
+    -文件传输（FTP）
+    -电子邮件（SMTP）
+    -万维网（HTTP）</code></pre>
+<p>###表示层<br>    概念：用于处理在两个通信系统中交换信息的表示方式</p>
+<pre><code>功能：
+    -数据格式变换
+    -数据加密解密
+    -数据的压缩与恢复</code></pre>
+<h3 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h3><pre><code>概念：向表示层实体（或用户进程）建立连接，并有序的传输数据，即建立同步
+
+功能：
+    -建立会话，管理、终止会话
+    -使用校验点使会话在通信失效时从校验点/同步点回复通信，从而实现数据同步</code></pre>
+<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><pre><code>任务：负责主机中两个进程的通信（端到端的通信）
+传输单位：报文段或用户数据段
+
+功能：
+    -可靠传输、不可靠传输
+    -差错控制
+    -流量控制
+    -复用分用
+
+主要协议：TCP、UDP</code></pre>
+<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><pre><code>任务：把分组从源段传到目的端，为分组交换网上的不同主机提供通信服务
+传输单位：数据报
+
+功能：
+    -路由选择（选择合适的路由器来达到传输的最佳路径）
+    -流量控制（控制速度）
+    -差错控制
+    -拥塞控制
+
+主要协议：IP、IPX、ICMP、IGMP、ARP、RARP、OSRF</code></pre>
+<p>#数据链路层<br>    任务：将网络层传下来的数据报组装成帧<br>    传输单位：帧</p>
+<pre><code>功能：
+    -成帧：定义帧的开始和结束
+    -差错控制：检验是否有帧错和位错
+    -流量控制
+    -访问控制：控制对信道的访问
+
+主要协议：SDLC、HDLC、PPP、STP</code></pre>
+<p>#物理层<br>    任务:在物理媒体上实现比特流的透明传输<br>    传输单位：比特</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-计算机网络体系结构" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
