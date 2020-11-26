@@ -270,6 +270,205 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-OSI参考模型" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="article-date">
+      <time datetime="2020-11-24T08:05:47.000Z" itemprop="datePublished">2020-11-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">OSI参考模型</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="ISO-OSI参考模型"><a href="#ISO-OSI参考模型" class="headerlink" title="ISO/OSI参考模型"></a>ISO/OSI参考模型</h2><h3 id="七层结构"><a href="#七层结构" class="headerlink" title="七层结构"></a>七层结构</h3><pre><code>1.物理层
+2.数据链路层
+3.网络层
+4.传输层
+5.会话层
+6.表示层
+7.应用层</code></pre>
+<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><pre><code>概念：所有能与用户交互产生网络流量的程序
+
+典型应用层服务：
+    -文件传输（FTP）
+    -电子邮件（SMTP）
+    -万维网（HTTP）</code></pre>
+<h3 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h3><pre><code>概念：用于处理在两个通信系统中交换信息的表示方式
+
+功能：
+    -数据格式变换
+    -数据加密解密
+    -数据的压缩与恢复</code></pre>
+<h3 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h3><pre><code>概念：向表示层实体（或用户进程）建立连接，并有序的传输数据，即建立同步
+
+功能：
+    -建立会话，管理、终止会话
+    -使用校验点使会话在通信失效时从校验点/同步点回复通信，从而实现数据同步</code></pre>
+<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><pre><code>任务：负责主机中两个进程的通信（端到端的通信）
+传输单位：报文段或用户数据段
+
+功能：
+    -可靠传输、不可靠传输
+    -差错控制
+    -流量控制
+    -复用分用
+
+主要协议：TCP、UDP</code></pre>
+<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><pre><code>任务：把分组从源段传到目的端，为分组交换网上的不同主机提供通信服务
+传输单位：数据报
+
+功能：
+    -路由选择（选择合适的路由器来达到传输的最佳路径）
+    -流量控制（控制速度）
+    -差错控制
+    -拥塞控制
+
+主要协议：IP、IPX、ICMP、IGMP、ARP、RARP、OSRF</code></pre>
+<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><pre><code>任务：将网络层传下来的数据报组装成帧
+传输单位：帧
+
+功能：
+    -成帧：定义帧的开始和结束
+    -差错控制：检验是否有帧错和位错
+    -流量控制
+    -访问控制：控制对信道的访问
+
+主要协议：SDLC、HDLC、PPP、STP</code></pre>
+<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><pre><code>任务:在物理媒体上实现比特流的透明传输
+传输单位：比特</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-计算机网络体系结构" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="article-date">
+      <time datetime="2020-11-21T13:24:33.000Z" itemprop="datePublished">2020-11-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">体系结构与性能指标</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><pre><code>1.数据通信
+2.资源共享
+3.分布式处理
+4.提高可靠性 
+5.负载均衡</code></pre>
+<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><pre><code>组成部分：硬件、软件、协议</code></pre>
+<h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><pre><code>单位：b/s,kb/s,Mb/s,Gb/s,Tb/s 要与存储容量进行区分
+-------------------------------------------------
+速率                                存储容量
+1kb/s=10^3b/s                    1KB=2^10B=1024B
+iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
+<h3 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h3><pre><code>单位时间内通过某个网络的数据量</code></pre>
+<h3 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h3><pre><code>·由发送时延、传播时延、排队时延、处理时延组成
+-发送时延：数据长度/信道带宽，高速链路是提高了信道带宽从而降低发送时延
+-传播时延：取决于电磁波的传播速度和链路长度，是固定不变的
+-排队时延：在路由器上等待输入/出链路是否可用
+-处理时延：检测出错口    </code></pre>
+<h3 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h3><pre><code>通俗理解：某段链路此时有多少比特
+时延带宽积=传播时延*带宽</code></pre>
+<h3 id="往返时延RTT"><a href="#往返时延RTT" class="headerlink" title="往返时延RTT"></a>往返时延RTT</h3><pre><code>·从发送方发送数据到发送发接收到接收方的确认，总共经历的时延
+·组成：
+    -往返传播时延（值为传播时延*2）
+    -末端处理时间：接收方接收到信号后处理所需的时间</code></pre>
+<h3 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h3><pre><code>-信道利用率：有数据通过时间/（有数据通过时间+无数据通过时间）
+-网络利用率：信道利用率的加权平均值</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-调度" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
