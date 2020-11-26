@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="Welcome to daniel’s blog!  If you get any problems ,you can ask me on GitHub. 索引操作系统1.中断与系统调用2.进程3.线程">
+<meta name="description" content="生产者-消费者·系统中有一组生产者进程、一组消费者进程，二者共用缓冲区。 ·存在同步关系： ​                        -缓冲区未满：生产者进程可放入产品。满了则等待 ​                        -缓冲区非空：消费者进程可取出产品，空了则等待 ​                        -可见是有先后顺序的 ·存在互斥关系： ​">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文章目录">
-<meta property="og:url" content="http://example.com/2020/11/06/Welcome/index.html">
+<meta property="og:title" content="生产者-消费者问题">
+<meta property="og:url" content="http://example.com/2020/11/26/%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Welcome to Daniel&#39;s Blog !">
-<meta property="og:description" content="Welcome to daniel’s blog!  If you get any problems ,you can ask me on GitHub. 索引操作系统1.中断与系统调用2.进程3.线程">
+<meta property="og:description" content="生产者-消费者·系统中有一组生产者进程、一组消费者进程，二者共用缓冲区。 ·存在同步关系： ​                        -缓冲区未满：生产者进程可放入产品。满了则等待 ​                        -缓冲区非空：消费者进程可取出产品，空了则等待 ​                        -可见是有先后顺序的 ·存在互斥关系： ​">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-06T13:41:13.211Z">
-<meta property="article:modified_time" content="2020-11-10T15:50:49.160Z">
+<meta property="article:published_time" content="2020-11-26T02:32:05.000Z">
+<meta property="article:modified_time" content="2020-11-26T03:11:35.815Z">
 <meta property="article:author" content="daniel">
-<meta property="article:tag" content="索引">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -60,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>文章目录 | Welcome to Daniel&#39;s Blog !</title>
+<title>生产者-消费者问题 | Welcome to Daniel&#39;s Blog !</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Welcome" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-生产者-消费者问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/11/06/Welcome/" class="article-date">
-      <time datetime="2020-11-06T13:41:13.211Z" itemprop="datePublished">2020-11-06</time>
+      <a href="/2020/11/26/%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98/" class="article-date">
+      <time datetime="2020-11-26T02:32:05.000Z" itemprop="datePublished">2020-11-26</time>
 </a>
 
 
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      文章目录
+      生产者-消费者问题
     </h1>
   
 
@@ -298,7 +298,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -308,8 +308,25 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://www.qguizhan.top/">daniel’s blog</a>!  If you get any problems ,you can ask me on <a target="_blank" rel="noopener" href="https://github.com/DanielCorleone2001">GitHub</a>.</p>
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h4 id="1-中断与系统调用"><a href="#1-中断与系统调用" class="headerlink" title="1.中断与系统调用"></a>1.<a target="_blank" rel="noopener" href="https://qguizhan.top/2020/11/10/%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/">中断与系统调用</a></h4><h4 id="2-进程"><a href="#2-进程" class="headerlink" title="2.进程"></a>2.<a target="_blank" rel="noopener" href="https://qguizhan.top/2020/11/10/%E8%BF%9B%E7%A8%8B/">进程</a></h4><h4 id="3-线程"><a href="#3-线程" class="headerlink" title="3.线程"></a>3.<a target="_blank" rel="noopener" href="https://qguizhan.top/2020/11/10/%E7%BA%BF%E7%A8%8B/">线程</a></h4>
+        <h3 id="生产者-消费者"><a href="#生产者-消费者" class="headerlink" title="生产者-消费者"></a>生产者-消费者</h3><p>·系统中有一组生产者进程、一组消费者进程，二者共用缓冲区。</p>
+<p>·存在同步关系：</p>
+<p>​                        -缓冲区未满：生产者进程可放入产品。满了则等待</p>
+<p>​                        -缓冲区非空：消费者进程可取出产品，空了则等待</p>
+<p>​                        -可见是有先后顺序的</p>
+<p>·存在互斥关系：</p>
+<p>​                        -缓冲区为临界资源，进程必须互斥访问</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">semaphore mutex=<span class="number">1</span>;<span class="comment">//互斥信号量</span></span><br><span class="line">semaphore empty=n;<span class="comment">//同步信号量，指向缓冲区空闲的数量</span></span><br><span class="line">semaphore full=<span class="number">0</span>;<span class="comment">//同步信号量，指向缓冲区非空的数量</span></span><br><span class="line"></span><br><span class="line">producer()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        ...<span class="comment">//生产产品</span></span><br><span class="line">		P(empty);<span class="comment">//empty-1,消耗一个空闲的数量</span></span><br><span class="line">        P(mutex);<span class="comment">//mutex-1,与consumer实现进程互斥</span></span><br><span class="line">        ...<span class="comment">//产品放入缓冲区</span></span><br><span class="line">        v(mutex);</span><br><span class="line">        V(full);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">consumer()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(full);<span class="comment">//full-1</span></span><br><span class="line">        P(mutex);<span class="comment">//mutex-1,与producer实现进程互斥</span></span><br><span class="line">        ...<span class="comment">//取出一产品</span></span><br><span class="line">        V(mutex);<span class="comment">//解锁</span></span><br><span class="line">        V(empty);<span class="comment">//empty+1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="多生产者-多消费者问题"><a href="#多生产者-多消费者问题" class="headerlink" title="多生产者-多消费者问题"></a>多生产者-多消费者问题</h3><p><strong>题目</strong>：</p>
+<p>​        -桌上有一盘子，盘子只能装一个水果。</p>
+<p>​        -父亲可以放苹果，母亲可以放橘子。</p>
+<p>​        -儿子只吃橘子，女儿只吃苹果。</p>
+<p><strong>分析</strong>：</p>
+<p>​    存在同步关系：父亲放-&gt;女儿取；母亲放-&gt;儿子取</p>
+<p>​    存在互斥关系：盘子非空才能放</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">semaphore mutex=<span class="number">1</span>;<span class="comment">//虽然这道题缓冲区只能容纳1，可以不设mutex也能保证进程互斥</span></span><br><span class="line"><span class="comment">//但是当缓冲区&gt;=2的时候必须设置mutex来保证进程互斥</span></span><br><span class="line">semaphore apple=<span class="number">0</span>;</span><br><span class="line">semaphore orange=<span class="number">0</span>;</span><br><span class="line">semaphore plate=<span class="number">1</span>;<span class="comment">//盘子空位</span></span><br><span class="line"></span><br><span class="line">Dad()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(plate);</span><br><span class="line">        P(mutex);</span><br><span class="line">        ..<span class="comment">//放苹果</span></span><br><span class="line">        V(mutex);</span><br><span class="line">        V(apple);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Mom()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(plate);</span><br><span class="line">        P(mutex);</span><br><span class="line">        ..<span class="comment">//放橘子</span></span><br><span class="line">        V(mutex);</span><br><span class="line">        V(orange);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">son()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(orange);</span><br><span class="line">        P(mutex);</span><br><span class="line">        ..<span class="comment">//拿橘子</span></span><br><span class="line">        V(mutex);</span><br><span class="line">        V(plate);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">daughter()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(apple);</span><br><span class="line">        P(mutex);</span><br><span class="line">        ..<span class="comment">//取苹果</span></span><br><span class="line">		V(plate);</span><br><span class="line">        V(mutex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     
@@ -317,13 +334,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/11/06/Welcome/">文章目录</a></p>
+        <p><span>本文标题:</span><a href="/2020/11/26/%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98/">生产者-消费者问题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
-        <p><span>发布时间:</span>2020-11-06, 21:41:13</p>
-        <p><span>最后更新:</span>2020-11-10, 23:50:49</p>
+        <p><span>发布时间:</span>2020-11-26, 10:32:05</p>
+        <p><span>最后更新:</span>2020-11-26, 11:11:35</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/11/06/Welcome/" title="文章目录">http://example.com/2020/11/06/Welcome/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/06/Welcome/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/11/26/%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98/" title="生产者-消费者问题">http://example.com/2020/11/26/%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/26/%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -335,12 +352,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2020/11/07/%E5%89%91%E6%8C%87offer/">
-                    剑指offer
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2020/11/25/%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6/">
+                    编码与调制
                 </a>
             </div>
-        
         
     </nav>
 
@@ -350,7 +367,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">1.</span> <span class="toc-text">索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text">操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.中断与系统调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BF%9B%E7%A8%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.线程</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85"><span class="toc-number">1.</span> <span class="toc-text">生产者-消费者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%94%9F%E4%BA%A7%E8%80%85-%E5%A4%9A%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">多生产者-多消费者问题</span></a></li></ol>
         
     </div>
     <style>
@@ -386,7 +403,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"文章目录　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"生产者-消费者问题　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -406,15 +423,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/11/07/%E5%89%91%E6%8C%87offer/" title="上一篇: 剑指offer">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2020/11/25/%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6/" title="下一篇: 编码与调制">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
