@@ -270,6 +270,229 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-死锁的处理策略" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" class="article-date">
+      <time datetime="2020-11-29T12:54:10.000Z" itemprop="datePublished">2020-11-29</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/">死锁的处理策略</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="死锁的处理策略"><a href="#死锁的处理策略" class="headerlink" title="死锁的处理策略"></a>死锁的处理策略</h2><h3 id="静态策略：预防死锁"><a href="#静态策略：预防死锁" class="headerlink" title="静态策略：预防死锁"></a>静态策略：预防死锁</h3><p>核心思想：破坏死锁的四个条件之一或几个，预防死锁的发生</p>
+<h4 id="破坏互斥条件"><a href="#破坏互斥条件" class="headerlink" title="破坏互斥条件"></a>破坏互斥条件</h4><p><strong>SPOOLing技术</strong>：将某互斥资源改成可同时使用的资源。</p>
+<p>缺点：很明显，互斥性的存在是为了保护系统的安全，破坏了互斥性会危害系统的安全</p>
+<h4 id="破坏不剥夺条件"><a href="#破坏不剥夺条件" class="headerlink" title="破坏不剥夺条件"></a>破坏不剥夺条件</h4><p>思想：进程所拥有的资源未使用完之前就用某种方式将其夺走，而不是等待主动释放</p>
+<p><strong>方法一</strong>：进程请求新的资源得不到满足时，主动释放已拥有的资源，以后再需要的时候需重新申请</p>
+<p>​                即使某些资源未使用完，也需主动释放。</p>
+<p><strong>方法二</strong>：进程需要的资源被某进程占用的时候，由操作系统协助，强心剥夺资源</p>
+<p><strong>缺点</strong>：</p>
+<p>​        -实现起来较为复杂</p>
+<p>​        -释放进程已经获得的资源会导致该进程的前一阶段工作失效。因此只适用于易保存和易恢复状态的资源</p>
+<p>​        -反复申请和释放资源会增加系统开销，降低吞吐量</p>
+<p>​        -方法一可能会进入这种情况：</p>
+<p>​            进程主动释放-&gt;进程申请-&gt;进程释放-&gt;进程申请…这就会导致饥饿的发生</p>
+<h4 id="破坏请求保持条件"><a href="#破坏请求保持条件" class="headerlink" title="破坏请求保持条件"></a>破坏请求保持条件</h4><p>采用<strong>静态分配方法</strong>：操作系统在进程A执行之前，把A所需要的全部资源都分配给A，且不允许A之外的进程剥夺</p>
+<p><strong>缺点：</strong>一直拥有很多资源，会导致资源利用率低；有时会导致其他进程饥饿</p>
+<h4 id="破坏循环等待条件"><a href="#破坏循环等待条件" class="headerlink" title="破坏循环等待条件"></a>破坏循环等待条件</h4><p><strong>原理</strong>：给每个资源都编号，只能按编号从小到大的顺序来申请资源</p>
+<p>​            因此只会出现拥有小编号资源的进程等待拥有大编号资源的进程，</p>
+<p>​            而不可能出现大等小，从而破坏了循环等待条件</p>
+<p><strong>缺点</strong>：不方便增加设备；资源浪费；编程麻烦</p>
+<h3 id="动态策略：避免死锁"><a href="#动态策略：避免死锁" class="headerlink" title="动态策略：避免死锁"></a>动态策略：避免死锁</h3><p><strong>安全序列</strong>:</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-死锁" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/29/%E6%AD%BB%E9%94%81/" class="article-date">
+      <time datetime="2020-11-29T12:10:43.000Z" itemprop="datePublished">2020-11-29</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/29/%E6%AD%BB%E9%94%81/">死锁</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><h3 id="概念区分"><a href="#概念区分" class="headerlink" title="概念区分"></a>概念区分</h3><h4 id="死锁："><a href="#死锁：" class="headerlink" title="死锁："></a>死锁：</h4><p>​        各个进程在互相等待对方的资源，导致各个进程全都堵塞，无法向前推进</p>
+<h4 id="饥饿："><a href="#饥饿：" class="headerlink" title="饥饿："></a>饥饿：</h4><p>​        进程由于长期得不到资源，而无法向前推进。</p>
+<h4 id="死循环："><a href="#死循环：" class="headerlink" title="死循环："></a>死循环：</h4><p>​        进程执行的过程中一直执行某些语句，不跳出循环</p>
+<h3 id="三者异同点"><a href="#三者异同点" class="headerlink" title="三者异同点"></a>三者异同点</h3><h4 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h4><p>​        进程无法向前推进的现象</p>
+<h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><p>​        <strong>死锁</strong>：至少有两个或以上的进程才能导致死锁。操作系统的问题</p>
+<p>​        <strong>饥饿</strong>：可能只有一个进程饥饿。处于饥饿的状态可能是长期得不到I/O资源导致阻塞态，也可能是得不到处理机的就绪态。操作系统的问题</p>
+<p>​        <strong>死循环</strong>：可能只有一个进程死循环，可上处理机运行。使用者的问题。</p>
+<h3 id="产生死锁的必要条件"><a href="#产生死锁的必要条件" class="headerlink" title="产生死锁的必要条件"></a>产生死锁的必要条件</h3><h4 id="互斥条件："><a href="#互斥条件：" class="headerlink" title="互斥条件："></a>互斥条件：</h4><p>​        被使用的资源必须互斥。因为互斥使用才会导致进程阻塞等待，能同时使用的资源不可导致死锁</p>
+<h3 id="不剥夺条件："><a href="#不剥夺条件：" class="headerlink" title="不剥夺条件："></a>不剥夺条件：</h3><p>​        进程拥有资源在未使用结束前，不允许资源被其他进程夺走，只能主动释放，不然则一直持有资源</p>
+<h4 id="请求和保持条件"><a href="#请求和保持条件" class="headerlink" title="请求和保持条件"></a>请求和保持条件</h4><p>​        进程已经拥有了至少一个资源。</p>
+<p>​        发出了新的资源请求，被请求的资源满足<strong>互斥条件</strong>且已经被其他进程占有</p>
+<p>​        进程自己已有的资源选择保持拥有，不释放</p>
+<h4 id="循环等待条件"><a href="#循环等待条件" class="headerlink" title="循环等待条件"></a>循环等待条件</h4><p>​        存在进程资源循环等待链：链中进程拥有的资源是下一个进程的请求</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-奈氏准则与香农定理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/26/%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E4%B8%8E%E9%A6%99%E5%86%9C%E5%AE%9A%E7%90%86/" class="article-date">
+      <time datetime="2020-11-26T08:00:07.000Z" itemprop="datePublished">2020-11-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/26/%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E4%B8%8E%E9%A6%99%E5%86%9C%E5%AE%9A%E7%90%86/">奈氏准则与香农定理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="奈式准则"><a href="#奈式准则" class="headerlink" title="奈式准则"></a>奈式准则</h3><p>·也叫做奈奎斯特定理</p>
+<p>·为了避免串扰，规定码元传输速率最大为2W Baud，</p>
+<p>​        其中W为信道带宽（信道能接收的最高频率 - 信道能接收最低频率，单位是Hz）</p>
+<p>·<strong>注意：</strong></p>
+<p>​            -奈式准则只约束了码元传输速率，并没有限制信息传输率。</p>
+<p>​            -要想提高数据的传输率，就要使得每个码元携带的比特数变多。</p>
+<p>​             原理很简单：传输率=码元传输率*一个码元中的比特位数。 </p>
+<p>·当然数据传输率也有最大的限制，但不是奈式准则规定的</p>
+<p>​        最大数据传输率=2W * log2(V) ，V是码元的种数,单位是b/s</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例题:带宽为3kHz，4相位，每个相位有4种振幅，求最大数据传输率？</span><br><span class="line"></span><br><span class="line">解答：2*3k* log2(4*4)&#x3D;24k b&#x2F;s</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="香农定理"><a href="#香农定理" class="headerlink" title="香农定理"></a>香农定理</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-读者-写者问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -773,224 +996,9 @@
 
 
   
-    <article id="post-进程互斥的软件实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/24/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0/" class="article-date">
-      <time datetime="2020-11-24T14:46:42.000Z" itemprop="datePublished">2020-11-24</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/24/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0/">进程互斥的软件实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="软件实现方法"><a href="#软件实现方法" class="headerlink" title="软件实现方法"></a>软件实现方法</h2><h3 id="单标志法"><a href="#单标志法" class="headerlink" title="单标志法"></a>单标志法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> turn =<span class="number">0</span>;<span class="comment">//当前进入临界区的进程的号码</span></span><br><span class="line"><span class="comment">//P0进程：</span></span><br><span class="line"><span class="keyword">while</span>(turn !=<span class="number">0</span>)&#123;&#125;</span><br><span class="line">critical section;<span class="comment">//P0进入临界区</span></span><br><span class="line">turn =<span class="number">1</span>;<span class="comment">//P0退出区，相当于给P1赋予了进入进程的权限</span></span><br><span class="line">remainder section;<span class="comment">//剩余区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//P1进程：</span></span><br><span class="line"><span class="keyword">while</span>(turn!=<span class="number">1</span>)&#123;&#125;</span><br><span class="line">critical section;<span class="comment">//P1进入临界区</span></span><br><span class="line">turn =<span class="number">0</span>;<span class="comment">//P1退出临界区，相当于给P0赋予进入临界区的权限</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">很直观的，只要通过一个turn的值就可以进行进程的切换了，这样两进程不会同时进行，达到了互斥的目的</span></span><br><span class="line"><span class="comment">算法思想：两个进程进入临界区的权限只有由另一个进程赋予</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">局限：若P0一直不访问临界区，那么turn的值就一直为0，导致临界区空闲，而P1却无法访问，违背了空闲让进原则</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="双标志先检查法"><a href="#双标志先检查法" class="headerlink" title="双标志先检查法"></a>双标志先检查法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">bool flag[<span class="number">2</span>];</span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">false</span>;</span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">false</span>;</span><br><span class="line"><span class="comment">//P0进程：</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">1</span>])&#123;&#125;<span class="comment">//P1想进，那么此语句一直为真，P0会一直等待</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">true</span>;<span class="comment">//P0发出进入临界区请求，上锁</span></span><br><span class="line">critical section;<span class="comment">//访问临界区资源</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">false</span>;<span class="comment">//退出临界区</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//P1进程：</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">0</span>])&#123;&#125;<span class="comment">//P0想进，那么此语句一直为真，P1会一直等待</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">true</span>;<span class="comment">//P1发出进入临界区请求，上锁</span></span><br><span class="line">critical section;<span class="comment">//访问临界区资源</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">false</span>;<span class="comment">//退出临界区</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">局限：while检查语句与上锁不是同时进行的，当发生进程切换时会导致P0、P1同时访问临界区，违背忙则等待的原则</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="双标志后检查"><a href="#双标志后检查" class="headerlink" title="双标志后检查"></a>双标志后检查</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">bool flag[<span class="number">2</span>];</span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">false</span>;</span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">false</span>;</span><br><span class="line"><span class="comment">//P0进程：</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">true</span>;<span class="comment">//P0发出进入临界区请求，上锁</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">1</span>])&#123;&#125;<span class="comment">//P1想进，那么此语句一直为真，P0会一直等待</span></span><br><span class="line">critical section;<span class="comment">//访问临界区资源</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">false</span>;<span class="comment">//退出临界区</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//P1进程：</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">true</span>;<span class="comment">//P1发出进入临界区请求，上锁</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">0</span>])&#123;&#125;<span class="comment">//P0想进，那么此语句一直为真，P1会一直等待</span></span><br><span class="line">critical section;<span class="comment">//访问临界区资源</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">false</span>;<span class="comment">//退出临界区</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">很明显，通过先上锁后检测，解决了双标志先检查会导致同时访问的问题。</span></span><br><span class="line"><span class="comment">但也出现了很问题：先上锁后检测，可能会让两进程都无法进入临界区而造成饥饿。违背了空闲让进、有限等待的原则。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Peterson算法"><a href="#Peterson算法" class="headerlink" title="Peterson算法"></a>Peterson算法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">算法思想：在双标志后检查算法的基础上，如果双方都想进临界区，那就让进程尝试“孔融让梨”</span></span><br><span class="line"><span class="comment">		让对方先进入临界区</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">bool flag[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> turn=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//P0进程：</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">true</span>;<span class="comment">//申请进入临界区</span></span><br><span class="line">turn=<span class="number">1</span>;<span class="comment">//表明对方可优先自己进入临界区</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">1</span>]&amp;&amp; turn=<span class="number">1</span>)&#123;&#125;<span class="comment">//对方想进且自己同意让步，则让自己一直等待</span></span><br><span class="line">critical section;<span class="comment">//进入临界区</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">false</span>;<span class="comment">//访问结束，解锁</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//P1进程：</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">true</span>;<span class="comment">//申请进入临界区</span></span><br><span class="line">turn=<span class="number">0</span>;<span class="comment">//表明对方可优先自己进入临界区</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">10</span>&amp;&amp; turn=<span class="number">0</span>)&#123;&#125;<span class="comment">//对方想进且自己同意让步，则让自己一直等待</span></span><br><span class="line">critical section;<span class="comment">//进入临界区</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">false</span>;<span class="comment">//访问结束，解锁</span></span><br><span class="line">remainder section;<span class="comment">//退出区 </span></span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-进程同步与进程互斥" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/24/%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8E%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5/" class="article-date">
-      <time datetime="2020-11-24T14:30:10.000Z" itemprop="datePublished">2020-11-24</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/24/%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8E%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5/">进程同步与进程互斥</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">概念：某些进程的执行需要遵循一定的顺序，相互配合来完成工作。通过进程同步产生制约关系来协调工作次序</span><br></pre></td></tr></table></figure>
-
-<h2 id="进程互斥"><a href="#进程互斥" class="headerlink" title="进程互斥"></a>进程互斥</h2><h3 id="四个部分"><a href="#四个部分" class="headerlink" title="四个部分"></a>四个部分</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.进入区：检查是否可进入临界区。可进入则设置正在访问临界区的标志(即上锁)，防止其他进程访问临界区</span><br><span class="line"></span><br><span class="line">2.临界区：访问临界资源</span><br><span class="line"></span><br><span class="line">3.退出区：解除正在访问临界资源的标志(解锁)</span><br><span class="line"></span><br><span class="line">4.剩余区：做其他处理</span><br></pre></td></tr></table></figure>
-
-<h3 id="遵循原则"><a href="#遵循原则" class="headerlink" title="遵循原则"></a>遵循原则</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.空闲让进:临界区空闲时允许一个进程进入临界区</span><br><span class="line"></span><br><span class="line">2.忙则等待：临界区繁忙时，其他请求进入临界区的进程必须等待</span><br><span class="line"></span><br><span class="line">3.有限等待：发出访问请求的进程，所等待的时间应为有限时间(保证不饥饿)</span><br><span class="line"></span><br><span class="line">4.让权等待：当进程不能进入临界区时应放弃对处理机的占用</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-TCP-IP参考模型" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="article-date">
-      <time datetime="2020-11-24T08:47:14.000Z" itemprop="datePublished">2020-11-24</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">TCP/IP参考模型</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="TCP-IP参考模型"><a href="#TCP-IP参考模型" class="headerlink" title="TCP/IP参考模型"></a>TCP/IP参考模型</h2><h3 id="四层结构"><a href="#四层结构" class="headerlink" title="四层结构"></a>四层结构</h3><pre><code>1.网络接口层    
-    -协议：Ethernet、ATM、Frame Relay
-2.网际层
-    -协议：IP
-3.传输层
-    -协议：TCP、UDP
-4.应用层
-    -协议：HTTP、FTP、DNS</code></pre>
-<h3 id="TCP-IP与ISO-OSI对比"><a href="#TCP-IP与ISO-OSI对比" class="headerlink" title="TCP/IP与ISO/OSI对比"></a>TCP/IP与ISO/OSI对比</h3><pre><code>         ISO/OSI                TCP/IP
-网络层    无连接+面向连接          无连接
-传输层       面向连接                无连接+面向连接</code></pre>
-<h3 id="五层参考模型"><a href="#五层参考模型" class="headerlink" title="五层参考模型"></a>五层参考模型</h3><pre><code>综合了TIP/IP和ISO/OSI的优点
-结构：（自顶向下）
-    -应用层
-    -传输层
-    -网络层
-    -数据链路层
-    -物理层</code></pre>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 </div>

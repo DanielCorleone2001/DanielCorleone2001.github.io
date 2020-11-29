@@ -15,15 +15,15 @@
 
 
 
-<meta name="description" content="软件实现方法单标志法123456789101112131415161718int turn &#x3D;0;&#x2F;&#x2F;当前进入临界区的进程的号码&#x2F;&#x2F;P0进程：while(turn !&#x3D;0)&amp;#123;&amp;#125;critical section;&#x2F;&#x2F;P0进入临界区turn &#x3D;1;&#x2F;&#x2F;P0退出区，相当于给P1赋予了进入进程的权限remainder section;&#x2F;&#x2F;剩余区&#x2F;&#x2F;P1进程：while(turn!&#x3D;1)">
+<meta name="description" content="死锁概念区分死锁：​        各个进程在互相等待对方的资源，导致各个进程全都堵塞，无法向前推进 饥饿：​        进程由于长期得不到资源，而无法向前推进。 死循环：​        进程执行的过程中一直执行某些语句，不跳出循环 三者异同点共同点​        进程无法向前推进的现象 不同点​        死锁：至少有两个或以上的进程才能导致死锁。操作系统的问题 ​        饥">
 <meta property="og:type" content="article">
-<meta property="og:title" content="进程互斥的软件实现">
-<meta property="og:url" content="http://example.com/2020/11/24/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:title" content="死锁">
+<meta property="og:url" content="http://example.com/2020/11/29/%E6%AD%BB%E9%94%81/index.html">
 <meta property="og:site_name" content="Welcome to Daniel&#39;s Blog !">
-<meta property="og:description" content="软件实现方法单标志法123456789101112131415161718int turn &#x3D;0;&#x2F;&#x2F;当前进入临界区的进程的号码&#x2F;&#x2F;P0进程：while(turn !&#x3D;0)&amp;#123;&amp;#125;critical section;&#x2F;&#x2F;P0进入临界区turn &#x3D;1;&#x2F;&#x2F;P0退出区，相当于给P1赋予了进入进程的权限remainder section;&#x2F;&#x2F;剩余区&#x2F;&#x2F;P1进程：while(turn!&#x3D;1)">
+<meta property="og:description" content="死锁概念区分死锁：​        各个进程在互相等待对方的资源，导致各个进程全都堵塞，无法向前推进 饥饿：​        进程由于长期得不到资源，而无法向前推进。 死循环：​        进程执行的过程中一直执行某些语句，不跳出循环 三者异同点共同点​        进程无法向前推进的现象 不同点​        死锁：至少有两个或以上的进程才能导致死锁。操作系统的问题 ​        饥">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-24T14:46:42.000Z">
-<meta property="article:modified_time" content="2020-11-25T03:43:39.860Z">
+<meta property="article:published_time" content="2020-11-29T12:10:43.000Z">
+<meta property="article:modified_time" content="2020-11-29T12:53:49.607Z">
 <meta property="article:author" content="daniel">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>进程互斥的软件实现 | Welcome to Daniel&#39;s Blog !</title>
+<title>死锁 | Welcome to Daniel&#39;s Blog !</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-进程互斥的软件实现" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-死锁" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/11/24/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0/" class="article-date">
-      <time datetime="2020-11-24T14:46:42.000Z" itemprop="datePublished">2020-11-24</time>
+      <a href="/2020/11/29/%E6%AD%BB%E9%94%81/" class="article-date">
+      <time datetime="2020-11-29T12:10:43.000Z" itemprop="datePublished">2020-11-29</time>
 </a>
 
 
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      进程互斥的软件实现
+      死锁
     </h1>
   
 
@@ -308,22 +308,19 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="软件实现方法"><a href="#软件实现方法" class="headerlink" title="软件实现方法"></a>软件实现方法</h2><h3 id="单标志法"><a href="#单标志法" class="headerlink" title="单标志法"></a>单标志法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> turn =<span class="number">0</span>;<span class="comment">//当前进入临界区的进程的号码</span></span><br><span class="line"><span class="comment">//P0进程：</span></span><br><span class="line"><span class="keyword">while</span>(turn !=<span class="number">0</span>)&#123;&#125;</span><br><span class="line">critical section;<span class="comment">//P0进入临界区</span></span><br><span class="line">turn =<span class="number">1</span>;<span class="comment">//P0退出区，相当于给P1赋予了进入进程的权限</span></span><br><span class="line">remainder section;<span class="comment">//剩余区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//P1进程：</span></span><br><span class="line"><span class="keyword">while</span>(turn!=<span class="number">1</span>)&#123;&#125;</span><br><span class="line">critical section;<span class="comment">//P1进入临界区</span></span><br><span class="line">turn =<span class="number">0</span>;<span class="comment">//P1退出临界区，相当于给P0赋予进入临界区的权限</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">很直观的，只要通过一个turn的值就可以进行进程的切换了，这样两进程不会同时进行，达到了互斥的目的</span></span><br><span class="line"><span class="comment">算法思想：两个进程进入临界区的权限只有由另一个进程赋予</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">局限：若P0一直不访问临界区，那么turn的值就一直为0，导致临界区空闲，而P1却无法访问，违背了空闲让进原则</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="双标志先检查法"><a href="#双标志先检查法" class="headerlink" title="双标志先检查法"></a>双标志先检查法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">bool flag[<span class="number">2</span>];</span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">false</span>;</span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">false</span>;</span><br><span class="line"><span class="comment">//P0进程：</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">1</span>])&#123;&#125;<span class="comment">//P1想进，那么此语句一直为真，P0会一直等待</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">true</span>;<span class="comment">//P0发出进入临界区请求，上锁</span></span><br><span class="line">critical section;<span class="comment">//访问临界区资源</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">false</span>;<span class="comment">//退出临界区</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//P1进程：</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">0</span>])&#123;&#125;<span class="comment">//P0想进，那么此语句一直为真，P1会一直等待</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">true</span>;<span class="comment">//P1发出进入临界区请求，上锁</span></span><br><span class="line">critical section;<span class="comment">//访问临界区资源</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">false</span>;<span class="comment">//退出临界区</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">局限：while检查语句与上锁不是同时进行的，当发生进程切换时会导致P0、P1同时访问临界区，违背忙则等待的原则</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="双标志后检查"><a href="#双标志后检查" class="headerlink" title="双标志后检查"></a>双标志后检查</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">bool flag[<span class="number">2</span>];</span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">false</span>;</span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">false</span>;</span><br><span class="line"><span class="comment">//P0进程：</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">true</span>;<span class="comment">//P0发出进入临界区请求，上锁</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">1</span>])&#123;&#125;<span class="comment">//P1想进，那么此语句一直为真，P0会一直等待</span></span><br><span class="line">critical section;<span class="comment">//访问临界区资源</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">false</span>;<span class="comment">//退出临界区</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//P1进程：</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">true</span>;<span class="comment">//P1发出进入临界区请求，上锁</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">0</span>])&#123;&#125;<span class="comment">//P0想进，那么此语句一直为真，P1会一直等待</span></span><br><span class="line">critical section;<span class="comment">//访问临界区资源</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">false</span>;<span class="comment">//退出临界区</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">很明显，通过先上锁后检测，解决了双标志先检查会导致同时访问的问题。</span></span><br><span class="line"><span class="comment">但也出现了很问题：先上锁后检测，可能会让两进程都无法进入临界区而造成饥饿。违背了空闲让进、有限等待的原则。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Peterson算法"><a href="#Peterson算法" class="headerlink" title="Peterson算法"></a>Peterson算法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">算法思想：在双标志后检查算法的基础上，如果双方都想进临界区，那就让进程尝试“孔融让梨”</span></span><br><span class="line"><span class="comment">		让对方先进入临界区</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">bool flag[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> turn=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//P0进程：</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">true</span>;<span class="comment">//申请进入临界区</span></span><br><span class="line">turn=<span class="number">1</span>;<span class="comment">//表明对方可优先自己进入临界区</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">1</span>]&amp;&amp; turn=<span class="number">1</span>)&#123;&#125;<span class="comment">//对方想进且自己同意让步，则让自己一直等待</span></span><br><span class="line">critical section;<span class="comment">//进入临界区</span></span><br><span class="line">flag[<span class="number">0</span>]=<span class="keyword">false</span>;<span class="comment">//访问结束，解锁</span></span><br><span class="line">remainder section;<span class="comment">//退出区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//P1进程：</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">true</span>;<span class="comment">//申请进入临界区</span></span><br><span class="line">turn=<span class="number">0</span>;<span class="comment">//表明对方可优先自己进入临界区</span></span><br><span class="line"><span class="keyword">while</span>(flag[<span class="number">10</span>&amp;&amp; turn=<span class="number">0</span>)&#123;&#125;<span class="comment">//对方想进且自己同意让步，则让自己一直等待</span></span><br><span class="line">critical section;<span class="comment">//进入临界区</span></span><br><span class="line">flag[<span class="number">1</span>]=<span class="keyword">false</span>;<span class="comment">//访问结束，解锁</span></span><br><span class="line">remainder section;<span class="comment">//退出区 </span></span><br></pre></td></tr></table></figure>
-
-
-
+        <h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><h3 id="概念区分"><a href="#概念区分" class="headerlink" title="概念区分"></a>概念区分</h3><h4 id="死锁："><a href="#死锁：" class="headerlink" title="死锁："></a>死锁：</h4><p>​        各个进程在互相等待对方的资源，导致各个进程全都堵塞，无法向前推进</p>
+<h4 id="饥饿："><a href="#饥饿：" class="headerlink" title="饥饿："></a>饥饿：</h4><p>​        进程由于长期得不到资源，而无法向前推进。</p>
+<h4 id="死循环："><a href="#死循环：" class="headerlink" title="死循环："></a>死循环：</h4><p>​        进程执行的过程中一直执行某些语句，不跳出循环</p>
+<h3 id="三者异同点"><a href="#三者异同点" class="headerlink" title="三者异同点"></a>三者异同点</h3><h4 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h4><p>​        进程无法向前推进的现象</p>
+<h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><p>​        <strong>死锁</strong>：至少有两个或以上的进程才能导致死锁。操作系统的问题</p>
+<p>​        <strong>饥饿</strong>：可能只有一个进程饥饿。处于饥饿的状态可能是长期得不到I/O资源导致阻塞态，也可能是得不到处理机的就绪态。操作系统的问题</p>
+<p>​        <strong>死循环</strong>：可能只有一个进程死循环，可上处理机运行。使用者的问题。</p>
+<h3 id="产生死锁的必要条件"><a href="#产生死锁的必要条件" class="headerlink" title="产生死锁的必要条件"></a>产生死锁的必要条件</h3><h4 id="互斥条件："><a href="#互斥条件：" class="headerlink" title="互斥条件："></a>互斥条件：</h4><p>​        被使用的资源必须互斥。因为互斥使用才会导致进程阻塞等待，能同时使用的资源不可导致死锁</p>
+<h3 id="不剥夺条件："><a href="#不剥夺条件：" class="headerlink" title="不剥夺条件："></a>不剥夺条件：</h3><p>​        进程拥有资源在未使用结束前，不允许资源被其他进程夺走，只能主动释放，不然则一直持有资源</p>
+<h4 id="请求和保持条件"><a href="#请求和保持条件" class="headerlink" title="请求和保持条件"></a>请求和保持条件</h4><p>​        进程已经拥有了至少一个资源。</p>
+<p>​        发出了新的资源请求，被请求的资源满足<strong>互斥条件</strong>且已经被其他进程占有</p>
+<p>​        进程自己已有的资源选择保持拥有，不释放</p>
+<h4 id="循环等待条件"><a href="#循环等待条件" class="headerlink" title="循环等待条件"></a>循环等待条件</h4><p>​        存在进程资源循环等待链：链中进程拥有的资源是下一个进程的请求</p>
 
       
     </div>
@@ -332,13 +329,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/11/24/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0/">进程互斥的软件实现</a></p>
+        <p><span>本文标题:</span><a href="/2020/11/29/%E6%AD%BB%E9%94%81/">死锁</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
-        <p><span>发布时间:</span>2020-11-24, 22:46:42</p>
-        <p><span>最后更新:</span>2020-11-25, 11:43:39</p>
+        <p><span>发布时间:</span>2020-11-29, 20:10:43</p>
+        <p><span>最后更新:</span>2020-11-29, 20:53:49</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/11/24/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0/" title="进程互斥的软件实现">http://example.com/2020/11/24/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/24/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/11/29/%E6%AD%BB%E9%94%81/" title="死锁">http://example.com/2020/11/29/%E6%AD%BB%E9%94%81/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/29/%E6%AD%BB%E9%94%81/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -351,15 +348,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2020/11/25/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%AE%9E%E7%8E%B0/">
-                    进程互斥的硬件实现
+                <a href="/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/">
+                    死锁的处理策略
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2020/11/24/%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8E%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5/">
-                    进程同步与进程互斥
+                <a href="/2020/11/26/%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E4%B8%8E%E9%A6%99%E5%86%9C%E5%AE%9A%E7%90%86/">
+                    奈氏准则与香农定理
                 </a>
             </div>
         
@@ -371,7 +368,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">软件实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E6%A0%87%E5%BF%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">单标志法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E6%A0%87%E5%BF%97%E5%85%88%E6%A3%80%E6%9F%A5%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">双标志先检查法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E6%A0%87%E5%BF%97%E5%90%8E%E6%A3%80%E6%9F%A5"><span class="toc-number">1.3.</span> <span class="toc-text">双标志后检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Peterson%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">Peterson算法</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%BB%E9%94%81"><span class="toc-number">1.</span> <span class="toc-text">死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E5%8C%BA%E5%88%86"><span class="toc-number">1.1.</span> <span class="toc-text">概念区分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">死锁：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A5%A5%E9%A5%BF%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">饥饿：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%BB%E5%BE%AA%E7%8E%AF%EF%BC%9A"><span class="toc-number">1.1.3.</span> <span class="toc-text">死循环：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E8%80%85%E5%BC%82%E5%90%8C%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">三者异同点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E5%90%8C%E7%82%B9"><span class="toc-number">1.2.1.</span> <span class="toc-text">共同点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E7%82%B9"><span class="toc-number">1.2.2.</span> <span class="toc-text">不同点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E6%AD%BB%E9%94%81%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">产生死锁的必要条件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%92%E6%96%A5%E6%9D%A1%E4%BB%B6%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">互斥条件：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%89%A5%E5%A4%BA%E6%9D%A1%E4%BB%B6%EF%BC%9A"><span class="toc-number">1.4.</span> <span class="toc-text">不剥夺条件：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%92%8C%E4%BF%9D%E6%8C%81%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.4.1.</span> <span class="toc-text">请求和保持条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%AD%89%E5%BE%85%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.4.2.</span> <span class="toc-text">循环等待条件</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -407,7 +404,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"进程互斥的软件实现　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"死锁　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -427,7 +424,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/11/25/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%AE%9E%E7%8E%B0/" title="上一篇: 进程互斥的硬件实现">
+            <a href="/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" title="上一篇: 死锁的处理策略">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -435,7 +432,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2020/11/24/%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8E%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5/" title="下一篇: 进程同步与进程互斥">
+            <a href="/2020/11/26/%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E4%B8%8E%E9%A6%99%E5%86%9C%E5%AE%9A%E7%90%86/" title="下一篇: 奈氏准则与香农定理">
                 <i class="fa fa-angle-right"></i>
             </a>
         
