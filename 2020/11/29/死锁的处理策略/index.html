@@ -23,7 +23,7 @@
 <meta property="og:description" content="静态策略：预防死锁核心思想：破坏死锁的四个条件之一或几个，预防死锁的发生 破坏互斥条件SPOOLing技术：将某互斥资源改成可同时使用的资源。 缺点：很明显，互斥性的存在是为了保护系统的安全，破坏了互斥性会危害系统的安全 破坏不剥夺条件思想：进程所拥有的资源未使用完之前就用某种方式将其夺走，而不是等待主动释放 方法一：进程请求新的资源得不到满足时，主动释放已拥有的资源，以后再需要的时候需重新申请">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-29T12:54:10.000Z">
-<meta property="article:modified_time" content="2020-11-29T14:07:23.263Z">
+<meta property="article:modified_time" content="2020-12-04T04:27:22.122Z">
 <meta property="article:author" content="daniel">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -327,8 +327,7 @@
 <p>​            因此只会出现拥有小编号资源的进程等待拥有大编号资源的进程，</p>
 <p>​            而不可能出现大等小，从而破坏了循环等待条件</p>
 <p><strong>缺点</strong>：不方便增加设备；资源浪费；编程麻烦</p>
-<h3 id="动态策略：避免死锁"><a href="#动态策略：避免死锁" class="headerlink" title="动态策略：避免死锁"></a>动态策略：避免死锁</h3><p><strong>安全序列</strong>:</p>
-
+<h2 id="动态策略：避免死锁"><a href="#动态策略：避免死锁" class="headerlink" title="动态策略：避免死锁"></a>动态策略：避免死锁</h2><h3 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h3><h2 id="死锁的检测和解除"><a href="#死锁的检测和解除" class="headerlink" title="死锁的检测和解除"></a>死锁的检测和解除</h2>
       
     </div>
     
@@ -339,7 +338,7 @@
         <p><span>本文标题:</span><a href="/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/">死锁的处理策略</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
         <p><span>发布时间:</span>2020-11-29, 20:54:10</p>
-        <p><span>最后更新:</span>2020-11-29, 22:07:23</p>
+        <p><span>最后更新:</span>2020-12-04, 12:27:22</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" title="死锁的处理策略">http://example.com/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -369,7 +368,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%AD%96%E7%95%A5%EF%BC%9A%E9%A2%84%E9%98%B2%E6%AD%BB%E9%94%81"><span class="toc-number">1.</span> <span class="toc-text">静态策略：预防死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%B4%E5%9D%8F%E4%BA%92%E6%96%A5%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">破坏互斥条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%B4%E5%9D%8F%E4%B8%8D%E5%89%A5%E5%A4%BA%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">破坏不剥夺条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%B4%E5%9D%8F%E8%AF%B7%E6%B1%82%E4%BF%9D%E6%8C%81%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">破坏请求保持条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%B4%E5%9D%8F%E5%BE%AA%E7%8E%AF%E7%AD%89%E5%BE%85%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">破坏循环等待条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%AD%96%E7%95%A5%EF%BC%9A%E9%81%BF%E5%85%8D%E6%AD%BB%E9%94%81"><span class="toc-number">1.5.</span> <span class="toc-text">动态策略：避免死锁</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%AD%96%E7%95%A5%EF%BC%9A%E9%A2%84%E9%98%B2%E6%AD%BB%E9%94%81"><span class="toc-number">1.</span> <span class="toc-text">静态策略：预防死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%B4%E5%9D%8F%E4%BA%92%E6%96%A5%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">破坏互斥条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%B4%E5%9D%8F%E4%B8%8D%E5%89%A5%E5%A4%BA%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">破坏不剥夺条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%B4%E5%9D%8F%E8%AF%B7%E6%B1%82%E4%BF%9D%E6%8C%81%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">破坏请求保持条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%B4%E5%9D%8F%E5%BE%AA%E7%8E%AF%E7%AD%89%E5%BE%85%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">破坏循环等待条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%AD%96%E7%95%A5%EF%BC%9A%E9%81%BF%E5%85%8D%E6%AD%BB%E9%94%81"><span class="toc-number">2.</span> <span class="toc-text">动态策略：避免死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">银行家算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E6%A3%80%E6%B5%8B%E5%92%8C%E8%A7%A3%E9%99%A4"><span class="toc-number">3.</span> <span class="toc-text">死锁的检测和解除</span></a></li></ol>
         
     </div>
     <style>
