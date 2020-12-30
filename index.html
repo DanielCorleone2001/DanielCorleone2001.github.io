@@ -270,6 +270,98 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-JAVA并发编程-二" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/12/30/JAVA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%BA%8C/" class="article-date">
+      <time datetime="2020-12-30T08:38:16.000Z" itemprop="datePublished">2020-12-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/30/JAVA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%BA%8C/">JAVA并发编程(二)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="并发BUG的三个源头"><a href="#并发BUG的三个源头" class="headerlink" title="并发BUG的三个源头"></a>并发BUG的三个源头</h2><h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>·一个线程对共享变量的修改，另外一个线程能够立刻看到，我们称为<strong>可见性</strong></p>
+<p>·单核时代，由于所有的线程都是在同一个CPU上执行的，CPU的缓存(cache)和内存数据的一致性其实很好解决。</p>
+<p>因为一个进程对缓存的读写操作，对于其他的线程是具有<strong>可见性</strong>的。很简单的道理，二者都作用在CPU的缓存上，当某一线程改变了内存的值后让出使用权，其他线程再访问的时候是能正确的获取到相应的值。</p>
+<p>·多核时代就不一样了，多核导致每个CPU都有自己的cache，对于维持缓存和内存数据的一致性就变得困难了，相应的也很容易产生bug : (   这时候不同CPU上的线程是<strong>不具备可见性的</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdderTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">add10K</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(idx++ &lt; <span class="number">10000</span>) &#123;</span><br><span class="line">            count += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">calc</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> AdderTest test = <span class="keyword">new</span> AdderTest();</span><br><span class="line">        <span class="comment">// 创建两个线程，执行add()操作</span></span><br><span class="line">        Thread th1 = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            test.add10K();</span><br><span class="line">        &#125;);</span><br><span class="line">        Thread th2 = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            test.add10K();</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 启动两个线程</span></span><br><span class="line">        th1.start();</span><br><span class="line">        th2.start();</span><br><span class="line">        <span class="comment">// 等待两个线程执行结束</span></span><br><span class="line">        th1.join();</span><br><span class="line">        th2.join();</span><br><span class="line">        <span class="keyword">return</span> test.count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        System.out.println(calc());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码理论上执行出来输出的值应该是20k，但是实际上输出的值却没有达到20k。如果改成每次加1亿，执行出来的结果不出意外的话，1亿多一点点，导致这个问题的出现就是因为<strong>缓存的可见性问题</strong></p>
+<p><strong>原因：</strong>假设线程 A 和线程 B 同时开始执行，那么第一次都会将 count=0 读到各自的 CPU 缓存里，执行完 count+=1 之后，各自 CPU 缓存里的值都是 1，同时写入内存后，我们会发现内存中是 1，而不是我们期望的 2。之后由于各自的 CPU 缓存里都有了 count 的值，两个线程都是基于 CPU 缓存里的 count 值来计算，所以导致最终 count 的值都是小于 20000 的。这就是缓存的可见性问题。循环 10000 次 count+=1 操作如果改为循环 1 亿次，你会发现效果更明显，最终 count 的值接近 1 亿，而不是 2 亿。如果循环 10000 次，count 的值接近 20000，原因是两个线程不是同时启动的，有一个时差。</p>
+<h3 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h3><p>操作系统里的内容(学好操作系统很重要，基础中的基础)</p>
+<p>·比如上面的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count+=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>直观来说是不是以为这一步是一步执行呢？其实不是的，得从CPU的指令来分析，因为这条高级语言程序是可再分的，而CPU指令才是实打实的不可再分，这也就是所谓的<strong>原子性</strong></p>
+<p>执行这条语句，需要三步操作：</p>
+<p>​                a.将变量的值从内存里面取出后，放到寄存器(count=0)</p>
+<p>​                b.在寄存器中执行+1的操作(count+1=1)</p>
+<p>​                c.将结果写入内存(当然cache的存在会导致写入的不是内存而是缓存)(count=1写入内存/cache)</p>
+<p>三条语句才是不可再分，真正在计算机里实现的。但是bug为什么产生呢？这就涉及到了<strong>操作系统进行线程切换</strong>的知识。假设有m、n线程，count=0，当m执行完a指令后操作系统进行了线程切换到n线程，这时候n顺序执行完了a、b、c三条指令，在切换到m线程的b、c指令，最后的结果导致n线程虽然执行了，可是从结果来看，只有m线程的操作是有效的。当然有人会问，n执行完count不是等于1了吗？但是此时你得明白，m并没有从内存里再读count的值，所以m线程会认为count的值仍然是0，这就导致了两个线程都执行了+1操作，count并没有等于2，而是1的现象。这也就是<strong>CPU指令原子性和操作系统线程切换</strong>带来的恶心的bug。(现代的操作系统由于线程切换不需要进行内存地址映射，所以大多都是轻量级的线程切换而不是进程切换，所以本文只讨论这一问题)</p>
+<h3 id="有序性"><a href="#有序性" class="headerlink" title="有序性"></a>有序性</h3><p>编译器有时候为了会优化性能，理论上会顺序执行你的高级语言程序，其实并不是。有时会调整高级语言执行的顺序却不影响程序的执行结果，但是这同时也导致了某些和设想之中不一样的bug。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> Singleton instance;</span><br><span class="line">  <span class="function"><span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">synchronized</span>(Singleton.class) &#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>)</span><br><span class="line">          instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如有m、n进程调用方法getInstance来初始化实例。理论上是这么个情况：</p>
+<p>二者都发现instance==null然后对Singleton.class上锁。但是JVM会只让一个线程成功上锁，假设是m成功上锁，这时候m就会继续发现instance==null，然后初始化instance，然后释放锁。</p>
+<p>这时候n线程发现instance！=null了，不能上锁了，从而实现了只创建一个单例。</p>
+<p>但是我们认为线程n在进行new操作的过程是这样的：</p>
+<p>​                a.分配一块内存T</p>
+<p>​                b.在T上初始化单例对象</p>
+<p>​                c.T的地址赋值给instance</p>
+<p>实际上却是这样的：</p>
+<p>​                a.分配一块内存T</p>
+<p>​                b.T的地址赋值给instance</p>
+<p>​                c.在T上初始化单例对象</p>
+<p>这时候问题就出来了，假设m执行完了实际上的指令b，线程切换到n，然后n检查instance是否为空，这时候instance是有T的地址的，肯定是非空，所以线程n就会直接返回instance实例。但是呢，m却还没对其初始化，这也就会<strong>出现空指针异常</strong>。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" rel="tag">并发编程</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-java并发编程-一" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -306,7 +398,6 @@
 <h4 id="互斥"><a href="#互斥" class="headerlink" title="互斥"></a>互斥</h4><p>·概念：保证<strong>同一时刻只有一个线程访问共享资源</strong>(操作系统里的知识)</p>
 <p>·举例：可重入锁</p>
 <h4 id="个人思考"><a href="#个人思考" class="headerlink" title="个人思考"></a>个人思考</h4><p>这三者其实是层层递进的关系，<strong>分工</strong>导致了任务的拆解，进而需要线程间的通信，从而引入了<strong>同步</strong>。而引入同步之后，线程对于临界资源的访问具有互斥性，从而引进了<strong>互斥</strong>。</p>
-<p><img src="C:\Users\daniel\Desktop\数据结构\11e0c64618c04edba52619f41aaa3565.png" alt="11e0c64618c04edba52619f41aaa3565"></p>
 
       
     </div>
@@ -923,85 +1014,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-编码与调制" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/25/%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6/" class="article-date">
-      <time datetime="2020-11-25T11:17:20.000Z" itemprop="datePublished">2020-11-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/25/%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6/">编码与调制</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="基带信号与宽带信号"><a href="#基带信号与宽带信号" class="headerlink" title="基带信号与宽带信号"></a>基带信号与宽带信号</h3><p>·基带信号：将数字信号用0、1表示，再送到数字信道上传输(基带传输)<br>·宽带信号：将基带信号处理后形成频分复用信号(将频率范围调高，能应对衰减范围大的信号)，送到模拟信道上传输(宽带传输)<br>·区分方法：可用传输介质来区分<br>                    -数字信道-&gt;基带信号<br>                    -模拟信道-&gt;宽带信号<br>·选择：<br>    -近距离：基带传输(衰减小，不易发生变化)<br>    -远距离：宽带传输(衰减大，易发生变化，这种方法能应对)</p>
-<h3 id="编码与调制"><a href="#编码与调制" class="headerlink" title="编码与调制"></a>编码与调制</h3><p>数字数据-&gt;数字信号(编码)            模拟数据-&gt;数字信号(编码)<br>数字数据-&gt;模拟信号(调制)            模拟数据-&gt;模拟信号(调制)    </p>
-<h3 id="数字数据编码为数字信号"><a href="#数字数据编码为数字信号" class="headerlink" title="数字数据编码为数字信号"></a>数字数据编码为数字信号</h3><p>·非归零编码：高1低0<br>                -缺点：无纠错功能，得引入时钟模块，不然一长段1或0，系统没办法知道有几个1或0</p>
-<p>·归零编码：高1低0，如果是1，则在中间要归0.相当于1是先高后低，0一直是低</p>
-<p>·反向不归零编码：电平变化表示0，不变表示1</p>
-<p>·曼彻斯特编码：前高后低为1，前低后高为0.当然也可以反过来，这得看具体定义<br>                -数据传输速率只有调制速率的二分之一</p>
-<p>·差分曼彻斯特编码：将一个时钟周期分成两半，前半段根据前一个时钟周期的后半段来决定。<br>            -1的话和前一时钟周期后半段相同<br>            -0的话和前一时钟周期后半段相反<br>            -后半段一定会反转，和前一段不一样</p>
-<h3 id="数字数据调制为模拟信号"><a href="#数字数据调制为模拟信号" class="headerlink" title="数字数据调制为模拟信号"></a>数字数据调制为模拟信号</h3><p>·调幅(ASK)：0无波，1有波形</p>
-<p>·调频(FSK)：0频率低，1频率高</p>
-<p>·调相(PSK):   0和1分别对应正弦和余弦中的一个</p>
-<p>·调幅+调相（QAM）：</p>
-<p>​        -例题：某链路波特率为1200Baud，采用四个 相位，每个相位有4种振幅的QAM调制技术，求链路的信息传输速率？</p>
-<p>​        解答：四相位，每个相位有四种波形，那么一共有4*4=16中波形情况，对应的码元则为四进制码元</p>
-<p>​                1200 x log2(4 x4)=1200 x 4 =6400 bit/s</p>
-<h3 id="模拟数字编码为数字信号"><a href="#模拟数字编码为数字信号" class="headerlink" title="模拟数字编码为数字信号"></a>模拟数字编码为数字信号</h3><p>·过程：将模拟信号通过采样、量化、编码成01编码。</p>
-<p>·脉冲调制(PCM)：</p>
-<p>​        -抽样：将时间上连续的信号变成时间上离散的信号。且采样频率&gt;=信号最高频率的两倍</p>
-<p>​        -量化：将抽样获得的电平按一定的标准转为数字值并取整。比如0-1v取1v</p>
-<p>​        -编码：将量化结果转成对应的二进制编码</p>
-<h3 id="模拟数据调制为模拟信号"><a href="#模拟数据调制为模拟信号" class="headerlink" title="模拟数据调制为模拟信号"></a>模拟数据调制为模拟信号</h3><p>⑧重要</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
     </div>
 
       

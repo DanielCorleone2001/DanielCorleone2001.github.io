@@ -270,6 +270,85 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-编码与调制" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/25/%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6/" class="article-date">
+      <time datetime="2020-11-25T11:17:20.000Z" itemprop="datePublished">2020-11-25</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/25/%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6/">编码与调制</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="基带信号与宽带信号"><a href="#基带信号与宽带信号" class="headerlink" title="基带信号与宽带信号"></a>基带信号与宽带信号</h3><p>·基带信号：将数字信号用0、1表示，再送到数字信道上传输(基带传输)<br>·宽带信号：将基带信号处理后形成频分复用信号(将频率范围调高，能应对衰减范围大的信号)，送到模拟信道上传输(宽带传输)<br>·区分方法：可用传输介质来区分<br>                    -数字信道-&gt;基带信号<br>                    -模拟信道-&gt;宽带信号<br>·选择：<br>    -近距离：基带传输(衰减小，不易发生变化)<br>    -远距离：宽带传输(衰减大，易发生变化，这种方法能应对)</p>
+<h3 id="编码与调制"><a href="#编码与调制" class="headerlink" title="编码与调制"></a>编码与调制</h3><p>数字数据-&gt;数字信号(编码)            模拟数据-&gt;数字信号(编码)<br>数字数据-&gt;模拟信号(调制)            模拟数据-&gt;模拟信号(调制)    </p>
+<h3 id="数字数据编码为数字信号"><a href="#数字数据编码为数字信号" class="headerlink" title="数字数据编码为数字信号"></a>数字数据编码为数字信号</h3><p>·非归零编码：高1低0<br>                -缺点：无纠错功能，得引入时钟模块，不然一长段1或0，系统没办法知道有几个1或0</p>
+<p>·归零编码：高1低0，如果是1，则在中间要归0.相当于1是先高后低，0一直是低</p>
+<p>·反向不归零编码：电平变化表示0，不变表示1</p>
+<p>·曼彻斯特编码：前高后低为1，前低后高为0.当然也可以反过来，这得看具体定义<br>                -数据传输速率只有调制速率的二分之一</p>
+<p>·差分曼彻斯特编码：将一个时钟周期分成两半，前半段根据前一个时钟周期的后半段来决定。<br>            -1的话和前一时钟周期后半段相同<br>            -0的话和前一时钟周期后半段相反<br>            -后半段一定会反转，和前一段不一样</p>
+<h3 id="数字数据调制为模拟信号"><a href="#数字数据调制为模拟信号" class="headerlink" title="数字数据调制为模拟信号"></a>数字数据调制为模拟信号</h3><p>·调幅(ASK)：0无波，1有波形</p>
+<p>·调频(FSK)：0频率低，1频率高</p>
+<p>·调相(PSK):   0和1分别对应正弦和余弦中的一个</p>
+<p>·调幅+调相（QAM）：</p>
+<p>​        -例题：某链路波特率为1200Baud，采用四个 相位，每个相位有4种振幅的QAM调制技术，求链路的信息传输速率？</p>
+<p>​        解答：四相位，每个相位有四种波形，那么一共有4*4=16中波形情况，对应的码元则为四进制码元</p>
+<p>​                1200 x log2(4 x4)=1200 x 4 =6400 bit/s</p>
+<h3 id="模拟数字编码为数字信号"><a href="#模拟数字编码为数字信号" class="headerlink" title="模拟数字编码为数字信号"></a>模拟数字编码为数字信号</h3><p>·过程：将模拟信号通过采样、量化、编码成01编码。</p>
+<p>·脉冲调制(PCM)：</p>
+<p>​        -抽样：将时间上连续的信号变成时间上离散的信号。且采样频率&gt;=信号最高频率的两倍</p>
+<p>​        -量化：将抽样获得的电平按一定的标准转为数字值并取整。比如0-1v取1v</p>
+<p>​        -编码：将量化结果转成对应的二进制编码</p>
+<h3 id="模拟数据调制为模拟信号"><a href="#模拟数据调制为模拟信号" class="headerlink" title="模拟数据调制为模拟信号"></a>模拟数据调制为模拟信号</h3><p>⑧重要</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-数据通信" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1062,109 +1141,6 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
 
 <h3 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">·算法思想：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-线程" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/10/%E7%BA%BF%E7%A8%8B/" class="article-date">
-      <time datetime="2020-11-10T15:17:10.000Z" itemprop="datePublished">2020-11-10</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/10/%E7%BA%BF%E7%A8%8B/">线程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="线程的定义"><a href="#线程的定义" class="headerlink" title="线程的定义"></a>线程的定义</h3><pre><code>-定义：线程是一个基本的CPU执行单元，也是程序执行流的最小单位
--作用：引入线程后，不仅进程之间可宏观上并发执行，进程内的线程也可以并发执行，提升了系统的并发度
--组成：线程ID + 线程控制块(TCB)，类似于进程的PCB
--基本状态：就绪，阻塞，运行。和进程一样
-
--引入线程后的变化：
-    1.资源分配与调度：
-        引入前：进程是资源分配和调度的基本单位
-        引入后：进程是资源分配的基本单位，线城市调度的基本单位
-    2.并发性：
-        引入前：只有进程能并发执行
-        引入后：进程和线程都能并发执行
-    3.系统开销：
-        引入前：进程并发需切换进程的运行环境，系统开销大
-        引入后：而同一进程内的线程切换，不需要切换运行环境，系统开销小</code></pre>
-<h3 id="线程的属性"><a href="#线程的属性" class="headerlink" title="线程的属性"></a>线程的属性</h3><pre><code>1.线程是处理机调度的基本单位
-2.多CPU计算机中，各个线程可占用不同的CPU
-3.因为进程才是资源调度的基本单位，所以线程几乎不拥有系统资源
-4.同一进程的线程之间能共享该进程的资源，共享不是占有噢
-5.同一线程之间共享了地址空间，他们通信不需要系统的干预
-6.同一进程间的线程切换，不会引起进程切换；不同进程间的线程切换，会引起进程切换。</code></pre>
-<h3 id="线程的实现方式"><a href="#线程的实现方式" class="headerlink" title="线程的实现方式"></a>线程的实现方式</h3><pre><code>两种实现方式：
-1.用户级线程(User-Level Thread,ULT)：由应用程序通过线程库来实现
-    a.所有线程管理工作(包括线程切换)由应用程序负责
-    b.线程切换在用户态下进行，无需系统干预
-    c.用户级线程对用户透明，对操作系统不透明
-
-2.内核级线程(Kernel-Level Thread,KLT)：线程管理工作由操作系统内核完成
-    a.内核级线程的切换必须在核心态下才能完成
-    b.内核级线程对操作系统透明，故内核级线程才是处理及分配的单位
-    c.内核级线程的个数影响到了能分配到的核</code></pre>
-<h3 id="多线程模型"><a href="#多线程模型" class="headerlink" title="多线程模型"></a>多线程模型</h3><pre><code>1.多对一模型：
-    概念：多个用户级线程映射到一个内核级线程，即每个用户级线程只对应一个内核级线程
-    优点：用户级线程的切换在用户空间即可完成，不需要切换到核心态。因此线程管理系统开销小，效率高
-    缺点：当某一用户级线程阻塞时，整个进程都会被阻塞，因此并发度很低；多个线程在多核处理机上不能并发执行(分配到的核只有一个)
-
-2.一对一模型：
-    概念：一个用户级线程映射到一个内核级线程，即每个用户进程拥有与内核级线程同数量的内核级线程
-    优点：当某一用户级线程阻塞后，其他用户级线程仍可执行，所以并发能力强；多个线程在多核处理机上能并发执行
-    缺点：一个用户进程会占用多个内核级线程，那么操作系统内核进行线程切换时，需要切换到核心态，导致线程管理系统开销大。
-
-3.多对多模型：
-    概念：n个用户级线程映射到m个内核级线程(n&gt;m），每个用户进程对应m个内核级线程
-    优点：克服了多对一模型并发度不高的缺点，也克服了一对一模型中一个用户进程占用太多内核级线程的导致系统开销大的缺点</code></pre>
 
       
     </div>
