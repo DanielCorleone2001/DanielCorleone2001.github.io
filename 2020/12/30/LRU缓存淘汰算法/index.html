@@ -23,7 +23,7 @@
 <meta property="og:description" content="链表性质说到链表，很相似的就是数组。二者之间的区别其实很明显： ​                -数组能实现随机访问，而链表只能从头部开始慢慢往下找 ​                -数组对于内存的要求很高：一定要是一段连续的空间； ​                -链表的话不要求是连续的内存空间，只要求满足大小即可 这么说下来，比如申请存储100个int类型的元素，数组会要求400个字节的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-30T13:16:46.000Z">
-<meta property="article:modified_time" content="2020-12-30T14:39:14.511Z">
+<meta property="article:modified_time" content="2020-12-30T14:50:12.404Z">
 <meta property="article:author" content="daniel">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="算法">
@@ -325,7 +325,8 @@
 <p>基本结构和单链表类似，每个节点都会多了个<strong>指向前驱节点的指针</strong></p>
 <p>那么单链表有两个域：数据域+指向后继节点的指针域</p>
 <p>双向链表有三个域：数据与+指向后继节点的指针域+<strong>指向前趋节点的指针域</strong></p>
-<p>双向链表相较于单链表的一大优势在于：<strong>找到前驱节点的时间复杂度为O(1)**，而单链表只能从头节点慢慢往下找，所以仍然是O(n).而且，对于插入和删除也是有优化的。可能会有问题：单链表的插入删除不是O(1)吗？是的，但是一般情况下，我们想要进行插入删除操作，很多时候还是</strong>得先进行查找**，再插入或者删除，可见其实是先O(n),再O(1).</p>
+<p>双向链表相较于单链表的一大优势在于：<strong>找到前驱节点的时间复杂度为O(1)</strong></p>
+<p>而单链表只能从头节点慢慢往下找，所以仍然是O(n).而且，对于插入和删除也是有优化的。可能会有问题：单链表的插入删除不是O(1)吗？是的，但是一般情况下，我们想要进行插入删除操作，很多时候还是<strong>得先进行查找</strong>，再插入或者删除，可见其实是先O(n),再O(1).</p>
 <h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p><strong>插入：</strong>    </p>
 <p>​        时间复杂度：O(1)</p>
 <p><strong>删除：</strong></p>
@@ -360,7 +361,7 @@
         <p><span>本文标题:</span><a href="/2020/12/30/LRU%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/">链表实现LRU缓存淘汰算法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
         <p><span>发布时间:</span>2020-12-30, 21:16:46</p>
-        <p><span>最后更新:</span>2020-12-30, 22:39:14</p>
+        <p><span>最后更新:</span>2020-12-30, 22:50:12</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2020/12/30/LRU%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/" title="链表实现LRU缓存淘汰算法">http://example.com/2020/12/30/LRU%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/12/30/LRU%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
