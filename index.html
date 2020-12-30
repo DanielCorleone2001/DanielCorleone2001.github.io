@@ -332,6 +332,9 @@
 <p>​                b.T的地址赋值给instance</p>
 <p>​                c.在T上初始化单例对象</p>
 <p>这时候问题就出来了，假设m执行完了实际上的指令b，线程切换到n，然后n检查instance是否为空，这时候instance是有T的地址的，肯定是非空，所以线程n就会直接返回instance实例。但是呢，m却还没对其初始化，这也就会<strong>出现空指针异常</strong>。</p>
+<h3 id="小拓展"><a href="#小拓展" class="headerlink" title="小拓展"></a>小拓展</h3><p><strong>在 32 位的机器上对 long 型变量进行加减操作存在并发隐患？</strong></p>
+<p>答：这是对的。因为由于<strong>原子性</strong>的存在，在进行线程切换的时候会产生某些不可名状的bug。32位对于long类型分成了两份来处理，有可能某线程在处理高位字节(前4位)，这时候发生了线程切换，另一个线程把低位的给改了。。。这时候就会导致加减法操作出现错误。</p>
+<p>解决方法：把long/double 变量声明为<strong>volatile</strong>或是<strong>同步加锁synchronize</strong>以避免并发问题</p>
 
       
     </div>
