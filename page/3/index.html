@@ -189,7 +189,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA%E5%9F%BA%E7%A1%80/" rel="tag">JAVA基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA%E5%9F%BA%E7%A1%80/" rel="tag">JAVA基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" rel="tag">并发编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
                     </div>
                 </section>
                 
@@ -269,6 +269,158 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-进程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/10/%E8%BF%9B%E7%A8%8B/" class="article-date">
+      <time datetime="2020-11-10T15:14:51.000Z" itemprop="datePublished">2020-11-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/10/%E8%BF%9B%E7%A8%8B/">进程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h3 id="进程实体（进程映像）"><a href="#进程实体（进程映像）" class="headerlink" title="进程实体（进程映像）"></a>进程实体（进程映像）</h3><pre><code>PCB、程序段（存放程序代码）、数据段（存放程序执行时运用、产生的数据）</code></pre>
+<h3 id="PCB"><a href="#PCB" class="headerlink" title="PCB"></a>PCB</h3><pre><code>概念：进程控制块，用来扫描进程的各种信息。创建进程的本质就是创建进程实体的PCB，撤销进程则是撤销进程实体中的PCB。 
+
+PCB的组成：
+      -进程描述信息：进程标识符PID、用户标识符UID
+    -进程控制和管理信息：进程当前状态、进程优先级
+    -资源分配清单：程序段指针、数据段指针、键盘、鼠标
+    -处理机相关信息：各种寄存器值</code></pre>
+<h3 id="进程的定义"><a href="#进程的定义" class="headerlink" title="进程的定义"></a>进程的定义</h3><pre><code>a.进程是程序执行的一次过程
+b.进程是程序及其数据在处理机上顺序执行时发生的活动
+c.进程时具有独立功能的程序在数据集合上的运行过程，是系统进行资源分配和调度的一个独立单位</code></pre>
+<h3 id="进程的组织"><a href="#进程的组织" class="headerlink" title="进程的组织"></a>进程的组织</h3><pre><code>目的：解决多个进程之间的组织方式问题
+
+组织方式：
+-链接方式：按照进程状态将PCB分为多个队列，操作系统持有指向队列的指针
+-索引方式：按照进程状态的不同，建立索引表，操作系统持有指向索引表的指针
+这有两图片要加</code></pre>
+<h3 id="进程的特征"><a href="#进程的特征" class="headerlink" title="进程的特征"></a>进程的特征</h3><pre><code>-动态性：(是进程最基本的特征)进程是程序的一次执行过程，产生、变化和消亡是动态的
+-并发性：内存中存在多个进程实体。各个进程并发执行
+-独立性：进程是资源分配、接受调度的基本单位，也可阐述为进程是能独立运行、独立获得资源、独立接受调度的基本单位
+-异步性：各进程按照各自独立、不可预知的速度向前推进，操作系统要提供“进程同步机制”来解决异步问题
+-结构性：每个进程的结构都是：PCB、程序段、数据段</code></pre>
+<h3 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h3><pre><code>三种基本状态：
+    -运行态(Running)：占有CPU，并在CPU上运行
+    -就绪态(Ready)：具备运行条件，但CPU不空闲，暂时无法运行
+    -阻塞态(Waiting/Blocked)： 等待某一时间而无法运行，如等待操作系统分配打印机等等
+其他两种状态：
+    -创建态(New)：进程正在被创建，操作系统为进程分配资源、初始化PCB
+    -终止态(Terminated)：进程正在从系统中撤销，操作系统回收进程拥有的资源、撤销PCB</code></pre>
+<h3 id="进程的状态转换"><a href="#进程的状态转换" class="headerlink" title="进程的状态转换"></a>进程的状态转换</h3><pre><code>这有1图片要加</code></pre>
+<h3 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h3><pre><code>-定义：通俗理解，就是要实现对进程状态的转换
+-如何实现进程：总的来说每次转换都要修改PCB的内容，并将PCB放入到相应的队列中。
+    1.创建态（初始化PCB，分配系统资源）完成后，将PCB放入到相应的就绪队列，转换到就绪态 ；
+    2.处于就绪态时，恢复进程运行的环境、修改PCB内容和相应的队列，从就绪队列中取出，转换到运行态；
+    3.处于运行态时，保存进程的运行环境、修改PCB内容和相应的队列，放入阻塞队列中。转换到阻塞态；
+    4.处于阻塞态时，若系统已经为进程分配所需要的系统资源，从阻塞队列中取出放入就绪队列，转换到就绪态。
+    这有1图片要加</code></pre>
+<h3 id="原语"><a href="#原语" class="headerlink" title="原语"></a>原语</h3><pre><code>-特点：原语执行期间不允许中断，原语执行前有关中断的指令，执行结束后后开中断的指令。
+      由于涉及到了中断的关闭和打开，所需权限很大，所以这两个指令时核心态下才能执行的特权指令
+-原语的共同操作：
+    1.更新PCB中的信息
+        -所有的进程控制原语一定会修改进程状态标志
+        -剥夺当前运行进程的CPU使用权
+    2.将PCB插入到合适的队列中
+    3.分配/回收资源</code></pre>
+<h3 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h3><pre><code>-创建原语：实现了进程：从无-&gt;创建态-&gt;就绪态
+    -任务：申请空白的PCB、为新进程分配所需资源、初始化PCB、将PCB插入就绪队列中
+-引起进程创建的事件：
+    -用户登录：分时系统中，用户登陆成功，系统会为其建立一个新的进程
+    -作业调度：多道批处理系统，有的作业放入内存时，会为其建立一个新的进程
+    -提供服务：用户向操作系统提出某些请求时，会新建一个进程处理该请求
+    -应用请求：有用户进程主动请求创建一个子进程</code></pre>
+<h3 id="进程的终止"><a href="#进程的终止" class="headerlink" title="进程的终止"></a>进程的终止</h3><pre><code>-撤销原语：
+    -任务：从PCB集合中找到终止进程的PCB、若进程正在执行，立即剥夺CPU，将CPU分配给其他进程
+          终止其所有子进程、将该进程拥有的所有资源归还给父进程或操作系统、删除该进程的PCB
+-引起进程终止的事件：
+        -正常结束
+        -异常结束
+        -外界干预</code></pre>
+<h3 id="进程的阻塞"><a href="#进程的阻塞" class="headerlink" title="进程的阻塞"></a>进程的阻塞</h3><pre><code>-阻塞原语：
+    -任务；找到要阻塞的进程对应的PCB、保护进程运行现场，将PCB状态信息设置为阻塞态，暂时停止进程运行、将PCB插入相应事件的等待队列
+-引起进程阻塞的事件：
+    -需要等待系统分配某种资源
+    -需要等待相互合作的其他进程完成工作</code></pre>
+<h3 id="进程的唤醒"><a href="#进程的唤醒" class="headerlink" title="进程的唤醒"></a>进程的唤醒</h3><pre><code>-唤醒原语：
+    -任务：在事件等待队列中找到其PCB、将PCB从等待队列移出，设置就绪态、将PCB插入就绪队列，等待被调度
+-引起进程唤醒的事件：
+    -所等待的事件发生了</code></pre>
+<h3 id="进程的切换"><a href="#进程的切换" class="headerlink" title="进程的切换"></a>进程的切换</h3><pre><code>-切换原语：
+    -任务：将运行环境信息存入PCB、PCB移入相应的队列、选择另一个进程执行，并更新其PCB、根据PCB回复进程所需的运行环境
+-引起进程切换的事件：
+    -前进程时间片到达
+    -有更高优先级的进程到达
+    -前进程主动阻塞
+    -前进程终止</code></pre>
+<h3 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h3><pre><code>-三种方式：共享存储、消息传递、管道通信
+
+-共享存储：在内存中开辟一个共享空间，两个进程都可以对其进行读写操作，但是两个进程
+            对共享空间的访问是互斥的，进程A访问了，进程B只能等A访问结束才可访问。
+-共享存储分为两种方式：基于数据结构的共享(低级通信)、基于存储区的共享(高级通信)
+
+-管道通信：采用半双工通信，即可以双向通信，但是同一时间内只能从一个方向通信
+            想要双向同时通信，得设置两个管道
+-管道通信的特点：1.写0满时，写端阻塞，读端此时才能开始读；
+                 2.读的过程中，写段不允许写入；
+                 3.读取完毕时，读端关闭，读的数据被抛弃，写段不再阻塞；
+                 4.写的过程中，读端不允许读出
+
+-消息传递：1.传递结构化的消息（消息由消息头和消息体组成）
+          2.系统提供”发送/接受原语“
+-消息传递的两种方式：
+                1.直接通信方式：消息直接挂到对方进程的消息队列中
+                2.间接通信方式：消息先发送到中间体</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-中断与系统调用" class="article article-type-post" itemscope itemprop="blogPost">
   
