@@ -270,6 +270,149 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-奈氏准则与香农定理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/26/%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E4%B8%8E%E9%A6%99%E5%86%9C%E5%AE%9A%E7%90%86/" class="article-date">
+      <time datetime="2020-11-26T08:00:07.000Z" itemprop="datePublished">2020-11-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/26/%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E4%B8%8E%E9%A6%99%E5%86%9C%E5%AE%9A%E7%90%86/">奈氏准则与香农定理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="奈式准则"><a href="#奈式准则" class="headerlink" title="奈式准则"></a>奈式准则</h3><p>·也叫做奈奎斯特定理</p>
+<p>·为了避免串扰，规定码元传输速率最大为2W Baud，</p>
+<p>​        其中W为信道带宽（信道能接收的最高频率 - 信道能接收最低频率，单位是Hz）</p>
+<p>·<strong>注意：</strong></p>
+<p>​            -奈式准则只约束了码元传输速率，并没有限制信息传输率。</p>
+<p>​            -要想提高数据的传输率，就要使得每个码元携带的比特数变多。</p>
+<p>​             原理很简单：传输率=码元传输率*一个码元中的比特位数。 </p>
+<p>·当然数据传输率也有最大的限制，但不是奈式准则规定的</p>
+<p>​        最大数据传输率=2W * log2(V) ，V是码元的种数,单位是b/s</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例题:带宽为3kHz，4相位，每个相位有4种振幅，求最大数据传输率？</span><br><span class="line"></span><br><span class="line">解答：2*3k* log2(4*4)&#x3D;24k b&#x2F;s</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="香农定理"><a href="#香农定理" class="headerlink" title="香农定理"></a>香农定理</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-读者-写者问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/26/%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98/" class="article-date">
+      <time datetime="2020-11-26T07:15:21.000Z" itemprop="datePublished">2020-11-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/26/%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98/">读者-写者问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>·问题描述：</strong></p>
+<p>存在读者和写者两组并发的进程，可以共享一份文件。</p>
+<p>允许多个读者同时访问临界区文件，但某一时刻只能一个写者写入文件。</p>
+<p>因此写入文件时，应保证读者和上一次的写者都已经撤离。</p>
+<p>写进程时，读进程、其他写进程都是不允许的</p>
+<p><strong>核心问题：</strong>怎么解决多个读者同时读</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">semaphore rw=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> counter=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">writer()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(rw);<span class="comment">//加锁，保证对读进程和其他写进程都是互斥的</span></span><br><span class="line">        ..<span class="comment">//写文件</span></span><br><span class="line">        V(rw);<span class="comment">//解锁</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">reader()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(counter==<span class="number">0</span>)<span class="comment">//code1 </span></span><br><span class="line">          P(rw);<span class="comment">//是第一个读进程，就要加锁;code2</span></span><br><span class="line">        counter++;</span><br><span class="line">        ..<span class="comment">//读文件</span></span><br><span class="line">		counter--;</span><br><span class="line">        <span class="keyword">if</span>(counter==<span class="number">0</span>) V(rw);<span class="comment">//是最后一个读进程，就要解锁</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">存在的问题：若两个读进程并发执行，则有可能发生这种情况:</span></span><br><span class="line"><span class="comment">code1(进程1)-&gt;code2(进程1)-&gt;code1(并发导致，换到进程2)-&gt;code2(此时rw==0，进程2处于阻塞态)</span></span><br><span class="line"><span class="comment">可见此时读进程会是互斥的</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">改进算法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">semaphore rw=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> counter=<span class="number">0</span>;</span><br><span class="line">semaphore mutex=<span class="number">1</span>;<span class="comment">//保证对counter变量的互斥访问，是上一部分问题的解决方法</span></span><br><span class="line">semaphore w=<span class="number">1</span>;<span class="comment">//设置写操作优先于读操作</span></span><br><span class="line"></span><br><span class="line">writer()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(w);</span><br><span class="line">        P(rw);</span><br><span class="line">        ..<span class="comment">//写文件</span></span><br><span class="line">		V(rw);</span><br><span class="line">        V(w);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">reader()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(w);</span><br><span class="line">        P(mutex);</span><br><span class="line">        <span class="keyword">if</span>(counter==<span class="number">0</span>)</span><br><span class="line">            P(rw);</span><br><span class="line">        counter++;</span><br><span class="line">        V(mutex);</span><br><span class="line">        V(w);</span><br><span class="line">        ..<span class="comment">//读文件</span></span><br><span class="line">        P(mutex);</span><br><span class="line">        counter--;</span><br><span class="line">        <span class="keyword">if</span>(counter==<span class="number">0</span>)</span><br><span class="line">            V(rw);</span><br><span class="line">        V(mutex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-吸烟者问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -821,198 +964,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-TCP-IP参考模型" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="article-date">
-      <time datetime="2020-11-24T08:47:14.000Z" itemprop="datePublished">2020-11-24</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">TCP/IP参考模型</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="TCP-IP参考模型"><a href="#TCP-IP参考模型" class="headerlink" title="TCP/IP参考模型"></a>TCP/IP参考模型</h2><h3 id="四层结构"><a href="#四层结构" class="headerlink" title="四层结构"></a>四层结构</h3><pre><code>1.网络接口层    
-    -协议：Ethernet、ATM、Frame Relay
-2.网际层
-    -协议：IP
-3.传输层
-    -协议：TCP、UDP
-4.应用层
-    -协议：HTTP、FTP、DNS</code></pre>
-<h3 id="TCP-IP与ISO-OSI对比"><a href="#TCP-IP与ISO-OSI对比" class="headerlink" title="TCP/IP与ISO/OSI对比"></a>TCP/IP与ISO/OSI对比</h3><pre><code>         ISO/OSI                TCP/IP
-网络层    无连接+面向连接          无连接
-传输层       面向连接                无连接+面向连接</code></pre>
-<h3 id="五层参考模型"><a href="#五层参考模型" class="headerlink" title="五层参考模型"></a>五层参考模型</h3><pre><code>综合了TIP/IP和ISO/OSI的优点
-结构：（自顶向下）
-    -应用层
-    -传输层
-    -网络层
-    -数据链路层
-    -物理层</code></pre>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-OSI参考模型" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="article-date">
-      <time datetime="2020-11-24T08:05:47.000Z" itemprop="datePublished">2020-11-24</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">OSI参考模型</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="ISO-OSI参考模型"><a href="#ISO-OSI参考模型" class="headerlink" title="ISO/OSI参考模型"></a>ISO/OSI参考模型</h2><h3 id="七层结构"><a href="#七层结构" class="headerlink" title="七层结构"></a>七层结构</h3><pre><code>1.物理层
-2.数据链路层
-3.网络层
-4.传输层
-5.会话层
-6.表示层
-7.应用层</code></pre>
-<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><pre><code>概念：所有能与用户交互产生网络流量的程序
-
-典型应用层服务：
-    -文件传输（FTP）
-    -电子邮件（SMTP）
-    -万维网（HTTP）</code></pre>
-<h3 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h3><pre><code>概念：用于处理在两个通信系统中交换信息的表示方式
-
-功能：
-    -数据格式变换
-    -数据加密解密
-    -数据的压缩与恢复</code></pre>
-<h3 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h3><pre><code>概念：向表示层实体（或用户进程）建立连接，并有序的传输数据，即建立同步
-
-功能：
-    -建立会话，管理、终止会话
-    -使用校验点使会话在通信失效时从校验点/同步点回复通信，从而实现数据同步</code></pre>
-<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><pre><code>任务：负责主机中两个进程的通信（端到端的通信）
-传输单位：报文段或用户数据段
-
-功能：
-    -可靠传输、不可靠传输
-    -差错控制
-    -流量控制
-    -复用分用
-
-主要协议：TCP、UDP</code></pre>
-<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><pre><code>任务：把分组从源段传到目的端，为分组交换网上的不同主机提供通信服务
-传输单位：数据报
-
-功能：
-    -路由选择（选择合适的路由器来达到传输的最佳路径）
-    -流量控制（控制速度）
-    -差错控制
-    -拥塞控制
-
-主要协议：IP、IPX、ICMP、IGMP、ARP、RARP、OSRF</code></pre>
-<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><pre><code>任务：将网络层传下来的数据报组装成帧
-传输单位：帧
-
-功能：
-    -成帧：定义帧的开始和结束
-    -差错控制：检验是否有帧错和位错
-    -流量控制
-    -访问控制：控制对信道的访问
-
-主要协议：SDLC、HDLC、PPP、STP</code></pre>
-<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><pre><code>任务:在物理媒体上实现比特流的透明传输
-传输单位：比特</code></pre>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
     </div>
 
       
