@@ -270,6 +270,69 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-java入门" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/12/25/java%E5%85%A5%E9%97%A8/" class="article-date">
+      <time datetime="2020-12-25T04:10:35.000Z" itemprop="datePublished">2020-12-25</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/25/java%E5%85%A5%E9%97%A8/">java入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="语言特点"><a href="#语言特点" class="headerlink" title="语言特点"></a>语言特点</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>面向对象</span><br><span class="line">    -封装</span><br><span class="line">    -继承</span><br><span class="line">    -多态</span><br><span class="line"><span class="number">2.</span>平台无关性</span><br><span class="line">    采用字节码的形式，可移植性强。</span><br><span class="line"><span class="number">3.</span>支持多线程</span><br><span class="line"><span class="number">4.</span>编译与解释并存</span><br><span class="line"><span class="number">5.</span>支持网络编程</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA%E5%9F%BA%E7%A1%80/" rel="tag">JAVA基础</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-死锁的处理策略" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -898,73 +961,6 @@
 <p>​    ·具体实现：</p>
 <p>​                    -为每一个前驱和后继关系都设置一个同步变量。</p>
 <p>​                    -前趋操作完成后执行V操作，后继操作开始前执行P操作    </p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-进程互斥的硬件实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/25/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%AE%9E%E7%8E%B0/" class="article-date">
-      <time datetime="2020-11-25T03:43:41.000Z" itemprop="datePublished">2020-11-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/25/%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%AE%9E%E7%8E%B0/">进程互斥的硬件实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="硬件实现"><a href="#硬件实现" class="headerlink" title="硬件实现"></a>硬件实现</h2><h2 id="三种硬件实现方法"><a href="#三种硬件实现方法" class="headerlink" title="三种硬件实现方法"></a>三种硬件实现方法</h2><h3 id="中断屏蔽方法"><a href="#中断屏蔽方法" class="headerlink" title="中断屏蔽方法"></a>中断屏蔽方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">·原理:和原语类似。</span><br><span class="line">·步骤:关中断-&gt;访问临界区-&gt;开中断</span><br><span class="line">·详细说明:</span><br><span class="line">		-关中断：不允许当前进程被中断，保证了后续只有当前进程访问临界区</span><br><span class="line">        -开中断：访问临界区结束，开中断来保证临界区能被其他进程访问</span><br><span class="line">·优点：简单高效</span><br><span class="line">·缺点：只适用于操作系统内核进程，不适用于用户进程(给用户进程太高的权限会很危险)</span><br></pre></td></tr></table></figure>
-
-<h3 id="TestAndSet（TS指令-TSL指令）"><a href="#TestAndSet（TS指令-TSL指令）" class="headerlink" title="TestAndSet（TS指令/TSL指令）"></a>TestAndSet（TS指令/TSL指令）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">bool</span> <span class="title">TestAndSet</span><span class="params">(<span class="keyword">bool</span> *lock)</span></span>&#123;</span><br><span class="line">     <span class="keyword">bool</span> old= *lock;存放lock的值</span><br><span class="line">     *lock=<span class="literal">true</span>;无论如何都把lock变成<span class="literal">true</span></span><br><span class="line">     <span class="keyword">return</span> old;返回lock原来的值</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(TestAndSet(&amp;lock));<span class="comment">//上锁并检查</span></span><br><span class="line">cirtical section;</span><br><span class="line">lock=<span class="literal">false</span>;</span><br><span class="line">.....<span class="comment">//剩余区代码</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">优点：实现简单，适用于多处理机环境</span></span><br><span class="line"><span class="comment">缺点：不满足让权等待原则。暂时无法进入临界区的进程会占用CPU并循环TSL指令，导致“忙等”</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Swap指令-XCHG-指令"><a href="#Swap指令-XCHG-指令" class="headerlink" title="Swap指令(XCHG)指令"></a>Swap指令(XCHG)指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">逻辑上和TSL区别不大</span><br></pre></td></tr></table></figure>
-
-
-
 
       
     </div>
