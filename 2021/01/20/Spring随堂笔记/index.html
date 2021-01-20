@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="ISO&#x2F;OSI参考模型七层结构1.物理层 2.数据链路层 3.网络层 4.传输层 5.会话层 6.表示层 7.应用层 应用层概念：所有能与用户交互产生网络流量的程序  典型应用层服务：     -文件传输（FTP）     -电子邮件（SMTP）     -万维网（HTTP） 表示层概念：用于处理在两个通信系统中交换信息的表示方式  功能：     -数据格式变换     -数据加密解密">
+<meta name="description" content="Set注入普通值注入1&lt;property name&#x3D;&quot;name&quot; value&#x3D;&quot;daniel&quot;&gt;&lt;&#x2F;property&gt;  Bean注入12345&lt;!--注入的变量是一个类，就用bean的方式注入--&gt;&lt;bean id&#x3D;&quot;address&quot; class&#x3D;&quot;com.daniel.pojo.Ad">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OSI参考模型">
-<meta property="og:url" content="http://example.com/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:title" content="Spring5">
+<meta property="og:url" content="http://example.com/2021/01/20/Spring%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Welcome to Daniel&#39;s Blog !">
-<meta property="og:description" content="ISO&#x2F;OSI参考模型七层结构1.物理层 2.数据链路层 3.网络层 4.传输层 5.会话层 6.表示层 7.应用层 应用层概念：所有能与用户交互产生网络流量的程序  典型应用层服务：     -文件传输（FTP）     -电子邮件（SMTP）     -万维网（HTTP） 表示层概念：用于处理在两个通信系统中交换信息的表示方式  功能：     -数据格式变换     -数据加密解密">
+<meta property="og:description" content="Set注入普通值注入1&lt;property name&#x3D;&quot;name&quot; value&#x3D;&quot;daniel&quot;&gt;&lt;&#x2F;property&gt;  Bean注入12345&lt;!--注入的变量是一个类，就用bean的方式注入--&gt;&lt;bean id&#x3D;&quot;address&quot; class&#x3D;&quot;com.daniel.pojo.Ad">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-24T08:05:47.000Z">
-<meta property="article:modified_time" content="2020-11-24T10:29:28.347Z">
+<meta property="article:published_time" content="2021-01-20T13:54:58.000Z">
+<meta property="article:modified_time" content="2021-01-20T13:56:47.699Z">
 <meta property="article:author" content="daniel">
-<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="Spring5">
 <meta name="twitter:card" content="summary">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -60,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>OSI参考模型 | Welcome to Daniel&#39;s Blog !</title>
+<title>Spring5 | Welcome to Daniel&#39;s Blog !</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-OSI参考模型" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Spring随堂笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="article-date">
-      <time datetime="2020-11-24T08:05:47.000Z" itemprop="datePublished">2020-11-24</time>
+      <a href="/2021/01/20/Spring%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/" class="article-date">
+      <time datetime="2021-01-20T13:54:58.000Z" itemprop="datePublished">2021-01-20</time>
 </a>
 
 
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      OSI参考模型
+      Spring5
     </h1>
   
 
@@ -298,7 +298,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring5/" rel="tag">Spring5</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -308,62 +308,18 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="ISO-OSI参考模型"><a href="#ISO-OSI参考模型" class="headerlink" title="ISO/OSI参考模型"></a>ISO/OSI参考模型</h2><h3 id="七层结构"><a href="#七层结构" class="headerlink" title="七层结构"></a>七层结构</h3><pre><code>1.物理层
-2.数据链路层
-3.网络层
-4.传输层
-5.会话层
-6.表示层
-7.应用层</code></pre>
-<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><pre><code>概念：所有能与用户交互产生网络流量的程序
+        <h2 id="Set注入"><a href="#Set注入" class="headerlink" title="Set注入"></a>Set注入</h2><h3 id="普通值注入"><a href="#普通值注入" class="headerlink" title="普通值注入"></a>普通值注入</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;daniel&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-典型应用层服务：
-    -文件传输（FTP）
-    -电子邮件（SMTP）
-    -万维网（HTTP）</code></pre>
-<h3 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h3><pre><code>概念：用于处理在两个通信系统中交换信息的表示方式
+<h3 id="Bean注入"><a href="#Bean注入" class="headerlink" title="Bean注入"></a>Bean注入</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--注入的变量是一个类，就用bean的方式注入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;address&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.daniel.pojo.Address&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;address&quot;</span> <span class="attr">value</span>=<span class="string">&quot;德玛西亚&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;address&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;address&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-功能：
-    -数据格式变换
-    -数据加密解密
-    -数据的压缩与恢复</code></pre>
-<h3 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h3><pre><code>概念：向表示层实体（或用户进程）建立连接，并有序的传输数据，即建立同步
+<h3 id="数组注入"><a href="#数组注入" class="headerlink" title="数组注入"></a>数组注入</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;books&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>book1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>book2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">vakue</span>&gt;</span>book3<span class="tag">&lt;/<span class="name">vakue</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-功能：
-    -建立会话，管理、终止会话
-    -使用校验点使会话在通信失效时从校验点/同步点回复通信，从而实现数据同步</code></pre>
-<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><pre><code>任务：负责主机中两个进程的通信（端到端的通信）
-传输单位：报文段或用户数据段
+<h3 id="list注入"><a href="#list注入" class="headerlink" title="list注入"></a>list注入</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hobby1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hobby2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hobby3<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-功能：
-    -可靠传输、不可靠传输
-    -差错控制
-    -流量控制
-    -复用分用
+<h3 id="Map注入"><a href="#Map注入" class="headerlink" title="Map注入"></a>Map注入</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">map</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">&quot;IDCard&quot;</span> <span class="attr">value</span>=<span class="string">&quot;123456&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">entry</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">&quot;BankCard&quot;</span> <span class="attr">value</span>=<span class="string">&quot;123456&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">entry</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-主要协议：TCP、UDP</code></pre>
-<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><pre><code>任务：把分组从源段传到目的端，为分组交换网上的不同主机提供通信服务
-传输单位：数据报
+<h3 id="Property注入"><a href="#Property注入" class="headerlink" title="Property注入"></a>Property注入</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;info&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">props</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;driver&quot;</span>&gt;</span>tony<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;url&quot;</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;username&quot;</span>&gt;</span>root<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;password&quot;</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">props</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-功能：
-    -路由选择（选择合适的路由器来达到传输的最佳路径）
-    -流量控制（控制速度）
-    -差错控制
-    -拥塞控制
-
-主要协议：IP、IPX、ICMP、IGMP、ARP、RARP、OSRF</code></pre>
-<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><pre><code>任务：将网络层传下来的数据报组装成帧
-传输单位：帧
-
-功能：
-    -成帧：定义帧的开始和结束
-    -差错控制：检验是否有帧错和位错
-    -流量控制
-    -访问控制：控制对信道的访问
-
-主要协议：SDLC、HDLC、PPP、STP</code></pre>
-<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><pre><code>任务:在物理媒体上实现比特流的透明传输
-传输单位：比特</code></pre>
 
       
     </div>
@@ -372,13 +328,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">OSI参考模型</a></p>
+        <p><span>本文标题:</span><a href="/2021/01/20/Spring%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/">Spring5</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
-        <p><span>发布时间:</span>2020-11-24, 16:05:47</p>
-        <p><span>最后更新:</span>2020-11-24, 18:29:28</p>
+        <p><span>发布时间:</span>2021-01-20, 21:54:58</p>
+        <p><span>最后更新:</span>2021-01-20, 21:56:47</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" title="OSI参考模型">http://example.com/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2021/01/20/Spring%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/" title="Spring5">http://example.com/2021/01/20/Spring%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2021/01/20/Spring%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -390,16 +346,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">
-                    TCP/IP参考模型
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
-                    体系结构与性能指标
+                <a href="/2021/01/13/Redis%E6%8C%87%E4%BB%A4/">
+                    Redis指令
                 </a>
             </div>
         
@@ -411,7 +361,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ISO-OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">ISO&#x2F;OSI参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">七层结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E7%A4%BA%E5%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">表示层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%9A%E8%AF%9D%E5%B1%82"><span class="toc-number">1.4.</span> <span class="toc-text">会话层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="toc-number">1.5.</span> <span class="toc-text">传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">1.6.</span> <span class="toc-text">网络层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">1.7.</span> <span class="toc-text">数据链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-number">1.8.</span> <span class="toc-text">物理层</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Set%E6%B3%A8%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text">Set注入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E5%80%BC%E6%B3%A8%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text">普通值注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bean%E6%B3%A8%E5%85%A5"><span class="toc-number">1.2.</span> <span class="toc-text">Bean注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E6%B3%A8%E5%85%A5"><span class="toc-number">1.3.</span> <span class="toc-text">数组注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list%E6%B3%A8%E5%85%A5"><span class="toc-number">1.4.</span> <span class="toc-text">list注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map%E6%B3%A8%E5%85%A5"><span class="toc-number">1.5.</span> <span class="toc-text">Map注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Property%E6%B3%A8%E5%85%A5"><span class="toc-number">1.6.</span> <span class="toc-text">Property注入</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -447,7 +397,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"OSI参考模型　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Spring5　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -467,15 +417,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" title="上一篇: TCP/IP参考模型">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" title="下一篇: 体系结构与性能指标">
+            <a href="/2021/01/13/Redis%E6%8C%87%E4%BB%A4/" title="下一篇: Redis指令">
                 <i class="fa fa-angle-right"></i>
             </a>
         

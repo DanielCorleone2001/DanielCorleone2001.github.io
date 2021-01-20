@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="ISO&#x2F;OSI参考模型七层结构1.物理层 2.数据链路层 3.网络层 4.传输层 5.会话层 6.表示层 7.应用层 应用层概念：所有能与用户交互产生网络流量的程序  典型应用层服务：     -文件传输（FTP）     -电子邮件（SMTP）     -万维网（HTTP） 表示层概念：用于处理在两个通信系统中交换信息的表示方式  功能：     -数据格式变换     -数据加密解密">
+<meta name="description" content="KEY（键）1234567key *  查看所有键exists key	查看时候存在某个key，例如 exists k1move key db	把输入的key从当前database移除，也就是删除操作expire key	为该key设置过期的时间，单位为秒： expire k1 10 (10s后k1过期，也就是会被删除)ttl key		查看该key还有多久时间过期：-1代表永不过期，-2代表已经">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OSI参考模型">
-<meta property="og:url" content="http://example.com/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:title" content="Redis指令">
+<meta property="og:url" content="http://example.com/2021/01/13/Redis%E6%8C%87%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Welcome to Daniel&#39;s Blog !">
-<meta property="og:description" content="ISO&#x2F;OSI参考模型七层结构1.物理层 2.数据链路层 3.网络层 4.传输层 5.会话层 6.表示层 7.应用层 应用层概念：所有能与用户交互产生网络流量的程序  典型应用层服务：     -文件传输（FTP）     -电子邮件（SMTP）     -万维网（HTTP） 表示层概念：用于处理在两个通信系统中交换信息的表示方式  功能：     -数据格式变换     -数据加密解密">
+<meta property="og:description" content="KEY（键）1234567key *  查看所有键exists key	查看时候存在某个key，例如 exists k1move key db	把输入的key从当前database移除，也就是删除操作expire key	为该key设置过期的时间，单位为秒： expire k1 10 (10s后k1过期，也就是会被删除)ttl key		查看该key还有多久时间过期：-1代表永不过期，-2代表已经">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-24T08:05:47.000Z">
-<meta property="article:modified_time" content="2020-11-24T10:29:28.347Z">
+<meta property="article:published_time" content="2021-01-13T14:28:10.000Z">
+<meta property="article:modified_time" content="2021-01-13T16:39:40.160Z">
 <meta property="article:author" content="daniel">
-<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -60,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>OSI参考模型 | Welcome to Daniel&#39;s Blog !</title>
+<title>Redis指令 | Welcome to Daniel&#39;s Blog !</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-OSI参考模型" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Redis指令" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="article-date">
-      <time datetime="2020-11-24T08:05:47.000Z" itemprop="datePublished">2020-11-24</time>
+      <a href="/2021/01/13/Redis%E6%8C%87%E4%BB%A4/" class="article-date">
+      <time datetime="2021-01-13T14:28:10.000Z" itemprop="datePublished">2021-01-13</time>
 </a>
 
 
@@ -287,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      OSI参考模型
+      Redis指令
     </h1>
   
 
@@ -298,7 +298,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -308,62 +308,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="ISO-OSI参考模型"><a href="#ISO-OSI参考模型" class="headerlink" title="ISO/OSI参考模型"></a>ISO/OSI参考模型</h2><h3 id="七层结构"><a href="#七层结构" class="headerlink" title="七层结构"></a>七层结构</h3><pre><code>1.物理层
-2.数据链路层
-3.网络层
-4.传输层
-5.会话层
-6.表示层
-7.应用层</code></pre>
-<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><pre><code>概念：所有能与用户交互产生网络流量的程序
+        <h3 id="KEY（键）"><a href="#KEY（键）" class="headerlink" title="KEY（键）"></a>KEY（键）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">key *  查看所有键</span><br><span class="line">exists key	查看时候存在某个key，例如 exists k1</span><br><span class="line">move key db	把输入的key从当前database移除，也就是删除操作</span><br><span class="line">expire key	为该key设置过期的时间，单位为秒： expire k1 10 (10s后k1过期，也就是会被删除)</span><br><span class="line">ttl key		查看该key还有多久时间过期：-1代表永不过期，-2代表已经过期，其他数值表示时间</span><br><span class="line">type key	查看key的类型</span><br><span class="line">get key 	获得该key的value</span><br></pre></td></tr></table></figure>
 
-典型应用层服务：
-    -文件传输（FTP）
-    -电子邮件（SMTP）
-    -万维网（HTTP）</code></pre>
-<h3 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h3><pre><code>概念：用于处理在两个通信系统中交换信息的表示方式
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">----------------------------------------</span><br><span class="line">假设有k1,里面的value为“v1”</span><br><span class="line">set k1 v2 : k1的value:&quot;v2&quot;</span><br><span class="line">get k1: &quot;v1&quot;</span><br><span class="line">del k1: delete k1</span><br><span class="line">append k1 v2: k1&#39;s value: &quot;v1v2&quot;</span><br><span class="line">strlen k1 : get the length of k1,result is 2</span><br><span class="line">----------------------------------------</span><br><span class="line">set k1 1</span><br><span class="line">INCRBY k1: 		k1&#39;s value is 2</span><br><span class="line">InCRBY k1 2: 	k1&#39;s value is 4</span><br><span class="line">DECR k1 : 		k1&#39;s value is 3</span><br><span class="line">DECRBY k1 2: 	k1&#39;s value is 1</span><br><span class="line">----------------------------------------</span><br><span class="line">set k1 123456</span><br><span class="line">GETRANGE k1 0 -1 : return &quot;123456&quot;,all string</span><br><span class="line">GETRANGE k1 0 3  : return &quot;1234&quot;,get string for start index to end index</span><br><span class="line">SETRANGE k1 0 xxx : return &quot;xxx456&quot; ,0 is start index,xxx is the insert string,会被覆盖</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-功能：
-    -数据格式变换
-    -数据加密解密
-    -数据的压缩与恢复</code></pre>
-<h3 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h3><pre><code>概念：向表示层实体（或用户进程）建立连接，并有序的传输数据，即建立同步
-
-功能：
-    -建立会话，管理、终止会话
-    -使用校验点使会话在通信失效时从校验点/同步点回复通信，从而实现数据同步</code></pre>
-<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><pre><code>任务：负责主机中两个进程的通信（端到端的通信）
-传输单位：报文段或用户数据段
-
-功能：
-    -可靠传输、不可靠传输
-    -差错控制
-    -流量控制
-    -复用分用
-
-主要协议：TCP、UDP</code></pre>
-<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><pre><code>任务：把分组从源段传到目的端，为分组交换网上的不同主机提供通信服务
-传输单位：数据报
-
-功能：
-    -路由选择（选择合适的路由器来达到传输的最佳路径）
-    -流量控制（控制速度）
-    -差错控制
-    -拥塞控制
-
-主要协议：IP、IPX、ICMP、IGMP、ARP、RARP、OSRF</code></pre>
-<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><pre><code>任务：将网络层传下来的数据报组装成帧
-传输单位：帧
-
-功能：
-    -成帧：定义帧的开始和结束
-    -差错控制：检验是否有帧错和位错
-    -流量控制
-    -访问控制：控制对信道的访问
-
-主要协议：SDLC、HDLC、PPP、STP</code></pre>
-<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><pre><code>任务:在物理媒体上实现比特流的透明传输
-传输单位：比特</code></pre>
 
       
     </div>
@@ -372,13 +320,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">OSI参考模型</a></p>
+        <p><span>本文标题:</span><a href="/2021/01/13/Redis%E6%8C%87%E4%BB%A4/">Redis指令</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
-        <p><span>发布时间:</span>2020-11-24, 16:05:47</p>
-        <p><span>最后更新:</span>2020-11-24, 18:29:28</p>
+        <p><span>发布时间:</span>2021-01-13, 22:28:10</p>
+        <p><span>最后更新:</span>2021-01-14, 00:39:40</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" title="OSI参考模型">http://example.com/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2021/01/13/Redis%E6%8C%87%E4%BB%A4/" title="Redis指令">http://example.com/2021/01/13/Redis%E6%8C%87%E4%BB%A4/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2021/01/13/Redis%E6%8C%87%E4%BB%A4/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -391,15 +339,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">
-                    TCP/IP参考模型
+                <a href="/2021/01/20/Spring%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/">
+                    Spring5
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
-                    体系结构与性能指标
+                <a href="/2021/01/12/LeetCodeNo-14-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/">
+                    LeetCodeNo.14:环形链表
                 </a>
             </div>
         
@@ -411,7 +359,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ISO-OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">ISO&#x2F;OSI参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">七层结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E7%A4%BA%E5%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">表示层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%9A%E8%AF%9D%E5%B1%82"><span class="toc-number">1.4.</span> <span class="toc-text">会话层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="toc-number">1.5.</span> <span class="toc-text">传输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">1.6.</span> <span class="toc-text">网络层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">1.7.</span> <span class="toc-text">数据链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-number">1.8.</span> <span class="toc-text">物理层</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#KEY%EF%BC%88%E9%94%AE%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">KEY（键）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String"><span class="toc-number">2.</span> <span class="toc-text">String</span></a></li></ol>
         
     </div>
     <style>
@@ -447,7 +395,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"OSI参考模型　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Redis指令　| Welcome to Daniel's Blog !　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -467,7 +415,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" title="上一篇: TCP/IP参考模型">
+            <a href="/2021/01/20/Spring%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/" title="上一篇: Spring5">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -475,7 +423,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" title="下一篇: 体系结构与性能指标">
+            <a href="/2021/01/12/LeetCodeNo-14-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/" title="下一篇: LeetCodeNo.14:环形链表">
                 <i class="fa fa-angle-right"></i>
             </a>
         
