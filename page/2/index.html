@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no" />
-<meta name="author" content="daniel" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
 
 
-    
-    
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Welcome to Daniel&#39;s Blog !">
 <meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Welcome to Daniel&#39;s Blog !">
@@ -26,463 +32,589 @@
 <meta property="article:author" content="daniel">
 <meta name="twitter:card" content="summary">
 
-<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+<link rel="canonical" href="http://example.com/page/2/">
 
 
-    <link rel="alternate" href="/atom.xml" title="Welcome to Daniel&#39;s Blog !" type="application/atom+xml">
-
-
-
-    <link rel="shortcut icon" href="/favicon.png">
-
-
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-
-
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-
-
-
-    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
-
-
-
-<link rel="stylesheet" href="/css/style.css">
-
-
-
-    <style> .article { opacity: 0;} </style>
-
-
-<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-
-
-<title>Welcome to Daniel&#39;s Blog !</title>
-
-<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-<script>
-    var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: true,
-        isPost: false,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: false
-    }
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
 </script>
 
-
-    <script> yiliaConfig.jquery_ui = [false]; </script>
-
-
-
-    <script> yiliaConfig.rootUrl = "\/";</script>
+  <title>Welcome to Daniel's Blog !</title>
+  
 
 
 
 
 
 
-<meta name="generator" content="Hexo 5.2.0"></head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/"></a></h1>
-        </hgroup>
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
 
-        
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
 
-        
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
 
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" href="/gzqin2001@gmail.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" href="/DanielCorleone2001@github.com" title="GitHub"></a>
-                            
-                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
-                            
-                                <a class="fa 网易云音乐" href="/PFboys_" title="网易云音乐"></a>
-                            
-                                <a class="fa QQ" href="/3086909409" title="QQ"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring5/" rel="tag">Spring5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" rel="tag">并发编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag">索引</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">平山村男子职业技术学院保卫科员工</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Welcome to Daniel's Blog !</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">coding</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">daniel</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
       </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="/gzqin2001@gmail.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="/DanielCorleone2001@github.com" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
-                            
-                                <a class="fa 网易云音乐" target="_blank" href="/PFboys_" title="网易云音乐"></a>
-                            
-                                <a class="fa QQ" target="_blank" href="/3086909409" title="QQ"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </section>
+      </div>
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
-</nav>
-      <div class="body-wrap">
-  
-    <article id="post-LeetCodeNo-70-爬楼梯" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/01/11/LeetCodeNo-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" class="article-date">
-      <time datetime="2021-01-11T08:15:03.000Z" itemprop="datePublished">2021-01-11</time>
-</a>
+  </aside>
+  <div class="sidebar-dimmer"></div>
 
 
-    </div>
-  
-  <div class="article-inner">
+    </header>
+
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/11/LeetCodeNo-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/">LeetCodeNo.70:爬楼梯</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？ </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 注意：给定 n 是一个正整数。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 1： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 输入： 2</span></span><br><span class="line"><span class="comment">//输出： 2</span></span><br><span class="line"><span class="comment">//解释： 有两种方法可以爬到楼顶。</span></span><br><span class="line"><span class="comment">//1.  1 阶 + 1 阶</span></span><br><span class="line"><span class="comment">//2.  2 阶 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 2： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 输入： 3</span></span><br><span class="line"><span class="comment">//输出： 3</span></span><br><span class="line"><span class="comment">//解释： 有三种方法可以爬到楼顶。</span></span><br><span class="line"><span class="comment">//1.  1 阶 + 1 阶 + 1 阶</span></span><br><span class="line"><span class="comment">//2.  1 阶 + 2 阶</span></span><br><span class="line"><span class="comment">//3.  2 阶 + 1 阶</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Related Topics 动态规划 </span></span><br><span class="line"><span class="comment">// 👍 1413 👎 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//leetcode submit region begin(Prohibit modification and deletion)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将问题切分成子问题，我要上四层台阶，那么最后一步一定是走一步或者两步</span></span><br><span class="line"><span class="comment">     * 走一步就是f(n-1)，走两步就是f(n-2)</span></span><br><span class="line"><span class="comment">     * 所以f(n)=f(n-1)+f(n-2),没错，斐波那契数列</span></span><br><span class="line"><span class="comment">     * 如果用递归就太呆了</span></span><br><span class="line"><span class="comment">     * 只需要用三个变量一直变换就行了</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> f1=<span class="number">1</span>,f2=<span class="number">2</span>,f3=<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;n;i++)&#123;</span><br><span class="line">            f1=f2;</span><br><span class="line">            f2=f3;</span><br><span class="line">            f3=f1+f2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//leetcode submit region end(Prohibit modification and deletion)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
   </div>
-  
-</article>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
+    <div class="main-inner index posts-expand">
+      
 
-
-
-
-
-
-
-  
-    <article id="post-LeetCodeNo-11-盛水最多的容器" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/01/11/LeetCodeNo-11-%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/" class="article-date">
-      <time datetime="2021-01-11T08:14:45.000Z" itemprop="datePublished">2021-01-11</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/11/LeetCodeNo-11-%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/">LeetCodeNo.11:盛水最多的容器</a>
-    </h1>
-  
-
-      </header>
       
     
-    <div class="article-entry" itemprop="articleBody">
-      
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/11/mysql%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="daniel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Daniel's Blog !">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, </span></span><br><span class="line"><span class="comment">//ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 说明：你不能倾斜容器。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 1： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：[1,8,6,2,5,4,8,3,7]</span></span><br><span class="line"><span class="comment">//输出：49 </span></span><br><span class="line"><span class="comment">//解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 2： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：height = [1,1]</span></span><br><span class="line"><span class="comment">//输出：1</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 3： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：height = [4,3,2,1,4]</span></span><br><span class="line"><span class="comment">//输出：16</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 4： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：height = [1,2,1]</span></span><br><span class="line"><span class="comment">//输出：2</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 提示： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// n = height.length </span></span><br><span class="line"><span class="comment">// 2 &lt;= n &lt;= 3 * 104 </span></span><br><span class="line"><span class="comment">// 0 &lt;= height[i] &lt;= 3 * 104 </span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Related Topics 数组 双指针 </span></span><br><span class="line"><span class="comment">// 👍 2108 👎 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//leetcode submit region begin(Prohibit modification and deletion)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//暴力枚举</span></span><br><span class="line"><span class="comment">//        int Max=0;</span></span><br><span class="line"><span class="comment">//        int area=0;</span></span><br><span class="line"><span class="comment">//        for(int i=0;i&lt;height.length;i++)&#123;</span></span><br><span class="line"><span class="comment">//            for(int j=i+1;j&lt;height.length;j++)&#123;</span></span><br><span class="line"><span class="comment">//                area=(j-i)*Math.min(height[i],height[j]);</span></span><br><span class="line"><span class="comment">//                Max=Math.max(Max,area);</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        return Max;</span></span><br><span class="line"><span class="comment">/******************************方法二(左右边界)***********************/</span></span><br><span class="line">        <span class="keyword">int</span> minHeight=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> Max=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> area=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=height.length-<span class="number">1</span>;i&lt;j;)&#123;</span><br><span class="line">            <span class="comment">//寻找左右两边更高的，依次由外向内寻找</span></span><br><span class="line">            minHeight=height[i]&lt;height[j]?height[i++]:height[j--];</span><br><span class="line">            area=(j+<span class="number">1</span>-i)*minHeight;</span><br><span class="line">            Max=Math.max(Max,area);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//leetcode submit region end(Prohibit modification and deletion)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            <a href="/2021/01/11/mysql%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">MySQL笔记</a>
+        </h2>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
+      <time title="创建时间：2021-01-11 20:38:54" itemprop="dateCreated datePublished" datetime="2021-01-11T20:38:54+08:00">2021-01-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-22 13:03:55" itemprop="dateModified" datetime="2021-01-22T13:03:55+08:00">2021-01-22</time>
+      </span>
 
   
-    <article id="post-LeetcodeNO-283-移动零" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/01/11/LeetcodeNO-283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/" class="article-date">
-      <time datetime="2021-01-11T07:03:47.000Z" itemprop="datePublished">2021-01-11</time>
-</a>
+</div>
 
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/11/LeetcodeNO-283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/">LeetcodeNO.283:移动零</a>
-    </h1>
-  
-
+        </div>
       </header>
-      
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="数据库分类"><a href="#数据库分类" class="headerlink" title="数据库分类"></a>数据库分类</h2><h3 id="关系型数据库（SQL）"><a href="#关系型数据库（SQL）" class="headerlink" title="关系型数据库（SQL）"></a>关系型数据库（SQL）</h3><p>ex:MySQL、Oracl、 Sql Server</p>
+<h3 id="非关系型数据库-NoSQL"><a href="#非关系型数据库-NoSQL" class="headerlink" title="非关系型数据库(NoSQL)"></a>非关系型数据库(NoSQL)</h3><p>Not only SQL</p>
+<p>ex：Redis、MongDb</p>
+<h2 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">登录：mysql -h localhost -P 3306 -u root -p</span><br><span class="line"></span><br><span class="line">显示数据库：show databases;</span><br><span class="line"></span><br><span class="line">进到某个数据库：use **;</span><br><span class="line"></span><br><span class="line">展示表：show tables;</span><br><span class="line"></span><br><span class="line">拼接函数(类似于字符串拼接): SELECT CONCAT(str1,str2) AS &quot;?&quot; FROM **;</span><br><span class="line"></span><br><span class="line">显示表的所有数据： DESC **;</span><br><span class="line"></span><br><span class="line">判断为空的函数: IFNULL(**,0);</span><br><span class="line"></span><br><span class="line">转义函数: ESCAPE &#39;*&#39;;</span><br><span class="line"></span><br><span class="line">从高到低排序: SELECT * FROM * ORDER BY * DESC;</span><br><span class="line">从低到高排序: SELECT * FROM * ORDER BY * ASC;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database if not exits database_test</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Drop database if exits database_test</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use &#96;database_test&#96;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases       -- 查看所有数据库</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据库的数据类型-列类型"><a href="#数据库的数据类型-列类型" class="headerlink" title="数据库的数据类型(列类型)"></a>数据库的数据类型(列类型)</h2><h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><p>tinyint                                                         1Byte</p>
+<p>smallint                                                      2Byte</p>
+<p>mediumint                                                3Byte</p>
+<p><strong>int                                                               4Byte</strong></p>
+<p>bigint                                                          8Byte</p>
+<h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p>float                                                            4Byte</p>
+<p>double                                                       8Byte</p>
+<p>decimal：字符串形式的浮点数</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>char  0~255</p>
+<p><strong>varchar 可变字符串 ：0~65535</strong></p>
+<p>tinytext 微型文本  2^8-1</p>
+<p><strong>text     文本串 2^16-1</strong></p>
+<h3 id="时间日期"><a href="#时间日期" class="headerlink" title="时间日期"></a>时间日期</h3><p>date          YYYY-MM-DD</p>
+<p>time          HH:mm:ss</p>
+<p><strong>datetime   YYYY-MM-DD   HH:mm:ss</strong></p>
+<p><strong>timestamp  时间戳    1970.1.1到现在的毫秒数</strong></p>
+<p>year </p>
+<h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><h2 id="数据库的字段属性"><a href="#数据库的字段属性" class="headerlink" title="数据库的字段属性"></a>数据库的字段属性</h2><h3 id="Unsinged"><a href="#Unsinged" class="headerlink" title="Unsinged"></a>Unsinged</h3><p>无符号类型。不能为负数</p>
+<h3 id="自增"><a href="#自增" class="headerlink" title="自增"></a>自增</h3><p>自动在上一条记录的基础上加1</p>
+<p>通常用来设计唯一的主键</p>
+<h3 id="zerofill"><a href="#zerofill" class="headerlink" title="zerofill"></a>zerofill</h3><p>不足的位数用0填充</p>
+<h3 id="NotNull"><a href="#NotNull" class="headerlink" title="NotNull"></a>NotNull</h3><p>非空，如果不给它赋值就会报错。</p>
+<h3 id="Default"><a href="#Default" class="headerlink" title="Default"></a>Default</h3><p>设置默认的值是多少。</p>
+<h2 id="创建数据库表"><a href="#创建数据库表" class="headerlink" title="创建数据库表"></a>创建数据库表</h2><h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table if not exists &#96;student&#96;(</span><br><span class="line">	&#96;id&#96; INT(4) NOT NULL AUTO_INCREMENT COMMENT &#96;学号&#96;，</span><br><span class="line">    &#96;name&#96; VARCHAR(30) NOT NULL DEFAULT &#96;无名氏&#96; COMMENT &#96;姓名&#96;,</span><br><span class="line">    &#96;pwd&#96; VARCHAR(30) NOT NULL DEFAULT &#96;123456&#96; COMMENT &#96;密码&#96;，</span><br><span class="line">    &#96;sex&#96; VARCHAR(2) NOT NULL DEFAULT &#96;男&#96; COMMENT &#96;性别&#96;,</span><br><span class="line">    &#96;address&#96; VARCHAR(100) DEFAULT NULL COMMENT &#96;住址&#96;,</span><br><span class="line">    PRIMARY KEY(&#96;id&#96;)</span><br><span class="line">)ENGINE&#x3D; INNODB DEFAULT CHARSET &#x3D;utf8</span><br></pre></td></tr></table></figure>
+
+<p>引擎不声明的话也会<strong>默认是INNODB</strong></p>
+<p><strong>记得**</strong>要设计主键**</p>
+<h3 id="偷懒写法"><a href="#偷懒写法" class="headerlink" title="偷懒写法"></a>偷懒写法</h3><p>当然也可以偷懒，使用其他已经存在的表的SQL语句作为模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show create table student</span><br><span class="line">-- 这样就能得到创建某张表的SQL语句</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示表结构"><a href="#显示表结构" class="headerlink" title="显示表结构"></a>显示表结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DESC student</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据表的类型"><a href="#数据表的类型" class="headerlink" title="数据表的类型"></a>数据表的类型</h2><h3 id="MYISAM与INOODB"><a href="#MYISAM与INOODB" class="headerlink" title="MYISAM与INOODB"></a>MYISAM与INOODB</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>MYISAM</th>
+<th>MySQL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>事务支持</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>数据行锁定(行锁)</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>外键约束</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>全文索引</td>
+<td>支持</td>
+<td>支持（MySQL5.6以后支持）</td>
+</tr>
+<tr>
+<td>表空间的大小</td>
+<td>较小</td>
+<td>较大</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>节约空间，速度较快</td>
+<td>安全性高，支持事务，多表多用户操作</td>
+</tr>
+</tbody></table>
+<h2 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h2><h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-- 重命名</span><br><span class="line">ALTER TABLE student RENAME AS student1</span><br><span class="line">-- 增加表的字段</span><br><span class="line">ALTER TABLE student ADD age INT(11)</span><br><span class="line">-- 修改表的字段的约束</span><br><span class="line">ALTER TABLE student MODIFY age VARCHAR(11)</span><br><span class="line">-- 修改表的字段的名字</span><br><span class="line">ALTER TABLE student CHANGE age age1</span><br><span class="line"></span><br><span class="line">-- 删除表的字段</span><br><span class="line">ALTER TABLE student DROP age</span><br></pre></td></tr></table></figure>
+
+<h3 id="表重命名"><a href="#表重命名" class="headerlink" title="表重命名"></a>表重命名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student RENAME AS student1</span><br></pre></td></tr></table></figure>
+
+<h3 id="增加表的字段"><a href="#增加表的字段" class="headerlink" title="增加表的字段"></a>增加表的字段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student ADD age INT(11)</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改表的字段的约束"><a href="#修改表的字段的约束" class="headerlink" title="修改表的字段的约束"></a>修改表的字段的约束</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student MODIFY age VARCHAR(11)</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改表的字段的名字"><a href="#修改表的字段的名字" class="headerlink" title="修改表的字段的名字"></a>修改表的字段的名字</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student CHANGE age age1</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除表的字段"><a href="#删除表的字段" class="headerlink" title="删除表的字段"></a>删除表的字段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student DROP age</span><br></pre></td></tr></table></figure>
+
+
+
+
       
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/11/LeetCodeNo-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="daniel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Daniel's Blog !">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 输入: [0,1,0,3,12]</span></span><br><span class="line"><span class="comment">//输出: [1,3,12,0,0] </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 说明: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// 必须在原数组上操作，不能拷贝额外的数组。 </span></span><br><span class="line"><span class="comment">// 尽量减少操作次数。 </span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Related Topics 数组 双指针 </span></span><br><span class="line"><span class="comment">// 👍 908 👎 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//leetcode submit region begin(Prohibit modification and deletion)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        if(nums==null) return;</span></span><br><span class="line"><span class="comment">//        int j=0;</span></span><br><span class="line"><span class="comment">//        //先计算出非零的个数，并按按序存下</span></span><br><span class="line"><span class="comment">//        for(int i=0;i&lt;nums.length;i++) &#123;</span></span><br><span class="line"><span class="comment">//            if (nums[i]!=0) &#123;</span></span><br><span class="line"><span class="comment">//                nums[j++]=nums[i];</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        //剩下的全为0，置为0即可</span></span><br><span class="line"><span class="comment">//        for(int i=j;i&lt;nums.length;i++) &#123;</span></span><br><span class="line"><span class="comment">//            nums[i]=0;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">/************************方法二（次优解）**************************************/</span></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 类比快排，将0作为切分点，不等于0的放左边，</span></span><br><span class="line"><span class="comment">         * 其中j记录的是0的位置</span></span><br><span class="line"><span class="comment">         * 而i用作遍历一边</span></span><br><span class="line"><span class="comment">         * 时间复杂度O（n）</span></span><br><span class="line"><span class="comment">         * 空间复杂度O(1)</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line"><span class="comment">//        if(nums == null) return;</span></span><br><span class="line"><span class="comment">//        int j=0;</span></span><br><span class="line"><span class="comment">//        for (int i=0;i&lt;nums.length;i++) &#123;</span></span><br><span class="line"><span class="comment">//            if(nums[i] != 0) &#123;</span></span><br><span class="line"><span class="comment">//                int temp=nums[i];</span></span><br><span class="line"><span class="comment">//                nums[i]=nums[j];</span></span><br><span class="line"><span class="comment">//                nums[j++]=temp;</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"><span class="comment">/************************************方法三（更优解）************************/</span></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 思路和第二个一样，只是对于不用引进多余的空间来存，减小了空间复杂度，但相应的多了一步判断而已</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != <span class="number">0</span>)&#123;</span><br><span class="line">                nums[j]=nums[i];</span><br><span class="line">                <span class="keyword">if</span>(i != j)&#123;</span><br><span class="line">                    nums[i]=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//leetcode submit region end(Prohibit modification and deletion)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            <a href="/2021/01/11/LeetCodeNo-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" class="post-title-link" itemprop="url">LeetCodeNo.70:爬楼梯</a>
+        </h2>
 
-
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
+      <time title="创建时间：2021-01-11 16:15:03 / 修改时间：16:16:01" itemprop="dateCreated datePublished" datetime="2021-01-11T16:15:03+08:00">2021-01-11</time>
+    </span>
 
   
-    <article id="post-LRU缓存淘汰算法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/12/30/LRU%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/" class="article-date">
-      <time datetime="2020-12-30T13:16:46.000Z" itemprop="datePublished">2020-12-30</time>
-</a>
+</div>
 
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/30/LRU%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/">链表实现LRU缓存淘汰算法</a>
-    </h1>
-  
-
+        </div>
       </header>
-      
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？ </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 注意：给定 n 是一个正整数。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 1： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 输入： 2</span></span><br><span class="line"><span class="comment">//输出： 2</span></span><br><span class="line"><span class="comment">//解释： 有两种方法可以爬到楼顶。</span></span><br><span class="line"><span class="comment">//1.  1 阶 + 1 阶</span></span><br><span class="line"><span class="comment">//2.  2 阶 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 2： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 输入： 3</span></span><br><span class="line"><span class="comment">//输出： 3</span></span><br><span class="line"><span class="comment">//解释： 有三种方法可以爬到楼顶。</span></span><br><span class="line"><span class="comment">//1.  1 阶 + 1 阶 + 1 阶</span></span><br><span class="line"><span class="comment">//2.  1 阶 + 2 阶</span></span><br><span class="line"><span class="comment">//3.  2 阶 + 1 阶</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Related Topics 动态规划 </span></span><br><span class="line"><span class="comment">// 👍 1413 👎 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//leetcode submit region begin(Prohibit modification and deletion)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将问题切分成子问题，我要上四层台阶，那么最后一步一定是走一步或者两步</span></span><br><span class="line"><span class="comment">     * 走一步就是f(n-1)，走两步就是f(n-2)</span></span><br><span class="line"><span class="comment">     * 所以f(n)=f(n-1)+f(n-2),没错，斐波那契数列</span></span><br><span class="line"><span class="comment">     * 如果用递归就太呆了</span></span><br><span class="line"><span class="comment">     * 只需要用三个变量一直变换就行了</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> f1=<span class="number">1</span>,f2=<span class="number">2</span>,f3=<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;n;i++)&#123;</span><br><span class="line">            f1=f2;</span><br><span class="line">            f2=f3;</span><br><span class="line">            f3=f1+f2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//leetcode submit region end(Prohibit modification and deletion)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
       
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/11/LeetCodeNo-11-%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="daniel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Daniel's Blog !">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
-        <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p>说到链表，很相似的就是数组。二者之间的区别其实很明显：</p>
+            <a href="/2021/01/11/LeetCodeNo-11-%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/" class="post-title-link" itemprop="url">LeetCodeNo.11:盛水最多的容器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-01-11 16:14:45 / 修改时间：16:15:36" itemprop="dateCreated datePublished" datetime="2021-01-11T16:14:45+08:00">2021-01-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, </span></span><br><span class="line"><span class="comment">//ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 说明：你不能倾斜容器。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 1： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：[1,8,6,2,5,4,8,3,7]</span></span><br><span class="line"><span class="comment">//输出：49 </span></span><br><span class="line"><span class="comment">//解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 2： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：height = [1,1]</span></span><br><span class="line"><span class="comment">//输出：1</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 3： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：height = [4,3,2,1,4]</span></span><br><span class="line"><span class="comment">//输出：16</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 4： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：height = [1,2,1]</span></span><br><span class="line"><span class="comment">//输出：2</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 提示： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// n = height.length </span></span><br><span class="line"><span class="comment">// 2 &lt;= n &lt;= 3 * 104 </span></span><br><span class="line"><span class="comment">// 0 &lt;= height[i] &lt;= 3 * 104 </span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Related Topics 数组 双指针 </span></span><br><span class="line"><span class="comment">// 👍 2108 👎 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//leetcode submit region begin(Prohibit modification and deletion)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//暴力枚举</span></span><br><span class="line"><span class="comment">//        int Max=0;</span></span><br><span class="line"><span class="comment">//        int area=0;</span></span><br><span class="line"><span class="comment">//        for(int i=0;i&lt;height.length;i++)&#123;</span></span><br><span class="line"><span class="comment">//            for(int j=i+1;j&lt;height.length;j++)&#123;</span></span><br><span class="line"><span class="comment">//                area=(j-i)*Math.min(height[i],height[j]);</span></span><br><span class="line"><span class="comment">//                Max=Math.max(Max,area);</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        return Max;</span></span><br><span class="line"><span class="comment">/******************************方法二(左右边界)***********************/</span></span><br><span class="line">        <span class="keyword">int</span> minHeight=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> Max=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> area=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=height.length-<span class="number">1</span>;i&lt;j;)&#123;</span><br><span class="line">            <span class="comment">//寻找左右两边更高的，依次由外向内寻找</span></span><br><span class="line">            minHeight=height[i]&lt;height[j]?height[i++]:height[j--];</span><br><span class="line">            area=(j+<span class="number">1</span>-i)*minHeight;</span><br><span class="line">            Max=Math.max(Max,area);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//leetcode submit region end(Prohibit modification and deletion)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/11/LeetcodeNO-283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="daniel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Daniel's Blog !">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/11/LeetcodeNO-283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/" class="post-title-link" itemprop="url">LeetcodeNO.283:移动零</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-01-11 15:03:47 / 修改时间：15:05:21" itemprop="dateCreated datePublished" datetime="2021-01-11T15:03:47+08:00">2021-01-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 输入: [0,1,0,3,12]</span></span><br><span class="line"><span class="comment">//输出: [1,3,12,0,0] </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 说明: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// 必须在原数组上操作，不能拷贝额外的数组。 </span></span><br><span class="line"><span class="comment">// 尽量减少操作次数。 </span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Related Topics 数组 双指针 </span></span><br><span class="line"><span class="comment">// 👍 908 👎 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//leetcode submit region begin(Prohibit modification and deletion)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        if(nums==null) return;</span></span><br><span class="line"><span class="comment">//        int j=0;</span></span><br><span class="line"><span class="comment">//        //先计算出非零的个数，并按按序存下</span></span><br><span class="line"><span class="comment">//        for(int i=0;i&lt;nums.length;i++) &#123;</span></span><br><span class="line"><span class="comment">//            if (nums[i]!=0) &#123;</span></span><br><span class="line"><span class="comment">//                nums[j++]=nums[i];</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        //剩下的全为0，置为0即可</span></span><br><span class="line"><span class="comment">//        for(int i=j;i&lt;nums.length;i++) &#123;</span></span><br><span class="line"><span class="comment">//            nums[i]=0;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">/************************方法二（次优解）**************************************/</span></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 类比快排，将0作为切分点，不等于0的放左边，</span></span><br><span class="line"><span class="comment">         * 其中j记录的是0的位置</span></span><br><span class="line"><span class="comment">         * 而i用作遍历一边</span></span><br><span class="line"><span class="comment">         * 时间复杂度O（n）</span></span><br><span class="line"><span class="comment">         * 空间复杂度O(1)</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line"><span class="comment">//        if(nums == null) return;</span></span><br><span class="line"><span class="comment">//        int j=0;</span></span><br><span class="line"><span class="comment">//        for (int i=0;i&lt;nums.length;i++) &#123;</span></span><br><span class="line"><span class="comment">//            if(nums[i] != 0) &#123;</span></span><br><span class="line"><span class="comment">//                int temp=nums[i];</span></span><br><span class="line"><span class="comment">//                nums[i]=nums[j];</span></span><br><span class="line"><span class="comment">//                nums[j++]=temp;</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"><span class="comment">/************************************方法三（更优解）************************/</span></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 思路和第二个一样，只是对于不用引进多余的空间来存，减小了空间复杂度，但相应的多了一步判断而已</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != <span class="number">0</span>)&#123;</span><br><span class="line">                nums[j]=nums[i];</span><br><span class="line">                <span class="keyword">if</span>(i != j)&#123;</span><br><span class="line">                    nums[i]=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//leetcode submit region end(Prohibit modification and deletion)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/30/LRU%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="daniel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Daniel's Blog !">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/30/LRU%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">链表实现LRU缓存淘汰算法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-30 21:16:46 / 修改时间：22:50:12" itemprop="dateCreated datePublished" datetime="2020-12-30T21:16:46+08:00">2020-12-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p>说到链表，很相似的就是数组。二者之间的区别其实很明显：</p>
 <p>​                -数组能实现随机访问，而链表只能从头部开始慢慢往下找</p>
 <p>​                -数组对于内存的要求很高：一定要是一段连续的空间；</p>
 <p>​                -链表的话不要求是连续的内存空间，只要求满足大小即可</p>
@@ -525,63 +657,69 @@
 
       
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JAVA并发编程-二" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/12/30/JAVA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%BA%8C/" class="article-date">
-      <time datetime="2020-12-30T08:38:16.000Z" itemprop="datePublished">2020-12-30</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/30/JAVA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%BA%8C/">JAVA并发编程(二)</a>
-    </h1>
   
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/30/JAVA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%BA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="daniel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Daniel's Blog !">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
-        <h2 id="并发BUG的三个源头"><a href="#并发BUG的三个源头" class="headerlink" title="并发BUG的三个源头"></a>并发BUG的三个源头</h2><h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>·一个线程对共享变量的修改，另外一个线程能够立刻看到，我们称为<strong>可见性</strong></p>
+            <a href="/2020/12/30/JAVA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%BA%8C/" class="post-title-link" itemprop="url">JAVA并发编程(二)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-30 16:38:16 / 修改时间：19:00:19" itemprop="dateCreated datePublished" datetime="2020-12-30T16:38:16+08:00">2020-12-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="并发BUG的三个源头"><a href="#并发BUG的三个源头" class="headerlink" title="并发BUG的三个源头"></a>并发BUG的三个源头</h2><h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>·一个线程对共享变量的修改，另外一个线程能够立刻看到，我们称为<strong>可见性</strong></p>
 <p>·单核时代，由于所有的线程都是在同一个CPU上执行的，CPU的缓存(cache)和内存数据的一致性其实很好解决。</p>
 <p>因为一个进程对缓存的读写操作，对于其他的线程是具有<strong>可见性</strong>的。很简单的道理，二者都作用在CPU的缓存上，当某一线程改变了内存的值后让出使用权，其他线程再访问的时候是能正确的获取到相应的值。</p>
 <p>·多核时代就不一样了，多核导致每个CPU都有自己的cache，对于维持缓存和内存数据的一致性就变得困难了，相应的也很容易产生bug : (   这时候不同CPU上的线程是<strong>不具备可见性的</strong></p>
@@ -620,63 +758,69 @@
 
       
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" rel="tag">并发编程</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java并发编程-一" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/12/30/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%B8%80/" class="article-date">
-      <time datetime="2020-12-30T04:37:46.000Z" itemprop="datePublished">2020-12-30</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/30/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%B8%80/">java并发编程(一)</a>
-    </h1>
   
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/30/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="daniel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Daniel's Blog !">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
-        <h2 id="并发编程（开坑，填坑全靠毅力）"><a href="#并发编程（开坑，填坑全靠毅力）" class="headerlink" title="并发编程（开坑，填坑全靠毅力）"></a>并发编程（开坑，填坑全靠毅力）</h2><h3 id="并发编程的核心问题"><a href="#并发编程的核心问题" class="headerlink" title="并发编程的核心问题"></a>并发编程的核心问题</h3><h4 id="分工"><a href="#分工" class="headerlink" title="分工"></a>分工</h4><p>·概念：如何高效地<strong>拆解任务</strong>并<strong>分配给线程</strong></p>
+            <a href="/2020/12/30/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%B8%80/" class="post-title-link" itemprop="url">java并发编程(一)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-30 12:37:46 / 修改时间：16:37:32" itemprop="dateCreated datePublished" datetime="2020-12-30T12:37:46+08:00">2020-12-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="并发编程（开坑，填坑全靠毅力）"><a href="#并发编程（开坑，填坑全靠毅力）" class="headerlink" title="并发编程（开坑，填坑全靠毅力）"></a>并发编程（开坑，填坑全靠毅力）</h2><h3 id="并发编程的核心问题"><a href="#并发编程的核心问题" class="headerlink" title="并发编程的核心问题"></a>并发编程的核心问题</h3><h4 id="分工"><a href="#分工" class="headerlink" title="分工"></a>分工</h4><p>·概念：如何高效地<strong>拆解任务</strong>并<strong>分配给线程</strong></p>
 <p>·举例：Fork/Join框架</p>
 <h4 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h4><p>·概念：<strong>线程</strong>之间怎么协作运行</p>
 <p>·举例：CountDownLatch</p>
@@ -686,63 +830,75 @@
 
       
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" rel="tag">并发编程</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-数组" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/12/29/%E6%95%B0%E7%BB%84/" class="article-date">
-      <time datetime="2020-12-29T13:02:09.000Z" itemprop="datePublished">2020-12-29</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/29/%E6%95%B0%E7%BB%84/">数组</a>
-    </h1>
   
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/29/%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="daniel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Daniel's Blog !">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
-        <h2 id="浅谈数组"><a href="#浅谈数组" class="headerlink" title="浅谈数组"></a>浅谈数组</h2><h3 id="具体定义"><a href="#具体定义" class="headerlink" title="具体定义"></a>具体定义</h3><p><strong>·</strong>一种<strong>线性表</strong>数据结构，存储的内容在<strong>内存空间里面是连续</strong>的，存储的<strong>数据类型相同</strong>。</p>
+            <a href="/2020/12/29/%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">数组</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-29 21:02:09" itemprop="dateCreated datePublished" datetime="2020-12-29T21:02:09+08:00">2020-12-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-30 22:16:43" itemprop="dateModified" datetime="2020-12-30T22:16:43+08:00">2020-12-30</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="浅谈数组"><a href="#浅谈数组" class="headerlink" title="浅谈数组"></a>浅谈数组</h2><h3 id="具体定义"><a href="#具体定义" class="headerlink" title="具体定义"></a>具体定义</h3><p><strong>·</strong>一种<strong>线性表</strong>数据结构，存储的内容在<strong>内存空间里面是连续</strong>的，存储的<strong>数据类型相同</strong>。</p>
 <p>·结构是线性表的数据结构：数组、链表、栈、队列</p>
 <h3 id="数组特性"><a href="#数组特性" class="headerlink" title="数组特性"></a>数组特性</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>·能随从访问数组元素</p>
 <p>·实现方法：</p>
@@ -793,63 +949,75 @@
 
       
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-死锁的处理策略" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" class="article-date">
-      <time datetime="2020-11-29T12:54:10.000Z" itemprop="datePublished">2020-11-29</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/">死锁的处理策略</a>
-    </h1>
   
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="daniel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Daniel's Blog !">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
-        <h2 id="静态策略：预防死锁"><a href="#静态策略：预防死锁" class="headerlink" title="静态策略：预防死锁"></a>静态策略：预防死锁</h2><p>核心思想：破坏死锁的四个条件之一或几个，预防死锁的发生</p>
+            <a href="/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" class="post-title-link" itemprop="url">死锁的处理策略</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-29 20:54:10" itemprop="dateCreated datePublished" datetime="2020-11-29T20:54:10+08:00">2020-11-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-04 12:27:22" itemprop="dateModified" datetime="2020-12-04T12:27:22+08:00">2020-12-04</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="静态策略：预防死锁"><a href="#静态策略：预防死锁" class="headerlink" title="静态策略：预防死锁"></a>静态策略：预防死锁</h2><p>核心思想：破坏死锁的四个条件之一或几个，预防死锁的发生</p>
 <h3 id="破坏互斥条件"><a href="#破坏互斥条件" class="headerlink" title="破坏互斥条件"></a>破坏互斥条件</h3><p><strong>SPOOLing技术</strong>：将某互斥资源改成可同时使用的资源。</p>
 <p>缺点：很明显，互斥性的存在是为了保护系统的安全，破坏了互斥性会危害系统的安全</p>
 <h3 id="破坏不剥夺条件"><a href="#破坏不剥夺条件" class="headerlink" title="破坏不剥夺条件"></a>破坏不剥夺条件</h3><p>思想：进程所拥有的资源未使用完之前就用某种方式将其夺走，而不是等待主动释放</p>
@@ -871,63 +1039,69 @@
 <h2 id="动态策略：避免死锁"><a href="#动态策略：避免死锁" class="headerlink" title="动态策略：避免死锁"></a>动态策略：避免死锁</h2><h3 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h3><h2 id="死锁的检测和解除"><a href="#死锁的检测和解除" class="headerlink" title="死锁的检测和解除"></a>死锁的检测和解除</h2>
       
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-死锁" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/29/%E6%AD%BB%E9%94%81/" class="article-date">
-      <time datetime="2020-11-29T12:10:43.000Z" itemprop="datePublished">2020-11-29</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/29/%E6%AD%BB%E9%94%81/">死锁</a>
-    </h1>
   
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/29/%E6%AD%BB%E9%94%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="daniel">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Welcome to Daniel's Blog !">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
-        <h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><h3 id="概念区分"><a href="#概念区分" class="headerlink" title="概念区分"></a>概念区分</h3><h4 id="死锁："><a href="#死锁：" class="headerlink" title="死锁："></a>死锁：</h4><p>​        各个进程在互相等待对方的资源，导致各个进程全都堵塞，无法向前推进</p>
+            <a href="/2020/11/29/%E6%AD%BB%E9%94%81/" class="post-title-link" itemprop="url">死锁</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-29 20:10:43 / 修改时间：20:53:49" itemprop="dateCreated datePublished" datetime="2020-11-29T20:10:43+08:00">2020-11-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><h3 id="概念区分"><a href="#概念区分" class="headerlink" title="概念区分"></a>概念区分</h3><h4 id="死锁："><a href="#死锁：" class="headerlink" title="死锁："></a>死锁：</h4><p>​        各个进程在互相等待对方的资源，导致各个进程全都堵塞，无法向前推进</p>
 <h4 id="饥饿："><a href="#饥饿：" class="headerlink" title="饥饿："></a>饥饿：</h4><p>​        进程由于长期得不到资源，而无法向前推进。</p>
 <h4 id="死循环："><a href="#死循环：" class="headerlink" title="死循环："></a>死循环：</h4><p>​        进程执行的过程中一直执行某些语句，不跳出循环</p>
 <h3 id="三者异同点"><a href="#三者异同点" class="headerlink" title="三者异同点"></a>三者异同点</h3><h4 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h4><p>​        进程无法向前推进的现象</p>
@@ -943,196 +1117,112 @@
 
       
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-奈氏准则与香农定理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/26/%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E4%B8%8E%E9%A6%99%E5%86%9C%E5%AE%9A%E7%90%86/" class="article-date">
-      <time datetime="2020-11-26T08:00:07.000Z" itemprop="datePublished">2020-11-26</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/26/%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E4%B8%8E%E9%A6%99%E5%86%9C%E5%AE%9A%E7%90%86/">奈氏准则与香农定理</a>
-    </h1>
-  
-
-      </header>
-      
     
-    <div class="article-entry" itemprop="articleBody">
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
       
-          
-        <h3 id="奈式准则"><a href="#奈式准则" class="headerlink" title="奈式准则"></a>奈式准则</h3><p>·也叫做奈奎斯特定理</p>
-<p>·为了避免串扰，规定码元传输速率最大为2W Baud，</p>
-<p>​        其中W为信道带宽（信道能接收的最高频率 - 信道能接收最低频率，单位是Hz）</p>
-<p>·<strong>注意：</strong></p>
-<p>​            -奈式准则只约束了码元传输速率，并没有限制信息传输率。</p>
-<p>​            -要想提高数据的传输率，就要使得每个码元携带的比特数变多。</p>
-<p>​             原理很简单：传输率=码元传输率*一个码元中的比特位数。 </p>
-<p>·当然数据传输率也有最大的限制，但不是奈式准则规定的</p>
-<p>​        最大数据传输率=2W * log2(V) ，V是码元的种数,单位是b/s</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例题:带宽为3kHz，4相位，每个相位有4种振幅，求最大数据传输率？</span><br><span class="line"></span><br><span class="line">解答：2*3k* log2(4*4)&#x3D;24k b&#x2F;s</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="香农定理"><a href="#香农定理" class="headerlink" title="香农定理"></a>香农定理</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
-    </nav>
-  
+    </footer>
+  </article>
 </div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2020-2021 daniel
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
-</footer>
-    </div>
-    
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
 
 
 
 
 
-<div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
-</div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+      
+
 <script>
-    // Open in New Window
-    
-        var oOpenInNew = {
-            
-            
-             post: ".article-entry a[href], .copyright a[href]", 
-             tags: ".article-tag a", 
-            
-            
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-            
-            
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
-    
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
 </script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">daniel</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
 </body>
 </html>
