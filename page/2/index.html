@@ -270,6 +270,67 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-LeetCodeNo-70-爬楼梯" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/01/11/LeetCodeNo-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" class="article-date">
+      <time datetime="2021-01-11T08:15:03.000Z" itemprop="datePublished">2021-01-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/11/LeetCodeNo-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/">LeetCodeNo.70:爬楼梯</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？ </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 注意：给定 n 是一个正整数。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 1： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 输入： 2</span></span><br><span class="line"><span class="comment">//输出： 2</span></span><br><span class="line"><span class="comment">//解释： 有两种方法可以爬到楼顶。</span></span><br><span class="line"><span class="comment">//1.  1 阶 + 1 阶</span></span><br><span class="line"><span class="comment">//2.  2 阶 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 2： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 输入： 3</span></span><br><span class="line"><span class="comment">//输出： 3</span></span><br><span class="line"><span class="comment">//解释： 有三种方法可以爬到楼顶。</span></span><br><span class="line"><span class="comment">//1.  1 阶 + 1 阶 + 1 阶</span></span><br><span class="line"><span class="comment">//2.  1 阶 + 2 阶</span></span><br><span class="line"><span class="comment">//3.  2 阶 + 1 阶</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Related Topics 动态规划 </span></span><br><span class="line"><span class="comment">// 👍 1413 👎 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//leetcode submit region begin(Prohibit modification and deletion)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将问题切分成子问题，我要上四层台阶，那么最后一步一定是走一步或者两步</span></span><br><span class="line"><span class="comment">     * 走一步就是f(n-1)，走两步就是f(n-2)</span></span><br><span class="line"><span class="comment">     * 所以f(n)=f(n-1)+f(n-2),没错，斐波那契数列</span></span><br><span class="line"><span class="comment">     * 如果用递归就太呆了</span></span><br><span class="line"><span class="comment">     * 只需要用三个变量一直变换就行了</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> f1=<span class="number">1</span>,f2=<span class="number">2</span>,f3=<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;n;i++)&#123;</span><br><span class="line">            f1=f2;</span><br><span class="line">            f2=f3;</span><br><span class="line">            f3=f1+f2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//leetcode submit region end(Prohibit modification and deletion)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-LeetCodeNo-11-盛水最多的容器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -962,77 +1023,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-读者-写者问题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/11/26/%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98/" class="article-date">
-      <time datetime="2020-11-26T07:15:21.000Z" itemprop="datePublished">2020-11-26</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/26/%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98/">读者-写者问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>·问题描述：</strong></p>
-<p>存在读者和写者两组并发的进程，可以共享一份文件。</p>
-<p>允许多个读者同时访问临界区文件，但某一时刻只能一个写者写入文件。</p>
-<p>因此写入文件时，应保证读者和上一次的写者都已经撤离。</p>
-<p>写进程时，读进程、其他写进程都是不允许的</p>
-<p><strong>核心问题：</strong>怎么解决多个读者同时读</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">semaphore rw=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> counter=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">writer()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(rw);<span class="comment">//加锁，保证对读进程和其他写进程都是互斥的</span></span><br><span class="line">        ..<span class="comment">//写文件</span></span><br><span class="line">        V(rw);<span class="comment">//解锁</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">reader()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(counter==<span class="number">0</span>)<span class="comment">//code1 </span></span><br><span class="line">          P(rw);<span class="comment">//是第一个读进程，就要加锁;code2</span></span><br><span class="line">        counter++;</span><br><span class="line">        ..<span class="comment">//读文件</span></span><br><span class="line">		counter--;</span><br><span class="line">        <span class="keyword">if</span>(counter==<span class="number">0</span>) V(rw);<span class="comment">//是最后一个读进程，就要解锁</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">存在的问题：若两个读进程并发执行，则有可能发生这种情况:</span></span><br><span class="line"><span class="comment">code1(进程1)-&gt;code2(进程1)-&gt;code1(并发导致，换到进程2)-&gt;code2(此时rw==0，进程2处于阻塞态)</span></span><br><span class="line"><span class="comment">可见此时读进程会是互斥的</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">改进算法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">semaphore rw=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> counter=<span class="number">0</span>;</span><br><span class="line">semaphore mutex=<span class="number">1</span>;<span class="comment">//保证对counter变量的互斥访问，是上一部分问题的解决方法</span></span><br><span class="line">semaphore w=<span class="number">1</span>;<span class="comment">//设置写操作优先于读操作</span></span><br><span class="line"></span><br><span class="line">writer()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(w);</span><br><span class="line">        P(rw);</span><br><span class="line">        ..<span class="comment">//写文件</span></span><br><span class="line">		V(rw);</span><br><span class="line">        V(w);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">reader()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(w);</span><br><span class="line">        P(mutex);</span><br><span class="line">        <span class="keyword">if</span>(counter==<span class="number">0</span>)</span><br><span class="line">            P(rw);</span><br><span class="line">        counter++;</span><br><span class="line">        V(mutex);</span><br><span class="line">        V(w);</span><br><span class="line">        ..<span class="comment">//读文件</span></span><br><span class="line">        P(mutex);</span><br><span class="line">        counter--;</span><br><span class="line">        <span class="keyword">if</span>(counter==<span class="number">0</span>)</span><br><span class="line">            V(rw);</span><br><span class="line">        V(mutex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
     </div>
 
       
