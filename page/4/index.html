@@ -1,1419 +1,1150 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
+
+
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Welcome to Daniel&#39;s Blog !">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+    <title>Welcome to Daniel&#39;s Blog !</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-<link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
-  </script>
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to Daniel&#39;s Blog !">
-<meta property="og:url" content="http://example.com/page/4/index.html">
-<meta property="og:site_name" content="Welcome to Daniel&#39;s Blog !">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="daniel">
-<meta name="twitter:card" content="summary">
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
-<link rel="canonical" href="http://example.com/page/4/">
 
 
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Welcome to Daniel&#39;s Blog !</span>
+                </a>
+            </div>
+            
 
-  <title>Welcome to Daniel's Blog !</title>
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
   
-
-
-
-
-
-
-  <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Welcome to Daniel's Blog !</h1>
-      <i class="logo-line"></i>
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
     </a>
-      <p class="site-subtitle" itemprop="description">coding</p>
-  </div>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
 
+<div id="mobile-nav" class="side-nav sidenav">
 
-
-
-
-
-
-</div>
+    <div class="mobile-head bg-color">
         
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
-        </section>
-        <!--/noindex-->
-
-        <section class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">daniel</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">40</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">17</span>
-        <span class="site-state-item-name">标签</span>
-      </div>
-  </nav>
-</div>
-
-
-
-        </section>
-      </div>
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Welcome to Daniel&#39;s Blog !</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-    <div class="main-inner index posts-expand">
-      
-
-      
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
           
-            <a href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">TCP/IP参考模型</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-24 16:47:14 / 修改时间：21:56:43" itemprop="dateCreated datePublished" datetime="2020-11-24T16:47:14+08:00">2020-11-24</time>
-    </span>
-
-  
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
 </div>
+
 
         </div>
-      </header>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
 
     
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                coding
+                
+            </div>
+
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+
+
+    </div>
+</div>
+
+
+<main class="content">
+
     
+
     
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="TCP-IP参考模型"><a href="#TCP-IP参考模型" class="headerlink" title="TCP/IP参考模型"></a>TCP/IP参考模型</h2><h3 id="四层结构"><a href="#四层结构" class="headerlink" title="四层结构"></a>四层结构</h3><pre><code>1.网络接口层    
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/24/TCP-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="TCP/IP参考模型">
+                            
+                            <span class="card-title">TCP/IP参考模型</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                TCP/IP参考模型四层结构1.网络接口层    
     -协议：Ethernet、ATM、Frame Relay
 2.网际层
     -协议：IP
 3.传输层
     -协议：TCP、UDP
 4.应用层
-    -协议：HTTP、FTP、DNS</code></pre>
-<h3 id="TCP-IP与ISO-OSI对比"><a href="#TCP-IP与ISO-OSI对比" class="headerlink" title="TCP/IP与ISO/OSI对比"></a>TCP/IP与ISO/OSI对比</h3><pre><code>         ISO/OSI                TCP/IP
-网络层    无连接+面向连接          无连接
-传输层       面向连接                无连接+面向连接</code></pre>
-<h3 id="五层参考模型"><a href="#五层参考模型" class="headerlink" title="五层参考模型"></a>五层参考模型</h3><pre><code>综合了TIP/IP和ISO/OSI的优点
-结构：（自顶向下）
-    -应用层
-    -传输层
-    -网络层
-    -数据链路层
-    -物理层</code></pre>
+    -协议：HTTP、FTP
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
 
-      
-    </div>
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                            <span class="chip bg-color">计算机网络</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="OSI参考模型">
+                            
+                            <span class="card-title">OSI参考模型</span>
+                        </div>
+                    </a>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/24/OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">OSI参考模型</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-24 16:05:47 / 修改时间：18:29:28" itemprop="dateCreated datePublished" datetime="2020-11-24T16:05:47+08:00">2020-11-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="ISO-OSI参考模型"><a href="#ISO-OSI参考模型" class="headerlink" title="ISO/OSI参考模型"></a>ISO/OSI参考模型</h2><h3 id="七层结构"><a href="#七层结构" class="headerlink" title="七层结构"></a>七层结构</h3><pre><code>1.物理层
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ISO/OSI参考模型七层结构1.物理层
 2.数据链路层
 3.网络层
 4.传输层
 5.会话层
 6.表示层
-7.应用层</code></pre>
-<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><pre><code>概念：所有能与用户交互产生网络流量的程序
+7.应用层
+应用层概念：所有能与用户交互产生网络流量的程序
 
 典型应用层服务：
     -文件传输（FTP）
-    -电子邮件（SMTP）
-    -万维网（HTTP）</code></pre>
-<h3 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h3><pre><code>概念：用于处理在两个通信系统中交换信息的表示方式
+    -电子邮件（SM
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
 
-功能：
-    -数据格式变换
-    -数据加密解密
-    -数据的压缩与恢复</code></pre>
-<h3 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h3><pre><code>概念：向表示层实体（或用户进程）建立连接，并有序的传输数据，即建立同步
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                            <span class="chip bg-color">计算机网络</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="体系结构与性能指标">
+                            
+                            <span class="card-title">体系结构与性能指标</span>
+                        </div>
+                    </a>
 
-功能：
-    -建立会话，管理、终止会话
-    -使用校验点使会话在通信失效时从校验点/同步点回复通信，从而实现数据同步</code></pre>
-<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><pre><code>任务：负责主机中两个进程的通信（端到端的通信）
-传输单位：报文段或用户数据段
-
-功能：
-    -可靠传输、不可靠传输
-    -差错控制
-    -流量控制
-    -复用分用
-
-主要协议：TCP、UDP</code></pre>
-<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><pre><code>任务：把分组从源段传到目的端，为分组交换网上的不同主机提供通信服务
-传输单位：数据报
-
-功能：
-    -路由选择（选择合适的路由器来达到传输的最佳路径）
-    -流量控制（控制速度）
-    -差错控制
-    -拥塞控制
-
-主要协议：IP、IPX、ICMP、IGMP、ARP、RARP、OSRF</code></pre>
-<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><pre><code>任务：将网络层传下来的数据报组装成帧
-传输单位：帧
-
-功能：
-    -成帧：定义帧的开始和结束
-    -差错控制：检验是否有帧错和位错
-    -流量控制
-    -访问控制：控制对信道的访问
-
-主要协议：SDLC、HDLC、PPP、STP</code></pre>
-<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><pre><code>任务:在物理媒体上实现比特流的透明传输
-传输单位：比特</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">体系结构与性能指标</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-21 21:24:33" itemprop="dateCreated datePublished" datetime="2020-11-21T21:24:33+08:00">2020-11-21</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-22 14:38:06" itemprop="dateModified" datetime="2020-11-22T14:38:06+08:00">2020-11-22</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><pre><code>1.数据通信
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                体系结构功能1.数据通信
 2.资源共享
 3.分布式处理
 4.提高可靠性 
-5.负载均衡</code></pre>
-<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><pre><code>组成部分：硬件、软件、协议</code></pre>
-<h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><pre><code>单位：b/s,kb/s,Mb/s,Gb/s,Tb/s 要与存储容量进行区分
--------------------------------------------------
-速率                                存储容量
-1kb/s=10^3b/s                    1KB=2^10B=1024B
-iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
-<h3 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h3><pre><code>单位时间内通过某个网络的数据量</code></pre>
-<h3 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h3><pre><code>·由发送时延、传播时延、排队时延、处理时延组成
--发送时延：数据长度/信道带宽，高速链路是提高了信道带宽从而降低发送时延
--传播时延：取决于电磁波的传播速度和链路长度，是固定不变的
--排队时延：在路由器上等待输入/出链路是否可用
--处理时延：检测出错口    </code></pre>
-<h3 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h3><pre><code>通俗理解：某段链路此时有多少比特
-时延带宽积=传播时延*带宽</code></pre>
-<h3 id="往返时延RTT"><a href="#往返时延RTT" class="headerlink" title="往返时延RTT"></a>往返时延RTT</h3><pre><code>·从发送方发送数据到发送发接收到接收方的确认，总共经历的时延
-·组成：
-    -往返传播时延（值为传播时延*2）
-    -末端处理时间：接收方接收到信号后处理所需的时间</code></pre>
-<h3 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h3><pre><code>-信道利用率：有数据通过时间/（有数据通过时间+无数据通过时间）
--网络利用率：信道利用率的加权平均值</code></pre>
+5.负载均衡
+组成组成部分：硬件、软件、协议
+性能指标速率单位：b/s,kb/s,Mb/s,Gb/s,Tb/s 要与存储容量进行区分
+----------------
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
 
-      
-    </div>
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                            <span class="chip bg-color">计算机网络</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/11/%E8%B0%83%E5%BA%A6/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="调度">
+                            
+                            <span class="card-title">调度</span>
+                        </div>
+                    </a>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/11/%E8%B0%83%E5%BA%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/11/%E8%B0%83%E5%BA%A6/" class="post-title-link" itemprop="url">调度</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-11 10:29:41" itemprop="dateCreated datePublished" datetime="2020-11-11T10:29:41+08:00">2020-11-11</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-24 22:27:01" itemprop="dateModified" datetime="2020-11-24T22:27:01+08:00">2020-11-24</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h2><h3 id="三层调度"><a href="#三层调度" class="headerlink" title="三层调度"></a>三层调度</h3><pre><code>    1.高级调度(作业调度)：按一定的原则从外存中处于后备队列的作业中挑选一个或多个作业，
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                调度三层调度    1.高级调度(作业调度)：按一定的原则从外存中处于后备队列的作业中挑选一个或多个作业，
     给他们分配必要的资源，并建立PCB以创建进程，创建了进程就拥有了竞争处理机的权力。 
 
-    2.中级调度(内存调度)：因为有虚拟存储技术的存在，可以将暂时不能运行的进程从内存调到外存等待，
-    等具备了运行条件并且内存有空闲时才会重新调进内存。这样，就提高了内存利用率和系统吞吐量
-    要点：
-        ·暂时处在外存等待的进程状态称为挂起状态。
-        ·虽然进程会被调到外存，但其实PCB一直都在内存中。
-         PCB记录进程数据在外存中的存放位置和进程状态等信息，操作系统通过PCB就可以对进程进行监控、管理。
-        ·一个进程可能会被多次调出、调入内存，因此中级调度发生的频率比高级调度高很多
+    2.中级调度(内存调度)：因
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
 
-    3.低级调度(进程调度)：按照某种规则，从就绪队列中选择一个进程为其分配处理及</code></pre>
-<h3 id="三层调度的联系与对比"><a href="#三层调度的联系与对比" class="headerlink" title="三层调度的联系与对比"></a>三层调度的联系与对比</h3><pre><code>调度发生的位置：
-    高级调度：外存-&gt;内存(面向作业)
-    中级调度：外存-&gt;内存(面向进程)
-    低级调度：内存-&gt;CPU
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                            <span class="chip bg-color">操作系统</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/10/%E7%BA%BF%E7%A8%8B/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="线程">
+                            
+                            <span class="card-title">线程</span>
+                        </div>
+                    </a>
 
-发生频率:
-    低级调度&gt;中级调度&gt;高级调度
-
-对进程状态的影响：
-    高级调度：无-&gt;创建态-&gt;就绪态
-    中级调度：挂起态-&gt;就绪态
-    低级调度：就绪态-&gt;运行态</code></pre>
-<h2 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h2><h3 id="进程调度的时机"><a href="#进程调度的时机" class="headerlink" title="进程调度的时机"></a>进程调度的时机</h3><pre><code>   1.需要进行进程调度与切换的情况
-    -当前进程主动放弃处理机
-        ·进程正常终止
-        ·运行过程发生异常而终止
-        ·进程主动请求阻塞(等待I/O)
-    -当前进程被迫放弃处理机
-        ·分配给进程的时间片用完了
-        ·有更紧急的事需要处理(I/O中断)
-        ·有更高优先级的进程进入就绪队列
-
-   2.不需要进程调度与切换的情况
-    -处理中断的过程中
-    -进程在操作系统内核程序临界区中
-    -在原子操作中(原语)</code></pre>
-<h3 id="进程调度的方式"><a href="#进程调度的方式" class="headerlink" title="进程调度的方式"></a>进程调度的方式</h3><pre><code>1.非剥夺调度方式(非抢占方式)
-    ·概念：只允许进程主动放弃处理机，即使在运行过程中有更紧急的任务也不允许切换。
-    由此可知只有当前进程终止或主动要求进入阻塞态才可以切换。
-    ·特点：系统开销小，但是无法及时处理紧急任务
-    ·应用：早期的批处理系统
-
-2.剥夺调度方式(抢占方式)
-    ·概念：当前进程在处理机上执行，若有更紧急的任务到达时，会立即暂停当前进程，将处理机分配给更紧急的进程
-    ·特点：可优先处理更紧急的进程，也可通过时钟中断来让各进程按时间片轮流执行功能
-    ·应用：分时操作系统、实时操作系统</code></pre>
-<h3 id="进程的切换与过程"><a href="#进程的切换与过程" class="headerlink" title="进程的切换与过程"></a>进程的切换与过程</h3><pre><code>1.概念区分：
-    狭义的进程调度：从就绪队列中取出要运行的进程
-    进程切换：一个进程让出处理机，让另一进程占用处理机
-    广义的进程调度：选择进程+进程切换
-2.进程切换的过程：
-    -对原来进程的数据进行保存
-    -对新进程的数据恢复(比如保存在进程控制块(PCB)中的程序计数器、程序状态字)
-
-3.要点：
-    ·通过进程切换的过程可知，进程切换是有代价的，过于频繁的进行进程调度和切换，
-    使得执行过程时间减少，反而会导致操作系统效率降低。</code></pre>
-<h2 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h2><h3 id="调度算法的评价指标"><a href="#调度算法的评价指标" class="headerlink" title="调度算法的评价指标"></a>调度算法的评价指标</h3><pre><code>1.CPU利用率
-    ·利用率=忙碌时间/总时间
-2.系统吞吐量
-    ·其实就是单位时间内完成作业的数量，也就是完成作业的速度
-    ·系统吞吐量=完成作业的道数/花费的时间
-3.周转时间
-    ·通俗理解：从作业提交到操作系统开始到作业完成所需要的时间
-    ·包含的过程：
-        a.作业从外存后备队列上等待作业调度(高级调度)的时间
-        b.进程在酒席队列上等待进程调度(低级调度)的时间
-        c.进程在CPU上的执行时间
-        d.进程等待I/O操作完成的时间
-    ·周转时间=作业完成的时间-作业提交的时间
-    ·平均周转时间=各作业周转时间之和/作业数
-    ·更好的标准：
-        -带权的周转时间=作业周转时间/作业实际运行时间
-            ·带权周转时间必定大于等于1
-        -平均带权周转时间=各作业带权周转时间/作业数
-4.等待时间
-    ·概念：进程或者作业处于等待处理机空闲的时间之和，通俗理解就是进程或作业被建立后到被服务时间的时间差
-5.响应时间
-    ·概念：从提交请求到系统响应的时间</code></pre>
-<h3 id="先来先服务调度算法-FCFS"><a href="#先来先服务调度算法-FCFS" class="headerlink" title="先来先服务调度算法(FCFS)"></a>先来先服务调度算法(FCFS)</h3><pre><code>·算法思想：从公平的角度考虑
-·算法规则：按照作业或者进程到达的顺序进行服务
-·算法应用：
-        -可用于作业调度：考虑哪个作业先到达后被队列
-        -可用于进程调度：考虑哪个进程先到达就绪队列
-·是否抢占：非抢占式算法
-·优点：公平、算法实现非常简单
-·缺点：
-    -排在长作业(长进程)后的短作业(短进程)需要等待时间非常长
-    -带权周转时间很大，对于短作业(短进程)用户的体验不好
-·是否导致饥饿：不会</code></pre>
-<h3 id="短作业有限调度算法-SJF"><a href="#短作业有限调度算法-SJF" class="headerlink" title="短作业有限调度算法(SJF)"></a>短作业有限调度算法(SJF)</h3><pre><code>·算法思想：最求最少的平均等待时间、最少的平均周转时间、最少的平均带权周转时间
-·算法规则:服务时间最短的作业(进程)优先得到服务
-·算法应用：
-        -可用于作业调度
-        -可用于进程调度：短进程优先算法(Shortest Process First,SPF）
-·是否可抢占：
-         ·SJF和SPF是非抢占式算法
-        ·但也有抢占式：最短剩余时间优先算法(SRTN,Shortest Remaining Time Next)
-·相关表述：
-        -所有作业(进程)同时到达时，SJF(SPF)的平均等待时间、平均周转时间最少
-        -不同时到达时，SRNT算法的平均等待时间、平均周转时间最少
-·优点：平均等待时间、平均周转时间最短
-·缺点：
-    -对短作业(短进程)友好、对长作业(长进程)不友好
-    -可能会产生饥饿下现象
-    -作业/进程的运行时间由用户来提供来作为评判标准，但时间不一定真实
-·是否导致饥饿：会。如果短作业不断进入，会使长作业长时间得不到服务导致饥饿</code></pre>
-<h3 id="高相应比优先调度算法-HRRN"><a href="#高相应比优先调度算法-HRRN" class="headerlink" title="高相应比优先调度算法(HRRN)"></a>高相应比优先调度算法(HRRN)</h3><pre><code>·算法思想：综合考虑等待时间和运行所需时间
-·算法规则：
-        -调度时先计算作业(进程)的相应比，取最高的进行服务
-        -相应比=(等待时间/服务时间)+1
-
-·算法应用：既可用于作业调度、也可用于服务调度
-·是否可抢占：非抢占式算法
-·优点：综合考虑了等待时间与运行时间
-·是否导致饥饿：否</code></pre>
-<h3 id="时间盘轮转调度算法-Round-Robin，RR"><a href="#时间盘轮转调度算法-Round-Robin，RR" class="headerlink" title="时间盘轮转调度算法(Round-Robin，RR)"></a>时间盘轮转调度算法(Round-Robin，RR)</h3><pre><code>·算法思想：公平、轮流的为进程服务，让进程在相同时间间隔内都能得到响应
-·算法规则：
-    -按照进程到达就绪队列的顺序，让进程执行一个时间片。
-    -在时间片结束后未执行完，会被剥夺处理机的控制权。
-·算法应用：
-    -用于进程调度
-    -若想用于作业调度，只有作业放入内存并且建立相应的进程才能分配到时间片
-·是否可抢占：抢占式算法，由时钟来发出时钟中断来通知CPU时间片已结束
-·优点：公平、响应快，适用于分时操作系统
-·缺点：
-    -高频率的进程切换导致系统开销
-    -不区分进程的紧急程度
-·是否导致饥饿：否
-·补充：时间片大小的选择的影响：
-        -太短：导致进程切换频繁、系统开销大
-        -太大：就会变成FCFS算法</code></pre>
-<h3 id="优先级调度算法"><a href="#优先级调度算法" class="headerlink" title="优先级调度算法"></a>优先级调度算法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">·算法思想：任务响应要根据任务紧急程度来决定</span><br><span class="line">·算法规则：每次执行任务调用优先级最高的任务</span><br><span class="line">·算法应用：</span><br><span class="line">		-作业调度</span><br><span class="line">		-进程调度</span><br><span class="line">		-I&#x2F;O调度</span><br><span class="line">·是否可抢占：抢占、非抢占都有</span><br><span class="line">·优点：用优先级来区分任务的紧急程度，可灵活的调整作业&#x2F;进程的偏好程度</span><br><span class="line">·缺点：若不断有高优先级的任务到来，会导致饥饿</span><br><span class="line">·是否会导致饥饿：会</span><br></pre></td></tr></table></figure>
-
-<h3 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">·算法思想：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/10/%E7%BA%BF%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/10/%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">线程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-10 23:17:10" itemprop="dateCreated datePublished" datetime="2020-11-10T23:17:10+08:00">2020-11-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-11 12:12:59" itemprop="dateModified" datetime="2020-11-11T12:12:59+08:00">2020-11-11</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="线程的定义"><a href="#线程的定义" class="headerlink" title="线程的定义"></a>线程的定义</h3><pre><code>-定义：线程是一个基本的CPU执行单元，也是程序执行流的最小单位
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                线程线程的定义-定义：线程是一个基本的CPU执行单元，也是程序执行流的最小单位
 -作用：引入线程后，不仅进程之间可宏观上并发执行，进程内的线程也可以并发执行，提升了系统的并发度
 -组成：线程ID + 线程控制块(TCB)，类似于进程的PCB
--基本状态：就绪，阻塞，运行。和进程一样
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-10
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
 
--引入线程后的变化：
-    1.资源分配与调度：
-        引入前：进程是资源分配和调度的基本单位
-        引入后：进程是资源分配的基本单位，线城市调度的基本单位
-    2.并发性：
-        引入前：只有进程能并发执行
-        引入后：进程和线程都能并发执行
-    3.系统开销：
-        引入前：进程并发需切换进程的运行环境，系统开销大
-        引入后：而同一进程内的线程切换，不需要切换运行环境，系统开销小</code></pre>
-<h3 id="线程的属性"><a href="#线程的属性" class="headerlink" title="线程的属性"></a>线程的属性</h3><pre><code>1.线程是处理机调度的基本单位
-2.多CPU计算机中，各个线程可占用不同的CPU
-3.因为进程才是资源调度的基本单位，所以线程几乎不拥有系统资源
-4.同一进程的线程之间能共享该进程的资源，共享不是占有噢
-5.同一线程之间共享了地址空间，他们通信不需要系统的干预
-6.同一进程间的线程切换，不会引起进程切换；不同进程间的线程切换，会引起进程切换。</code></pre>
-<h3 id="线程的实现方式"><a href="#线程的实现方式" class="headerlink" title="线程的实现方式"></a>线程的实现方式</h3><pre><code>两种实现方式：
-1.用户级线程(User-Level Thread,ULT)：由应用程序通过线程库来实现
-    a.所有线程管理工作(包括线程切换)由应用程序负责
-    b.线程切换在用户态下进行，无需系统干预
-    c.用户级线程对用户透明，对操作系统不透明
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                            <span class="chip bg-color">操作系统</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/10/%E8%BF%9B%E7%A8%8B/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="进程">
+                            
+                            <span class="card-title">进程</span>
+                        </div>
+                    </a>
 
-2.内核级线程(Kernel-Level Thread,KLT)：线程管理工作由操作系统内核完成
-    a.内核级线程的切换必须在核心态下才能完成
-    b.内核级线程对操作系统透明，故内核级线程才是处理及分配的单位
-    c.内核级线程的个数影响到了能分配到的核</code></pre>
-<h3 id="多线程模型"><a href="#多线程模型" class="headerlink" title="多线程模型"></a>多线程模型</h3><pre><code>1.多对一模型：
-    概念：多个用户级线程映射到一个内核级线程，即每个用户级线程只对应一个内核级线程
-    优点：用户级线程的切换在用户空间即可完成，不需要切换到核心态。因此线程管理系统开销小，效率高
-    缺点：当某一用户级线程阻塞时，整个进程都会被阻塞，因此并发度很低；多个线程在多核处理机上不能并发执行(分配到的核只有一个)
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                进程进程实体（进程映像）PCB、程序段（存放程序代码）、数据段（存放程序执行时运用、产生的数据）
+PCB概念：进程控制块，用来扫描进程的各种信息。创建进程的本质就是创建进程实体的PCB，撤销进程则是撤销进程实体中的PCB。 
 
-2.一对一模型：
-    概念：一个用户级线程映射到一个内核级线程，即每个用户进程拥有与内核级线程同数量的内核级线程
-    优点：当某一用户级线程阻塞后，其他用户级线程仍可执行，所以并发能力强；多个线程在多核处理机上能并发执行
-    缺点：一个用户进程会占用多个内核级线程，那么操作系统内核进行线程切换时，需要切换到核心态，导致线程管理系统开销大。
+PCB的组成
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-10
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
 
-3.多对多模型：
-    概念：n个用户级线程映射到m个内核级线程(n&gt;m），每个用户进程对应m个内核级线程
-    优点：克服了多对一模型并发度不高的缺点，也克服了一对一模型中一个用户进程占用太多内核级线程的导致系统开销大的缺点</code></pre>
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                            <span class="chip bg-color">操作系统</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/10/%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="中断与系统调用">
+                            
+                            <span class="card-title">中断与系统调用</span>
+                        </div>
+                    </a>
 
-      
-    </div>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                中断中断机制的诞生为了实现多道程序并发执行而引入的技术
+中断的作用中断发生时，操作系统介入开展工作，CPU进入核心态
+中断是从用户态进入到核心态的唯一途径
+中断的分类-内中断（异常、例外、陷入）：信号来源于CPU内部，与当前执行的指令有关
 
-    
-    
-    
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-10
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                            <span class="chip bg-color">操作系统</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/09/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="常用排序算法">
+                            
+                            <span class="card-title">常用排序算法</span>
+                        </div>
+                    </a>
 
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                几个常用的排序算法冒泡排序123456789101112public static int[] BubbleSort(int[] nums) &#123;        for (int i &#x3D; 0; i &lt; nums.le
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/07/%E5%89%91%E6%8C%87offer/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="剑指offer">
+                            
+                            <span class="card-title">剑指offer</span>
+                        </div>
+                    </a>
 
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                面试题三1234567891011121314151617181920/**Q1.在长度为n的数组中，每个数字大小都在[0,n-1]之间，某些数字是重复的，请找出任意一个重复的数字Q2.在长度为n+1的数组中，每个数字大小都在[1,n]之间
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
 
-    
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                            <span class="chip bg-color">面试题</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/06/Welcome/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="文章目录">
+                            
+                            <span class="card-title">文章目录</span>
+                        </div>
+                    </a>
 
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Welcome to daniel’s blog!  If you get any problems ,you can ask me on GitHub.
+索引操作系统1.中断与系统调用2.进程3.线程
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
 
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/10/%E8%BF%9B%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/10/%E8%BF%9B%E7%A8%8B/" class="post-title-link" itemprop="url">进程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-10 23:14:51" itemprop="dateCreated datePublished" datetime="2020-11-10T23:14:51+08:00">2020-11-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-11 12:01:12" itemprop="dateModified" datetime="2020-11-11T12:01:12+08:00">2020-11-11</time>
-      </span>
-
-  
-</div>
-
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%B4%A2%E5%BC%95/">
+                            <span class="chip bg-color">索引</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
         </div>
-      </header>
+    </article>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h3 id="进程实体（进程映像）"><a href="#进程实体（进程映像）" class="headerlink" title="进程实体（进程映像）"></a>进程实体（进程映像）</h3><pre><code>PCB、程序段（存放程序代码）、数据段（存放程序执行时运用、产生的数据）</code></pre>
-<h3 id="PCB"><a href="#PCB" class="headerlink" title="PCB"></a>PCB</h3><pre><code>概念：进程控制块，用来扫描进程的各种信息。创建进程的本质就是创建进程实体的PCB，撤销进程则是撤销进程实体中的PCB。 
-
-PCB的组成：
-      -进程描述信息：进程标识符PID、用户标识符UID
-    -进程控制和管理信息：进程当前状态、进程优先级
-    -资源分配清单：程序段指针、数据段指针、键盘、鼠标
-    -处理机相关信息：各种寄存器值</code></pre>
-<h3 id="进程的定义"><a href="#进程的定义" class="headerlink" title="进程的定义"></a>进程的定义</h3><pre><code>a.进程是程序执行的一次过程
-b.进程是程序及其数据在处理机上顺序执行时发生的活动
-c.进程时具有独立功能的程序在数据集合上的运行过程，是系统进行资源分配和调度的一个独立单位</code></pre>
-<h3 id="进程的组织"><a href="#进程的组织" class="headerlink" title="进程的组织"></a>进程的组织</h3><pre><code>目的：解决多个进程之间的组织方式问题
-
-组织方式：
--链接方式：按照进程状态将PCB分为多个队列，操作系统持有指向队列的指针
--索引方式：按照进程状态的不同，建立索引表，操作系统持有指向索引表的指针
-这有两图片要加</code></pre>
-<h3 id="进程的特征"><a href="#进程的特征" class="headerlink" title="进程的特征"></a>进程的特征</h3><pre><code>-动态性：(是进程最基本的特征)进程是程序的一次执行过程，产生、变化和消亡是动态的
--并发性：内存中存在多个进程实体。各个进程并发执行
--独立性：进程是资源分配、接受调度的基本单位，也可阐述为进程是能独立运行、独立获得资源、独立接受调度的基本单位
--异步性：各进程按照各自独立、不可预知的速度向前推进，操作系统要提供“进程同步机制”来解决异步问题
--结构性：每个进程的结构都是：PCB、程序段、数据段</code></pre>
-<h3 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h3><pre><code>三种基本状态：
-    -运行态(Running)：占有CPU，并在CPU上运行
-    -就绪态(Ready)：具备运行条件，但CPU不空闲，暂时无法运行
-    -阻塞态(Waiting/Blocked)： 等待某一时间而无法运行，如等待操作系统分配打印机等等
-其他两种状态：
-    -创建态(New)：进程正在被创建，操作系统为进程分配资源、初始化PCB
-    -终止态(Terminated)：进程正在从系统中撤销，操作系统回收进程拥有的资源、撤销PCB</code></pre>
-<h3 id="进程的状态转换"><a href="#进程的状态转换" class="headerlink" title="进程的状态转换"></a>进程的状态转换</h3><pre><code>这有1图片要加</code></pre>
-<h3 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h3><pre><code>-定义：通俗理解，就是要实现对进程状态的转换
--如何实现进程：总的来说每次转换都要修改PCB的内容，并将PCB放入到相应的队列中。
-    1.创建态（初始化PCB，分配系统资源）完成后，将PCB放入到相应的就绪队列，转换到就绪态 ；
-    2.处于就绪态时，恢复进程运行的环境、修改PCB内容和相应的队列，从就绪队列中取出，转换到运行态；
-    3.处于运行态时，保存进程的运行环境、修改PCB内容和相应的队列，放入阻塞队列中。转换到阻塞态；
-    4.处于阻塞态时，若系统已经为进程分配所需要的系统资源，从阻塞队列中取出放入就绪队列，转换到就绪态。
-    这有1图片要加</code></pre>
-<h3 id="原语"><a href="#原语" class="headerlink" title="原语"></a>原语</h3><pre><code>-特点：原语执行期间不允许中断，原语执行前有关中断的指令，执行结束后后开中断的指令。
-      由于涉及到了中断的关闭和打开，所需权限很大，所以这两个指令时核心态下才能执行的特权指令
--原语的共同操作：
-    1.更新PCB中的信息
-        -所有的进程控制原语一定会修改进程状态标志
-        -剥夺当前运行进程的CPU使用权
-    2.将PCB插入到合适的队列中
-    3.分配/回收资源</code></pre>
-<h3 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h3><pre><code>-创建原语：实现了进程：从无-&gt;创建态-&gt;就绪态
-    -任务：申请空白的PCB、为新进程分配所需资源、初始化PCB、将PCB插入就绪队列中
--引起进程创建的事件：
-    -用户登录：分时系统中，用户登陆成功，系统会为其建立一个新的进程
-    -作业调度：多道批处理系统，有的作业放入内存时，会为其建立一个新的进程
-    -提供服务：用户向操作系统提出某些请求时，会新建一个进程处理该请求
-    -应用请求：有用户进程主动请求创建一个子进程</code></pre>
-<h3 id="进程的终止"><a href="#进程的终止" class="headerlink" title="进程的终止"></a>进程的终止</h3><pre><code>-撤销原语：
-    -任务：从PCB集合中找到终止进程的PCB、若进程正在执行，立即剥夺CPU，将CPU分配给其他进程
-          终止其所有子进程、将该进程拥有的所有资源归还给父进程或操作系统、删除该进程的PCB
--引起进程终止的事件：
-        -正常结束
-        -异常结束
-        -外界干预</code></pre>
-<h3 id="进程的阻塞"><a href="#进程的阻塞" class="headerlink" title="进程的阻塞"></a>进程的阻塞</h3><pre><code>-阻塞原语：
-    -任务；找到要阻塞的进程对应的PCB、保护进程运行现场，将PCB状态信息设置为阻塞态，暂时停止进程运行、将PCB插入相应事件的等待队列
--引起进程阻塞的事件：
-    -需要等待系统分配某种资源
-    -需要等待相互合作的其他进程完成工作</code></pre>
-<h3 id="进程的唤醒"><a href="#进程的唤醒" class="headerlink" title="进程的唤醒"></a>进程的唤醒</h3><pre><code>-唤醒原语：
-    -任务：在事件等待队列中找到其PCB、将PCB从等待队列移出，设置就绪态、将PCB插入就绪队列，等待被调度
--引起进程唤醒的事件：
-    -所等待的事件发生了</code></pre>
-<h3 id="进程的切换"><a href="#进程的切换" class="headerlink" title="进程的切换"></a>进程的切换</h3><pre><code>-切换原语：
-    -任务：将运行环境信息存入PCB、PCB移入相应的队列、选择另一个进程执行，并更新其PCB、根据PCB回复进程所需的运行环境
--引起进程切换的事件：
-    -前进程时间片到达
-    -有更高优先级的进程到达
-    -前进程主动阻塞
-    -前进程终止</code></pre>
-<h3 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h3><pre><code>-三种方式：共享存储、消息传递、管道通信
-
--共享存储：在内存中开辟一个共享空间，两个进程都可以对其进行读写操作，但是两个进程
-            对共享空间的访问是互斥的，进程A访问了，进程B只能等A访问结束才可访问。
--共享存储分为两种方式：基于数据结构的共享(低级通信)、基于存储区的共享(高级通信)
-
--管道通信：采用半双工通信，即可以双向通信，但是同一时间内只能从一个方向通信
-            想要双向同时通信，得设置两个管道
--管道通信的特点：1.写0满时，写端阻塞，读端此时才能开始读；
-                 2.读的过程中，写段不允许写入；
-                 3.读取完毕时，读端关闭，读的数据被抛弃，写段不再阻塞；
-                 4.写的过程中，读端不允许读出
-
--消息传递：1.传递结构化的消息（消息由消息头和消息体组成）
-          2.系统提供”发送/接受原语“
--消息传递的两种方式：
-                1.直接通信方式：消息直接挂到对方进程的消息队列中
-                2.间接通信方式：消息先发送到中间体</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+</main>
 
 
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/10/%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/10/%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">中断与系统调用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-10 21:18:14 / 修改时间：23:19:03" itemprop="dateCreated datePublished" datetime="2020-11-10T21:18:14+08:00">2020-11-10</time>
-    </span>
-
-  
-</div>
-
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/page/3/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h2><h3 id="中断机制的诞生"><a href="#中断机制的诞生" class="headerlink" title="中断机制的诞生"></a>中断机制的诞生</h3><pre><code>为了实现多道程序并发执行而引入的技术</code></pre>
-<h3 id="中断的作用"><a href="#中断的作用" class="headerlink" title="中断的作用"></a>中断的作用</h3><pre><code>中断发生时，操作系统介入开展工作，CPU进入核心态
-中断是从用户态进入到核心态的唯一途径</code></pre>
-<h3 id="中断的分类"><a href="#中断的分类" class="headerlink" title="中断的分类"></a>中断的分类</h3><pre><code>-内中断（异常、例外、陷入）：信号来源于CPU内部，与当前执行的指令有关
-        --自愿中断：例如指令中断
-        --强迫中断：
-                1.硬件中断（缺页等）
-                2.软件中断（整数除零等）    
--外中断：信号来源于CPU外部，与当前执行的指令无关
-        --外设请求：如I/O操作完成后发出的中断信号
-        --人工干预：用户强制终止一个进程</code></pre>
-<h3 id="外中断的处理过程"><a href="#外中断的处理过程" class="headerlink" title="外中断的处理过程"></a>外中断的处理过程</h3><pre><code>这有1图片要加
-step1：顺序执行CPU中的指令，每条指令执行结束后都会检查是否有外部中断信号
-step2：若检测到外部中断信号，需要保护被中断进程的CPU环境
-step3：根据中断类型转入相应的中断处理程序
-step4：恢复原进程的CPU环境并退出中断，返回原进程继续顺序往下执行指令</code></pre>
-<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><h3 id="系统调用的概念"><a href="#系统调用的概念" class="headerlink" title="系统调用的概念"></a>系统调用的概念</h3><pre><code>是操作系统提供给应用程序使用的接口，可以抽象的理解为程序调用的特殊函数。
-应用程序可以发出系统调用请求来获得操作系统的服务。</code></pre>
-<h3 id="系统调用的作用"><a href="#系统调用的作用" class="headerlink" title="系统调用的作用"></a>系统调用的作用</h3><pre><code>为了保证程序的稳定性与安全性，对于打印机等共享资源不允许用户程序来控制，而应该是通过系统调用的方法来向操作系统提出服务的请求。</code></pre>
-<h3 id="系统调用的状态"><a href="#系统调用的状态" class="headerlink" title="系统调用的状态"></a>系统调用的状态</h3><pre><code>系统调用的某些功能需要的权限比较高，涉及到了软硬件的使用权限，所以有些操作只能在核心态下才能完成</code></pre>
-<h3 id="系统调用和库函数的区别"><a href="#系统调用和库函数的区别" class="headerlink" title="系统调用和库函数的区别"></a>系统调用和库函数的区别</h3><pre><code>这有1图片要加</code></pre>
-<h3 id="系统调用的过程"><a href="#系统调用的过程" class="headerlink" title="系统调用的过程"></a>系统调用的过程</h3><pre><code>比如高级语言调用了库函数write(“abc”)：
-传递系统调用的参数-&gt;在用户态下执行陷入指令-&gt;产生中断，进入核心态去执行系统调用的相应服务程序-&gt;返回到最开始的用户程序 
-在这个过程中，陷入指令是在用户态执行的，而执行陷入指令后会立即产生内中断而进入核心态，
-因此陷入指令是唯一一个只能在用户态执行，而不可以在核心态执行的指令。
-发出系统调用请求（用户态）-&gt;系统调用进行相关的处理（核心态），这一过程通过执行陷入指令产生中断来完成状态的转移</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/09/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/09/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">常用排序算法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-09 23:28:09" itemprop="dateCreated datePublished" datetime="2020-11-09T23:28:09+08:00">2020-11-09</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-10 10:17:49" itemprop="dateModified" datetime="2020-11-10T10:17:49+08:00">2020-11-10</time>
-      </span>
-
-  
-</div>
-
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">4 / 4</div>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="几个常用的排序算法"><a href="#几个常用的排序算法" class="headerlink" title="几个常用的排序算法"></a>几个常用的排序算法</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static int[] BubbleSort(int[] nums) &#123;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; nums.length - 1; i++) &#123;</span><br><span class="line">            for (int j &#x3D; 0; j &lt; nums.length - i - 1; j++) &#123;</span><br><span class="line">                if (nums[j] &gt; nums[j + 1]) &#123;</span><br><span class="line">                    int temp &#x3D; nums[j + 1];</span><br><span class="line">                    nums[j + 1] &#x3D; nums[j];</span><br><span class="line">                    nums[j] &#x3D; temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static int[] SelectSort(int[] nums) &#123;</span><br><span class="line">        if (nums.length &#x3D;&#x3D; 0)</span><br><span class="line">            return nums;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">            int index &#x3D; i;</span><br><span class="line">            for (int j &#x3D; i; j &lt; nums.length - i - 1; j++) &#123;</span><br><span class="line">                if (nums[j] &lt; nums[index]) &#123;</span><br><span class="line">                    index &#x3D; j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            int temp &#x3D; nums[index];</span><br><span class="line">            nums[index] &#x3D; nums[i];</span><br><span class="line">            nums[i] &#x3D; temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static int[] InsertSort(int[] nums) &#123;</span><br><span class="line">        if (nums.length &#x3D;&#x3D; 0)</span><br><span class="line">            return nums;</span><br><span class="line">        int current;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; nums.length - 1; i++) &#123;</span><br><span class="line">            current &#x3D; nums[i + 1];</span><br><span class="line">            int preIndex &#x3D; i;</span><br><span class="line">            while (preIndex &gt;&#x3D; 0 &amp;&amp; current &lt; nums[preIndex]) &#123;</span><br><span class="line">                nums[preIndex + 1] &#x3D; nums[preIndex];</span><br><span class="line">                preIndex--;</span><br><span class="line">            &#125;</span><br><span class="line">            nums[preIndex + 1] &#x3D; current;</span><br><span class="line">        &#125;</span><br><span class="line">        return nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static int[] ShellSort(int[] nums) &#123;</span><br><span class="line">       int gap &#x3D; nums.length &#x2F; 2;</span><br><span class="line">       int temp;</span><br><span class="line">       while (gap &gt; 0) &#123;</span><br><span class="line">           for (int i &#x3D; gap; i &lt; nums.length; i++) &#123;</span><br><span class="line">               temp &#x3D; nums[i];</span><br><span class="line">               int preIndex &#x3D; i - gap;</span><br><span class="line">               while (preIndex &gt;&#x3D; 0 &amp;&amp; nums[preIndex] &gt; temp) &#123;</span><br><span class="line">                   nums[preIndex + gap] &#x3D; nums[preIndex];</span><br><span class="line">                   preIndex -&#x3D; gap;</span><br><span class="line">               &#125;</span><br><span class="line">               nums[preIndex + gap] &#x3D; temp;</span><br><span class="line">           &#125;</span><br><span class="line">           gap &#x2F;&#x3D; 2;</span><br><span class="line">       &#125;</span><br><span class="line">       return nums;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public static int[] QuickSort(int[] nums, int start, int end) &#123;</span><br><span class="line">    if (nums.length &lt; 1 || start &lt; 0 || end &gt;&#x3D; nums.length || start &gt; end) return null;</span><br><span class="line">    int smallIndex &#x3D;partition(nums,start,end);</span><br><span class="line">    if(smallIndex&gt;start) QuickSort(nums,start,smallIndex-1);</span><br><span class="line">    if(smallIndex&lt;end) QuickSort(nums,smallIndex+1,end);</span><br><span class="line">    return nums;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static int partition(int[] nums, int start, int end)&#123;</span><br><span class="line">    int pivot&#x3D;(int)(start + Math.random()*(end - start +1));&#x2F;&#x2F;中心点</span><br><span class="line">    int smallIndex &#x3D;start -1;</span><br><span class="line">    swap(nums,pivot,end);</span><br><span class="line">    for(int i&#x3D;start;i&lt;&#x3D;end;i++)&#123;</span><br><span class="line">        if(nums[i]&lt;&#x3D;nums[end])&#123;</span><br><span class="line">            smallIndex++;</span><br><span class="line">            if(i&gt;smallIndex) swap(nums,i,smallIndex);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return smallIndex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public static int[] QuickSort(int[] nums, int start, int end) &#123;</span><br><span class="line">        if (nums.length &lt; 1 || start &lt; 0 || end &gt;&#x3D; nums.length || start &gt; end) return null;</span><br><span class="line">        int smallIndex &#x3D;partition(nums,start,end);</span><br><span class="line">        if(smallIndex&gt;start) QuickSort(nums,start,smallIndex-1);</span><br><span class="line">        if(smallIndex&lt;end) QuickSort(nums,smallIndex+1,end);</span><br><span class="line">        return nums;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static int partition(int[] nums, int start, int end)&#123;</span><br><span class="line">        int pivot&#x3D;(int)(start + Math.random()*(end - start +1));&#x2F;&#x2F;中心点</span><br><span class="line">        int smallIndex &#x3D;start -1;</span><br><span class="line">        swap(nums,pivot,end);</span><br><span class="line">        for(int i&#x3D;start;i&lt;&#x3D;end;i++)&#123;</span><br><span class="line">            if(nums[i]&lt;&#x3D;nums[end])&#123;</span><br><span class="line">                smallIndex++;</span><br><span class="line">                if(i&gt;smallIndex) swap(nums,i,smallIndex);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return smallIndex;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void swap(int[] nums,int i,int j )&#123;</span><br><span class="line">        int temp&#x3D;nums[i];</span><br><span class="line">        nums[i]&#x3D;nums[j];</span><br><span class="line">        nums[j]&#x3D;temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">static int len;</span><br><span class="line">   public static int[] HeapSort(int[] nums)&#123;</span><br><span class="line">       len&#x3D;nums.length;</span><br><span class="line">       if(len&lt;1) return nums;</span><br><span class="line">       buildMaxHeap(nums);</span><br><span class="line">       while(len&gt;0)&#123;</span><br><span class="line">           swap(nums,0,len-1);</span><br><span class="line">           len--;</span><br><span class="line">           adjustHeap(nums,0);</span><br><span class="line">       &#125;</span><br><span class="line">       return nums;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   public static void buildMaxHeap(int[] nums)&#123;</span><br><span class="line">       for(int i&#x3D;(len&#x2F;2-1);i&gt;&#x3D;0;i--)&#123;</span><br><span class="line">           adjustHeap(nums,i);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   public static void adjustHeap(int[] nums,int i)&#123;</span><br><span class="line">       int maxIndex&#x3D;i;</span><br><span class="line">       if(i*2 &lt;len &amp;&amp; nums[i*2]&gt;nums[maxIndex])  maxIndex&#x3D;i*2;</span><br><span class="line">       if(i *2 +1 &lt;len &amp;&amp; nums[i *2 +1]&gt;nums[maxIndex]) maxIndex&#x3D;i*2+1;</span><br><span class="line">       if(maxIndex !&#x3D;i)&#123;</span><br><span class="line">           swap(nums,maxIndex,i);</span><br><span class="line">           adjustHeap(nums,maxIndex);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public static int[] CountingSort(int[] nums)&#123;</span><br><span class="line">        if (nums.length &#x3D;&#x3D; 0) return nums;</span><br><span class="line">        int bias, min &#x3D; nums[0], max &#x3D; nums[0];</span><br><span class="line">        for (int i &#x3D; 1; i &lt; nums.length; i++) &#123;</span><br><span class="line">            if (nums[i] &gt; max)</span><br><span class="line">                max &#x3D; nums[i];</span><br><span class="line">            if (nums[i] &lt; min)</span><br><span class="line">                min &#x3D; nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        bias &#x3D; 0 - min;</span><br><span class="line">        int[] bucket &#x3D; new int[max - min + 1];</span><br><span class="line">        Arrays.fill(bucket, 0);</span><br><span class="line">        for (int i &#x3D; 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">            bucket[nums[i] + bias]++;</span><br><span class="line">        &#125;</span><br><span class="line">        int index &#x3D; 0, i &#x3D; 0;</span><br><span class="line">        while (index &lt; nums.length) &#123;</span><br><span class="line">            if (bucket[i] !&#x3D; 0) &#123;</span><br><span class="line">                nums[index] &#x3D; i - bias;</span><br><span class="line">                bucket[i]--;</span><br><span class="line">                index++;</span><br><span class="line">            &#125; else</span><br><span class="line">                i++;</span><br><span class="line">        &#125;</span><br><span class="line">        return nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">public static ArrayList&lt;Integer&gt; BucketSort(ArrayList&lt;Integer&gt; array, int bucketSize) &#123;</span><br><span class="line">        if (array &#x3D;&#x3D; null || array.size() &lt; 2)</span><br><span class="line">            return array;</span><br><span class="line">        int max &#x3D; array.get(0), min &#x3D; array.get(0);</span><br><span class="line">        &#x2F;&#x2F; 找到最大值最小值</span><br><span class="line">        for (int i &#x3D; 0; i &lt; array.size(); i++) &#123;</span><br><span class="line">            if (array.get(i) &gt; max)</span><br><span class="line">                max &#x3D; array.get(i);</span><br><span class="line">            if (array.get(i) &lt; min)</span><br><span class="line">                min &#x3D; array.get(i);</span><br><span class="line">        &#125;</span><br><span class="line">        int bucketCount &#x3D; (max - min) &#x2F; bucketSize + 1;</span><br><span class="line">        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; bucketArr &#x3D; new ArrayList&lt;&gt;(bucketCount);</span><br><span class="line">        ArrayList&lt;Integer&gt; resultArr &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">        for (int i &#x3D; 0; i &lt; bucketCount; i++) &#123;</span><br><span class="line">            bucketArr.add(new ArrayList&lt;Integer&gt;());</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; array.size(); i++) &#123;</span><br><span class="line">            bucketArr.get((array.get(i) - min) &#x2F; bucketSize).add(array.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; bucketCount; i++) &#123;</span><br><span class="line">            if (bucketSize &#x3D;&#x3D; 1) &#123; &#x2F;&#x2F; 如果带排序数组中有重复数字时</span><br><span class="line">                for (int j &#x3D; 0; j &lt; bucketArr.get(i).size(); j++)</span><br><span class="line">                    resultArr.add(bucketArr.get(i).get(j));</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                if (bucketCount &#x3D;&#x3D; 1)</span><br><span class="line">                    bucketSize--;</span><br><span class="line">                ArrayList&lt;Integer&gt; temp &#x3D; BucketSort(bucketArr.get(i), bucketSize);</span><br><span class="line">                for (int j &#x3D; 0; j &lt; temp.size(); j++)</span><br><span class="line">                    resultArr.add(temp.get(j));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return resultArr;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public static int[] RadixSort(int[] array) &#123;</span><br><span class="line">        if (array &#x3D;&#x3D; null || array.length &lt; 2)</span><br><span class="line">            return array;</span><br><span class="line">        &#x2F;&#x2F; 1.先算出最大数的位数；</span><br><span class="line">        int max &#x3D; array[0];</span><br><span class="line">        for (int i &#x3D; 1; i &lt; array.length; i++) &#123;</span><br><span class="line">            max &#x3D; Math.max(max, array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        int maxDigit &#x3D; 0;</span><br><span class="line">        while (max !&#x3D; 0) &#123;</span><br><span class="line">            max &#x2F;&#x3D; 10;</span><br><span class="line">            maxDigit++;</span><br><span class="line">        &#125;</span><br><span class="line">        int mod &#x3D; 10, div &#x3D; 1;</span><br><span class="line">        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; bucketList &#x3D; new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();</span><br><span class="line">        for (int i &#x3D; 0; i &lt; 10; i++)</span><br><span class="line">            bucketList.add(new ArrayList&lt;Integer&gt;());</span><br><span class="line">        for (int i &#x3D; 0; i &lt; maxDigit; i++, mod *&#x3D; 10, div *&#x3D; 10) &#123;</span><br><span class="line">            for (int j &#x3D; 0; j &lt; array.length; j++) &#123;</span><br><span class="line">                int num &#x3D; (array[j] % mod) &#x2F; div;</span><br><span class="line">                bucketList.get(num).add(array[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            int index &#x3D; 0;</span><br><span class="line">            for (int j &#x3D; 0; j &lt; bucketList.size(); j++) &#123;</span><br><span class="line">                for (int k &#x3D; 0; k &lt; bucketList.get(j).size(); k++)</span><br><span class="line">                    array[index++] &#x3D; bucketList.get(j).get(k);</span><br><span class="line">                bucketList.get(j).clear();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return array;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/07/%E5%89%91%E6%8C%87offer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/07/%E5%89%91%E6%8C%87offer/" class="post-title-link" itemprop="url">剑指offer</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-07 09:37:10" itemprop="dateCreated datePublished" datetime="2020-11-07T09:37:10+08:00">2020-11-07</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-29 22:32:58" itemprop="dateModified" datetime="2020-11-29T22:32:58+08:00">2020-11-29</time>
-      </span>
-
-  
-</div>
-
+        <div class="col s6 m4 l4">
+            
+            <a class="right btn-floating btn-large disabled">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="面试题三"><a href="#面试题三" class="headerlink" title="面试题三"></a>面试题三</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">Q1.在长度为n的数组中，每个数字大小都在[0,n-1]之间，某些数字是重复的，请找出任意一个重复的数字</span></span><br><span class="line"><span class="comment">Q2.在长度为n+1的数组中，每个数字大小都在[1,n]之间，某些数字是重复的，请找出任意一个重复的数字。</span></span><br><span class="line"><span class="comment">要求：不能修改输入的数组</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">-solution1：先排序，后找出重复的数字。排序时间复杂度：O(nlogn).</span></span><br><span class="line"><span class="comment">-solution2：从头到尾按顺序扫描数组的数字，可以用hashmap.containsKey()来判断是否已经含有该数字。</span></span><br><span class="line"><span class="comment">若没有，就放入哈希表；有了，就找到重复的数字。时间复杂度：O(n),空间复杂度：O(n).</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDuplicate</span><span class="params">(<span class="keyword">int</span> nums[])</span></span>&#123;</span><br><span class="line">        Map&lt;Integer,Integer&gt;hashmap=<span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(hashmap.containsKey(nums[i]))&#123;</span><br><span class="line">                <span class="keyword">return</span> nums[i];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                hashmap.put(nums[i],i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">-solution3:从头到尾遍历数组，如果数组值m和遍历参数i相等，则i++；</span></span><br><span class="line"><span class="comment">如果不相等，和让m和nums[m]进行比较：如果相等，则找到一个重复的值，return；</span></span><br><span class="line"><span class="comment">如果不相等，则swap(m,nums[m])。根据这种思想，很容易想到用个while就能搞定。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">duplicate</span><span class="params">(<span class="keyword">int</span> nums[])</span> </span>&#123;<span class="comment">//时间复杂度：O（n）；空间复杂度：O（1）</span></span><br><span class="line">        <span class="keyword">if</span>(nums.length&lt;=<span class="number">0</span>||nums==<span class="keyword">null</span>)&#123;<span class="comment">//鲁棒性</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (nums[i] != i) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] == nums[nums[i]]) &#123;</span><br><span class="line">                    <span class="keyword">return</span> nums[i];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//swap nums[i] and nums[nums[i]]</span></span><br><span class="line">                <span class="keyword">int</span> temp = nums[i];</span><br><span class="line">                nums[i] = nums[temp];</span><br><span class="line">                nums[temp] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDuplication</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.length==<span class="number">0</span>||nums==<span class="keyword">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> start=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> end=nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(start&lt;=end)&#123;</span><br><span class="line">            <span class="keyword">int</span> middle=((end-start)&gt;&gt;<span class="number">1</span>)+start;</span><br><span class="line">            <span class="keyword">int</span> count=countRange(nums,start,middle);</span><br><span class="line">            <span class="keyword">if</span>(start==end)&#123;</span><br><span class="line">                <span class="keyword">if</span>(count&gt;<span class="number">1</span>) <span class="keyword">return</span> start;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(count&gt;(middle-start+<span class="number">1</span>)) end=middle;</span><br><span class="line">            <span class="keyword">else</span> start=middle+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="面试题五"><a href="#面试题五" class="headerlink" title="面试题五"></a>面试题五</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 1：</span></span><br><span class="line"><span class="comment">输入：head = [1,3,2]</span></span><br><span class="line"><span class="comment">输出：[2,3,1]</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">限制：</span></span><br><span class="line"><span class="comment">0 &lt;= 链表长度 &lt;= 10000</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceSpace</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] nums=s.toCharArray();</span><br><span class="line">        StringBuffer sb=<span class="keyword">new</span> StringBuffer();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]==<span class="string">&#x27; &#x27;</span>) sb.append(<span class="string">&quot;%20&quot;</span>);</span><br><span class="line">            <span class="keyword">else</span> sb.append(nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="面试题六"><a href="#面试题六" class="headerlink" title="面试题六"></a>面试题六</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 1：输入：head = [1,3,2]  输出：[2,3,1]</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">限制：0 &lt;= 链表长度 &lt;= 10000</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>[] result;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] reversePrint(ListNode head) &#123;</span><br><span class="line">        recur(head);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recur</span><span class="params">(ListNode head)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>)&#123;</span><br><span class="line">            result=<span class="keyword">new</span> <span class="keyword">int</span>[i];</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">        recur(head.next);</span><br><span class="line">        result[j]=head.val;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="面试题九"><a href="#面试题九" class="headerlink" title="面试题九"></a>面试题九</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CQueue</span> </span>&#123;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">执行用时：52 ms,在所有Java 提交中击败了90.98%的用户</span></span><br><span class="line"><span class="comment">内存消耗：47.2 MB,在所有Java提交中击败了32.98%的用户</span></span><br><span class="line"><span class="comment">如果有更优解，请联系我：）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">LinkedList&lt;Integer&gt; stack1;</span><br><span class="line">LinkedList&lt;Integer&gt; stack2;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">CQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stack1=<span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    stack2=<span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">appendTail</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    stack1.add(value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">deleteHead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(stack2.isEmpty())&#123;</span><br><span class="line">        <span class="keyword">if</span>(stack1.isEmpty()) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(!stack1.isEmpty())&#123;stack2.add(stack1.pop());&#125;</span><br><span class="line">            <span class="keyword">return</span> stack2.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> stack2.pop();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="面试题十"><a href="#面试题十" class="headerlink" title="面试题十"></a>面试题十</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">斐波那契数列</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span>[] nums=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">    nums[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    nums[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        nums[i]=nums[i-<span class="number">1</span>]+nums[i-<span class="number">2</span>];</span><br><span class="line">        nums[i]%=<span class="number">1000000007</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums[n];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">青蛙跳级</span></span><br><span class="line"><span class="comment">执行用时：0 ms, 在所有 Java 提交中击败了100.00%的</span></span><br><span class="line"><span class="comment">用户内存消耗：35.2 MB, 在所有 Java 提交中击败了81.82%的用户</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numWays</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span>[] nums=<span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        nums[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">        nums[<span class="number">2</span>]=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            nums[i]=nums[i-<span class="number">1</span>]+nums[i-<span class="number">2</span>];</span><br><span class="line">            nums[i]%=<span class="number">1000000007</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="面试题十一"><a href="#面试题十一" class="headerlink" title="面试题十一"></a>面试题十一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。</span></span><br><span class="line"><span class="comment">输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。</span></span><br><span class="line"><span class="comment">例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为1。  </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 1：</span></span><br><span class="line"><span class="comment">输入：[3,4,5,1,2]</span></span><br><span class="line"><span class="comment">输出：1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 2：</span></span><br><span class="line"><span class="comment">输入：[2,2,2,0,1]</span></span><br><span class="line"><span class="comment">输出：0</span></span><br><span class="line"><span class="comment">执行用时:0ms,在所有Java提交中击败了100.00%的用户</span></span><br><span class="line"><span class="comment">内存消耗:38.3MB,在所有Java提交中击败了78.26%的用户</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minArray</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> end=numbers.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(start&lt;end)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(start+end)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(numbers[mid]&gt;numbers[end]) start=mid+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(numbers[mid]&lt;numbers[end]) end=mid;</span><br><span class="line">            <span class="keyword">else</span> end--;<span class="comment">//二分查找，比较棘手的是相等的情况，但只要把末尾数字去掉，那就很容易就能解决</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> numbers[start];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="面试题十二"><a href="#面试题十二" class="headerlink" title="面试题十二"></a>面试题十二</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一格开始，每一步可以在矩阵中向左、右、上、下移动一格。如果一条路径经过了矩阵的某一格，那么该路径不能再次进入该格子。例如，在下面的3×4的矩阵中包含一条字符串“bfce”的路径（路径中的字母用加粗标出）。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">[[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;e&quot;],</span></span><br><span class="line"><span class="comment">[&quot;s&quot;,&quot;f&quot;,&quot;c&quot;,&quot;s&quot;],</span></span><br><span class="line"><span class="comment">[&quot;a&quot;,&quot;d&quot;,&quot;e&quot;,&quot;e&quot;]]</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">但矩阵中不包含字符串“abfb”的路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入这个格子。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 1：</span></span><br><span class="line"><span class="comment">输入：board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;ABCCED&quot;</span></span><br><span class="line"><span class="comment">输出：true</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 2：</span></span><br><span class="line"><span class="comment">输入：board = [[&quot;a&quot;,&quot;b&quot;],[&quot;c&quot;,&quot;d&quot;]], word = &quot;abcd&quot;</span></span><br><span class="line"><span class="comment">输出：false</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">bfs+回溯就ok了</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exist</span><span class="params">(<span class="keyword">char</span>[][] board, String word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span> []words=word.toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;board.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;board[<span class="number">0</span>].length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(bfs(board,words,i,j,<span class="number">0</span>)) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">bfs</span><span class="params">(<span class="keyword">char</span>[][] board,<span class="keyword">char</span>[] words,<span class="keyword">int</span> i,<span class="keyword">int</span> j,<span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i&gt;=board.length || i&lt;<span class="number">0</span> || j&gt;=board[<span class="number">0</span>].length || j&lt;<span class="number">0</span> || board[i][j]!=words[index])  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(index==words.length-<span class="number">1</span>)     <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        board[i][j]=<span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">        <span class="keyword">boolean</span> result=bfs(board,words,i+<span class="number">1</span>,j,index+<span class="number">1</span>)||bfs(board,words,i-<span class="number">1</span>,j,index+<span class="number">1</span>)</span><br><span class="line">                        ||bfs(board,words,i,j+<span class="number">1</span>,index+<span class="number">1</span>)||bfs(board,words,i,j-<span class="number">1</span>,index+<span class="number">1</span>);</span><br><span class="line">        board[i][j]=words[index];</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">执行用时5 ms,在所有 Java 提交中击败了97.99%的用户</span></span><br><span class="line"><span class="comment">内存消耗：40.4MB,在所有Java提交中击败了71.23%的用户</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="面试题十三"><a href="#面试题十三" class="headerlink" title="面试题十三"></a>面试题十三</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3+5+3+7=18。但它不能进入方格 [35, 38]，因为3+5+3+8=19。请问该机器人能够到达多少个格子？</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 1：</span></span><br><span class="line"><span class="comment">输入：m = 2, n = 3, k = 1</span></span><br><span class="line"><span class="comment">输出：3</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 2：</span></span><br><span class="line"><span class="comment">输入：m = 3, n = 1, k = 0</span></span><br><span class="line"><span class="comment">输出：1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">提示：</span></span><br><span class="line"><span class="comment">1 &lt;= n,m &lt;= 100</span></span><br><span class="line"><span class="comment">0 &lt;= k &lt;= 20</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">执行用时：0ms,在所有Java提交中击败了100.00%的用户</span></span><br><span class="line"><span class="comment">内存消耗：35.4MB,在所有Java提交中击败了88.72%的用户</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">movingCount</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span>[][] map=<span class="keyword">new</span> <span class="keyword">boolean</span>[m][n];</span><br><span class="line">        <span class="keyword">return</span> bfs(<span class="number">0</span>,<span class="number">0</span>,m,n,map,k);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j,<span class="keyword">int</span> m,<span class="keyword">int</span> n,<span class="keyword">boolean</span>[][] map,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;<span class="number">0</span> || i&gt;m-<span class="number">1</span> || j&lt;<span class="number">0</span> || j&gt;n-<span class="number">1</span> || (i/<span class="number">10</span>+i%<span class="number">10</span>+j/<span class="number">10</span>+j%<span class="number">10</span>)&gt;k || map[i][j]) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        map[i][j]=<span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">return</span> bfs(i+<span class="number">1</span>,j,m,n,map,k)+bfs(i,j+<span class="number">1</span>,m,n,map,k)+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="面试题十四"><a href="#面试题十四" class="headerlink" title="面试题十四"></a>面试题十四</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。请问 k[0]*k[1]*...*k[m-1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 1：</span></span><br><span class="line"><span class="comment">输入: 2</span></span><br><span class="line"><span class="comment">输出: 1</span></span><br><span class="line"><span class="comment">解释: 2 = 1 + 1, 1 × 1 = 1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 2:</span></span><br><span class="line"><span class="comment">输入: 10</span></span><br><span class="line"><span class="comment">输出: 36</span></span><br><span class="line"><span class="comment">解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">提示：2 &lt;= n &lt;= 58</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">当分割的数中3尽可能的多，那么就会使得乘积最大。当然有例外，比如4，2*2&gt;1*3。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">执行用时：0ms,在所有Java提交中击败了100.00%的用户</span></span><br><span class="line"><span class="comment">内存消耗：35.3 MB,在所有Java提交中击败了79.85%的用户</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">cuttingRope</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//2 &lt;= n &lt;= 58</span></span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">3</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">4</span>) <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">int</span> product=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(n&gt;<span class="number">3</span> &amp;&amp; n!=<span class="number">4</span>)&#123;</span><br><span class="line">                product*=<span class="number">3</span>;</span><br><span class="line">                n-=<span class="number">3</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> product*n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="面试题十五"><a href="#面试题十五" class="headerlink" title="面试题十五"></a>面试题十五</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">请实现一个函数，输入一个整数（以二进制串形式），输出该数二进制表示中 1 的个数。例如，把 9 表示成二进制是 1001，有 2 位是 1。因此，如果输入 9，则该函数输出 2。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 1：</span></span><br><span class="line"><span class="comment">输入：00000000000000000000000000001011</span></span><br><span class="line"><span class="comment">输出：3</span></span><br><span class="line"><span class="comment">解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 &#x27;1&#x27;。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 2：</span></span><br><span class="line"><span class="comment">输入：00000000000000000000000010000000</span></span><br><span class="line"><span class="comment">输出：1</span></span><br><span class="line"><span class="comment">解释：输入的二进制串 00000000000000000000000010000000 中，共有一位为 &#x27;1&#x27;。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">示例 3：</span></span><br><span class="line"><span class="comment">输入：11111111111111111111111111111101</span></span><br><span class="line"><span class="comment">输出：31</span></span><br><span class="line"><span class="comment">解释：输入的二进制串 11111111111111111111111111111101 中，共有 31 位为 &#x27;1&#x27;。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">提示：</span></span><br><span class="line"><span class="comment">输入必须是长度为 32 的 二进制串 。</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">// you need to treat n as an unsigned value</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// int result=0;</span></span><br><span class="line">        <span class="comment">// while(n!=0)&#123;</span></span><br><span class="line">        <span class="comment">//     result += (n&amp;1);</span></span><br><span class="line">        <span class="comment">//     n=n&gt;&gt;&gt;1;</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="comment">// return result;</span></span><br><span class="line">        <span class="keyword">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n!=<span class="number">0</span>)&#123;</span><br><span class="line">            n=(n&amp;(n-<span class="number">1</span>));</span><br><span class="line">            result++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
     </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
 </div>
 
 
 
 
+    <footer class="page-footer bg-color">
     
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/06/Welcome/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/06/Welcome/" class="post-title-link" itemprop="url">文章目录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-06 21:41:13" itemprop="dateCreated datePublished" datetime="2020-11-06T21:41:13+08:00">2020-11-06</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-10 23:50:49" itemprop="dateModified" datetime="2020-11-10T23:50:49+08:00">2020-11-10</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://www.qguizhan.top/">daniel’s blog</a>!  If you get any problems ,you can ask me on <a target="_blank" rel="noopener" href="https://github.com/DanielCorleone2001">GitHub</a>.</p>
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><h4 id="1-中断与系统调用"><a href="#1-中断与系统调用" class="headerlink" title="1.中断与系统调用"></a>1.<a target="_blank" rel="noopener" href="https://qguizhan.top/2020/11/10/%E4%B8%AD%E6%96%AD%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/">中断与系统调用</a></h4><h4 id="2-进程"><a href="#2-进程" class="headerlink" title="2.进程"></a>2.<a target="_blank" rel="noopener" href="https://qguizhan.top/2020/11/10/%E8%BF%9B%E7%A8%8B/">进程</a></h4><h4 id="3-线程"><a href="#3-线程" class="headerlink" title="3.线程"></a>3.<a target="_blank" rel="noopener" href="https://qguizhan.top/2020/11/10/%E7%BA%BF%E7%A8%8B/">线程</a></h4>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-  </nav>
-
-
-
-      
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
     }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">daniel</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">33.4k</span>&nbsp;字
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/DanielCorleone2001" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3086909409@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3086909409" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3086909409" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
 </script>
 
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      
-
-      
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">daniel</span>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
-
-    </div>
-  </footer>
-
-  
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  
 
 
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
+    <!-- Baidu Analytics -->
 
+    <!-- Baidu Push -->
 
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
 
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
 
+    
 
+    
 
+	
+    
 
+    
 
+    
 
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-  
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
 
 </body>
+
 </html>

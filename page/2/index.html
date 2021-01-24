@@ -1,1202 +1,966 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="zh-CN">
+
+
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Welcome to Daniel&#39;s Blog !">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+    <title>Welcome to Daniel&#39;s Blog !</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-<link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
+    <script src="/libs/jquery/jquery.min.js"></script>
 
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
-  </script>
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to Daniel&#39;s Blog !">
-<meta property="og:url" content="http://example.com/page/2/index.html">
-<meta property="og:site_name" content="Welcome to Daniel&#39;s Blog !">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="daniel">
-<meta name="twitter:card" content="summary">
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
-<link rel="canonical" href="http://example.com/page/2/">
 
 
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Welcome to Daniel&#39;s Blog !</span>
+                </a>
+            </div>
+            
 
-  <title>Welcome to Daniel's Blog !</title>
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
   
-
-
-
-
-
-
-  <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Welcome to Daniel's Blog !</h1>
-      <i class="logo-line"></i>
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
     </a>
-      <p class="site-subtitle" itemprop="description">coding</p>
-  </div>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
 
+<div id="mobile-nav" class="side-nav sidenav">
 
-
-
-
-
-
-</div>
+    <div class="mobile-head bg-color">
         
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Welcome to Daniel&#39;s Blog !</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
 
-  <aside class="sidebar">
+    
 
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
         </li>
-        <li class="sidebar-nav-overview">
-          站点概览
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
         </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
-        </section>
-        <!--/noindex-->
-
-        <section class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">daniel</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">40</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">17</span>
-        <span class="site-state-item-name">标签</span>
-      </div>
-  </nav>
-</div>
-
-
-
-        </section>
-      </div>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-    <div class="main-inner index posts-expand">
-      
-
-      
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/11/mysql%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
           
-            <a href="/2021/01/11/mysql%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">MySQL笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-01-11 20:38:54" itemprop="dateCreated datePublished" datetime="2021-01-11T20:38:54+08:00">2021-01-11</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-22 13:03:55" itemprop="dateModified" datetime="2021-01-22T13:03:55+08:00">2021-01-22</time>
-      </span>
-
-  
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
 </div>
+
 
         </div>
-      </header>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="数据库分类"><a href="#数据库分类" class="headerlink" title="数据库分类"></a>数据库分类</h2><h3 id="关系型数据库（SQL）"><a href="#关系型数据库（SQL）" class="headerlink" title="关系型数据库（SQL）"></a>关系型数据库（SQL）</h3><p>ex:MySQL、Oracl、 Sql Server</p>
-<h3 id="非关系型数据库-NoSQL"><a href="#非关系型数据库-NoSQL" class="headerlink" title="非关系型数据库(NoSQL)"></a>非关系型数据库(NoSQL)</h3><p>Not only SQL</p>
-<p>ex：Redis、MongDb</p>
-<h2 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">登录：mysql -h localhost -P 3306 -u root -p</span><br><span class="line"></span><br><span class="line">显示数据库：show databases;</span><br><span class="line"></span><br><span class="line">进到某个数据库：use **;</span><br><span class="line"></span><br><span class="line">展示表：show tables;</span><br><span class="line"></span><br><span class="line">拼接函数(类似于字符串拼接): SELECT CONCAT(str1,str2) AS &quot;?&quot; FROM **;</span><br><span class="line"></span><br><span class="line">显示表的所有数据： DESC **;</span><br><span class="line"></span><br><span class="line">判断为空的函数: IFNULL(**,0);</span><br><span class="line"></span><br><span class="line">转义函数: ESCAPE &#39;*&#39;;</span><br><span class="line"></span><br><span class="line">从高到低排序: SELECT * FROM * ORDER BY * DESC;</span><br><span class="line">从低到高排序: SELECT * FROM * ORDER BY * ASC;</span><br></pre></td></tr></table></figure>
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                coding
+                
+            </div>
 
-<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database if not exits database_test</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Drop database if exits database_test</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use &#96;database_test&#96;</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases       -- 查看所有数据库</span><br></pre></td></tr></table></figure>
-
-<h2 id="数据库的数据类型-列类型"><a href="#数据库的数据类型-列类型" class="headerlink" title="数据库的数据类型(列类型)"></a>数据库的数据类型(列类型)</h2><h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><p>tinyint                                                         1Byte</p>
-<p>smallint                                                      2Byte</p>
-<p>mediumint                                                3Byte</p>
-<p><strong>int                                                               4Byte</strong></p>
-<p>bigint                                                          8Byte</p>
-<h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><p>float                                                            4Byte</p>
-<p>double                                                       8Byte</p>
-<p>decimal：字符串形式的浮点数</p>
-<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>char  0~255</p>
-<p><strong>varchar 可变字符串 ：0~65535</strong></p>
-<p>tinytext 微型文本  2^8-1</p>
-<p><strong>text     文本串 2^16-1</strong></p>
-<h3 id="时间日期"><a href="#时间日期" class="headerlink" title="时间日期"></a>时间日期</h3><p>date          YYYY-MM-DD</p>
-<p>time          HH:mm:ss</p>
-<p><strong>datetime   YYYY-MM-DD   HH:mm:ss</strong></p>
-<p><strong>timestamp  时间戳    1970.1.1到现在的毫秒数</strong></p>
-<p>year </p>
-<h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><h2 id="数据库的字段属性"><a href="#数据库的字段属性" class="headerlink" title="数据库的字段属性"></a>数据库的字段属性</h2><h3 id="Unsinged"><a href="#Unsinged" class="headerlink" title="Unsinged"></a>Unsinged</h3><p>无符号类型。不能为负数</p>
-<h3 id="自增"><a href="#自增" class="headerlink" title="自增"></a>自增</h3><p>自动在上一条记录的基础上加1</p>
-<p>通常用来设计唯一的主键</p>
-<h3 id="zerofill"><a href="#zerofill" class="headerlink" title="zerofill"></a>zerofill</h3><p>不足的位数用0填充</p>
-<h3 id="NotNull"><a href="#NotNull" class="headerlink" title="NotNull"></a>NotNull</h3><p>非空，如果不给它赋值就会报错。</p>
-<h3 id="Default"><a href="#Default" class="headerlink" title="Default"></a>Default</h3><p>设置默认的值是多少。</p>
-<h2 id="创建数据库表"><a href="#创建数据库表" class="headerlink" title="创建数据库表"></a>创建数据库表</h2><h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table if not exists &#96;student&#96;(</span><br><span class="line">	&#96;id&#96; INT(4) NOT NULL AUTO_INCREMENT COMMENT &#96;学号&#96;，</span><br><span class="line">    &#96;name&#96; VARCHAR(30) NOT NULL DEFAULT &#96;无名氏&#96; COMMENT &#96;姓名&#96;,</span><br><span class="line">    &#96;pwd&#96; VARCHAR(30) NOT NULL DEFAULT &#96;123456&#96; COMMENT &#96;密码&#96;，</span><br><span class="line">    &#96;sex&#96; VARCHAR(2) NOT NULL DEFAULT &#96;男&#96; COMMENT &#96;性别&#96;,</span><br><span class="line">    &#96;address&#96; VARCHAR(100) DEFAULT NULL COMMENT &#96;住址&#96;,</span><br><span class="line">    PRIMARY KEY(&#96;id&#96;)</span><br><span class="line">)ENGINE&#x3D; INNODB DEFAULT CHARSET &#x3D;utf8</span><br></pre></td></tr></table></figure>
-
-<p>引擎不声明的话也会<strong>默认是INNODB</strong></p>
-<p><strong>记得**</strong>要设计主键**</p>
-<h3 id="偷懒写法"><a href="#偷懒写法" class="headerlink" title="偷懒写法"></a>偷懒写法</h3><p>当然也可以偷懒，使用其他已经存在的表的SQL语句作为模板</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show create table student</span><br><span class="line">-- 这样就能得到创建某张表的SQL语句</span><br></pre></td></tr></table></figure>
-
-<h3 id="显示表结构"><a href="#显示表结构" class="headerlink" title="显示表结构"></a>显示表结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DESC student</span><br></pre></td></tr></table></figure>
-
-<h2 id="数据表的类型"><a href="#数据表的类型" class="headerlink" title="数据表的类型"></a>数据表的类型</h2><h3 id="MYISAM与INOODB"><a href="#MYISAM与INOODB" class="headerlink" title="MYISAM与INOODB"></a>MYISAM与INOODB</h3><table>
-<thead>
-<tr>
-<th></th>
-<th>MYISAM</th>
-<th>MySQL</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>事务支持</td>
-<td>不支持</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>数据行锁定(行锁)</td>
-<td>不支持</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>外键约束</td>
-<td>不支持</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>全文索引</td>
-<td>支持</td>
-<td>支持（MySQL5.6以后支持）</td>
-</tr>
-<tr>
-<td>表空间的大小</td>
-<td>较小</td>
-<td>较大</td>
-</tr>
-<tr>
-<td>特点</td>
-<td>节约空间，速度较快</td>
-<td>安全性高，支持事务，多表多用户操作</td>
-</tr>
-</tbody></table>
-<h2 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h2><h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-- 重命名</span><br><span class="line">ALTER TABLE student RENAME AS student1</span><br><span class="line">-- 增加表的字段</span><br><span class="line">ALTER TABLE student ADD age INT(11)</span><br><span class="line">-- 修改表的字段的约束</span><br><span class="line">ALTER TABLE student MODIFY age VARCHAR(11)</span><br><span class="line">-- 修改表的字段的名字</span><br><span class="line">ALTER TABLE student CHANGE age age1</span><br><span class="line"></span><br><span class="line">-- 删除表的字段</span><br><span class="line">ALTER TABLE student DROP age</span><br></pre></td></tr></table></figure>
-
-<h3 id="表重命名"><a href="#表重命名" class="headerlink" title="表重命名"></a>表重命名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student RENAME AS student1</span><br></pre></td></tr></table></figure>
-
-<h3 id="增加表的字段"><a href="#增加表的字段" class="headerlink" title="增加表的字段"></a>增加表的字段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student ADD age INT(11)</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改表的字段的约束"><a href="#修改表的字段的约束" class="headerlink" title="修改表的字段的约束"></a>修改表的字段的约束</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student MODIFY age VARCHAR(11)</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改表的字段的名字"><a href="#修改表的字段的名字" class="headerlink" title="修改表的字段的名字"></a>修改表的字段的名字</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student CHANGE age age1</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除表的字段"><a href="#删除表的字段" class="headerlink" title="删除表的字段"></a>删除表的字段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student DROP age</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/11/LeetCodeNo-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/11/LeetCodeNo-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" class="post-title-link" itemprop="url">LeetCodeNo.70:爬楼梯</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-01-11 16:15:03 / 修改时间：16:16:01" itemprop="dateCreated datePublished" datetime="2021-01-11T16:15:03+08:00">2021-01-11</time>
-    </span>
-
-  
-</div>
-
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？ </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 注意：给定 n 是一个正整数。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 1： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 输入： 2</span></span><br><span class="line"><span class="comment">//输出： 2</span></span><br><span class="line"><span class="comment">//解释： 有两种方法可以爬到楼顶。</span></span><br><span class="line"><span class="comment">//1.  1 阶 + 1 阶</span></span><br><span class="line"><span class="comment">//2.  2 阶 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 2： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 输入： 3</span></span><br><span class="line"><span class="comment">//输出： 3</span></span><br><span class="line"><span class="comment">//解释： 有三种方法可以爬到楼顶。</span></span><br><span class="line"><span class="comment">//1.  1 阶 + 1 阶 + 1 阶</span></span><br><span class="line"><span class="comment">//2.  1 阶 + 2 阶</span></span><br><span class="line"><span class="comment">//3.  2 阶 + 1 阶</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Related Topics 动态规划 </span></span><br><span class="line"><span class="comment">// 👍 1413 👎 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//leetcode submit region begin(Prohibit modification and deletion)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将问题切分成子问题，我要上四层台阶，那么最后一步一定是走一步或者两步</span></span><br><span class="line"><span class="comment">     * 走一步就是f(n-1)，走两步就是f(n-2)</span></span><br><span class="line"><span class="comment">     * 所以f(n)=f(n-1)+f(n-2),没错，斐波那契数列</span></span><br><span class="line"><span class="comment">     * 如果用递归就太呆了</span></span><br><span class="line"><span class="comment">     * 只需要用三个变量一直变换就行了</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> f1=<span class="number">1</span>,f2=<span class="number">2</span>,f3=<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;n;i++)&#123;</span><br><span class="line">            f1=f2;</span><br><span class="line">            f2=f3;</span><br><span class="line">            f3=f1+f2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//leetcode submit region end(Prohibit modification and deletion)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
     </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/11/LeetCodeNo-11-%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/11/LeetCodeNo-11-%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/" class="post-title-link" itemprop="url">LeetCodeNo.11:盛水最多的容器</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-01-11 16:14:45 / 修改时间：16:15:36" itemprop="dateCreated datePublished" datetime="2021-01-11T16:14:45+08:00">2021-01-11</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, </span></span><br><span class="line"><span class="comment">//ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 说明：你不能倾斜容器。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 1： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：[1,8,6,2,5,4,8,3,7]</span></span><br><span class="line"><span class="comment">//输出：49 </span></span><br><span class="line"><span class="comment">//解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 2： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：height = [1,1]</span></span><br><span class="line"><span class="comment">//输出：1</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 3： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：height = [4,3,2,1,4]</span></span><br><span class="line"><span class="comment">//输出：16</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例 4： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//输入：height = [1,2,1]</span></span><br><span class="line"><span class="comment">//输出：2</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 提示： </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// n = height.length </span></span><br><span class="line"><span class="comment">// 2 &lt;= n &lt;= 3 * 104 </span></span><br><span class="line"><span class="comment">// 0 &lt;= height[i] &lt;= 3 * 104 </span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Related Topics 数组 双指针 </span></span><br><span class="line"><span class="comment">// 👍 2108 👎 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//leetcode submit region begin(Prohibit modification and deletion)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//暴力枚举</span></span><br><span class="line"><span class="comment">//        int Max=0;</span></span><br><span class="line"><span class="comment">//        int area=0;</span></span><br><span class="line"><span class="comment">//        for(int i=0;i&lt;height.length;i++)&#123;</span></span><br><span class="line"><span class="comment">//            for(int j=i+1;j&lt;height.length;j++)&#123;</span></span><br><span class="line"><span class="comment">//                area=(j-i)*Math.min(height[i],height[j]);</span></span><br><span class="line"><span class="comment">//                Max=Math.max(Max,area);</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        return Max;</span></span><br><span class="line"><span class="comment">/******************************方法二(左右边界)***********************/</span></span><br><span class="line">        <span class="keyword">int</span> minHeight=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> Max=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> area=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=height.length-<span class="number">1</span>;i&lt;j;)&#123;</span><br><span class="line">            <span class="comment">//寻找左右两边更高的，依次由外向内寻找</span></span><br><span class="line">            minHeight=height[i]&lt;height[j]?height[i++]:height[j--];</span><br><span class="line">            area=(j+<span class="number">1</span>-i)*minHeight;</span><br><span class="line">            Max=Math.max(Max,area);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//leetcode submit region end(Prohibit modification and deletion)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/11/LeetcodeNO-283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/11/LeetcodeNO-283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/" class="post-title-link" itemprop="url">LeetcodeNO.283:移动零</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-01-11 15:03:47 / 修改时间：15:05:21" itemprop="dateCreated datePublished" datetime="2021-01-11T15:03:47+08:00">2021-01-11</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。 </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 示例: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 输入: [0,1,0,3,12]</span></span><br><span class="line"><span class="comment">//输出: [1,3,12,0,0] </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 说明: </span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// 必须在原数组上操作，不能拷贝额外的数组。 </span></span><br><span class="line"><span class="comment">// 尽量减少操作次数。 </span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Related Topics 数组 双指针 </span></span><br><span class="line"><span class="comment">// 👍 908 👎 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//leetcode submit region begin(Prohibit modification and deletion)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        if(nums==null) return;</span></span><br><span class="line"><span class="comment">//        int j=0;</span></span><br><span class="line"><span class="comment">//        //先计算出非零的个数，并按按序存下</span></span><br><span class="line"><span class="comment">//        for(int i=0;i&lt;nums.length;i++) &#123;</span></span><br><span class="line"><span class="comment">//            if (nums[i]!=0) &#123;</span></span><br><span class="line"><span class="comment">//                nums[j++]=nums[i];</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        //剩下的全为0，置为0即可</span></span><br><span class="line"><span class="comment">//        for(int i=j;i&lt;nums.length;i++) &#123;</span></span><br><span class="line"><span class="comment">//            nums[i]=0;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">/************************方法二（次优解）**************************************/</span></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 类比快排，将0作为切分点，不等于0的放左边，</span></span><br><span class="line"><span class="comment">         * 其中j记录的是0的位置</span></span><br><span class="line"><span class="comment">         * 而i用作遍历一边</span></span><br><span class="line"><span class="comment">         * 时间复杂度O（n）</span></span><br><span class="line"><span class="comment">         * 空间复杂度O(1)</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line"><span class="comment">//        if(nums == null) return;</span></span><br><span class="line"><span class="comment">//        int j=0;</span></span><br><span class="line"><span class="comment">//        for (int i=0;i&lt;nums.length;i++) &#123;</span></span><br><span class="line"><span class="comment">//            if(nums[i] != 0) &#123;</span></span><br><span class="line"><span class="comment">//                int temp=nums[i];</span></span><br><span class="line"><span class="comment">//                nums[i]=nums[j];</span></span><br><span class="line"><span class="comment">//                nums[j++]=temp;</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"><span class="comment">/************************************方法三（更优解）************************/</span></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 思路和第二个一样，只是对于不用引进多余的空间来存，减小了空间复杂度，但相应的多了一步判断而已</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != <span class="number">0</span>)&#123;</span><br><span class="line">                nums[j]=nums[i];</span><br><span class="line">                <span class="keyword">if</span>(i != j)&#123;</span><br><span class="line">                    nums[i]=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//leetcode submit region end(Prohibit modification and deletion)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/30/LRU%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/30/LRU%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">链表实现LRU缓存淘汰算法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-30 21:16:46 / 修改时间：22:50:12" itemprop="dateCreated datePublished" datetime="2020-12-30T21:16:46+08:00">2020-12-30</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p>说到链表，很相似的就是数组。二者之间的区别其实很明显：</p>
-<p>​                -数组能实现随机访问，而链表只能从头部开始慢慢往下找</p>
-<p>​                -数组对于内存的要求很高：一定要是一段连续的空间；</p>
-<p>​                -链表的话不要求是连续的内存空间，只要求满足大小即可</p>
-<p>这么说下来，比如申请存储100个int类型的元素，数组会要求400个字节的连续内存空间，而链表需要800个字节的空间，连续不连续是无所谓的。为什么多了一倍的内存空间呢？因为链表还需存储地址。</p>
-<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>链表常见的结构有：<strong>单链表</strong>、<strong>双链表</strong>、<strong>循环链表</strong></p>
-<p><strong>单链表：</strong></p>
-<p>​    –&gt;data&amp;next-&gt;–&gt;data&amp;next–&gt;data&amp;next-&gt;….-&gt;data&amp;next-&gt;NULL</p>
-<p>首和尾是比较特殊的节点：头节点用来记录链表的基地址，尾节点的next指向空来保证链表结构的完备性。</p>
-<p><strong>循环链表：</strong></p>
-<p>基本结构和单链表类似，只是尾节点指向头节点。用来解决<strong>约瑟夫问题</strong>很方便。</p>
-<p><strong>双向链表：</strong></p>
-<p>基本结构和单链表类似，每个节点都会多了个<strong>指向前驱节点的指针</strong></p>
-<p>那么单链表有两个域：数据域+指向后继节点的指针域</p>
-<p>双向链表有三个域：数据与+指向后继节点的指针域+<strong>指向前趋节点的指针域</strong></p>
-<p>双向链表相较于单链表的一大优势在于：<strong>找到前驱节点的时间复杂度为O(1)</strong></p>
-<p>而单链表只能从头节点慢慢往下找，所以仍然是O(n).而且，对于插入和删除也是有优化的。可能会有问题：单链表的插入删除不是O(1)吗？是的，但是一般情况下，我们想要进行插入删除操作，很多时候还是<strong>得先进行查找</strong>，再插入或者删除，可见其实是先O(n),再O(1).</p>
-<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p><strong>插入：</strong>    </p>
-<p>​        时间复杂度：O(1)</p>
-<p><strong>删除：</strong></p>
-<p>​        时间复杂度O(1)</p>
-<p>接着上面的问题。要解决疑问，就得先清除删除有哪些情况：</p>
-<p>​        -删除节点中的值等于某个定值的节点</p>
-<p>​        -删除给定指针指向的节点</p>
-<p>第一种情况单向双向都只能老老实实先O(n),再O(1)，没有所谓的优化</p>
-<p>第二种情况，单链表需要先获取目标节点的前驱节点，这时候找到的代价就是O(n),相应的双向链表只需要O(1)就行啦。</p>
-<p>同理对应插入操作，不再解释。</p>
-<p><strong>查找：</strong>即访问索引为k的元素</p>
-<p>​        时间复杂度O(n)</p>
-<h2 id="链表实现LRU缓存淘汰算法"><a href="#链表实现LRU缓存淘汰算法" class="headerlink" title="链表实现LRU缓存淘汰算法"></a>链表实现LRU缓存淘汰算法</h2><h3 id="插播信息"><a href="#插播信息" class="headerlink" title="插播信息"></a>插播信息</h3><p>CPU在从内存读取数据的时候，会先把读取到的数据加载到CPU的缓存中。而CPU每次从内存读取数据并不是只读取那个特定要访问的地址，而是读取一个数据块(这个大小我不太确定。。)并保存到CPU缓存中，然后下次访问内存数据的时候就会先从CPU缓存开始查找，如果找到就不需要再从内存中取。这样就实现了比内存访问速度更快的机制，也就是CPU缓存存在的意义:为了弥补内存访问速度过慢与CPU执行速度快之间的差异而引入。 对于数组来说，存储空间是连续的，所以在加载某个下标的时候可以把以后的几个下标元素也加载到CPU缓存这样执行速度会快于存储空间不连续的链表存储。</p>
-<h3 id="LRU"><a href="#LRU" class="headerlink" title="LRU"></a>LRU</h3><p><strong>·LRU</strong>：least recent used ，该算法找到最近最少使用的东西。</p>
-<p><strong>·应用：</strong></p>
-<p>操作系统虚拟存储器中就是用到了这个算法。虚拟存储器中，每个进程只会被分配几个内存块。当内存块可使用的块已经满了，就得从磁盘重新读取一个内存块的数据量。此时得使用替换算法来决定要去掉哪一个内存块。</p>
-<h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><p>使用有序单链表，注意这里的有序不是值按照大小顺序，而是按我们定义的顺序：越靠进头节点的就是约常被使用的，越靠近尾节点的就是越不常使用的。这时候就很明朗了：</p>
-<p>当有一个新的数据要被访问的时候，从头结点开始访问链表，</p>
-<p>​            -如果找到了该元素对应的节点，那么说明这个元素即将要被使用，就要删除这个元素所在的位置，插入到头节点</p>
-<p>​            -如果找不到的话，那就说明不在缓存链表里面。这时候又得判断：</p>
-<p>​                    如果缓存还有容量，则直接将该元素插入到链表的头部；</p>
-<p>​                    如果没有了容量，那么就删除尾节点，再将元素插入到链表的头部</p>
-<p>接着分析一下算法的复杂度：其实不管有没有找到数据，也不管缓存是否已经满了，都是要从头结点遍历一次，所以时间复杂度为O(n)。但这时候相信你们也发现了，其实hashtable(散列表)是它的优化版本。每次都记下数据的位置，那么不就解决了它每次都要遍历付出的高代价啦。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/30/JAVA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%BA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/30/JAVA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%BA%8C/" class="post-title-link" itemprop="url">JAVA并发编程(二)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-30 16:38:16 / 修改时间：19:00:19" itemprop="dateCreated datePublished" datetime="2020-12-30T16:38:16+08:00">2020-12-30</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="并发BUG的三个源头"><a href="#并发BUG的三个源头" class="headerlink" title="并发BUG的三个源头"></a>并发BUG的三个源头</h2><h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>·一个线程对共享变量的修改，另外一个线程能够立刻看到，我们称为<strong>可见性</strong></p>
-<p>·单核时代，由于所有的线程都是在同一个CPU上执行的，CPU的缓存(cache)和内存数据的一致性其实很好解决。</p>
-<p>因为一个进程对缓存的读写操作，对于其他的线程是具有<strong>可见性</strong>的。很简单的道理，二者都作用在CPU的缓存上，当某一线程改变了内存的值后让出使用权，其他线程再访问的时候是能正确的获取到相应的值。</p>
-<p>·多核时代就不一样了，多核导致每个CPU都有自己的cache，对于维持缓存和内存数据的一致性就变得困难了，相应的也很容易产生bug : (   这时候不同CPU上的线程是<strong>不具备可见性的</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdderTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">add10K</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(idx++ &lt; <span class="number">10000</span>) &#123;</span><br><span class="line">            count += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">calc</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> AdderTest test = <span class="keyword">new</span> AdderTest();</span><br><span class="line">        <span class="comment">// 创建两个线程，执行add()操作</span></span><br><span class="line">        Thread th1 = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            test.add10K();</span><br><span class="line">        &#125;);</span><br><span class="line">        Thread th2 = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            test.add10K();</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 启动两个线程</span></span><br><span class="line">        th1.start();</span><br><span class="line">        th2.start();</span><br><span class="line">        <span class="comment">// 等待两个线程执行结束</span></span><br><span class="line">        th1.join();</span><br><span class="line">        th2.join();</span><br><span class="line">        <span class="keyword">return</span> test.count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        System.out.println(calc());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这段代码理论上执行出来输出的值应该是20k，但是实际上输出的值却没有达到20k。如果改成每次加1亿，执行出来的结果不出意外的话，1亿多一点点，导致这个问题的出现就是因为<strong>缓存的可见性问题</strong></p>
-<p><strong>原因：</strong>假设线程 A 和线程 B 同时开始执行，那么第一次都会将 count=0 读到各自的 CPU 缓存里，执行完 count+=1 之后，各自 CPU 缓存里的值都是 1，同时写入内存后，我们会发现内存中是 1，而不是我们期望的 2。之后由于各自的 CPU 缓存里都有了 count 的值，两个线程都是基于 CPU 缓存里的 count 值来计算，所以导致最终 count 的值都是小于 20000 的。这就是缓存的可见性问题。循环 10000 次 count+=1 操作如果改为循环 1 亿次，你会发现效果更明显，最终 count 的值接近 1 亿，而不是 2 亿。如果循环 10000 次，count 的值接近 20000，原因是两个线程不是同时启动的，有一个时差。</p>
-<h3 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h3><p>操作系统里的内容(学好操作系统很重要，基础中的基础)</p>
-<p>·比如上面的代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count+=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<p>直观来说是不是以为这一步是一步执行呢？其实不是的，得从CPU的指令来分析，因为这条高级语言程序是可再分的，而CPU指令才是实打实的不可再分，这也就是所谓的<strong>原子性</strong></p>
-<p>执行这条语句，需要三步操作：</p>
-<p>​                a.将变量的值从内存里面取出后，放到寄存器(count=0)</p>
-<p>​                b.在寄存器中执行+1的操作(count+1=1)</p>
-<p>​                c.将结果写入内存(当然cache的存在会导致写入的不是内存而是缓存)(count=1写入内存/cache)</p>
-<p>三条语句才是不可再分，真正在计算机里实现的。但是bug为什么产生呢？这就涉及到了<strong>操作系统进行线程切换</strong>的知识。假设有m、n线程，count=0，当m执行完a指令后操作系统进行了线程切换到n线程，这时候n顺序执行完了a、b、c三条指令，在切换到m线程的b、c指令，最后的结果导致n线程虽然执行了，可是从结果来看，只有m线程的操作是有效的。当然有人会问，n执行完count不是等于1了吗？但是此时你得明白，m并没有从内存里再读count的值，所以m线程会认为count的值仍然是0，这就导致了两个线程都执行了+1操作，count并没有等于2，而是1的现象。这也就是<strong>CPU指令原子性和操作系统线程切换</strong>带来的恶心的bug。(现代的操作系统由于线程切换不需要进行内存地址映射，所以大多都是轻量级的线程切换而不是进程切换，所以本文只讨论这一问题)</p>
-<h3 id="有序性"><a href="#有序性" class="headerlink" title="有序性"></a>有序性</h3><p>编译器有时候为了会优化性能，理论上会顺序执行你的高级语言程序，其实并不是。有时会调整高级语言执行的顺序却不影响程序的执行结果，但是这同时也导致了某些和设想之中不一样的bug。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> Singleton instance;</span><br><span class="line">  <span class="function"><span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">synchronized</span>(Singleton.class) &#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>)</span><br><span class="line">          instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>例如有m、n进程调用方法getInstance来初始化实例。理论上是这么个情况：</p>
-<p>二者都发现instance==null然后对Singleton.class上锁。但是JVM会只让一个线程成功上锁，假设是m成功上锁，这时候m就会继续发现instance==null，然后初始化instance，然后释放锁。</p>
-<p>这时候n线程发现instance！=null了，不能上锁了，从而实现了只创建一个单例。</p>
-<p>但是我们认为线程n在进行new操作的过程是这样的：</p>
-<p>​                a.分配一块内存T</p>
-<p>​                b.在T上初始化单例对象</p>
-<p>​                c.T的地址赋值给instance</p>
-<p>实际上却是这样的：</p>
-<p>​                a.分配一块内存T</p>
-<p>​                b.T的地址赋值给instance</p>
-<p>​                c.在T上初始化单例对象</p>
-<p>这时候问题就出来了，假设m执行完了实际上的指令b，线程切换到n，然后n检查instance是否为空，这时候instance是有T的地址的，肯定是非空，所以线程n就会直接返回instance实例。但是呢，m却还没对其初始化，这也就会<strong>出现空指针异常</strong>。</p>
-<h3 id="小拓展"><a href="#小拓展" class="headerlink" title="小拓展"></a>小拓展</h3><p><strong>在 32 位的机器上对 long 型变量进行加减操作存在并发隐患？</strong></p>
-<p>答：这是对的。因为由于<strong>原子性</strong>的存在，在进行线程切换的时候会产生某些不可名状的bug。32位对于long类型分成了两份来处理，有可能某线程在处理高位字节(前4位)，这时候发生了线程切换，另一个线程把低位的给改了。。。这时候就会导致加减法操作出现错误。</p>
-<p>解决方法：把long/double 变量声明为<strong>volatile</strong>或是<strong>同步加锁synchronize</strong>以避免并发问题</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/30/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%B8%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/30/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%B8%80/" class="post-title-link" itemprop="url">java并发编程(一)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-30 12:37:46 / 修改时间：16:37:32" itemprop="dateCreated datePublished" datetime="2020-12-30T12:37:46+08:00">2020-12-30</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="并发编程（开坑，填坑全靠毅力）"><a href="#并发编程（开坑，填坑全靠毅力）" class="headerlink" title="并发编程（开坑，填坑全靠毅力）"></a>并发编程（开坑，填坑全靠毅力）</h2><h3 id="并发编程的核心问题"><a href="#并发编程的核心问题" class="headerlink" title="并发编程的核心问题"></a>并发编程的核心问题</h3><h4 id="分工"><a href="#分工" class="headerlink" title="分工"></a>分工</h4><p>·概念：如何高效地<strong>拆解任务</strong>并<strong>分配给线程</strong></p>
-<p>·举例：Fork/Join框架</p>
-<h4 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h4><p>·概念：<strong>线程</strong>之间怎么协作运行</p>
-<p>·举例：CountDownLatch</p>
-<h4 id="互斥"><a href="#互斥" class="headerlink" title="互斥"></a>互斥</h4><p>·概念：保证<strong>同一时刻只有一个线程访问共享资源</strong>(操作系统里的知识)</p>
-<p>·举例：可重入锁</p>
-<h4 id="个人思考"><a href="#个人思考" class="headerlink" title="个人思考"></a>个人思考</h4><p>这三者其实是层层递进的关系，<strong>分工</strong>导致了任务的拆解，进而需要线程间的通信，从而引入了<strong>同步</strong>。而引入同步之后，线程对于临界资源的访问具有互斥性，从而引进了<strong>互斥</strong>。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/29/%E6%95%B0%E7%BB%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/29/%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">数组</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-29 21:02:09" itemprop="dateCreated datePublished" datetime="2020-12-29T21:02:09+08:00">2020-12-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-30 22:16:43" itemprop="dateModified" datetime="2020-12-30T22:16:43+08:00">2020-12-30</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="浅谈数组"><a href="#浅谈数组" class="headerlink" title="浅谈数组"></a>浅谈数组</h2><h3 id="具体定义"><a href="#具体定义" class="headerlink" title="具体定义"></a>具体定义</h3><p><strong>·</strong>一种<strong>线性表</strong>数据结构，存储的内容在<strong>内存空间里面是连续</strong>的，存储的<strong>数据类型相同</strong>。</p>
-<p>·结构是线性表的数据结构：数组、链表、栈、队列</p>
-<h3 id="数组特性"><a href="#数组特性" class="headerlink" title="数组特性"></a>数组特性</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>·能随从访问数组元素</p>
-<p>·实现方法：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[i]=a[base_address+i*<span class="keyword">sizeof</span>(datatype)];</span><br></pre></td></tr></table></figure>
-
-<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><p>考虑到保证数组元素的连续性插入和删除数据，时间复杂度是非常高的。</p>
-<h3 id="常见错误表述"><a href="#常见错误表述" class="headerlink" title="常见错误表述"></a>常见错误表述</h3><h4 id="数组和链表"><a href="#数组和链表" class="headerlink" title="数组和链表"></a>数组和链表</h4><p><strong>wrong</strong>:</p>
-<p>​        -链表适合插入、删除，其时间复杂度为O(1);数组适合查找，时间复杂度为O(1)</p>
-<p>这段话其实是不正确的，错在后半部分。数组并不是查找的时间复杂度为O(1)。很简单的反例，二分查找数组中的某个元素，时间复杂度就不是O(1),而是O(logn).</p>
-<p><strong>right</strong>:</p>
-<p>​        -数组支持随机访问，不需要像链表一样从头节点依次查找下去才能获取到特定索引下标的值</p>
-<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>时间复杂度分析：</p>
-<p>​            -最好时间复杂度：O(1),插在数组的尾部</p>
-<p>​            -最坏时间复杂度：O(n),插在数组的头部，其余n-1个全都得往后移动</p>
-<p>​            -平均时间复杂度：O(n).</p>
-<p>​                                            设插入概率均等，则都为1/n，插入第一个需要挪n，2需要挪n-1…此时加权平均值：</p>
-<p>​                                            (n+n-1+n-2+…1)/n=(1+n)/2=O(n)</p>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>时间复杂度分析：</p>
-<p>​            -最好时间复杂度：O(1),删掉数组的尾部</p>
-<p>​            -最坏时间复杂度：O(n),删掉数组的头部，其余n-1个全都得往前移动</p>
-<p>​            -平均时间复杂度：O(n).</p>
-<p>​                                            设删除概率均等，则都为1/n，删除第一个需要挪n，2需要挪n-1…此时加权平均值：</p>
-<p>​                                            (n+n-1+n-2+…1)/n=(1+n)/2=O(n)</p>
-<h3 id="个人思考"><a href="#个人思考" class="headerlink" title="个人思考"></a>个人思考</h3><p>对于数组删除某一个索引的值，我们可以尝试集中删除，而不是每次都要删除并迁移来保证数组的连续性。每次删除的时候都记录下被删除的数据的索引，但此时并不把其他的数据都迁移。直到数组已经没有二外的空间来存储数据时(其实是有的，只是说被删除索引的数据占的内存这时候得派上了用场）只能把理应当早就被迁移的数据迁移，让数组继续保持连续性，这就大大降低了删除的时间复杂度，而这也是<strong>JVM的垃圾回收机制的思想：标记清除算法</strong>、也是<strong>MySQL的在B+树上的删除的思想</strong></p>
-<p>小小拓展：JVM的GC机制算法：</p>
-<p>​            1.复制算法</p>
-<p>​            <strong>2.标记清除算法</strong></p>
-<p>​            3.标记整理算法</p>
-<p>标记清除算法具体实现：  数组中删除数据时,并不真正的删除,而是标记一下,先不进行数据的搬移工作,等数组空间不够用时,我们再执行删除操作.进行数据的搬移工作. –&gt; 这样可以减少因为删除操作导致的数据搬移.</p>
-<p>当然，也会导致某些离谱的现象：其实内存是有的，但是内存碎片化、不连续，最末尾的地址有了数据就被当成了没有了存储空间，从而无法防止元素情况。</p>
-<h3 id="容器与数组"><a href="#容器与数组" class="headerlink" title="容器与数组"></a>容器与数组</h3><p>java提供了容器类ArrayList，底层实现还是数组。</p>
-<p>容器类的一大优势就是，把数组的基本操作(插入，删除等)封装了起来，屏蔽了许多细节，并且支持动态扩容。(小补充，ArrayList初始容量为10，每次扩容大小为扩容前的1.5倍)</p>
-<p>但是呢，虽然能自动扩容，但最好还是每次使用前，如果能直到存储内容的大小，还是预先定义会更好。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List arrayList = <span class="keyword">new</span> ArrayList(CAPACITY_SIZE);</span><br></pre></td></tr></table></figure>
-
-<p>因为扩容虽然很方便，但是其实底层涉及的操作(申请内存+搬运数据，搬运操作指的是什么？没错，就是CV大法，把数据全都复制粘贴到新申请的内存空间，是不是听起来就发现了扩容涉及的操作很耗时？)却能浪费不少时间，所以还是建议能预定义会更好。</p>
-<p>这么一说是不是ArrayList完全取代了数组呢？</p>
-<p>肯定不是的啦。ArrayList的局限性在于不能存储基本类型(int、long),只能先将其封装成Integer、Long。</p>
-<p>那么问题来了，AutoBoxing(自动装箱：基本类型-&gt;类)、Unboxing(拆箱：类-&gt;基本类型)实际上也是要消耗不少时间，所以存储的是基本类型的数据的时候，最好还是考虑用数组可能会更好噢。</p>
-<h3 id="数组从0开始作为下标的原因"><a href="#数组从0开始作为下标的原因" class="headerlink" title="数组从0开始作为下标的原因"></a>数组从0开始作为下标的原因</h3><p>引用上面的例子：</p>
-<p>从0开始的话，求某一索引的偏移地址的计算公式是这样的</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[i]=a[base_address+i*<span class="keyword">sizeof</span>(datatype)];</span><br></pre></td></tr></table></figure>
-
-<p>那如果是1呢？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[i]&#x3D;a[base_address+(i-1)*sizeof(datatype)];</span><br></pre></td></tr></table></figure>
-
-<p>很简单，多了一层减法运算，相应的CPU的任务又多了一步减法指令，这对性能可不友好。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/" class="post-title-link" itemprop="url">死锁的处理策略</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-29 20:54:10" itemprop="dateCreated datePublished" datetime="2020-11-29T20:54:10+08:00">2020-11-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-04 12:27:22" itemprop="dateModified" datetime="2020-12-04T12:27:22+08:00">2020-12-04</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="静态策略：预防死锁"><a href="#静态策略：预防死锁" class="headerlink" title="静态策略：预防死锁"></a>静态策略：预防死锁</h2><p>核心思想：破坏死锁的四个条件之一或几个，预防死锁的发生</p>
-<h3 id="破坏互斥条件"><a href="#破坏互斥条件" class="headerlink" title="破坏互斥条件"></a>破坏互斥条件</h3><p><strong>SPOOLing技术</strong>：将某互斥资源改成可同时使用的资源。</p>
-<p>缺点：很明显，互斥性的存在是为了保护系统的安全，破坏了互斥性会危害系统的安全</p>
-<h3 id="破坏不剥夺条件"><a href="#破坏不剥夺条件" class="headerlink" title="破坏不剥夺条件"></a>破坏不剥夺条件</h3><p>思想：进程所拥有的资源未使用完之前就用某种方式将其夺走，而不是等待主动释放</p>
-<p><strong>方法一</strong>：进程请求新的资源得不到满足时，主动释放已拥有的资源，以后再需要的时候需重新申请</p>
-<p>​                即使某些资源未使用完，也需主动释放。</p>
-<p><strong>方法二</strong>：进程需要的资源被某进程占用的时候，由操作系统协助，强心剥夺资源</p>
-<p><strong>缺点</strong>：</p>
-<p>​        -实现起来较为复杂</p>
-<p>​        -释放进程已经获得的资源会导致该进程的前一阶段工作失效。因此只适用于易保存和易恢复状态的资源</p>
-<p>​        -反复申请和释放资源会增加系统开销，降低吞吐量</p>
-<p>​        -方法一可能会进入这种情况：</p>
-<p>​            进程主动释放-&gt;进程申请-&gt;进程释放-&gt;进程申请…这就会导致饥饿的发生</p>
-<h3 id="破坏请求保持条件"><a href="#破坏请求保持条件" class="headerlink" title="破坏请求保持条件"></a>破坏请求保持条件</h3><p>采用<strong>静态分配方法</strong>：操作系统在进程A执行之前，把A所需要的全部资源都分配给A，且不允许A之外的进程剥夺</p>
-<p><strong>缺点：</strong>一直拥有很多资源，会导致资源利用率低；有时会导致其他进程饥饿</p>
-<h3 id="破坏循环等待条件"><a href="#破坏循环等待条件" class="headerlink" title="破坏循环等待条件"></a>破坏循环等待条件</h3><p><strong>原理</strong>：给每个资源都编号，只能按编号从小到大的顺序来申请资源</p>
-<p>​            因此只会出现拥有小编号资源的进程等待拥有大编号资源的进程，</p>
-<p>​            而不可能出现大等小，从而破坏了循环等待条件</p>
-<p><strong>缺点</strong>：不方便增加设备；资源浪费；编程麻烦</p>
-<h2 id="动态策略：避免死锁"><a href="#动态策略：避免死锁" class="headerlink" title="动态策略：避免死锁"></a>动态策略：避免死锁</h2><h3 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h3><h2 id="死锁的检测和解除"><a href="#死锁的检测和解除" class="headerlink" title="死锁的检测和解除"></a>死锁的检测和解除</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/29/%E6%AD%BB%E9%94%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="daniel">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Welcome to Daniel's Blog !">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/29/%E6%AD%BB%E9%94%81/" class="post-title-link" itemprop="url">死锁</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-11-29 20:10:43 / 修改时间：20:53:49" itemprop="dateCreated datePublished" datetime="2020-11-29T20:10:43+08:00">2020-11-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><h3 id="概念区分"><a href="#概念区分" class="headerlink" title="概念区分"></a>概念区分</h3><h4 id="死锁："><a href="#死锁：" class="headerlink" title="死锁："></a>死锁：</h4><p>​        各个进程在互相等待对方的资源，导致各个进程全都堵塞，无法向前推进</p>
-<h4 id="饥饿："><a href="#饥饿：" class="headerlink" title="饥饿："></a>饥饿：</h4><p>​        进程由于长期得不到资源，而无法向前推进。</p>
-<h4 id="死循环："><a href="#死循环：" class="headerlink" title="死循环："></a>死循环：</h4><p>​        进程执行的过程中一直执行某些语句，不跳出循环</p>
-<h3 id="三者异同点"><a href="#三者异同点" class="headerlink" title="三者异同点"></a>三者异同点</h3><h4 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h4><p>​        进程无法向前推进的现象</p>
-<h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><p>​        <strong>死锁</strong>：至少有两个或以上的进程才能导致死锁。操作系统的问题</p>
-<p>​        <strong>饥饿</strong>：可能只有一个进程饥饿。处于饥饿的状态可能是长期得不到I/O资源导致阻塞态，也可能是得不到处理机的就绪态。操作系统的问题</p>
-<p>​        <strong>死循环</strong>：可能只有一个进程死循环，可上处理机运行。使用者的问题。</p>
-<h3 id="产生死锁的必要条件"><a href="#产生死锁的必要条件" class="headerlink" title="产生死锁的必要条件"></a>产生死锁的必要条件</h3><h4 id="互斥条件："><a href="#互斥条件：" class="headerlink" title="互斥条件："></a>互斥条件：</h4><p>​        被使用的资源必须互斥。因为互斥使用才会导致进程阻塞等待，能同时使用的资源不可导致死锁</p>
-<h3 id="不剥夺条件："><a href="#不剥夺条件：" class="headerlink" title="不剥夺条件："></a>不剥夺条件：</h3><p>​        进程拥有资源在未使用结束前，不允许资源被其他进程夺走，只能主动释放，不然则一直持有资源</p>
-<h4 id="请求和保持条件"><a href="#请求和保持条件" class="headerlink" title="请求和保持条件"></a>请求和保持条件</h4><p>​        进程已经拥有了至少一个资源。</p>
-<p>​        发出了新的资源请求，被请求的资源满足<strong>互斥条件</strong>且已经被其他进程占有</p>
-<p>​        进程自己已有的资源选择保持拥有，不释放</p>
-<h4 id="循环等待条件"><a href="#循环等待条件" class="headerlink" title="循环等待条件"></a>循环等待条件</h4><p>​        存在进程资源循环等待链：链中进程拥有的资源是下一个进程的请求</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-      
 
 <script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
+
     </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      
-
-      
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">daniel</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
 
+
+<main class="content">
+
+    
+
+    
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/11/mysql%E7%AC%94%E8%AE%B0/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL笔记">
+                            
+                            <span class="card-title">MySQL笔记</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                数据库分类关系型数据库（SQL）ex:MySQL、Oracl、 Sql Server
+非关系型数据库(NoSQL)Not only SQL
+ex：Redis、MongDb
+基本指令123456789101112131415161718登录：
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/MySQL/">
+                            <span class="chip bg-color">MySQL</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/11/LeetCodeNo-70-%E7%88%AC%E6%A5%BC%E6%A2%AF/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="LeetCodeNo.70:爬楼梯">
+                            
+                            <span class="card-title">LeetCodeNo.70:爬楼梯</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051//假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 /
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/LeetCode/">
+                            <span class="chip bg-color">LeetCode</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/11/LeetCodeNo-11-%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="LeetCodeNo.11:盛水最多的容器">
+                            
+                            <span class="card-title">LeetCodeNo.11:盛水最多的容器</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/LeetCode/">
+                            <span class="chip bg-color">LeetCode</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/11/LeetcodeNO-283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="LeetcodeNO.283:移动零">
+                            
+                            <span class="card-title">LeetcodeNO.283:移动零</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/LeetCode/">
+                            <span class="chip bg-color">LeetCode</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/12/30/LRU%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="链表实现LRU缓存淘汰算法">
+                            
+                            <span class="card-title">链表实现LRU缓存淘汰算法</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                链表性质说到链表，很相似的就是数组。二者之间的区别其实很明显：
+​                -数组能实现随机访问，而链表只能从头部开始慢慢往下找
+​                -数组对于内存的要求很高：一定要是一段连续的空间；
+​
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                        <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                            <span class="chip bg-color">链表</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/12/30/JAVA%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%BA%8C/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="JAVA并发编程(二)">
+                            
+                            <span class="card-title">JAVA并发编程(二)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                并发BUG的三个源头可见性·一个线程对共享变量的修改，另外一个线程能够立刻看到，我们称为可见性
+·单核时代，由于所有的线程都是在同一个CPU上执行的，CPU的缓存(cache)和内存数据的一致性其实很好解决。
+因为一个进程对缓存的读写操作，
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                            <span class="chip bg-color">并发编程</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/12/30/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-%E4%B8%80/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="java并发编程(一)">
+                            
+                            <span class="card-title">java并发编程(一)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                并发编程（开坑，填坑全靠毅力）并发编程的核心问题分工·概念：如何高效地拆解任务并分配给线程
+·举例：Fork/Join框架
+同步·概念：线程之间怎么协作运行
+·举例：CountDownLatch
+互斥·概念：保证同一时刻只有一个线程访问共享
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                            <span class="chip bg-color">并发编程</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/12/29/%E6%95%B0%E7%BB%84/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="数组">
+                            
+                            <span class="card-title">数组</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                浅谈数组具体定义·一种线性表数据结构，存储的内容在内存空间里面是连续的，存储的数据类型相同。
+·结构是线性表的数据结构：数组、链表、栈、队列
+数组特性优点：·能随从访问数组元素
+·实现方法：
+1a[i]=a[base_address+i*s
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%95%B0%E7%BB%84/">
+                            <span class="chip bg-color">数组</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/29/%E6%AD%BB%E9%94%81%E7%9A%84%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="死锁的处理策略">
+                            
+                            <span class="card-title">死锁的处理策略</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                静态策略：预防死锁核心思想：破坏死锁的四个条件之一或几个，预防死锁的发生
+破坏互斥条件SPOOLing技术：将某互斥资源改成可同时使用的资源。
+缺点：很明显，互斥性的存在是为了保护系统的安全，破坏了互斥性会危害系统的安全
+破坏不剥夺条件思想
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                            <span class="chip bg-color">操作系统</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/29/%E6%AD%BB%E9%94%81/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="死锁">
+                            
+                            <span class="card-title">死锁</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                死锁概念区分死锁：​        各个进程在互相等待对方的资源，导致各个进程全都堵塞，无法向前推进
+饥饿：​        进程由于长期得不到资源，而无法向前推进。
+死循环：​        进程执行的过程中一直执行某些语句，不跳出循环
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                daniel
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                            <span class="chip bg-color">操作系统</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
+
+</main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">2 / 4</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/page/3/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
     </div>
-  </footer>
-
-  
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  
+</div>
 
 
 
 
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">daniel</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">33.4k</span>&nbsp;字
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/DanielCorleone2001" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:3086909409@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
 
 
 
@@ -1204,6 +968,9 @@
 
 
 
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3086909409" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 3086909409" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
 
 
 
@@ -1211,18 +978,174 @@
 
 
 
-  
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
 
 
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
 
 
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
+    <!-- Baidu Analytics -->
 
+    <!-- Baidu Push -->
 
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
 
-  
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
 
-  
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
 
 </body>
+
 </html>
