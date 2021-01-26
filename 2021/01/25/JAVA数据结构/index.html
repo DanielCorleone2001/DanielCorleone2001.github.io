@@ -462,21 +462,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-25
+                    2021-01-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    684
+                    951
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -549,6 +549,40 @@
 <h3 id="判断是否为空"><a href="#判断是否为空" class="headerlink" title="判断是否为空"></a>判断是否为空</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"><span class="keyword">boolean</span> isEmpty = queue.isEmpty();</span><br></pre></td></tr></table></figure>
 
 <h3 id="遍历队列"><a href="#遍历队列" class="headerlink" title="遍历队列"></a>遍历队列</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"><span class="keyword">while</span> ( !queue.isEmpty() ) &#123;</span><br><span class="line">    <span class="keyword">int</span> value = queue.poll();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><h3 id="创建栈"><a href="#创建栈" class="headerlink" title="创建栈"></a>创建栈</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="添加元素-3"><a href="#添加元素-3" class="headerlink" title="添加元素"></a>添加元素</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">stack.push(value);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="获取栈顶元素"><a href="#获取栈顶元素" class="headerlink" title="获取栈顶元素"></a>获取栈顶元素</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line"><span class="keyword">int</span> value = stack.peek();</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除栈顶元素"><a href="#删除栈顶元素" class="headerlink" title="删除栈顶元素"></a>删除栈顶元素</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line"><span class="keyword">int</span> value = stack.pop();</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取栈的大小"><a href="#获取栈的大小" class="headerlink" title="获取栈的大小"></a>获取栈的大小</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line"><span class="keyword">int</span> size = stack.size();</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断是否为空-1"><a href="#判断是否为空-1" class="headerlink" title="判断是否为空"></a>判断是否为空</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line"><span class="keyword">boolean</span> isEmpty = stack.isEmpty();</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历栈"><a href="#遍历栈" class="headerlink" title="遍历栈"></a>遍历栈</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line"><span class="keyword">while</span> ( !stack,isEmpty() ) &#123;</span><br><span class="line">    stack.pop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><h3 id="创建哈希表"><a href="#创建哈希表" class="headerlink" title="创建哈希表"></a>创建哈希表</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;key,value&gt; hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加元素-4"><a href="#添加元素-4" class="headerlink" title="添加元素"></a>添加元素</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;key,value&gt; hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">hashMap.put(key,value);</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新元素-2"><a href="#更新元素-2" class="headerlink" title="更新元素"></a>更新元素</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;key,value&gt; hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">hashMap.put(key,value);</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除元素-2"><a href="#删除元素-2" class="headerlink" title="删除元素"></a>删除元素</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;key,value&gt; hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">hashMap.remove(key);</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;key,value&gt; hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">hashMap,get(key);</span><br></pre></td></tr></table></figure>
+
+<h3 id="检查是否存在某个key"><a href="#检查是否存在某个key" class="headerlink" title="检查是否存在某个key"></a>检查是否存在某个key</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;key,value&gt; hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">hashMap.containsKey(key);</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取长度-1"><a href="#获取长度-1" class="headerlink" title="获取长度"></a>获取长度</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;key,value&gt; hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">hashMap.size();</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断是否为空-2"><a href="#判断是否为空-2" class="headerlink" title="判断是否为空"></a>判断是否为空</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;key,value&gt; hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">hashMap.isEmpty();</span><br></pre></td></tr></table></figure>
 
 
                 
@@ -1086,7 +1120,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">29.8k</span>&nbsp;字
+                class="white-color">31.9k</span>&nbsp;字
             
             
             
