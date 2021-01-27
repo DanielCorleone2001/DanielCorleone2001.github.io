@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JVM(待填坑), Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="个人博客, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JVM(待填坑) | Welcome to Daniel&#39;s Blog !</title>
+    <title>个人博客 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/37.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JVM(待填坑)</h1>
+                    <h1 class="description center-align post-title">个人博客</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/JAVA/">
-                                <span class="chip bg-color">JAVA</span>
-                            </a>
-                        
-                            <a href="/tags/JVM/">
-                                <span class="chip bg-color">JVM</span>
+                            <a href="/tags/SpringBoot%E5%AE%9E%E6%88%98/">
+                                <span class="chip bg-color">SpringBoot实战</span>
                             </a>
                         
                     </div>
@@ -447,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JAVA/" class="post-category">
-                                JAVA
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                个人项目
                             </a>
                         
                     </div>
@@ -460,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-21
+                    2021-01-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-26
+                    2021-01-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    218
+                    164
                 </div>
                 
 
@@ -501,27 +497,43 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h2><p>​    -面向对象</p>
-<p>​    -静态类型</p>
-<p>​    -编译执行</p>
-<p>​    -有内存管理垃圾回收机制：<strong>GC</strong>：garbag collection</p>
-<p>​    -跨平台 </p>
-<p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210121223840480.png" alt="image-20210121223840480"></p>
-<p> <img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210121224955549.png" alt="image-20210121224955549"></p>
-<h2 id="JAVA字节码技术"><a href="#JAVA字节码技术" class="headerlink" title="JAVA字节码技术"></a>JAVA字节码技术</h2><h3 id="字节码"><a href="#字节码" class="headerlink" title="字节码"></a>字节码</h3><p>·类似于汇编语言。由四种指令组成：</p>
-<p>​    -栈操作指令</p>
-<p>​    -程序流程控制指令</p>
-<p>​    -对象操作指令</p>
-<p>​    -算术运算以及类型转换指令</p>
-<h2 id="JVM类加载器"><a href="#JVM类加载器" class="headerlink" title="JVM类加载器"></a>JVM类加载器</h2><h3 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h3><p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210121230228122.png" alt="image-20210121230228122"></p>
-<h2 id="JVM内存模型"><a href="#JVM内存模型" class="headerlink" title="JVM内存模型"></a>JVM内存模型</h2><h3 id="JVM内存结构"><a href="#JVM内存结构" class="headerlink" title="JVM内存结构"></a>JVM内存结构</h3><p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210121233020814.png" alt="image-20210121233020814"></p>
-<p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210121233122740.png" alt="image-20210121233122740"></p>
-<p><strong>·</strong>每个线程栈存储的是<strong>局部变量</strong></p>
-<p><strong>·</strong>每个线程只能访问自己的线程栈。因而其他线程栈对某个线程是不可见的，从而其中存储的局部变量并不可以被该线程访问到。</p>
-<p><strong>·</strong>线程可以将变量的副本传给另一个线程，但是不能共享原生局部变量本身</p>
-<p><strong>·</strong>堆内存：保存所有创建的对象。</p>
-<p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210121233941711.png" alt="image-20210121233941711"></p>
-<h2 id="JVM启动参数"><a href="#JVM启动参数" class="headerlink" title="JVM启动参数"></a>JVM启动参数</h2>
+                <h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>​    ·首页</p>
+<p>​            -博客分页列表    </p>
+<p>​            -展示标签</p>
+<p>​            -展示分类</p>
+<p>​            -博客详情</p>
+<p>​    ·分类</p>
+<p>​            -展示所有分类</p>
+<p>​            -展示单个分类下的博客</p>
+<p>​            -博客详情</p>
+<p>​    ·标签</p>
+<p>​            -展示所有标签</p>
+<p>​            -展示单个标签对应博客列表</p>
+<p>​            -博客详情</p>
+<p>​    ·归档</p>
+<p>​            -按年度时间线展示博客列表</p>
+<p>​            -博客详情</p>
+<h3 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h3><p>​    ·登录</p>
+<p>​    ·博客管理</p>
+<p>​            -发布博客</p>
+<p>​            -修改博客</p>
+<p>​            -删除博客</p>
+<p>​            -查询博客</p>
+<p>​    ·分类管理</p>
+<p>​            -新增分类</p>
+<p>​            -修改分类</p>
+<p>​            -删除分类</p>
+<p>​            -查询分类</p>
+<p>​    ·标签管理</p>
+<p>​            -新增标签</p>
+<p>​            -修改标签</p>
+<p>​            -删除标签</p>
+<p>​            -查询标签</p>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><h3 id="前端-1"><a href="#前端-1" class="headerlink" title="前端"></a>前端</h3><p>​    ·Semantic UI</p>
+<h3 id="后端-1"><a href="#后端-1" class="headerlink" title="后端"></a>后端</h3><p>​    ·SpringBoot</p>
+<p>​    ·JPA</p>
+<p>​    ·thymeleaf</p>
+
                 
             </div>
             <hr/>
@@ -547,7 +559,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/01/21/JVM/">http://example.com/2021/01/21/JVM/</a>
+                    <a href="http://example.com/2021/01/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">http://example.com/2021/01/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -585,12 +597,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/JAVA/">
-                                    <span class="chip bg-color">JAVA</span>
-                                </a>
-                            
-                                <a href="/tags/JVM/">
-                                    <span class="chip bg-color">JVM</span>
+                                <a href="/tags/SpringBoot%E5%AE%9E%E6%88%98/">
+                                    <span class="chip bg-color">SpringBoot实战</span>
                                 </a>
                             
                         </div>
@@ -1073,13 +1081,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/22/Set-Map/">
+                <a href="/2021/01/27/SpringBoot%E6%96%B0%E7%89%88%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="Set&amp;Map">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="SpringBoot新版笔记">
                         
-                        <span class="card-title">Set&amp;Map</span>
+                        <span class="card-title">SpringBoot新版笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1090,57 +1098,8 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-27
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/JAVA/" class="post-category">
-                                    JAVA
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/JAVA/">
-                        <span class="chip bg-color">JAVA</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/01/20/Spring%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Spring5">
-                        
-                        <span class="card-title">Spring5</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1156,12 +1115,61 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring5/">
-                        <span class="chip bg-color">Spring5</span>
+                    <a href="/tags/SpringBoot/">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
-                    <a href="/tags/SSM%E6%A1%86%E6%9E%B6/">
-                        <span class="chip bg-color">SSM框架</span>
+                    <a href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">后端框架</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/01/26/LeetCode%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="LeetCode每日打卡计划">
+                        
+                        <span class="card-title">LeetCode每日打卡计划</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/LeetCode/">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
