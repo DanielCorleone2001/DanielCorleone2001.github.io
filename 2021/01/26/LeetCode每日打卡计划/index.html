@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-26
+                    2021-01-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    322
+                    711
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -508,6 +508,21 @@
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numEquivDominoPairs</span><span class="params">(<span class="keyword">int</span>[][] dominoes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];<span class="comment">//保存十进制出现次数</span></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span>[] dominoe : dominoes ) &#123;</span><br><span class="line">            <span class="keyword">int</span> value = dominoe[<span class="number">0</span>] &lt; dominoe[<span class="number">1</span>] ? dominoe[<span class="number">1</span>]*<span class="number">10</span>+dominoe[<span class="number">0</span>] : dominoe[<span class="number">0</span>]*<span class="number">10</span>+dominoe[<span class="number">1</span>];</span><br><span class="line">            res += temp[value];</span><br><span class="line">            temp[value]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>时间：O(N)</p>
+<p>空间：O(1)</p>
+<h2 id="day3"><a href="#day3" class="headerlink" title="day3"></a>day3</h2><h3 id="724-寻找数组的中心索引"><a href="#724-寻找数组的中心索引" class="headerlink" title="724. 寻找数组的中心索引"></a>724. 寻找数组的中心索引</h3><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数类型的数组 nums，请编写一个能够返回数组 “中心索引” 的方法。</p>
+<p>我们是这样定义数组 中心索引 的：数组中心索引的左侧所有元素相加的和等于右侧所有元素相加的和。</p>
+<p>如果数组不存在中心索引，那么我们应该返回 -1。如果数组有多个中心索引，那么我们应该返回最靠近左边的那一个。</p>
+<p>示例 1：</p>
+<p>输入：<br>nums = [1, 7, 3, 6, 5, 6]<br>输出：3<br>解释：<br>索引 3 (nums[3] = 6) 的左侧数之和 (1 + 7 + 3 = 11)，与右侧数之和 (5 + 6 = 11) 相等。<br>同时, 3 也是第一个符合要求的中心索引。<br>示例 2：</p>
+<p>输入：<br>nums = [1, 2, 3]<br>输出：-1<br>解释：<br>数组中不存在满足此条件的中心索引。</p>
+<p>说明：</p>
+<p>nums 的长度范围为 [0, 10000]。<br>任何一个 nums[i] 将会是一个范围在 [-1000, 1000]的整数。</p>
+<h3 id="思路-求和后在寻找"><a href="#思路-求和后在寻找" class="headerlink" title="思路(求和后在寻找)"></a>思路(求和后在寻找)</h3><p>先求出数组的总和。</p>
+<p>再接着通过分析题目可以知道，满足条件的情况是：</p>
+<p>当遍历到数组元素nums[i]时，他左边的元素的和应该等于右边的元素的和。即currentSum * 2 = sum - nums[i].</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pivotIndex</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> currentSum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> value : nums ) </span><br><span class="line">            sum += value;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++ ) &#123;</span><br><span class="line">            <span class="keyword">if</span> ( currentSum + currentSum == sum - nums[i])</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            currentSum += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂度-1"><a href="#复杂度-1" class="headerlink" title="复杂度"></a>复杂度</h3><p>时间：O(N)</p>
 <p>空间：O(1)</p>
 
                 
@@ -1057,13 +1072,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                <a href="/2021/01/27/SpringBoot%E6%96%B0%E7%89%88%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="个人博客">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="SpringBoot新版笔记">
                         
-                        <span class="card-title">个人博客</span>
+                        <span class="card-title">SpringBoot新版笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1080,8 +1095,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    个人项目
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
@@ -1091,8 +1106,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringBoot%E5%AE%9E%E6%88%98/">
-                        <span class="chip bg-color">SpringBoot实战</span>
+                    <a href="/tags/SpringBoot/">
+                        <span class="chip bg-color">SpringBoot</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">后端框架</span>
                     </a>
                     
                 </div>
@@ -1356,7 +1375,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">36.1k</span>&nbsp;字
+                class="white-color">37.5k</span>&nbsp;字
             
             
             
