@@ -481,7 +481,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -501,7 +501,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>本文章所有内容均来自github开源项目，所有内容均为自己阅读该项目文档总结所得。</p>
+                <h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>本文章所有内容均来自<a target="_blank" rel="noopener" href="https://github.com/wuyouzhuguli/SpringAll">github开源项目SpringAll</a>，所有内容均为自己阅读该项目文档总结所得。</p>
 <h2 id="定义属性值"><a href="#定义属性值" class="headerlink" title="定义属性值"></a>定义属性值</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>新建一个类，加上@Component注解，然后在类的特定属性上使用注解@Value(“”).里面填入自己的属性值。如果想使用application.yaml的值，那就在application.yaml中写入：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">daniel:</span></span><br><span class="line">	<span class="attr">blog:</span></span><br><span class="line">		<span class="attr">name:</span> <span class="string">MyBlog</span></span><br></pre></td></tr></table></figure>
 
@@ -542,7 +542,8 @@
 <h3 id="控制类"><a href="#控制类" class="headerlink" title="控制类"></a>控制类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> StudentService studentService;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@RequestMapping( value = &quot;/querystudent&quot;, method = RequestMethod.GET)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Student <span class="title">queryStudentBySno</span><span class="params">(String sno)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.studentService.queryStudentBySno(sno);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>service层提供接口。实现类调用service接口，但是通过mapper来实现sql的查询。而控制类调用service接口。实现类已经声明了@Service(“studentService”),那么控制类中自动注入的属性就是实现类里的方法，而实现类调用的是mapper，从而实现了控制类对数据库的访问。</p>
-
+<h2 id="Springboot-MyBatis配置多数据源"><a href="#Springboot-MyBatis配置多数据源" class="headerlink" title="Springboot MyBatis配置多数据源"></a>Springboot MyBatis配置多数据源</h2><h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><p>Mybatis在Spring Boot中配置MyBatis多数据源的关键在于<strong>创建SqlSessionFactory的时候为其分配不同的数据源</strong></p>
+<h3 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h3>
                 
             </div>
             <hr/>
@@ -1090,18 +1091,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/27/SpringBoot%E6%96%B0%E7%89%88%E7%AC%94%E8%AE%B0/">
+                <a href="/2021/01/28/AMBSSecurity%E9%A1%B9%E7%9B%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="SpringBoot新版笔记">
+                        <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="AMBSSecurity项目">
                         
-                        <span class="card-title">SpringBoot新版笔记</span>
+                        <span class="card-title">AMBSSecurity项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1111,22 +1111,21 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    个人项目
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1134,8 +1133,8 @@
                         <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
-                    <a href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/">
-                        <span class="chip bg-color">后端框架</span>
+                    <a href="/tags/SpringSecurity/">
+                        <span class="chip bg-color">SpringSecurity</span>
                     </a>
                     
                 </div>
@@ -1387,7 +1386,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">37.5k</span>&nbsp;字
+                class="white-color">37.6k</span>&nbsp;字
             
             
             
