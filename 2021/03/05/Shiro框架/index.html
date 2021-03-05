@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LeetCode每日打卡计划, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="Shiro框架, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LeetCode每日打卡计划 | Welcome to Daniel&#39;s Blog !</title>
+    <title>Shiro框架 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode每日打卡计划</h1>
+                    <h1 class="description center-align post-title">Shiro框架</h1>
                 </div>
             </div>
         </div>
@@ -409,8 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/LeetCode/">
-                                <span class="chip bg-color">LeetCode</span>
+                            <a href="/tags/Shiro/">
+                                <span class="chip bg-color">Shiro</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/">
+                                <span class="chip bg-color">权限管理框架</span>
                             </a>
                         
                     </div>
@@ -421,8 +425,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/" class="post-category">
+                                权限管理框架
                             </a>
                         
                     </div>
@@ -434,28 +438,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-26
+                    2021-03-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-28
+                    2021-03-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    711
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -475,33 +479,43 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="day1"><a href="#day1" class="headerlink" title="day1"></a>day1</h2><h3 id="1128-等价多米诺骨牌对的数量"><a href="#1128-等价多米诺骨牌对的数量" class="headerlink" title="1128. 等价多米诺骨牌对的数量"></a>1128. 等价多米诺骨牌对的数量</h3><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个由一些多米诺骨牌组成的列表 dominoes。</p>
-<p>如果其中某一张多米诺骨牌可以通过旋转 0 度或 180 度得到另一张多米诺骨牌，我们就认为这两张牌是等价的。</p>
-<p>形式上，dominoes[i] = [a, b] 和 dominoes[j] = [c, d] 等价的前提是 a==c 且 b==d，或是 a==d 且 b==c。</p>
-<p>在 0 &lt;= i &lt; j &lt; dominoes.length 的前提下，找出满足 dominoes[i] 和 dominoes[j] 等价的骨牌对 (i, j) 的数量。</p>
-<p>示例：</p>
-<p>输入：dominoes = [[1,2],[2,1],[3,4],[5,6]]<br>输出：1</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>遍历二位数组的每一行。</p>
-<p>每一行元素其实只有两个元素，需要做的处理就是将其转换成十进制，然后记录十进制对应的值出现的次数。每次遍历的时候都添加一次出现次数数组temp[value]的值，那么就能保证结果在不断更新。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numEquivDominoPairs</span><span class="params">(<span class="keyword">int</span>[][] dominoes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];<span class="comment">//保存十进制出现次数</span></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span>[] dominoe : dominoes ) &#123;</span><br><span class="line">            <span class="keyword">int</span> value = dominoe[<span class="number">0</span>] &lt; dominoe[<span class="number">1</span>] ? dominoe[<span class="number">1</span>]*<span class="number">10</span>+dominoe[<span class="number">0</span>] : dominoe[<span class="number">0</span>]*<span class="number">10</span>+dominoe[<span class="number">1</span>];</span><br><span class="line">            res += temp[value];</span><br><span class="line">            temp[value]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>不同的人拥有不同的权限，那么他在访问系统的时候，所能访问的资源也会是不一样的。</p>
+<p>Shiro能帮我们完成这个功能。</p>
+<p>Shiro可以完成认证、用户授权、加密、会话管理(SessionManager)、Web集成、缓存等。</p>
+<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><h2 id="Authentication"><a href="#Authentication" class="headerlink" title="Authentication"></a>Authentication</h2><p>认证功能，即登录功能</p>
+<h2 id="Authoriza"><a href="#Authoriza" class="headerlink" title="Authoriza"></a>Authoriza</h2><p>授权功能，帮助我们判断用户是否拥有权限。</p>
+<h2 id="Session-Management"><a href="#Session-Management" class="headerlink" title="Session Management"></a>Session Management</h2><p>会话管理功能，对http的session进行托管。</p>
+<h2 id="Cryptography"><a href="#Cryptography" class="headerlink" title="Cryptography"></a>Cryptography</h2><p>加密功能，可以使用Shiro为密码加盐</p>
+<h2 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h2><p>缓存模块，使得权限系统运行得更快</p>
+<h2 id="Remember-me"><a href="#Remember-me" class="headerlink" title="Remember me"></a>Remember me</h2><p>下次无需再进行登录认证</p>
+<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><h2 id="抽象架构"><a href="#抽象架构" class="headerlink" title="抽象架构"></a>抽象架构</h2><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1go99r0gyh2j30ly0bl0xu.jpg" alt="image"></p>
+<p>Application code -&gt; Subject ：用户访问权限管理系统时，就会生成一个对应的subject，代表当前的访问对象</p>
+<p>Security Manager：Shiro各种功能的集成</p>
+<p>Realm：存储Shiro的安全数据。相当于Shiro的DataSource</p>
+<p>用户进行登录时，Security Manager 需要从Realm中获取用户身份是否合法，以及密码是否正确;</p>
+<p>用户登陆后，Security Manager需要从Realm中获取相关的权限信息。</p>
+<h2 id="物理架构"><a href="#物理架构" class="headerlink" title="物理架构"></a>物理架构</h2><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1go99vez9j3j30k90fhna9.jpg" alt="image"></p>
+<p>1.Subject：代表任何与应用程序发送交互的用户。<br>2.SecurityManager：相当于SpringMVC的Dispatcher，是Shiro的心脏。所有交互都会通过SecurityManager进行控制，它管理着所有Subject，且负责进行认证、授权、会话以及缓存的管理。<br>3.Authenticator：负责Subject认证，是一个拓展点，可以自定义实现。可以使用认证策略（Authentication Strategy），即在什么情况下算用户认证通过了。<br>4.Authorizer：授权器，即访问控制器，用来决定主体是否有权进行相应的操作，即控制着用户能访问应用中的哪些功能。<br>5.Realm：安全实体数据源。即是提供安全数据的源头，数据源可以是JDBC操作的数据库数据，也可以是缓存中的数据。该实体由用户提供，一般在应用中都需要实现自己的Realm。可以有一个或者多个Realm。<br>6.SessionManager：管理Session生命周期的组件。Shiro不仅仅可以在Web环境，也可以在普通的JavaSE环境中。<br>7.CacheManager：缓存控制器，来管理如用户、角色、权限等信息的缓存。由于这些数据基本上很少发生变动，所以存放在缓存中可以提供访问的性能。<br>8.Cryptography：密码模块。Shiro提供了一些常见的加密组件用于密码的加密/解密。</p>
+<h1 id="登录与授权认证"><a href="#登录与授权认证" class="headerlink" title="登录与授权认证"></a>登录与授权认证</h1><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1go9ae0aztwj30qc0c4n12.jpg" alt="image"></p>
+<p>1.首先调用getSubjec()方法获取到正在登录的subject。</p>
+<p>2.调用subject.isAuthoricated()来判断是否进行身份认证，即登录</p>
+<p>未登陆的话就会自动跳转到登录页面(自己定义跳转的url)</p>
+<p>3.进入到登录的url，用户输入账号密码后，前端返回httoServletRequest。</p>
+<p>4.调用subject.login()方法进行登录</p>
+<p>5.这时候shiro会去执行继承了AthorizingRealm方法中的doGetAuthenticationInfo方法进行登录认证。</p>
+<p>6.进行登录认证时还需要对密码的对比，因此进入继承了HashCredentialMatcher中的doCredentialsMatch方法进行密码的比对。</p>
+<p>7.密码无误后调用subject.getPrincipal()来获取subject的信息。</p>
+<p>8.获取principal信息后进入自定义的Realm中，调用doGetAnthorizationInfo进行授权的认证</p>
+<h1 id="拦截URL"><a href="#拦截URL" class="headerlink" title="拦截URL"></a>拦截URL</h1><p>在ShiroFilterFactoryBean中配置对url的处理。</p>
+<p>ShiroFilterFactoryBean有以下几种拦击种类</p>
+<p>1.’’anon’’：匿名访问，无需权限认证</p>
+<p>2.’’user’’：需要RememberMe</p>
+<p>3.’’perms’’:需要权限才能访问</p>
+<p>4.’’authc’’：需要身份认证后才能访问</p>
+<p>以上的配置可以存在LinkedHashMap中，将比如登录页面等比较容易出现的页面放在最前面，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, String&gt; filterChainDefinitionMap = <span class="keyword">new</span> LinkedHashMap&lt;&gt;();</span><br><span class="line">       <span class="comment">// 配置不会被拦截的链接 顺序判断</span></span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/api/user/login&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/index/**&quot;</span>,<span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/static/images/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/images/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/js/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/layui/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/css/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/treetable-lay/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/api/user/token&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/api/user/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       <span class="comment">//放开swagger-ui地址</span></span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/swagger/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/v2/api-docs&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/swagger-ui.html&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/swagger-resources/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/webjars/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/favicon.ico&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/captcha.jpg&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       <span class="comment">//druid sql监控配置</span></span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/druid/**&quot;</span>, <span class="string">&quot;anon&quot;</span>);</span><br><span class="line">       filterChainDefinitionMap.put(<span class="string">&quot;/**&quot;</span>,<span class="string">&quot;token,authc&quot;</span>);</span><br><span class="line"></span><br><span class="line">       shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);</span><br></pre></td></tr></table></figure>
 
-<h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>时间：O(N)</p>
-<p>空间：O(1)</p>
-<h2 id="day3"><a href="#day3" class="headerlink" title="day3"></a>day3</h2><h3 id="724-寻找数组的中心索引"><a href="#724-寻找数组的中心索引" class="headerlink" title="724. 寻找数组的中心索引"></a>724. 寻找数组的中心索引</h3><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数类型的数组 nums，请编写一个能够返回数组 “中心索引” 的方法。</p>
-<p>我们是这样定义数组 中心索引 的：数组中心索引的左侧所有元素相加的和等于右侧所有元素相加的和。</p>
-<p>如果数组不存在中心索引，那么我们应该返回 -1。如果数组有多个中心索引，那么我们应该返回最靠近左边的那一个。</p>
-<p>示例 1：</p>
-<p>输入：<br>nums = [1, 7, 3, 6, 5, 6]<br>输出：3<br>解释：<br>索引 3 (nums[3] = 6) 的左侧数之和 (1 + 7 + 3 = 11)，与右侧数之和 (5 + 6 = 11) 相等。<br>同时, 3 也是第一个符合要求的中心索引。<br>示例 2：</p>
-<p>输入：<br>nums = [1, 2, 3]<br>输出：-1<br>解释：<br>数组中不存在满足此条件的中心索引。</p>
-<p>说明：</p>
-<p>nums 的长度范围为 [0, 10000]。<br>任何一个 nums[i] 将会是一个范围在 [-1000, 1000]的整数。</p>
-<h3 id="思路-求和后在寻找"><a href="#思路-求和后在寻找" class="headerlink" title="思路(求和后在寻找)"></a>思路(求和后在寻找)</h3><p>先求出数组的总和。</p>
-<p>再接着通过分析题目可以知道，满足条件的情况是：</p>
-<p>当遍历到数组元素nums[i]时，他左边的元素的和应该等于右边的元素的和。即currentSum * 2 = sum - nums[i].</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pivotIndex</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> currentSum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> value : nums ) </span><br><span class="line">            sum += value;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++ ) &#123;</span><br><span class="line">            <span class="keyword">if</span> ( currentSum + currentSum == sum - nums[i])</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            currentSum += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="复杂度-1"><a href="#复杂度-1" class="headerlink" title="复杂度"></a>复杂度</h3><p>时间：O(N)</p>
-<p>空间：O(1)</p>
+<p>最后用过setFilterChainDefinitionMap()注入我们的url拦截顺序。</p>
 
                 
             </div>
@@ -528,7 +542,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/01/26/LeetCode%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92/">http://example.com/2021/01/26/LeetCode%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92/</a>
+                    <a href="http://example.com/2021/03/05/Shiro%E6%A1%86%E6%9E%B6/">http://example.com/2021/03/05/Shiro%E6%A1%86%E6%9E%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -566,8 +580,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/LeetCode/">
-                                    <span class="chip bg-color">LeetCode</span>
+                                <a href="/tags/Shiro/">
+                                    <span class="chip bg-color">Shiro</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/">
+                                    <span class="chip bg-color">权限管理框架</span>
                                 </a>
                             
                         </div>
@@ -783,17 +801,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/01/27/SpringBoot%E6%96%B0%E7%89%88%E7%AC%94%E8%AE%B0/">
+                <a href="/2021/03/05/Shiro%E6%A1%86%E6%9E%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="SpringBoot新版笔记">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Shiro框架">
                         
-                        <span class="card-title">SpringBoot新版笔记</span>
+                        <span class="card-title">Shiro框架</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -803,30 +822,31 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
+                            <a href="/categories/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/" class="post-category">
+                                    权限管理框架
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringBoot/">
-                        <span class="chip bg-color">SpringBoot</span>
+                    <a href="/tags/Shiro/">
+                        <span class="chip bg-color">Shiro</span>
                     </a>
                     
-                    <a href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/">
-                        <span class="chip bg-color">后端框架</span>
+                    <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">权限管理框架</span>
                     </a>
                     
                 </div>
@@ -840,13 +860,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/25/JAVA%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                <a href="/2021/01/31/AMOW-Part-2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="JAVA数据结构">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="AMOW_Part 2">
                         
-                        <span class="card-title">JAVA数据结构</span>
+                        <span class="card-title">AMOW_Part 2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -857,18 +877,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-31
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                    数据结构
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    个人项目
                                 </a>
                             
                             
@@ -878,16 +894,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/tags/SpringBoot/">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
-                    <a href="/tags/JAVA/">
-                        <span class="chip bg-color">JAVA</span>
+                    <a href="/tags/MyBatis/">
+                        <span class="chip bg-color">MyBatis</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="chip bg-color">数组</span>
+                    <a href="/tags/Shiro/">
+                        <span class="chip bg-color">Shiro</span>
                     </a>
                     
                 </div>
