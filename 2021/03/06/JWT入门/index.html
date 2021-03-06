@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="计算机网络, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="JWT入门, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>计算机网络 | Welcome to Daniel&#39;s Blog !</title>
+    <title>JWT入门 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/26.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/35.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">计算机网络</h1>
+                    <h1 class="description center-align post-title">JWT入门</h1>
                 </div>
             </div>
         </div>
@@ -409,23 +409,18 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">计算机网络</span>
+                            <a href="/tags/JWT/">
+                                <span class="chip bg-color">JWT</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/">
+                                <span class="chip bg-color">登录认证</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                计算机网络
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -434,28 +429,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-21
+                    2021-03-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-26
+                    2021-03-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    712
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    2 分
                 </div>
                 
 
@@ -475,147 +470,55 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><pre><code>1.数据通信
-2.资源共享
-3.分布式处理
-4.提高可靠性 
-5.负载均衡</code></pre>
-<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><pre><code>组成部分：硬件、软件、协议</code></pre>
-<h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><pre><code>单位：b/s,kb/s,Mb/s,Gb/s,Tb/s 要与存储容量进行区分
--------------------------------------------------
-速率                                存储容量
-1kb/s=10^3b/s                    1KB=2^10B=1024B
-iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
-<h3 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h3><pre><code>单位时间内通过某个网络的数据量</code></pre>
-<h3 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h3><pre><code>·由发送时延、传播时延、排队时延、处理时延组成
--发送时延：数据长度/信道带宽，高速链路是提高了信道带宽从而降低发送时延
--传播时延：取决于电磁波的传播速度和链路长度，是固定不变的
--排队时延：在路由器上等待输入/出链路是否可用
--处理时延：检测出错口    </code></pre>
-<h3 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h3><pre><code>通俗理解：某段链路此时有多少比特
-时延带宽积=传播时延*带宽</code></pre>
-<h3 id="往返时延RTT"><a href="#往返时延RTT" class="headerlink" title="往返时延RTT"></a>往返时延RTT</h3><pre><code>·从发送方发送数据到发送发接收到接收方的确认，总共经历的时延
-·组成：
-    -往返传播时延（值为传播时延*2）
-    -末端处理时间：接收方接收到信号后处理所需的时间</code></pre>
-<h3 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h3><pre><code>-信道利用率：有数据通过时间/（有数据通过时间+无数据通过时间）
--网络利用率：信道利用率的加权平均值</code></pre>
-<h2 id="ISO-OSI参考模型"><a href="#ISO-OSI参考模型" class="headerlink" title="ISO/OSI参考模型"></a>ISO/OSI参考模型</h2><h3 id="七层结构"><a href="#七层结构" class="headerlink" title="七层结构"></a>七层结构</h3><pre><code>1.物理层
-2.数据链路层
-3.网络层
-4.传输层
-5.会话层
-6.表示层
-7.应用层</code></pre>
-<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><pre><code>概念：所有能与用户交互产生网络流量的程序
+                <h2 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>用户与服务器的通信：</p>
+<p><strong>基于cookie-session的通信</strong>：</p>
+<p>1.用户向服务器发送账号与密码</p>
+<p>2.服务器通过对比后，在当前session中存入登录的信息，比如用户角色信息，登录时间等等</p>
+<p>3.服务器返回给用户一个session_id,写入到用户的cookie</p>
+<p>4.用户每次再访问服务器，都通过cookie来获取session_id，传给服务器</p>
+<p>5.服务器通过session_id来获取之前的登录信息，从而达到用户身份认证的目的</p>
+<p>缺点：系统的拓展性不强。在服务器集群中，需要将session的信息进行共享，使得每台服务器都能读取到该session。</p>
+<p><strong>基于JWT的用户认证：</strong></p>
+<p>用户首次登录，和服务器认证成功后，返回一个JSON对象给用户</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;姓名&quot;</span>: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;角色&quot;</span>: <span class="string">&quot;管理员&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;到期时间&quot;</span>: <span class="string">&quot;2018年7月1日0点0分&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-典型应用层服务：
-    -文件传输（FTP）
-    -电子邮件（SMTP）
-    -万维网（HTTP）</code></pre>
-<h3 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h3><pre><code>概念：用于处理在两个通信系统中交换信息的表示方式
-
-功能：
-    -数据格式变换
-    -数据加密解密
-    -数据的压缩与恢复</code></pre>
-<h3 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h3><pre><code>概念：向表示层实体（或用户进程）建立连接，并有序的传输数据，即建立同步
-
-功能：
-    -建立会话，管理、终止会话
-    -使用校验点使会话在通信失效时从校验点/同步点回复通信，从而实现数据同步</code></pre>
-<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><pre><code>任务：负责主机中两个进程的通信（端到端的通信）
-传输单位：报文段或用户数据段
-
-功能：
-    -可靠传输、不可靠传输
-    -差错控制
-    -流量控制
-    -复用分用
-
-主要协议：TCP、UDP</code></pre>
-<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><pre><code>任务：把分组从源段传到目的端，为分组交换网上的不同主机提供通信服务
-传输单位：数据报
-
-功能：
-    -路由选择（选择合适的路由器来达到传输的最佳路径）
-    -流量控制（控制速度）
-    -差错控制
-    -拥塞控制
-
-主要协议：IP、IPX、ICMP、IGMP、ARP、RARP、OSRF</code></pre>
-<h3 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h3><pre><code>任务：将网络层传下来的数据报组装成帧
-传输单位：帧
-
-功能：
-    -成帧：定义帧的开始和结束
-    -差错控制：检验是否有帧错和位错
-    -流量控制
-    -访问控制：控制对信道的访问
-
-主要协议：SDLC、HDLC、PPP、STP</code></pre>
-<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><pre><code>任务:在物理媒体上实现比特流的透明传输
-传输单位：比特</code></pre>
-<p>​    TCP/IP参考模型</p>
-<h3 id="四层结构"><a href="#四层结构" class="headerlink" title="四层结构"></a>四层结构</h3><pre><code>1.网络接口层    
-    -协议：Ethernet、ATM、Frame Relay
-2.网际层
-    -协议：IP
-3.传输层
-    -协议：TCP、UDP
-4.应用层
-    -协议：HTTP、FTP、DNS</code></pre>
-<h3 id="TCP-IP与ISO-OSI对比"><a href="#TCP-IP与ISO-OSI对比" class="headerlink" title="TCP/IP与ISO/OSI对比"></a>TCP/IP与ISO/OSI对比</h3><pre><code>         ISO/OSI                TCP/IP
-网络层    无连接+面向连接          无连接
-传输层       面向连接                无连接+面向连接</code></pre>
-<h3 id="五层参考模型"><a href="#五层参考模型" class="headerlink" title="五层参考模型"></a>五层参考模型</h3><pre><code>综合了TIP/IP和ISO/OSI的优点
-结构：（自顶向下）
-    -应用层
-    -传输层
-    -网络层
-    -数据链路层
-    -物理层</code></pre>
-<h3 id="码元"><a href="#码元" class="headerlink" title="码元"></a>码元</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">定义：一个固定时长的信号波形。</span><br><span class="line">分类：M进制码元(M&gt;&#x3D;2)</span><br><span class="line">	二进制码元：0，1</span><br><span class="line">	四进制码元：00，01，10，11</span><br><span class="line">由四进制码可知，一个码元其实是能携带多个比特的信息的。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="速率-1"><a href="#速率-1" class="headerlink" title="速率"></a>速率</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">定义：数据的传输速率</span><br><span class="line">表示：码元传输速率，信息传输速率</span><br><span class="line"></span><br><span class="line">·码元传输速率</span><br><span class="line">	-定义：单位时间内传输的码元个数，单位是波特(Baud)</span><br><span class="line">	-要点：码元传输速率与进制数是无关的</span><br><span class="line">	</span><br><span class="line">·信息传输速率</span><br><span class="line">	-定义：单位时间内传输的比特(或二进制码元)个数，单位是比特&#x2F;秒(bit&#x2F;s)</span><br><span class="line">	</span><br><span class="line">·二者关系：码元传输速率*log2(码元进制)&#x3D;信息传输速率</span><br><span class="line">通常比较速率时，以信息传输速率为准，因为系统实际传输的是比特流。</span><br></pre></td></tr></table></figure>
-
-<h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定义：单位时间内从网络中的某一点到另一点所能通过的最高数据率，单位是b&#x2F;s</span><br></pre></td></tr></table></figure>
-
-<h3 id="基带信号与宽带信号"><a href="#基带信号与宽带信号" class="headerlink" title="基带信号与宽带信号"></a>基带信号与宽带信号</h3><p>·基带信号：将数字信号用0、1表示，再送到数字信道上传输(基带传输)<br>·宽带信号：将基带信号处理后形成频分复用信号(将频率范围调高，能应对衰减范围大的信号)，送到模拟信道上传输(宽带传输)<br>·区分方法：可用传输介质来区分<br>                    -数字信道-&gt;基带信号<br>                    -模拟信道-&gt;宽带信号<br>·选择：<br>    -近距离：基带传输(衰减小，不易发生变化)<br>    -远距离：宽带传输(衰减大，易发生变化，这种方法能应对)</p>
-<h3 id="编码与调制"><a href="#编码与调制" class="headerlink" title="编码与调制"></a>编码与调制</h3><p>数字数据-&gt;数字信号(编码)            模拟数据-&gt;数字信号(编码)<br>数字数据-&gt;模拟信号(调制)            模拟数据-&gt;模拟信号(调制)    </p>
-<h3 id="数字数据编码为数字信号"><a href="#数字数据编码为数字信号" class="headerlink" title="数字数据编码为数字信号"></a>数字数据编码为数字信号</h3><p>·非归零编码：高1低0<br>                -缺点：无纠错功能，得引入时钟模块，不然一长段1或0，系统没办法知道有几个1或0</p>
-<p>·归零编码：高1低0，如果是1，则在中间要归0.相当于1是先高后低，0一直是低</p>
-<p>·反向不归零编码：电平变化表示0，不变表示1</p>
-<p>·曼彻斯特编码：前高后低为1，前低后高为0.当然也可以反过来，这得看具体定义<br>                -数据传输速率只有调制速率的二分之一</p>
-<p>·差分曼彻斯特编码：将一个时钟周期分成两半，前半段根据前一个时钟周期的后半段来决定。<br>            -1的话和前一时钟周期后半段相同<br>            -0的话和前一时钟周期后半段相反<br>            -后半段一定会反转，和前一段不一样</p>
-<h3 id="数字数据调制为模拟信号"><a href="#数字数据调制为模拟信号" class="headerlink" title="数字数据调制为模拟信号"></a>数字数据调制为模拟信号</h3><p>·调幅(ASK)：0无波，1有波形</p>
-<p>·调频(FSK)：0频率低，1频率高</p>
-<p>·调相(PSK):   0和1分别对应正弦和余弦中的一个</p>
-<p>·调幅+调相（QAM）：</p>
-<p>​        -例题：某链路波特率为1200Baud，采用四个 相位，每个相位有4种振幅的QAM调制技术，求链路的信息传输速率？</p>
-<p>​        解答：四相位，每个相位有四种波形，那么一共有4*4=16中波形情况，对应的码元则为四进制码元</p>
-<p>​                1200 x log2(4 x4)=1200 x 4 =6400 bit/s</p>
-<h3 id="模拟数字编码为数字信号"><a href="#模拟数字编码为数字信号" class="headerlink" title="模拟数字编码为数字信号"></a>模拟数字编码为数字信号</h3><p>·过程：将模拟信号通过采样、量化、编码成01编码。</p>
-<p>·脉冲调制(PCM)：</p>
-<p>​        -抽样：将时间上连续的信号变成时间上离散的信号。且采样频率&gt;=信号最高频率的两倍</p>
-<p>​        -量化：将抽样获得的电平按一定的标准转为数字值并取整。比如0-1v取1v</p>
-<p>​        -编码：将量化结果转成对应的二进制编码</p>
-<h3 id="模拟数据调制为模拟信号"><a href="#模拟数据调制为模拟信号" class="headerlink" title="模拟数据调制为模拟信号"></a>模拟数据调制为模拟信号</h3><p>⑧重要</p>
-<p> 奈式准则</p>
-<p>·也叫做奈奎斯特定理</p>
-<p>·为了避免串扰，规定码元传输速率最大为2W Baud，</p>
-<p>​        其中W为信道带宽（信道能接收的最高频率 - 信道能接收最低频率，单位是Hz）</p>
-<p>·<strong>注意：</strong></p>
-<p>​            -奈式准则只约束了码元传输速率，并没有限制信息传输率。</p>
-<p>​            -要想提高数据的传输率，就要使得每个码元携带的比特数变多。</p>
-<p>​             原理很简单：传输率=码元传输率*一个码元中的比特位数。 </p>
-<p>·当然数据传输率也有最大的限制，但不是奈式准则规定的</p>
-<p>​        最大数据传输率=2W * log2(V) ，V是码元的种数,单位是b/s</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例题:带宽为3kHz，4相位，每个相位有4种振幅，求最大数据传输率？</span><br><span class="line"></span><br><span class="line">解答：2*3k* log2(4*4)&#x3D;24k b&#x2F;s</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="香农定理"><a href="#香农定理" class="headerlink" title="香农定理"></a>香农定理</h3><p>​<br>​    </p>
+<p>此后用户与服务器进行通信的时候，都需要发送JSON对象给服务器，服务器通过JSON来进行身份的认证。同时服务器生成这个JSON对象时，会加上签名，防止用户篡改JSON对象。</p>
+<h3 id="引用更好的解释"><a href="#引用更好的解释" class="headerlink" title="引用更好的解释"></a>引用更好的解释</h3><h4 id="传统的-session-流程"><a href="#传统的-session-流程" class="headerlink" title="传统的 session 流程"></a>传统的 session 流程</h4><ol>
+<li>浏览器发起请求登陆</li>
+<li>服务端验证身份，生成身份验证信息，存储在服务端，并且告诉浏览器写入 Cookie</li>
+<li>浏览器发起请求获取用户资料，此时 Cookie 内容也跟随这发送到服务器</li>
+<li>服务器发现 Cookie 中有身份信息，验明正身</li>
+<li>服务器返回该用户的用户资料</li>
+</ol>
+<h4 id="JWT-流程"><a href="#JWT-流程" class="headerlink" title="JWT 流程"></a>JWT 流程</h4><ol>
+<li>浏览器发起请求登陆</li>
+<li>服务端验证身份，根据算法，将用户标识符打包生成 token, 并且返回给浏览器</li>
+<li>浏览器发起请求获取用户资料，把刚刚拿到的 token 一起发送给服务器</li>
+<li>服务器发现数据中有 token，验明正身</li>
+<li>服务器返回该用户的用户资料</li>
+</ol>
+<p><strong>区别</strong></p>
+<ol>
+<li><p>session 存储在服务端占用服务器资源，而 JWT 存储在客户端</p>
+</li>
+<li><p>session 存储在 Cookie 中，存在伪造跨站请求伪造攻击的风险</p>
+</li>
+<li><p>session 只存在一台服务器上，那么下次请求就必须请求这台服务器，不利于分布式应用</p>
+</li>
+<li><p>存储在客户端的 JWT 比存储在服务端的 session 更具有扩展性</p>
+</li>
+</ol>
+<p><strong>JWT的缺点</strong></p>
+<p>服务器不保存session状态，那么使用期间不可能取消令牌和更改令牌权限，只要Token签发了，在有效期内会一直生效</p>
+<h3 id="JWT的token的结构"><a href="#JWT的token的结构" class="headerlink" title="JWT的token的结构"></a>JWT的token的结构</h3><p>header.payload.signature</p>
+<p>即：头部.负载.签名</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak3m58wgj30sf07mmzl.jpg" alt="image"></p>
+<p>header: JSON对象</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1goak5kh8zrj30wr0admye.jpg" alt="image"></p>
+<p>Payload: JSON对象</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak6ekblrj30wu0lwwgz.jpg" alt="image"></p>
+<p>signature： 指定密钥，然后通过算法来产生token</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak7nohsjj30y30aydh9.jpg" alt="image"></p>
 
                 
             </div>
@@ -642,7 +545,7 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">http://example.com/2020/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</a>
+                    <a href="http://example.com/2021/03/06/JWT%E5%85%A5%E9%97%A8/">http://example.com/2021/03/06/JWT%E5%85%A5%E9%97%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -680,8 +583,12 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">计算机网络</span>
+                                <a href="/tags/JWT/">
+                                    <span class="chip bg-color">JWT</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/">
+                                    <span class="chip bg-color">登录认证</span>
                                 </a>
                             
                         </div>
@@ -897,17 +804,18 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/12/29/%E6%95%B0%E7%BB%84/">
+                <a href="/2021/03/06/JWT%E5%85%A5%E9%97%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="数组">
+                        <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="JWT入门">
                         
-                        <span class="card-title">数组</span>
+                        <span class="card-title">JWT入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -917,34 +825,27 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Daniel
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/tags/JWT/">
+                        <span class="chip bg-color">JWT</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="chip bg-color">数组</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/">
+                        <span class="chip bg-color">登录认证</span>
                     </a>
                     
                 </div>
@@ -958,13 +859,13 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/10/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                <a href="/2021/03/06/%E9%A1%B9%E7%9B%AEQ-A/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="操作系统">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="项目Q&amp;A">
                         
-                        <span class="card-title">操作系统</span>
+                        <span class="card-title">项目Q&amp;A</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -975,27 +876,15 @@ iMb/s=10^3kb/s=10^6b/s            1MB=2^10KB=2^20B</code></pre>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Daniel
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">操作系统</span>
-                    </a>
-                    
                 </div>
                 
             </div>
