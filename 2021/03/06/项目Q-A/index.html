@@ -435,14 +435,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    6 分
                 </div>
                 
 
@@ -498,6 +498,62 @@
 <p>使用方法：</p>
 <p>1.在控制层使用@Api注解，controller的方法中使用@ApiOperation注解</p>
 <p>2.在VO的属性上使用@ApiModelPropertiy注解</p>
+<h2 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>用户与服务器的通信：</p>
+<p><strong>基于cookie-session的通信</strong>：</p>
+<p>1.用户向服务器发送账号与密码</p>
+<p>2.服务器通过对比后，在当前session中存入登录的信息，比如用户角色信息，登录时间等等</p>
+<p>3.服务器返回给用户一个session_id,写入到用户的cookie</p>
+<p>4.用户每次再访问服务器，都通过cookie来获取session_id，传给服务器</p>
+<p>5.服务器通过session_id来获取之前的登录信息，从而达到用户身份认证的目的</p>
+<p>缺点：系统的拓展性不强。在服务器集群中，需要将session的信息进行共享，使得每台服务器都能读取到该session。</p>
+<p><strong>基于JWT的用户认证：</strong></p>
+<p>用户首次登录，和服务器认证成功后，返回一个JSON对象给用户</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;姓名&quot;</span>: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;角色&quot;</span>: <span class="string">&quot;管理员&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;到期时间&quot;</span>: <span class="string">&quot;2018年7月1日0点0分&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此后用户与服务器进行通信的时候，都需要发送JSON对象给服务器，服务器通过JSON来进行身份的认证。同时服务器生成这个JSON对象时，会加上签名，防止用户篡改JSON对象。</p>
+<h3 id="引用更好的解释"><a href="#引用更好的解释" class="headerlink" title="引用更好的解释"></a>引用更好的解释</h3><h4 id="传统的-session-流程"><a href="#传统的-session-流程" class="headerlink" title="传统的 session 流程"></a>传统的 session 流程</h4><ol>
+<li>浏览器发起请求登陆</li>
+<li>服务端验证身份，生成身份验证信息，存储在服务端，并且告诉浏览器写入 Cookie</li>
+<li>浏览器发起请求获取用户资料，此时 Cookie 内容也跟随这发送到服务器</li>
+<li>服务器发现 Cookie 中有身份信息，验明正身</li>
+<li>服务器返回该用户的用户资料</li>
+</ol>
+<h4 id="JWT-流程"><a href="#JWT-流程" class="headerlink" title="JWT 流程"></a>JWT 流程</h4><ol>
+<li>浏览器发起请求登陆</li>
+<li>服务端验证身份，根据算法，将用户标识符打包生成 token, 并且返回给浏览器</li>
+<li>浏览器发起请求获取用户资料，把刚刚拿到的 token 一起发送给服务器</li>
+<li>服务器发现数据中有 token，验明正身</li>
+<li>服务器返回该用户的用户资料</li>
+</ol>
+<p><strong>区别</strong></p>
+<ol>
+<li><p>session 存储在服务端占用服务器资源，而 JWT 存储在客户端</p>
+</li>
+<li><p>session 存储在 Cookie 中，存在伪造跨站请求伪造攻击的风险</p>
+</li>
+<li><p>session 只存在一台服务器上，那么下次请求就必须请求这台服务器，不利于分布式应用</p>
+</li>
+<li><p>存储在客户端的 JWT 比存储在服务端的 session 更具有扩展性</p>
+</li>
+</ol>
+<p><strong>JWT的缺点</strong></p>
+<p>服务器不保存session状态，那么使用期间不可能取消令牌和更改令牌权限，只要Token签发了，在有效期内会一直生效</p>
+<h3 id="JWT的token的结构"><a href="#JWT的token的结构" class="headerlink" title="JWT的token的结构"></a>JWT的token的结构</h3><p>header.payload.signature</p>
+<p>即：头部.负载.签名</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak3m58wgj30sf07mmzl.jpg" alt="image"></p>
+<p>header: JSON对象</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1goak5kh8zrj30wr0admye.jpg" alt="image"></p>
+<p>Payload: JSON对象</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak6ekblrj30wu0lwwgz.jpg" alt="image"></p>
+<p>signature： 指定密钥，然后通过算法来产生token</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak7nohsjj30y30aydh9.jpg" alt="image"></p>
+<h2 id="用户登录"><a href="#用户登录" class="headerlink" title="用户登录"></a>用户登录</h2><p>1.接收到前端传入的请求VO，该VO只有用户名和密码</p>
+<p>2.通过VO的用户名来获取用户，并判断非空</p>
+<p>3.获取用户的盐值，用户的明文密码，数据库的密文密码。传入方法类中来进行比对</p>
+<p>4.新建哈希表，建立用户用户名，角色名，权限列表的映射。key为自定义的String类型的Constans，value为用户的实际值。</p>
+<p>5.将用户的ID以及哈希表作为参数来生成accessToken(JWT)</p>
+<p>然后生成refreshToken</p>
+<p>6.返回响应VO，包含accessToken和refreshToken以及userID</p>
 
                 
             </div>
@@ -1060,7 +1116,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">144.6k</span>&nbsp;字
+                class="white-color">145.5k</span>&nbsp;字
             
             
             
