@@ -435,14 +435,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -554,7 +554,16 @@
 <p>5.将用户的ID以及哈希表作为参数来生成accessToken(JWT)</p>
 <p>然后生成refreshToken</p>
 <p>6.返回响应VO，包含accessToken和refreshToken以及userID</p>
-
+<h2 id="Shiro"><a href="#Shiro" class="headerlink" title="Shiro"></a>Shiro</h2><h3 id="身份认证流程"><a href="#身份认证流程" class="headerlink" title="身份认证流程"></a>身份认证流程</h3><p>1.subject.login(token)，传入前端的token</p>
+<p>2.进入AuthenticatingSecurityManager的anthenticate执行用户认证</p>
+<p>3.进入到ModularRealmAuthenticator的doAuthenticate方法进行认证</p>
+<p>在此方法中，获取设置的realm的个数来进入对应的方法</p>
+<p>单个realm调用doSingleRealmAuthcation方法</p>
+<p>多个realm调用doMultiRealmAuthcation方法</p>
+<p>4.进入到AuthticatingRealm类中的getAuthticationInfo中，从缓存获取用户认证信息。接着判断是否从缓存中得到信息。如果没有，那就进入我们自定义的realm中的doGetAuthentication方法获取。获取后进入到assertCredentialsMatch方法</p>
+<p>5.在assertCredentialsMatch方法中调用我们自定义的MyHashedCredentialsMatcher方法中的doCredentialsMatch方法</p>
+<p>认证过程到此结束</p>
+<h3 id="权限认证过程"><a href="#权限认证过程" class="headerlink" title="权限认证过程"></a>权限认证过程</h3>
                 
             </div>
             <hr/>
@@ -1126,7 +1135,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">146.2k</span>&nbsp;字
+                class="white-color">146.3k</span>&nbsp;字
             
             
             
