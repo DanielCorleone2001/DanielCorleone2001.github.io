@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LeetCode每日打卡计划, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="项目Q&amp;A, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LeetCode每日打卡计划 | Welcome to Daniel&#39;s Blog !</title>
+    <title>项目Q&amp;A | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LeetCode每日打卡计划</h1>
+                    <h1 class="description center-align post-title">项目Q&amp;A</h1>
                 </div>
             </div>
         </div>
@@ -407,25 +407,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/LeetCode/">
-                                <span class="chip bg-color">LeetCode</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -434,28 +421,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-26
+                    2021-03-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-28
+                    2021-03-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    711
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -475,33 +462,42 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="day1"><a href="#day1" class="headerlink" title="day1"></a>day1</h2><h3 id="1128-等价多米诺骨牌对的数量"><a href="#1128-等价多米诺骨牌对的数量" class="headerlink" title="1128. 等价多米诺骨牌对的数量"></a>1128. 等价多米诺骨牌对的数量</h3><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个由一些多米诺骨牌组成的列表 dominoes。</p>
-<p>如果其中某一张多米诺骨牌可以通过旋转 0 度或 180 度得到另一张多米诺骨牌，我们就认为这两张牌是等价的。</p>
-<p>形式上，dominoes[i] = [a, b] 和 dominoes[j] = [c, d] 等价的前提是 a==c 且 b==d，或是 a==d 且 b==c。</p>
-<p>在 0 &lt;= i &lt; j &lt; dominoes.length 的前提下，找出满足 dominoes[i] 和 dominoes[j] 等价的骨牌对 (i, j) 的数量。</p>
-<p>示例：</p>
-<p>输入：dominoes = [[1,2],[2,1],[3,4],[5,6]]<br>输出：1</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>遍历二位数组的每一行。</p>
-<p>每一行元素其实只有两个元素，需要做的处理就是将其转换成十进制，然后记录十进制对应的值出现的次数。每次遍历的时候都添加一次出现次数数组temp[value]的值，那么就能保证结果在不断更新。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numEquivDominoPairs</span><span class="params">(<span class="keyword">int</span>[][] dominoes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];<span class="comment">//保存十进制出现次数</span></span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span>[] dominoe : dominoes ) &#123;</span><br><span class="line">            <span class="keyword">int</span> value = dominoe[<span class="number">0</span>] &lt; dominoe[<span class="number">1</span>] ? dominoe[<span class="number">1</span>]*<span class="number">10</span>+dominoe[<span class="number">0</span>] : dominoe[<span class="number">0</span>]*<span class="number">10</span>+dominoe[<span class="number">1</span>];</span><br><span class="line">            res += temp[value];</span><br><span class="line">            temp[value]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <h2 id="设计思想"><a href="#设计思想" class="headerlink" title="设计思想"></a>设计思想</h2><h3 id="资源分配的设计思想"><a href="#资源分配的设计思想" class="headerlink" title="资源分配的设计思想"></a>资源分配的设计思想</h3><p>权限管理系统可以有基于角色分配资源，基于权限分配资源。</p>
+<p>基于角色分配资源，相当于角色和权限相关联，用户和角色相关联。</p>
+<p>但是这会带来一定的问题：</p>
+<p>当用户添加角色，其拥有的权限已经和某一角色的权限相同，那么对于权限的判断语句就需要大量的修改，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改前</span></span><br><span class="line"><span class="keyword">if</span> ( user.hasRole(<span class="string">&quot;role1&quot;</span>) ) &#123;</span><br><span class="line">    <span class="comment">//权限1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改后</span></span><br><span class="line"><span class="keyword">if</span> ( user.hasRole(<span class="string">&quot;role1&quot;</span>) || user.hasRole(<span class="string">&quot;role2&quot;</span>) ) &#123;</span><br><span class="line">    <span class="comment">//权限1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p>时间：O(N)</p>
-<p>空间：O(1)</p>
-<h2 id="day3"><a href="#day3" class="headerlink" title="day3"></a>day3</h2><h3 id="724-寻找数组的中心索引"><a href="#724-寻找数组的中心索引" class="headerlink" title="724. 寻找数组的中心索引"></a>724. 寻找数组的中心索引</h3><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个整数类型的数组 nums，请编写一个能够返回数组 “中心索引” 的方法。</p>
-<p>我们是这样定义数组 中心索引 的：数组中心索引的左侧所有元素相加的和等于右侧所有元素相加的和。</p>
-<p>如果数组不存在中心索引，那么我们应该返回 -1。如果数组有多个中心索引，那么我们应该返回最靠近左边的那一个。</p>
-<p>示例 1：</p>
-<p>输入：<br>nums = [1, 7, 3, 6, 5, 6]<br>输出：3<br>解释：<br>索引 3 (nums[3] = 6) 的左侧数之和 (1 + 7 + 3 = 11)，与右侧数之和 (5 + 6 = 11) 相等。<br>同时, 3 也是第一个符合要求的中心索引。<br>示例 2：</p>
-<p>输入：<br>nums = [1, 2, 3]<br>输出：-1<br>解释：<br>数组中不存在满足此条件的中心索引。</p>
-<p>说明：</p>
-<p>nums 的长度范围为 [0, 10000]。<br>任何一个 nums[i] 将会是一个范围在 [-1000, 1000]的整数。</p>
-<h3 id="思路-求和后在寻找"><a href="#思路-求和后在寻找" class="headerlink" title="思路(求和后在寻找)"></a>思路(求和后在寻找)</h3><p>先求出数组的总和。</p>
-<p>再接着通过分析题目可以知道，满足条件的情况是：</p>
-<p>当遍历到数组元素nums[i]时，他左边的元素的和应该等于右边的元素的和。即currentSum * 2 = sum - nums[i].</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pivotIndex</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> currentSum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> value : nums ) </span><br><span class="line">            sum += value;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++ ) &#123;</span><br><span class="line">            <span class="keyword">if</span> ( currentSum + currentSum == sum - nums[i])</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            currentSum += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这毫无疑问是不利于系统的拓展。</p>
+<p>如果说是基于权限来分配资源的话，可拓展性就会好很多。</p>
+<p>例如，在分配权限是，可以这么判断：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ( user.hasPermission(<span class="string">&quot;permission1&quot;</span>) ) &#123;</span><br><span class="line">    <span class="comment">//权限1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="复杂度-1"><a href="#复杂度-1" class="headerlink" title="复杂度"></a>复杂度</h3><p>时间：O(N)</p>
-<p>空间：O(1)</p>
+<p>无论用户怎么修改权限，权限的判断语句逻辑都不会改变</p>
+<p>但这并不意味着角色是可以舍弃的。角色依旧是用户的可视化UI界面分配权限的中转。只需要我们在资源分配时，先通过用户获取所拥有的角色，在通过角色获取所拥有的权限，最后简单的通过hasPermission()来判断即可。</p>
+<h2 id="Redis处理"><a href="#Redis处理" class="headerlink" title="Redis处理"></a>Redis处理</h2><h3 id="使用连接池"><a href="#使用连接池" class="headerlink" title="使用连接池"></a>使用连接池</h3><p>目的：客户端连接Redis时，使用的是TCP连接。这样每次都需要进行三次握手和四次挥手，连接的开销会很大。引入Redis连接池，那么就可以使得每次连接时从连接池中获取连接对象，用完后归还给连接池，这些操作是在本地进行的，开销不会很大，只有在初始化连接池的时候，才建立了TCP连接。</p>
+<h3 id="Redis序列化"><a href="#Redis序列化" class="headerlink" title="Redis序列化"></a>Redis序列化</h3><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>序列化将对象信息转成二进制数组。</p>
+<p>持久性：存在数据库中， 利于检索使用</p>
+<p>深度复制：赋值二进制</p>
+<p>Redis提供了两种序列化的方式：RedisTemplate和StringRedisTemplate。</p>
+<p>二者区别：</p>
+<p>1.StringRedisTemplate只能对String类型的key-value进行操作，而RedisTemplate可对Object类型的key-value进行操作。</p>
+<p>2.二者序列化的方式不同：</p>
+<p>StringRedisTemplate使用的是StringRedisSerializer，序列化后得到的是二进制数组，反序列化后得到String类型</p>
+<p>RedisTemplate使用的是JdkSerializationRedisSerializer来进行序列化，序列化后得到的是二进制数组，反序列化后得到的是Object类型</p>
+<p>而StringRedisSerializer使用的是String.getBytes()来获取，JdkRedisSerializer序列化对象，存入Redis中，是不可视化的，因为他还存储了对象的其他属性。</p>
+<p>如果不指定Redis序列化的方式，那么有可能会出现存储对象时，出现类型无法转换的问题。</p>
+<h4 id="如何序列化"><a href="#如何序列化" class="headerlink" title="如何序列化"></a>如何序列化</h4><p>编写Redis配置类，加载到容器中。</p>
+<p>然后实例化RedisTemplate&lt;String,Object&gt;对象，设置value的序列化方式都按照我们的配置类来序列化。</p>
+<p>序列化配置类：</p>
+<p>实现RedisSerializer<Object>接口，重写serialize和deserialize方法。即序列化与反序列化的方法。</p>
+<p>序列化：判断对象是否是String类型的实例，如果是，那么就直接将对象toString().getBytes返回序列化结果；如果不是，使用fastJson的toJSONString()方法来使对象转成Sting类型后，在获取二进制数组返回。</p>
+<p>反序列化：将二进制数组转成String类型返回</p>
+<h4 id="对Redis基本操作的封装"><a href="#对Redis基本操作的封装" class="headerlink" title="对Redis基本操作的封装"></a>对Redis基本操作的封装</h4><p>序列化Redis后，那么redis的基本需要经过我们自定义序列化后的方式来进行操作。我复制了源码中redis的基本操作，然后每个方法不是用源码的方式返回，而是通过我们自定义的redisTemplate来返回响应操作，这样就能使得redis进行操作时，我们的序列化方式起到作用</p>
+<h2 id="Swagger2"><a href="#Swagger2" class="headerlink" title="Swagger2"></a>Swagger2</h2><p>引入目的：显示接口文档。方便与前端人员的对接</p>
+<p>使用方法：</p>
+<p>1.在控制层使用@Api注解，controller的方法中使用@ApiOperation注解</p>
+<p>2.在VO的属性上使用@ApiModelPropertiy注解</p>
 
                 
             </div>
@@ -528,7 +524,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/01/26/LeetCode%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92/">http://example.com/2021/01/26/LeetCode%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92/</a>
+                    <a href="http://example.com/2021/03/06/%E9%A1%B9%E7%9B%AEQ-A/">http://example.com/2021/03/06/%E9%A1%B9%E7%9B%AEQ-A/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -565,11 +561,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/LeetCode/">
-                                    <span class="chip bg-color">LeetCode</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -783,70 +775,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/01/27/SpringBoot%E6%96%B0%E7%89%88%E7%AC%94%E8%AE%B0/">
+                <a href="/2021/03/06/%E9%A1%B9%E7%9B%AEQ-A/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="SpringBoot新版笔记">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="项目Q&amp;A">
                         
-                        <span class="card-title">SpringBoot新版笔记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-27
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/SpringBoot/">
-                        <span class="chip bg-color">SpringBoot</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/">
-                        <span class="chip bg-color">后端框架</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/01/25/JAVA%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="JAVA数据结构">
-                        
-                        <span class="card-title">JAVA数据结构</span>
+                        <span class="card-title">项目Q&amp;A</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -857,18 +797,52 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Daniel
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/05/Shiro%E6%A1%86%E6%9E%B6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Shiro框架">
+                        
+                        <span class="card-title">Shiro框架</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                    数据结构
+                            <a href="/categories/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/" class="post-category">
+                                    权限管理框架
                                 </a>
                             
                             
@@ -878,16 +852,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/tags/Shiro/">
+                        <span class="chip bg-color">Shiro</span>
                     </a>
                     
-                    <a href="/tags/JAVA/">
-                        <span class="chip bg-color">JAVA</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="chip bg-color">数组</span>
+                    <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">权限管理框架</span>
                     </a>
                     
                 </div>
