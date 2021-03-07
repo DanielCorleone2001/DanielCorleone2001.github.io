@@ -439,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4k
                 </div>
                 
 
@@ -579,6 +579,7 @@
 <p>多个realm调用doMultiRealmAuthcation方法</p>
 <p>4.进入到AuthticatingRealm类中的getAuthticationInfo中，从缓存获取用户认证信息。接着判断是否从缓存中得到信息。如果没有，那就进入我们自定义的realm中的doGetAuthentication方法获取。获取后进入到assertCredentialsMatch方法</p>
 <p>5.在assertCredentialsMatch方法中调用我们自定义的MyHashedCredentialsMatcher方法中的doCredentialsMatch方法</p>
+<p>6.再doCredentialMatch()方法中，通过redis判断是否有锁定用户的token，黑名单token，是否有删除用户的token，用户的token是否有效，用户是否主动退出，用户是否刷新过token</p>
 <p>认证过程到此结束</p>
 <h3 id="授权过程"><a href="#授权过程" class="headerlink" title="授权过程"></a>授权过程</h3><p>1.后端使用@RequirePemissions(“sys:user:list”)注解，在controller层进行授权</p>
 <p>2.执行AnthoriziingSecurityManager里的checkPermission进行授权认证</p>
@@ -1235,7 +1236,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">150.8k</span>&nbsp;字
+                class="white-color">150.9k</span>&nbsp;字
             
             
             
