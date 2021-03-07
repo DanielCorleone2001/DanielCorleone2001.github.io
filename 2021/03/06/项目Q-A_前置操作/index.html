@@ -439,14 +439,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    3.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    14 分
                 </div>
                 
 
@@ -640,6 +640,25 @@
 <p>因为Servlet只提供了基本不的信息，无法获取到用户的请求类型。</p>
 <p>2.获取用户的token，判断头部是否携带了accessToken。未携带就抛出token不能为空的异常</p>
 <p>3.通过accesssToken，生成UserNamePassWordToken类型的对象，将该对象作为参数，调用shiro的getSubject.login()，让shiro帮我们进行身份认证与权限认证</p>
+<h2 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h2><h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3><p>什么是sql注入？</p>
+<p>SQL注入即是指web应用程序对用户输入数据的合法性没有判断或过滤不严，攻击者可以在web应用程序中事先定义好的查询语句的结尾上添加额外的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/SQL%E8%AF%AD%E5%8F%A5/5714895">SQL语句</a>，在管理员不知情的情况下实现非法操作，以此来实现欺骗数据库服务器执行非授权的任意查询，从而进一步得到相应的数据信息。</p>
+<h3 id="防止SQL注入"><a href="#防止SQL注入" class="headerlink" title="防止SQL注入"></a>防止SQL注入</h3><p>Mybatis并不能编译SQL语句，而是前后加“”,丢给MySQL进行执行.</p>
+<p>1.like参数注入容易导致SQL注入</p>
+<p>解决方法：使用这样的语句：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">like concat(&#x27;%&#x27;,#&#123;value&#125;,&#x27;%&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>2.in的参数可能会导致SQL注入</p>
+<p>解决方法：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">id in</span><br><span class="line"><span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span> =<span class="string">&quot;list&quot;</span> <span class="attr">item</span> =<span class="string">&quot;item&quot;</span> <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span> <span class="attr">sepator</span>=<span class="string">&quot;,&quot;</span>&gt;</span></span><br><span class="line">#&#123;item&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>Mybatis在执行依次SQL语句后，会被mybatis缓存起来。在执行相同的SQL时，直接从缓存中提取，就不是再执行SQL语句</p>
+<h4 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a><a target="_blank" rel="noopener" href="https://tech.meituan.com/2018/01/19/mybatis-cache.html">一级缓存</a></h4><p>也叫做SqlSession缓存</p>
+<p>SqlSession是由SqlSessionFactory创建出的一个执行SQL语句的对象</p>
+<p>SqlSession中的一级缓存：</p>
+<p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1gobnhxlyuij30og0eqgob.jpg" alt="image"></p>
+<p><strong>为什么更新会导致一级缓存失效：</strong></p>
+<p>update语句执行时，会刷新一级缓存。缓存是用hashMap存储的</p>
+<h4 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h4><p>也叫做表级缓存</p>
 
                 
             </div>
@@ -1216,7 +1235,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">150.5k</span>&nbsp;字
+                class="white-color">150.8k</span>&nbsp;字
             
             
             
