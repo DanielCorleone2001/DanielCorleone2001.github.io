@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="项目Q&amp;A, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="项目Q&amp;A_前置操作, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>项目Q&amp;A | Welcome to Daniel&#39;s Blog !</title>
+    <title>项目Q&amp;A_前置操作 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">项目Q&amp;A</h1>
+                    <h1 class="description center-align post-title">项目Q&amp;A_前置操作</h1>
                 </div>
             </div>
         </div>
@@ -432,21 +432,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-06
+                    2021-03-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    13 分
                 </div>
                 
 
@@ -551,13 +551,26 @@
 <p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak6ekblrj30wu0lwwgz.jpg" alt="image"></p>
 <p>signature： 指定密钥，然后通过算法来产生token</p>
 <p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak7nohsjj30y30aydh9.jpg" alt="image"></p>
-<h2 id="用户登录"><a href="#用户登录" class="headerlink" title="用户登录"></a>用户登录</h2><p>1.接收到前端传入的请求VO，该VO只有用户名和密码</p>
-<p>2.通过VO的用户名来获取用户，并判断非空</p>
-<p>3.获取用户的盐值，用户的明文密码，数据库的密文密码。传入方法类中来进行比对</p>
-<p>4.新建哈希表，建立用户用户名，角色名，权限列表的映射。key为自定义的String类型的Constans，value为用户的实际值。</p>
-<p>5.将用户的ID以及哈希表作为参数来生成accessToken(JWT)</p>
-<p>然后生成refreshToken</p>
-<p>6.返回响应VO，包含accessToken和refreshToken以及userID</p>
+<h3 id="JWT工具类"><a href="#JWT工具类" class="headerlink" title="JWT工具类"></a>JWT工具类</h3><h4 id="签发token"><a href="#签发token" class="headerlink" title="签发token"></a>签发token</h4><p>1.设置签名算法为HS256</p>
+<p>2.生成签名密钥，为一个base64加密后的字符串</p>
+<p>3.调用Jwts.builder()来获取JwtBuilder对象</p>
+<p>4.配置头部信息，签发人，subject(我配置为用户的ID)，配置有效时间</p>
+<p>5.配置签名加密算法，</p>
+<p>6.调用builder.compact();即可完成token的签发</p>
+<h4 id="生成accessToken"><a href="#生成accessToken" class="headerlink" title="生成accessToken"></a>生成accessToken</h4><p>调用上文的生成签发token的方法，传入的有效时间为accessToken的有效时间</p>
+<h4 id="生成refreshToken"><a href="#生成refreshToken" class="headerlink" title="生成refreshToken"></a>生成refreshToken</h4><p>调用上文的生成签发token的方法，传入的有效时间为refreshToken的有效时间</p>
+<h4 id="token解析"><a href="#token解析" class="headerlink" title="token解析"></a>token解析</h4><p>调用此方法，获取到负载信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Jwts.parser()<span class="comment">//创建解析对象</span></span><br><span class="line">.setSigningKey(secretKey)<span class="comment">//设置安全密钥</span></span><br><span class="line">.parseClaimsJws(token)<span class="comment">//解析token</span></span><br><span class="line">.getBody()<span class="comment">//获取负载信息</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="验证token是否过期"><a href="#验证token是否过期" class="headerlink" title="验证token是否过期"></a>验证token是否过期</h4><p>1.调用上面的token解析方法，即可获得负载的信息</p>
+<p>2.从负载中获取到有效时间和当前时间对比即可</p>
+<h4 id="判断token是否有效"><a href="#判断token是否有效" class="headerlink" title="判断token是否有效"></a>判断token是否有效</h4><p>1.调用上文的token解析获取负载</p>
+<p>2.检查负载中token不为空而且未过期</p>
+<h4 id="刷新token"><a href="#刷新token" class="headerlink" title="刷新token"></a>刷新token</h4><p>主动刷新token，改变token中负载的信息</p>
+<p>1.通过传入的refreshToken判断是否为空。为空表示用户信息未改变，直接返回原来的refreshToken</p>
+<p>2.调用签发token的方法重新生成新的refreshToken</p>
+<h4 id="获取token的剩余时间"><a href="#获取token的剩余时间" class="headerlink" title="获取token的剩余时间"></a>获取token的剩余时间</h4><p>1.调用解析token方法，获取负载信息</p>
+<p>2.通过负载信息获取token的过期时间，减去当前时间</p>
 <h2 id="Shiro"><a href="#Shiro" class="headerlink" title="Shiro"></a>Shiro</h2><h3 id="身份认证流程"><a href="#身份认证流程" class="headerlink" title="身份认证流程"></a>身份认证流程</h3><p>1.subject.login(token)，传入前端的token</p>
 <p>2.进入AuthenticatingSecurityManager的anthenticate执行用户认证</p>
 <p>3.进入到ModularRealmAuthenticator的doAuthenticate方法进行认证</p>
@@ -567,7 +580,67 @@
 <p>4.进入到AuthticatingRealm类中的getAuthticationInfo中，从缓存获取用户认证信息。接着判断是否从缓存中得到信息。如果没有，那就进入我们自定义的realm中的doGetAuthentication方法获取。获取后进入到assertCredentialsMatch方法</p>
 <p>5.在assertCredentialsMatch方法中调用我们自定义的MyHashedCredentialsMatcher方法中的doCredentialsMatch方法</p>
 <p>认证过程到此结束</p>
-<h3 id="权限认证过程"><a href="#权限认证过程" class="headerlink" title="权限认证过程"></a>权限认证过程</h3>
+<h3 id="授权过程"><a href="#授权过程" class="headerlink" title="授权过程"></a>授权过程</h3><p>1.后端使用@RequirePemissions(“sys:user:list”)注解，在controller层进行授权</p>
+<p>2.执行AnthoriziingSecurityManager里的checkPermission进行授权认证</p>
+<p>3.进入到ModularRealmAuthorizer执行授权。</p>
+<p>首先使用assertRealmConfigured()方法检查有没有配置realm</p>
+<p>接着对所有的realm中都要调用其中的isPermitted进行授权认证</p>
+<p>4.进入到AuthorizingRealm中获取到用户拥有的权限信息</p>
+<p>5.从缓存中获取用户所拥有的权限信息。如果没有的话就进入到自定义的MyRealm中执行doGetAuthorizationInfo来获取权限信息</p>
+<p>6.将权限信息存入到缓存中</p>
+<p>7.在AuthorizingRealm方法中调用isPermitt()方法将用户的权限信息封装成Permissions类型，然后循环遍历来查看是否有权限，一旦出现出现灭有的权限，就抛出异常禁止访问</p>
+<h3 id="自定义Realm"><a href="#自定义Realm" class="headerlink" title="自定义Realm"></a>自定义Realm</h3><p>1.集成AuthorizingRealm，重写doGetAuthorization方法与doGetAuthentication方法</p>
+<p>2.doGetAuthrization方法用于权限认证，可获取到负载中存储的权限与角色信息</p>
+<p>3.doGetAuthorication方法用于身份认证，可用于获取到用户的认证信息，认证方法：</p>
+<p>编写集成HashCredentialsMatcher方法，重写doCredentialsMatch方法，调用redis来查看用户是否被锁定，被删除，token是否有效，然后再放行</p>
+<h3 id="Shiro核心配置"><a href="#Shiro核心配置" class="headerlink" title="Shiro核心配置"></a>Shiro核心配置</h3><p>1.将我们的登录认证方法，即myHashCredentialsMatcher方法注入到bean中</p>
+<p>2.实例化我们自定义的Realm，配置认证方法为我们的myHashCredentialsMatahcer方法</p>
+<p>3.配置SecurityManager，设置realm为我们自定义的realm实例，将securitymanager注册到bean中</p>
+<p>4.配置拦截的url以及对应的认证等级</p>
+<p>编写ShiroFilterFactoryBean，编写对应的url与拦截的等级</p>
+<p>在返回ShiroFilterFactoryBean实例</p>
+<h3 id="Shiro的Cache"><a href="#Shiro的Cache" class="headerlink" title="Shiro的Cache"></a>Shiro的Cache</h3><p>1.实现shiro的CacheManager接口，重写其getCache方法</p>
+<p>2.将shiro的配置信息存入到redis中即可</p>
+<h2 id="前后端数据的封装"><a href="#前后端数据的封装" class="headerlink" title="前后端数据的封装"></a>前后端数据的封装</h2><p>1.定义DataResult类，包含code、msg属性，以及范型data，表示客户端的响应信息</p>
+<p>2.创建响应接口，包含getCode()方法和getMsg()方法</p>
+<p>3.编写响应码的枚举类</p>
+<h2 id="接管全局异常"><a href="#接管全局异常" class="headerlink" title="接管全局异常"></a>接管全局异常</h2><p>接管系统抛出的异常，转换成我们规定好的DataResult，便于前端接收数据并输出。看一个简单的例子：</p>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gn5xqquh9vj30h105hq4f.jpg" alt="image"></p>
+<p>简单的设置一个除零异常</p>
+<p>如果不接管异常的话，系统输出的异常的数据，不是json格式，无法用于前端的处理。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gn5xua1thmj30wi0bawwf.jpg" alt="image"></p>
+<p>前端是无法处理这种格式的数据的。</p>
+<h3 id="配置异常处理类"><a href="#配置异常处理类" class="headerlink" title="配置异常处理类"></a>配置异常处理类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.daniel.exception.handler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.daniel.exception.code.BaseResponseCode;</span><br><span class="line"><span class="keyword">import</span> com.daniel.utils.DataResult;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ExceptionHandler;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestControllerAdvice;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Package</span>: com.daniel.exception.handler</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: RestExceptionHandler</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: daniel</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@CreateTime</span>: 2021/1/30 19:00</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 接管系统异常，自定义成我们想要的结果</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestControllerAdvice</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RestExceptionHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ExceptionHandler(Exception.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataResult <span class="title">handleException</span><span class="params">(Exception e)</span> </span>&#123;</span><br><span class="line">        log.error(<span class="string">&quot;handlerException...&#123;&#125;&quot;</span>,e);</span><br><span class="line">        <span class="keyword">return</span> DataResult.getResult(BaseResponseCode.SYSTEM_ERROR);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这时候我们再看看处理结果：</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gn5xvofcdrj311z0hb75c.jpg" alt="image"></p>
+<p>已经是json格式，这才达到了前后端能分离的目的。</p>
+<h3 id="ExceptionHandler-详解"><a href="#ExceptionHandler-详解" class="headerlink" title="@ExceptionHandler()详解"></a>@ExceptionHandler()详解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//运行时异常的监控，此类是自定义的。</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(value = BusinessException.class)</span><span class="comment">//捕获BusinessException此异常</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataResult <span class="title">businessException</span><span class="params">(BusinessException e)</span></span>&#123;</span><br><span class="line">        log.error(<span class="string">&quot;businessException,&#123;&#125;,&#123;&#125;&quot;</span>,e.getLocalizedMessage(),e);</span><br><span class="line">        <span class="keyword">return</span> DataResult.getResult(e.getCode(),e.getMsg());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>可见可以指定异常类</p>
+<p>捕获异常的过程</p>
+<p>1.ExceptionHandlerExceptionResolver实现了InitializatingBean，在实例化时会被初始化到HandlerExceptionResolver bean中</p>
+<p>2.DispatcherServlet初始化时，会搜索所有的HandlerExceptionResolver，记录成一个List类型</p>
+<p>3.当exception被抛出时，就会遍历handlerExceptionResovler的List集合中</p>
+<p>4.查看是否有对应的异常处理方法：</p>
+<p>​    首先从发生异常的控制器中寻找@ExceptionHandler方法来处理</p>
+<p>​    找不到的话就从所有@ControllerAdvice注解类中寻找@ExceptionHandler来处理该异常</p>
+<p>5.找到方法后处理该异常</p>
+<h2 id="用户登录"><a href="#用户登录" class="headerlink" title="用户登录"></a>用户登录</h2><p>1.接收到前端传入的请求VO，该VO只有用户名和密码</p>
+<p>2.通过VO的用户名来获取用户，并判断非空</p>
+<p>3.获取用户的盐值，用户的明文密码，数据库的密文密码。传入方法类中来进行比对</p>
+<p>4.新建哈希表，建立用户用户名，角色名，权限列表的映射。key为自定义的String类型的Constans，value为用户的实际值。</p>
+<p>5.将用户的ID以及哈希表作为参数来生成accessToken(JWT)</p>
+<p>然后生成refreshToken</p>
+<p>6.返回响应VO，包含accessToken和refreshToken以及userID</p>
+<h2 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h2><p>1.集成AccessControlFilter父类，重写isAccessAllowed方法和onAccessDenied方法</p>
+<p>2.由于该类是链式过滤，当isAccessAllowed不通过时会进入到onAccessDenied方法，因此直接让isAccessAllowed返回false，方便我们在onAccessDenied编写业务逻辑</p>
+<p>3.onAccessDenied业务逻辑：</p>
+<p>(1)将客户端发来的请求数据转成HTTP请求，（为什么要转换？）</p>
+<p>因为Servlet只提供了基本不的信息，无法获取到用户的请求类型。</p>
+<p>2.获取用户的token，判断头部是否携带了accessToken。未携带就抛出token不能为空的异常</p>
+<p>3.通过accesssToken，生成UserNamePassWordToken类型的对象，将该对象作为参数，调用shiro的getSubject.login()，让shiro帮我们进行身份认证与权限认证</p>
+
                 
             </div>
             <hr/>
@@ -593,7 +666,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/06/%E9%A1%B9%E7%9B%AEQ-A/">http://example.com/2021/03/06/%E9%A1%B9%E7%9B%AEQ-A/</a>
+                    <a href="http://example.com/2021/03/06/%E9%A1%B9%E7%9B%AEQ-A_%E5%89%8D%E7%BD%AE%E6%93%8D%E4%BD%9C/">http://example.com/2021/03/06/%E9%A1%B9%E7%9B%AEQ-A_%E5%89%8D%E7%BD%AE%E6%93%8D%E4%BD%9C/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1143,7 +1216,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">146.3k</span>&nbsp;字
+                class="white-color">149.3k</span>&nbsp;字
             
             
             
