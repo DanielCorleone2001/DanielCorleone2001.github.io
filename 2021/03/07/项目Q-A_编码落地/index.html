@@ -439,14 +439,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    7 分
                 </div>
                 
 
@@ -482,6 +482,20 @@
 <p>检验成功后，调用mapper将数据插入</p>
 <p>4.在控制层编写PostMapping进行相应的url业务跳转逻辑</p>
 <p>使用@RequestBody注解</p>
+<h3 id="更新菜单权限"><a href="#更新菜单权限" class="headerlink" title="更新菜单权限"></a>更新菜单权限</h3><p>1.实例化菜单权限对象，将前端传入的数据复制到对象中</p>
+<p>2.对传入的数据进行检查：</p>
+<p>​    -操作类型为目录时，父级类型需要是目录</p>
+<p>​    -操作类型为菜单时，父级类型需要是目录</p>
+<p>​    -操作类型为按钮时，父级类型需要是菜单</p>
+<p>3.如果菜单发生了变化或者是权限状态发生了变化，就通过权限ID来获取所有的权限对象，判断权限是否有子集，如果有的话不允许更新</p>
+<p>4.通过权限ID来获取所有对应的角色ID，通过角色ID来获取所有对应的用户，将用户的授权信息删除，标记用户已经刷新token</p>
+<h3 id="删除菜单权限"><a href="#删除菜单权限" class="headerlink" title="删除菜单权限"></a>删除菜单权限</h3><p>1.通过权限ID获取到对应的权限</p>
+<p>2.通过权限ID获取到所有的子权限，如果子集非空，那么抛出异常，不允许删除</p>
+<p>3.将该权限的删除字段标记为已删除</p>
+<p>4.通过权限ID获取所有的角色ID集合</p>
+<p>5.通过权限ID删除掉角色-权限表中对应的字段</p>
+<p>6.通过角色ID集合获取到对应的用户ID集合</p>
+<p>7.遍历用户ID集合，对于每个用户，都标记其刷新过token，并将其授权信息删除</p>
 <h2 id="角色模块"><a href="#角色模块" class="headerlink" title="角色模块"></a>角色模块</h2><h3 id="新增角色"><a href="#新增角色" class="headerlink" title="新增角色"></a>新增角色</h3><p>1.实例化角色对象</p>
 <p>2.将前端传入的vo复制给角色实例</p>
 <p>3.调用mapper，新建角色</p>
@@ -494,8 +508,22 @@
 <p>1.加上事务，出现异常时回滚到出现异常前</p>
 <p>2.通过角色ID获取到需要更新的角色</p>
 <p>3.复制更新信息给角色实例</p>
-<p>4.将更新后的角色信息插入到role表中</p>
-<p>5.</p>
+<p>4.将更新后的角色信息插入到sys_role表中</p>
+<p>5.实例化新的角色-权限操作对象，配置角色ID与权限ID集合</p>
+<p>6.调用角色-权限服务，更新角色拥有的权限</p>
+<p>7.调用用户-角色服务，通过角色ID来获取对应所有的用户集合</p>
+<p>8.对于每一个用户，调用redisService，</p>
+<p>注入key为JWT-REFRESH-KEY+用户ID，value为用户ID</p>
+<p>并且删除掉该用户的授权信息缓存</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redisService.delete(Constant.IDENTIFY_CACHE_KEY+userID);</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除角色"><a href="#删除角色" class="headerlink" title="删除角色"></a>删除角色</h3><p>1.实例化一个角色对象，设置它的角色ID为删除的角色ID，设置deleted为0，即标记删除</p>
+<p>2.调用角色mapper，更新对应的字段。(只标记为不可用，不删除)</p>
+<p>3.调用用户-角色mapper，通过角色ID来获取到所有的用户ID集合</p>
+<p>4.调用用户-角色mapper，通过角色ID来删除掉对应的字段</p>
+<p>5.调用角色-权限mapper，通过角色ID来删除掉对应的字段</p>
+<p>6.然后对于每一个用户，都需要对其token标记为已经刷新过</p>
+<p>同时清除其对应的授权数据缓存</p>
 <h2 id="用户模块"><a href="#用户模块" class="headerlink" title="用户模块"></a>用户模块</h2><h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p>1.通过用户ID来获取用户信息</p>
 <p>2.判断用户的状态，被锁定的话就抛出异常</p>
 <p>3.获取用户的盐值，将前端提交的明文密码与数据库中的密码进行对比</p>
@@ -543,7 +571,9 @@
 <h3 id="更新用户密码"><a href="#更新用户密码" class="headerlink" title="更新用户密码"></a>更新用户密码</h3><p>1.调用mappper，通过用户ID来获取到用户实例</p>
 <p>2.传入盐值，前端的明文密码，数据库中的密文密码比对，看是否正确</p>
 <p>3.生成新的密文密码，调用mapper更新用户的密码</p>
+<h2 id="部门模块"><a href="#部门模块" class="headerlink" title="部门模块"></a>部门模块</h2><h3 id="获取部门"><a href="#获取部门" class="headerlink" title="获取部门"></a>获取部门</h3><h3 id="新增部门"><a href="#新增部门" class="headerlink" title="新增部门"></a>新增部门</h3><h3 id="更新部门信息"><a href="#更新部门信息" class="headerlink" title="更新部门信息"></a>更新部门信息</h3><h3 id="删除部门"><a href="#删除部门" class="headerlink" title="删除部门"></a>删除部门</h3><h2 id="日志模块"><a href="#日志模块" class="headerlink" title="日志模块"></a>日志模块</h2><h3 id="自定义AOP注解"><a href="#自定义AOP注解" class="headerlink" title="自定义AOP注解"></a>自定义AOP注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Documented</span><span class="comment">//表明这个注解应该被javadoc工具记录</span></span><br><span class="line"><span class="meta">@Target(ElementType.METHOD)</span><span class="comment">//作用：用于描述注解的使用范围（即：被描述的注解可以用在什么地方）</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span><span class="comment">//这种类型的Annotations将被JVM保留,所以他们能在运行时被JVM或其他使用反射机制的代码所读取和使用.</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyLog &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//模块</span></span><br><span class="line">    <span class="function">String <span class="title">title</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//功能</span></span><br><span class="line">    <span class="function">String <span class="title">action</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h3 id="AOP切面"><a href="#AOP切面" class="headerlink" title="AOP切面"></a>AOP切面</h3>
                 
             </div>
             <hr/>
@@ -1113,7 +1143,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">149.3k</span>&nbsp;字
+                class="white-color">150k</span>&nbsp;字
             
             
             
