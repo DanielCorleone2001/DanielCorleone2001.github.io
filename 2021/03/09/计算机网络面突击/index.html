@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="AMBSSecurity, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="计算机网络面试突击, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>AMBSSecurity | Welcome to Daniel&#39;s Blog !</title>
+    <title>计算机网络面试突击 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">AMBSSecurity</h1>
+                    <h1 class="description center-align post-title">计算机网络面试突击</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/SpringBoot/">
-                                <span class="chip bg-color">SpringBoot</span>
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
                             </a>
                         
-                            <a href="/tags/SpringSecurity/">
-                                <span class="chip bg-color">SpringSecurity</span>
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
+                                <span class="chip bg-color">面试突击</span>
                             </a>
                         
                     </div>
@@ -425,8 +425,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                个人项目
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                计算机网络
+                            </a>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/" class="post-category">
+                                面试突击
                             </a>
                         
                     </div>
@@ -438,28 +442,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-28
+                    2021-03-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-12
+                    2021-03-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    321
+                    4.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    17 分
                 </div>
                 
 
@@ -479,69 +483,307 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>记录自己搭建基于Springboot与SpringSecurity权限管理系统项目的过程</p>
-<p>按着时间线进行，项目结束后更新使用手册</p>
-<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><h3 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h3><ul>
-<li>基础框架：Spring Boot 2.0.4.RELEASE</li>
-<li>持久层框架：Mybatis 3.4.5</li>
-<li>安全框架：Spring Security 5.0.7</li>
-<li>摸板引擎：Thymeleaf 3.0.9.RELEASE</li>
-<li>数据库连接池：Hikari</li>
-<li>缓存框架：Redis</li>
-<li>日志打印：logback</li>
-<li>其他：Spring Social，Spring OAuth2，fastjson，poi，javacsv，quartz</li>
-</ul>
-<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><ul>
-<li>基础框架：Bootstrap 4</li>
-<li>JavaScript框架：jQuery</li>
-<li>消息组件：Bootstrap notify</li>
-<li>提示框插件：SweetAlert2</li>
-<li>树形插件：jsTree</li>
-<li>树形表格插件：jqTreeGrid</li>
-<li>表格插件：BootstrapTable</li>
-<li>表单校验插件：jQuery-validate</li>
-<li>多选下拉框插件：multiple-select</li>
-<li>图表插件：Highcharts</li>
-<li>时间插件：daterangepicker</li>
-</ul>
-<h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><p><strong>SpringBoot</strong>：2.0.4.RELEASE</p>
-<p><strong>JDK</strong>：1.8</p>
-<p><strong>开发工具：</strong>IDEA</p>
-<p><strong>数据库</strong>： MySQL</p>
-<p><strong>版本控制：</strong>Git</p>
-<h2 id="Security-module"><a href="#Security-module" class="headerlink" title="Security module"></a>Security module</h2><h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>父类: 主模块 AMBSSecurity</p>
-<p>common module</p>
-<p>system module</p>
-<p>xss过滤：jsoup</p>
-<p>spring social</p>
-<p>spring social core</p>
-<p>spring social security</p>
-<p>spring social web</p>
-<p>spring social autoconfigure</p>
-<h2 id="Common-module"><a href="#Common-module" class="headerlink" title="Common module"></a>Common module</h2><h3 id="依赖-1"><a href="#依赖-1" class="headerlink" title="依赖"></a>依赖</h3><p>父类：主模块</p>
-<p>poi 3.13</p>
-<p>poi scratchpad</p>
-<p>poi ooxml</p>
-<p>javacsv</p>
-<p>springboot starter aop</p>
-<p>google.guava</p>
-<p>ip2region</p>
-<p>reflections</p>
-<p>七牛云OSS依赖：qiniu-java-sdk</p>
-<p>gson</p>
-<h2 id="System-module"><a href="#System-module" class="headerlink" title="System module"></a>System module</h2><h3 id="依赖-2"><a href="#依赖-2" class="headerlink" title="依赖"></a>依赖</h3><p>父类：主模块</p>
-<p>common module</p>
-<h2 id="Web-module"><a href="#Web-module" class="headerlink" title="Web module"></a>Web module</h2><h3 id="依赖-3"><a href="#依赖-3" class="headerlink" title="依赖"></a>依赖</h3><p>父类：主模块</p>
-<p>security module</p>
-<p>quartz module</p>
-<p>springboot starter tomcat</p>
-<p>springboot starter thymeleaf</p>
-<p>thymeleaf extras springsecurity4</p>
-<p>jasypt springboot starter</p>
-<h2 id="Quartz-module"><a href="#Quartz-module" class="headerlink" title="Quartz module"></a>Quartz module</h2><h3 id="依赖-4"><a href="#依赖-4" class="headerlink" title="依赖"></a>依赖</h3><p>父类：主模块</p>
-<p>common module</p>
-<p>quartz: org.quartz-scheduler</p>
-
+                <h2 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h2><p><strong>1.物理层</strong></p>
+<p>只识别0/1信号，是比特流与电信号的切换</p>
+<p><strong>2.数据链路层</strong></p>
+<p>数据帧与比特流之间的转换</p>
+<p><strong>3.网络层</strong></p>
+<p>进行地址管理以及路由选择。比如通过哪个路由能达到目标地址</p>
+<p><strong>4.传输层</strong></p>
+<p>管理两节点之间的数据传输，要保证可靠传输</p>
+<p><strong>5.会话层</strong></p>
+<p>通信管理，负责建立和断开通信连接</p>
+<p><strong>6.表示层</strong></p>
+<p>接收并表示各种格式的信息</p>
+<p><strong>7.应用层</strong></p>
+<p>特定应用有特定的协议。如电子邮件，文件传输等</p>
+<h2 id="TCP-IP分层模型"><a href="#TCP-IP分层模型" class="headerlink" title="TCP/IP分层模型"></a>TCP/IP分层模型</h2><p><strong>1.硬件</strong></p>
+<p>对应物理层</p>
+<p><strong>2.网卡层</strong></p>
+<p>对应数据链路层</p>
+<p><strong>3.互联网层</strong></p>
+<p>ARP、IP、ICMP协议</p>
+<p><strong>ARP：</strong>从分组数据包的IP地址解析出MAC地址</p>
+<p><strong>IP：</strong>跨越网络的数据包</p>
+<p><strong>ICMP：</strong>检测IP数据包发送时是否发生异常，发生的话给发送端返回通知</p>
+<p><strong>4.传输层</strong></p>
+<p>TCP、UDP</p>
+<p><strong>TCP：</strong>面向连接的传输协议，保证两端主机之间的通信可达。能处理传输的过程中丢包、乱序的问题(三次握手，四次挥手)</p>
+<p><strong>UDP：</strong>面向无连接的传输协议，不关注接收端是否接受到数据，主要用于音视频的传输，比如直播</p>
+<p><strong>5.应用层</strong></p>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1godq2sh8cej30ih0cw78o.jpg" alt="image"></p>
+<h2 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h4 id="计算机网络的概念"><a href="#计算机网络的概念" class="headerlink" title="计算机网络的概念"></a>计算机网络的概念</h4><p>互联、自洽的计算机系统的集合</p>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>1.广域网(WAN)</p>
+<p>2.局域网(LAN)</p>
+<p>3.个人局域网(PAN)</p>
+<h4 id="拓扑结构"><a href="#拓扑结构" class="headerlink" title="拓扑结构"></a>拓扑结构</h4><p>1.总线型：一条总线，连接所有的主机</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1godrijepmej306b0550so.jpg" alt="image"></p>
+<p>2.星型：一个中央设备机连接着所有的主机</p>
+<p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1godrj6e5wdj305204j3yh.jpg" alt="image"></p>
+<p>3.环形：所有主机环绕形成一份圈，信号单向传输，应用在令牌网</p>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1godrkg4u0vj305h04w74a.jpg" alt="image"></p>
+<p>4.网状形：一个节点主机至少有两个节点相连，应用在广域网中</p>
+<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1godrlbrnthj305l05at8p.jpg" alt="image"></p>
+<h4 id="交换技术"><a href="#交换技术" class="headerlink" title="交换技术"></a>交换技术</h4><p>1.电路交换</p>
+<p>源节点和目标节点通过一条通路进行信息交换，包括了建立连接，传输数据，断开连接的过程、</p>
+<p>优点：传播时延小</p>
+<p>缺点：线路利用率低，只能某两节点断开了，其他才能继续数据传输；</p>
+<p>​            不能进行差错控制</p>
+<p>2.报文交换</p>
+<p>将用户发送的信息，加上源节点，目标节点，校验码等，封装成报文。整个报文发送到目标节点后，需要全部存储，再查看转发表，转发给下一个节点。所以也成为存储-转发网络。</p>
+<p>优点：充分利用线路 ，可实现差错控制</p>
+<p>缺点：需要额外的存储空间；缓冲难以管理，因为没有限定报文的大小，无法知道是否已经传输结束</p>
+<p>3.分组交换</p>
+<p>将数据包分成相等大小的数据块，在每个数据块中加上目的地址、源地址等，再进行存储转发</p>
+<p>优点：提高了线路的利用率；差错控制；易于缓冲管理，因为数据块的大小是确定的；包的平均时延更小，不需要等全部报文都存储成功再转发，每个数据块存储成功即可转发</p>
+<h4 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h4><p>1.带宽</p>
+<p>单位：b/s 比特每秒。每秒能传输的比特位。表示传输的速率</p>
+<p>2.时延</p>
+<p>数据(报文或者分组)从发送端到接收端需要的时间。</p>
+<p>组成：发送时延，传播时延，处理时延，排队时延。</p>
+<p><strong>发送时延：</strong>数据从准备到可以发送所需要的时间。</p>
+<p><strong>传播时延：</strong>电磁波在信道中的传播时间。这是无法改变的。</p>
+<p>因为传播时延=信道长度/电磁波速度</p>
+<p><strong>排队时延：</strong>分组在进入路由器后在输入队列中等待</p>
+<p><strong>处理时延：</strong>在交换节点中进行分发处理需要进行的操作</p>
+<p>3.时延带宽积</p>
+<p>发送端发送第一个即将到达终点时，发送端已经发送了多少比特。</p>
+<p>时延带宽积=传播时延x信道带宽，很类似速度(信道带宽)*时间(传播时延)</p>
+<p>4.往返时延(RTT)</p>
+<p>从发送端发送到发送端接收到接收端发送的确认，所需要的时间</p>
+<p>5.吞吐量：单位时间内通过信道的数据量</p>
+<p>6.信道利用率：有数据通过的时间/有数据通过的时间+无数据通过的时间</p>
+<h3 id="分层模型"><a href="#分层模型" class="headerlink" title="分层模型"></a>分层模型</h3><h4 id="OSI七层参考模型"><a href="#OSI七层参考模型" class="headerlink" title="OSI七层参考模型"></a>OSI七层参考模型</h4><p>1.物理层</p>
+<p>2.数据链路层</p>
+<p>传输单位为帧，将网络层的数据报转换成帧。</p>
+<p>3.网络层</p>
+<p>传输单位为数据报。实现对数据报的分发</p>
+<p>4.传输层</p>
+<p>传输单位为报文段或者用户数据段</p>
+<p>5.会话层</p>
+<p>允许不同主机之间的进程进行会话。</p>
+<p>6.表示层</p>
+<p>将数据进行表示</p>
+<p>7.应用层</p>
+<h4 id="TCP-IP模型"><a href="#TCP-IP模型" class="headerlink" title="TCP/IP模型"></a>TCP/IP模型</h4><p><strong>1.网络接口层</strong></p>
+<p>相当于物理层、数据链路层</p>
+<p><strong>2.网际层</strong></p>
+<p>相当于网络层</p>
+<p><strong>3.传输层</strong></p>
+<p>相当于传输层</p>
+<p><strong>4.应用层</strong></p>
+<p>相当于会话层、表示层、应用层</p>
+<h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h2><h3 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h3><p>建立连接前，两节点之间需要建立独占的信道，这个信道只能由两个节点占有。</p>
+<p>电路交换分成三个部分：连接建立、数据传输、连接释放</p>
+<p>优点：</p>
+<p>1.时延小</p>
+<p>2.实现简单</p>
+<p>3.没有冲突</p>
+<p>4.可保证有序传输</p>
+<p>缺点：</p>
+<p>1.可拓展性差</p>
+<p>2.建立连接时间长</p>
+<p>3.信道独占，利用率低</p>
+<h3 id="报文交换"><a href="#报文交换" class="headerlink" title="报文交换"></a>报文交换</h3><p>将信息携带上源地址，目的地址，封装成报文。<strong>无需建立连接</strong>，在每个交换节点要进行存储转发</p>
+<p>优点：</p>
+<p>1.无需建立连接</p>
+<p>2.线路可靠性好，如果该线路发生故障，可选择其他的线路</p>
+<p>3.线路利用率高</p>
+<p>缺点：</p>
+<p>1.由于存储转发，产生的时延(检查正确性、排队)会很高</p>
+<p>2.对报文的大小没有限制，对缓冲区很不友好</p>
+<h3 id="分组交换"><a href="#分组交换" class="headerlink" title="分组交换"></a>分组交换</h3><p>将数据分成大小相同的数据块，携带上源地址，目的地址，序号。</p>
+<p>其他和报文交换一致</p>
+<p>优点：</p>
+<p>1.无需建立连接</p>
+<p>2.保证了有序性</p>
+<p>3.减小出错和重发的概率</p>
+<p>缺点：</p>
+<p>1.需要额外的空间</p>
+<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><p>帧：对数据加上头部和尾部，就变成了数据帧</p>
+<p>功能：</p>
+<p>1.流量控制</p>
+<p>协调发送方发送速度与接收方接受速度的差异。</p>
+<p>2.差错控制</p>
+<p>由于噪声的存在，可能会让数据帧出现位差错。需对其进行校验</p>
+<p>3.帧定界</p>
+<p>将数据化成以帧为单位，容易对差错进行排查</p>
+<h3 id="差错控制"><a href="#差错控制" class="headerlink" title="差错控制"></a>差错控制</h3><p>方法：</p>
+<p>1.奇偶校验码</p>
+<p>n-1位数据元+校验码</p>
+<p>奇校验码：添加校验码后使得1的个数位奇数</p>
+<p>偶检验码：添加校验码后使得1的个数为偶数</p>
+<p>2.循环冗余码</p>
+<p>3.纠错编码：汉明码</p>
+<h3 id="流量控制与可靠传输"><a href="#流量控制与可靠传输" class="headerlink" title="流量控制与可靠传输"></a>流量控制与可靠传输</h3><p>1.停止-等待</p>
+<p>发送方每次发送一帧，都需要等待接收方的响应，才能继续发送。</p>
+<p>相当于发送窗口和接收窗口都是1的滑动窗口</p>
+<p>否则只能一直等待</p>
+<p>2.后退N帧</p>
+<p>发送方可以发送N个帧而不用像停止-等待那样。</p>
+<p>接收端检测到错误时，会让发送方发送该帧以及之后的所有帧；或者发送方发送了N个帧后，检测到这N个帧的前一个帧的确认信息已经超时，那么就发送该帧以及之后的所有帧</p>
+<p>3.选择重传</p>
+<p>发送方和接受方的滑动窗口均大于1，而发送窗口小于等于接收窗口。</p>
+<p>接收方对于出错的帧只需要求发送方发送该帧，而不是像后退N帧那样，发送该帧以及之前的所有帧。</p>
+<h3 id="介质访问控制"><a href="#介质访问控制" class="headerlink" title="介质访问控制"></a>介质访问控制</h3><h4 id="信道划分介质访问控制"><a href="#信道划分介质访问控制" class="headerlink" title="信道划分介质访问控制"></a>信道划分介质访问控制</h4><p>解决同一信道上，不同信源进行通信时进行隔离，不会被干扰。</p>
+<p>多路复用技术：将输入信息整合到一条信道上</p>
+<p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1godvxd7i3tj30go062jsd.jpg" alt="image"></p>
+<p>1.频分多路复用</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1godwbdct65j30da07w75y.jpg" alt="image"></p>
+<p>将多个信号，调制到不同的频率上，再复合成一个复合信号</p>
+<p>虽然能一次传输多个信号，但是复合起来的信号总和是不能超过信道的带宽的。</p>
+<p>2.时分多路复用</p>
+<p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1godweeqym9j30e108840d.jpg" alt="image"></p>
+<p>一个时间片内，信息等分的顺序发送。不同时间片之间，传输的顺序都是一样的</p>
+<p>3.波分多路复用</p>
+<p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1godwg09n3vj30hy07z40a.jpg" alt="image"></p>
+<p>相当于光的频分多路复用。按照将信号转成不同的波长，复合成一个光信号。</p>
+<p>4.码分多路复用</p>
+<p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210309200322900.png" alt="image-20210309200322900"></p>
+<p>信号一同运输，只在结果处，通过编码来区分不同的信号。</p>
+<p>区分方式：码分多址</p>
+<h4 id="随机访问介质访问控制"><a href="#随机访问介质访问控制" class="headerlink" title="随机访问介质访问控制"></a>随机访问介质访问控制</h4><p>性质：不集中控制用户发送的信号，能根据自己的意愿随机发送信息。</p>
+<p>为了解决碰撞问题，需要反复重传帧。</p>
+<p><strong>1.ALOHA协议</strong></p>
+<p>发送方不检查的发送，当超过一定时间后就认为发生了碰撞，选择重新发送。</p>
+<p>但是发生了碰撞的并不能马上重传，从而导致碰撞的继续发生。因此ALOHA协议在重传时规定随机等待一段时间</p>
+<p><strong>2.时隙ALOHA协议</strong></p>
+<p>将时间同步起来，并划分成时隙，规定只有在时隙开始的时候，才能发送一个帧，进少了碰撞发生的概率</p>
+<p><strong>3.CSMA协议：载波侦听多路访问</strong></p>
+<p>CSMA协议：每个信源发送信号时，都要对信道进行监听。</p>
+<p>1-坚持CSMA：持续监听信道，忙则等待，不忙时马上发送</p>
+<p>非坚持CSMA：空闲则发送，忙则随机时间后在监听</p>
+<p>p-坚持CSMA：忙则监听，空闲的话以p的概率发送，1-p的概率不发送</p>
+<p><strong>4.CSMA/CD协议</strong></p>
+<p>载波侦听多路访问/碰撞检测</p>
+<p>先监听信道后再发，发的时候要一直监听。遇到冲突就停止发送，然后随机一段时间后重新发送</p>
+<p><strong>5.CSMA/CA协议</strong></p>
+<p>载波侦听多路复用/碰撞避免</p>
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><p>功能：将异构的网络进行互联，从而能够通信</p>
+<h3 id="路由与转发"><a href="#路由与转发" class="headerlink" title="路由与转发"></a>路由与转发</h3><p>路由器的功能：</p>
+<p>1.路由选择</p>
+<p>通过路由选择协议构造出路由表。路由表需要不断进行维护</p>
+<p>2.分组转发</p>
+<p>按照路由表，将数据报从正确的端口进行转发出去</p>
+<h3 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h3><p>1.静态路由算法</p>
+<p>网络管理员手动配置路由信息。</p>
+<p>2.动态路由算法</p>
+<p>通过相互连接的路由器交换信息，再经过算法处理得到</p>
+<p>3.距离-向量路由算法</p>
+<p>所有相连的路由器定期向相连接的路由器发送自己所有能达到的节点的跳数。然后进行对比，如果不存在的话就加入某条信息；如果步长更小的话就更新。例如RIP算法</p>
+<p>4.链路状态路由算法</p>
+<p>只有当某路由的状态发生变化时，即链路状态发生了变化，路由器会检查和它所连接的路由器的状态，然后发送给所有其他不是直接相连的路由器。接着路由器通过迪杰斯特拉算法计算出到其他所欲路由的最小路径。</p>
+<p>链路状态路由算法的优点在于，最短路径的计算不依赖于中间节点；寻找故障也会更加方便；而距离-向量算法可能会遇到路由环路的问题。</p>
+<h3 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h3><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gody4h107bj30l00cx0w9.jpg" alt="image"></p>
+<p>1.总长度：头部与数据总长。当超过1500字节时，需要对数据报进行分片。</p>
+<p>2.标志：</p>
+<p>有MF和DF。</p>
+<p>MF = 1，后面还有分片</p>
+<p>MF = 0 ，后面没有分片</p>
+<p>DF = 1，允许分片</p>
+<p>DF= 0， 不允许分片</p>
+<p>3.片漂移：是八的整数倍，表明相对于原来的数据包中的位置</p>
+<p>4.生存时间：在网络中能通过的路由器的最大值，每经过一次路由器就减一。保证数据报不会在网络中死循环。</p>
+<p>5.首部检验和。</p>
+<p>6.源IP地址</p>
+<p>7.目的IP地址</p>
+<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1godyny4q2jj30iv08jaci.jpg" alt="image"></p>
+<p>A类地址：首位为0，网络号的长度为8位。由于规定了网络号首位为0，而且全0和全1的网络号分别代表本网络和换回测试地址，所以可用的网络号个数为(2^7)-1。范围:( 1- 126)；可用主机号为(2^24)-2,减2是去掉了全零和全一</p>
+<p>B类地址：首位为10，网络号长度为16为，可用的网络号个数为(2^14) - 1.减一是因为128.0这个网络号是不可指派的。网络号范围(128 ~ 191)，可用主机号为</p>
+<p>2^16 -2.</p>
+<p>C类地址：首位为110，网络号长度为24位。可用的网络号数位(2^ 21 - 1),因为192.0.0是不可指派的。可用主机数为(2^8) -2 </p>
+<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1godz0pwph9j30no05jabw.jpg" alt="image"></p>
+<p>A类：1.0.0.0 ~ 126.255.255.255，<strong>127.0.0.0 ~ 127.255.255.255不能使用</strong></p>
+<p>B类：128.1.0.0 ~ 191.255.255.255，<strong>128.0.0.0 ~ 128.0.255.255不能使用</strong></p>
+<p>C类：192.0.1.0 ~ 223.255.255.255，<strong>192.0.0.0 ~  192.0.0.222不能使用</strong></p>
+<p>私有IP地址：也叫做可重用地址</p>
+<p>A类：10.0.0.0 ~ 10.255.255.255</p>
+<p>B类：172.16.0.0 ~ 172.31.255.255</p>
+<p>C类：192.168.0.0 ~ 192.168.255.255</p>
+<h3 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h3><p>地址解析协议</p>
+<p>主机A需要发送IP数据报给主机B时，先从ARP高速缓存表中查找主机B的IP地址。有的话直接完善数据报然后发送；没有的话就要使用目的MAC地址为FF-FF-FF-FF的数据报来发送广播，使得局域网内都收到请求。主机B收到后响应，返回主机B的IP和MAC地址的映射关系，主机A收到后，写入高速缓存表，然后完善数据爆再发送。</p>
+<h3 id="DHCP-应用层的协议"><a href="#DHCP-应用层的协议" class="headerlink" title="DHCP(应用层的协议)"></a>DHCP(应用层的协议)</h3><p>动态主机配置协议</p>
+<p>给主机动态的分配IP地址。</p>
+<p>需要IP地址的主机向DHCP服务器发送请求报文，本地网络上的所有主机都能收到报文，只有DHCP服务器能响应该报文。DHCP服务器先在数据库中寻找主机的信息，找到的话就返回，找不到的话就从IP地址池中分配一个。</p>
+<p>DHCP服务器分配的地址是会过期的</p>
+<h3 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h3><p>让主机或者路由器能报告IP数据报的差错信息</p>
+<p>ICMP报文分两种：</p>
+<p>1.ICMP差错报告报文</p>
+<p>2.ICMP询问报文(不重要)</p>
+<p>ICMP差错控制报文：</p>
+<p>1.终点不可达</p>
+<p>2.源点抑制</p>
+<p>3.时间超过</p>
+<p>4.参数问题</p>
+<p>5、重定向</p>
+<h3 id="RIP"><a href="#RIP" class="headerlink" title="RIP"></a>RIP</h3><p>基于距离-向量路由算法的协议。</p>
+<p>1.跳数最多为15，为16时代表无穷远</p>
+<p>2.默认每30s，相邻的路由器广播一次自己的路由信息</p>
+<p>3.如果180s还未收到相邻的路由器的更新信息，就把相邻的路由器的距离设为16</p>
+<h3 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h3><p>基于链路状态路由算法</p>
+<p>具体看上面的链路状态路由算.</p>
+<h3 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h3><p>边界网关协议。外部协议，不是在同一个自治系统中进行。</p>
+<p>每个自治系统选择一个或多个发言人，和其他自治系统的发言人建立TCP连接来交换路由表信息。</p>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goe0ej17y1j30mm077myq.jpg" alt="image"></p>
+<h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><p>功能：</p>
+<p>1.提供进程之间的逻辑通信</p>
+<p>2.为应用程序提供可靠服务</p>
+<p>3.对数据报进行首部和数据部分的差错控制</p>
+<p>而网络层只对头部进行差错控制</p>
+<p>数据链路层的服务访问点是MAC地址</p>
+<p>网络层的服务访问点是IP地址</p>
+<p>传输层的服务访问点是端口号，通过端口号，使得应用能和进程一一对应。</p>
+<h3 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h3><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goe0lqe6wuj30mn07xac1.jpg" alt="image"></p>
+<h3 id="可靠连接与非可靠连接"><a href="#可靠连接与非可靠连接" class="headerlink" title="可靠连接与非可靠连接"></a>可靠连接与非可靠连接</h3><p>可靠连接：TCP</p>
+<p>特点：</p>
+<p>1.面向连接。传输数据：建立连接-&gt;传输数据-&gt;断开连接</p>
+<p>俗称 三次握手，四次挥手</p>
+<p>2.全双工通信</p>
+<p>3.用于文件传输协议(FTP)，超文本传输协议(HTTP)，远程登录(TELENT)</p>
+<p>非可靠链接：UDP</p>
+<p>特点：</p>
+<p>1.无连接</p>
+<p>2.无需任何确认</p>
+<p>3.应用于小文件传输(TFTP)，DNS，SNMP和实时传输协议(RTP)</p>
+<p>4.面向报文</p>
+<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p>数据报格式：</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goe0so2n00j30k206qt93.jpg" alt="image"></p>
+<p>UDP校验：</p>
+<p>计算校验和之前，先在UDP头部加上12字节的伪头部，计算结束后就再无用处。校验和方法：二进制反码求和再取反。</p>
+<p>UDP的校验会检查头部和数据，IP只会检查头部</p>
+<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p>1.需要建立连接</p>
+<p>2.保证可靠的交付，保证不乱序，不丢失，无差错</p>
+<p>3.全双工通信</p>
+<p>4.面向字节流</p>
+<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goe0whsimlj30gd0ak0uf.jpg" alt="image"></p>
+<p>1.序列号seq</p>
+<p>2.确认号ack</p>
+<p>3.同步号SYN，三次握手的前两次需要用到，用于建立连接。</p>
+<p>4.结束连接FIN，用于释放连接</p>
+<h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goe11aqogjj30ke0d7mys.jpg" alt="image"></p>
+<p>用于建立连接：</p>
+<p>1.客户端发送seq = x, SYN = 1，表示需要建立连接，该报文的数据部分不含任何信息。</p>
+<p>2.ACK = 1，ack = x + 1，SYN = 1，seq = y，服务器响应连接请求，表示同意该连接请求，并为该TCP连接分配缓存和变量。</p>
+<p>3.ACK = 1，ack = y + 1, seq = x + 1,客户端收到确认后，还要恢复确认收到。</p>
+<p>其中，服务器的资源是在第二次握手分配的，客户端的资源是第三次握手分配的，那么容易出现SYN泛洪攻击。即恶意请求连接，却不回复第三次握手，导致连接一直存在，并不断申请新的TCP连接，最终导致服务器宕机。</p>
+<h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goe17hrb67j30hg0byabj.jpg" alt="image"></p>
+<p>用于进行释放TCP连接。</p>
+<p>1.客户端发送连接释放请求：seq = u, FIN = 1</p>
+<p>2.服务器收到释放请求，回复收到确认释放的请求：ack = u + 1，ACK = 1，seq = v</p>
+<p>此时客户端已经不能再向服务器发送信息，而服务器仍能向客户端发送信息</p>
+<p>3.服务器没有要发送给客户端的数据了，FIN = 1，ACK = 1，seq = w，ack = u + 1</p>
+<p>4.客户端收到连接释放的请求，回复确认收到，ACK = 1， ack = w + 1，seq = u + 1</p>
+<p><strong>总结：</strong></p>
+<p>三次握手：</p>
+<p>1.客户端: SYN = 1 , seq = x</p>
+<p>2.服务器：ACK = 1, ack = x + 1，SYN  = 1，seq = y</p>
+<p>3.客户端：ACK = 1, ack = y + 1，seq = x + 1</p>
+<p>四次挥手：</p>
+<p>1.客户端：FIN  = 1， seq = u</p>
+<p>2.服务器：FIN = 1，ACK = 1，ack = u + 1，seq = v</p>
+<p>3.服务器：FIN = 1，ACK = 1，ack = u + 1，seq = w</p>
+<p>4.客户端：ack = w + 1, seq = u + 1, ACK = 1</p>
+<h4 id="可靠传输"><a href="#可靠传输" class="headerlink" title="可靠传输"></a>可靠传输</h4><h4 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h4><h4 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h4>
                 
             </div>
             <hr/>
@@ -567,7 +809,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/01/28/AMBSSecurity%E9%A1%B9%E7%9B%AE/">http://example.com/2021/01/28/AMBSSecurity%E9%A1%B9%E7%9B%AE/</a>
+                    <a href="http://example.com/2021/03/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%AA%81%E5%87%BB/">http://example.com/2021/03/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%AA%81%E5%87%BB/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -605,12 +847,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/SpringBoot/">
-                                    <span class="chip bg-color">SpringBoot</span>
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
                                 </a>
                             
-                                <a href="/tags/SpringSecurity/">
-                                    <span class="chip bg-color">SpringSecurity</span>
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
+                                    <span class="chip bg-color">面试突击</span>
                                 </a>
                             
                         </div>
@@ -826,17 +1068,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/01/29/AMOW-Part-1/">
+                <a href="/2021/03/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%AA%81%E5%87%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="AMOW_Part 1">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="计算机网络面试突击">
                         
-                        <span class="card-title">AMOW_Part 1</span>
+                        <span class="card-title">计算机网络面试突击</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -846,34 +1089,35 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    个人项目
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/" class="post-category">
+                                    面试突击
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringBoot/">
-                        <span class="chip bg-color">SpringBoot</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
                     </a>
                     
-                    <a href="/tags/MyBatis/">
-                        <span class="chip bg-color">MyBatis</span>
-                    </a>
-                    
-                    <a href="/tags/Shiro/">
-                        <span class="chip bg-color">Shiro</span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
+                        <span class="chip bg-color">面试突击</span>
                     </a>
                     
                 </div>
@@ -887,13 +1131,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/27/SpringBoot%E6%96%B0%E7%89%88%E7%AC%94%E8%AE%B0/">
+                <a href="/2021/03/08/%E7%AE%97%E6%B3%95%E7%AA%81%E5%87%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="SpringBoot新版笔记">
+                        <img src="/medias/featureimages/34.jpg" class="responsive-img" alt="算法突击">
                         
-                        <span class="card-title">SpringBoot新版笔记</span>
+                        <span class="card-title">算法突击</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -904,14 +1148,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/" class="post-category">
+                                    面试突击
                                 </a>
                             
                             
@@ -921,12 +1165,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringBoot/">
-                        <span class="chip bg-color">SpringBoot</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/">
-                        <span class="chip bg-color">后端框架</span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
+                        <span class="chip bg-color">面试突击</span>
                     </a>
                     
                 </div>
@@ -1129,7 +1373,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.1k</span>&nbsp;字
+                class="white-color">158.7k</span>&nbsp;字
             
             
             

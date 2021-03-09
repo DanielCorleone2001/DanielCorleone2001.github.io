@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="计算机网络面试突击, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="算法突击, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>计算机网络面试突击 | Welcome to Daniel&#39;s Blog !</title>
+    <title>算法突击 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/34.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">计算机网络面试突击</h1>
+                    <h1 class="description center-align post-title">算法突击</h1>
                 </div>
             </div>
         </div>
@@ -409,8 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">计算机网络</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
                             <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
@@ -445,14 +445,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-08
+                    2021-03-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    100
+                    156
                 </div>
                 
 
@@ -479,15 +479,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="底层协议"><a href="#底层协议" class="headerlink" title="底层协议"></a>底层协议</h2><h3 id="ARP-MAC地址解析"><a href="#ARP-MAC地址解析" class="headerlink" title="ARP(MAC地址解析)"></a>ARP(MAC地址解析)</h3><p>通过目标的IP</p>
-<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>1.可靠传输</p>
-<p>2.全双工通信</p>
-<p>3.位于传输层</p>
-<p>4.面向字节流</p>
-<h3 id="TCP与UDP"><a href="#TCP与UDP" class="headerlink" title="TCP与UDP"></a>TCP与UDP</h3><p>1.TCP时可靠传输，UDP是不可靠传输</p>
-<p>2.TCP面向连接，UDP不面向连接</p>
-<p>3.TCP的速度较慢，UDP的速度较快</p>
-<p>4.TCP用于传输大量数据，UDP用于传输少量数据</p>
+                <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>树的节点的度不大于2的有序树</p>
+<h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><p>节点的个数为2^k - 1，k为层数</p>
+<p>第i层的节点个数为2^(i - 1)</p>
+<h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p>深度为k，节点个数为n的二叉树，当且仅当每个节点都和深度为k的满二叉树的1到n节点能一一对应。</p>
+<p>说人话：如果有右节点，那必须要有左节点。而只能最后一层的节点能小于</p>
+<p>2^(k - 1)</p>
+<h3 id="二叉树的创建"><a href="#二叉树的创建" class="headerlink" title="二叉树的创建"></a>二叉树的创建</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    Tree left, right;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Tree</span><span class="params">(<span class="keyword">int</span> data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">        <span class="keyword">this</span>.left = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">this</span>.right = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
                 
             </div>
@@ -514,7 +513,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">http://example.com/2021/03/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/</a>
+                    <a href="http://example.com/2021/03/08/%E7%AE%97%E6%B3%95%E7%AA%81%E5%87%BB/">http://example.com/2021/03/08/%E7%AE%97%E6%B3%95%E7%AA%81%E5%87%BB/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -552,8 +551,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">计算机网络</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
                                 <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
@@ -773,12 +772,11 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
+                <a href="/2021/03/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%AA%81%E5%87%BB/">
                     <div class="card-image">
                         
                         
@@ -794,14 +792,18 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/" class="post-category">
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/" class="post-category">
                                     面试突击
                                 </a>
                             
@@ -809,7 +811,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -832,13 +833,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
+                <a href="/2021/03/08/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/36.jpg" class="responsive-img" alt="操作系统面试突击">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="秒杀系统笔记">
                         
-                        <span class="card-title">操作系统面试突击</span>
+                        <span class="card-title">秒杀系统笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -853,27 +854,11 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/" class="post-category">
-                                    面试突击
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Daniel
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">操作系统</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
-                        <span class="chip bg-color">面试突击</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1074,7 +1059,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.1k</span>&nbsp;字
+                class="white-color">158.7k</span>&nbsp;字
             
             
             
