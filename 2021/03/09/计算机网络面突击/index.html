@@ -449,21 +449,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-09
+                    2021-03-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    6.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    23 分
                 </div>
                 
 
@@ -783,7 +783,102 @@
 <p>2.服务器：FIN = 1，ACK = 1，ack = u + 1，seq = v</p>
 <p>3.服务器：FIN = 1，ACK = 1，ack = u + 1，seq = w</p>
 <p>4.客户端：ack = w + 1, seq = u + 1, ACK = 1</p>
-<h4 id="可靠传输"><a href="#可靠传输" class="headerlink" title="可靠传输"></a>可靠传输</h4><h4 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h4><h4 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h4>
+<h4 id="可靠传输"><a href="#可靠传输" class="headerlink" title="可靠传输"></a>可靠传输</h4><p>含义：保证接收方进程从缓存区读出的字节流与发送方发送的字节流</p>
+<p>实现：</p>
+<p>1.将报文段视为字节流，给字节上编号，即seq</p>
+<p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goejkq7g7rj30ca03qwey.jpg" alt="image"></p>
+<p>2.确认号ack表明希望接收到对方的下一个字节的序号。发送方会存储那些已经发送但是还没收到确认的报文段，以便需要时重传。</p>
+<p>3.重传：超时重传和冗余ACK</p>
+<p>超时重传：为报文设置一个计时器，当超过时间后认为丢包，选择重新传输该报文段。</p>
+<p>冗余ACK：TCP规定当接收方收到的报文序号和期待的不一样时，就会发送期待的报文的前一个序号的冗余ACK，让发送方发送期待的报文段。</p>
+<p>比如发送方发送了1，2，3，4，5报文段。接收方收到了1，3，4，5.于是接收方发送三个1号的冗余ACK，表明自己收到了乱序的报文段，请补充缺少的报文段。</p>
+<h4 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h4><p>含义：消除发送方可能导致接收方缓冲区溢出的可能。</p>
+<p>实现：使用滑动窗口的机制进行流量控制。发送方根据网络的拥塞程度规定拥塞窗口，接收方按自己的接受能力调整发送方的发送窗口大小，称为接收窗口。</p>
+<p>在建立连接时，接收方会声明接收窗口的大小。</p>
+<p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310094138556.png" alt="image-20210310094138556"></p>
+<h4 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h4><p>含义：防止过度的数据注入到网络中而导致路由器或者链路过载，保证稳定性。</p>
+<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goekg7gh1cj30jm055dhw.jpg" alt="image"></p>
+<p>实现：</p>
+<p><strong>1.慢开始算法</strong></p>
+<p><strong>2.拥塞避免</strong></p>
+<p><strong>3.快重传</strong></p>
+<p><strong>4.慢重传</strong></p>
+<h5 id="慢开始和拥塞避免算法"><a href="#慢开始和拥塞避免算法" class="headerlink" title="慢开始和拥塞避免算法"></a>慢开始和拥塞避免算法</h5><p>慢开始：开始时，客户端的拥塞窗口大小为最大报文段的两倍，那么发送端每次能发送两个TCP报文段。等收到两个报文的确认后，将拥塞窗口的大小调整为两倍。就这样一直增加拥塞窗口的大小，当到达阈值的时候，改用拥塞避免算法.</p>
+<p>拥塞避免算法：发送端拥塞窗口每完成一次RTT的确认，就让拥塞窗口加1，使得拥塞窗口线性增长，当出现一次超时的时候，让慢开始的阈值变成当前拥塞窗口的一半。</p>
+<p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310095514600.png" alt="image-20210310095514600"></p>
+<p>总结：</p>
+<p>1.首先使用慢开始算法，每次乘以二。</p>
+<p>2.达到阈值后改用拥塞避免算法，拥塞窗口每次加一</p>
+<p>3.出现网络拥塞时，将慢开始的阈值设为当前的一半，将拥塞窗口设为1，重新执行满开始算法</p>
+<h5 id="快重传和快恢复算法"><a href="#快重传和快恢复算法" class="headerlink" title="快重传和快恢复算法"></a>快重传和快恢复算法</h5><p>快重传：当收到三个冗余ACK时，不再等待某个报文段的计时器超时，而是直接重传。</p>
+<p>快恢复：当收到三个冗余ACK时，将慢开始的阈值设为原来的一半，也将拥塞窗口的当前值设为慢开始阈值的一半，而不是像慢开始算法那样从1开始.</p>
+<p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310100009891.png" alt="image-20210310100009891"></p>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><h3 id="网络应用模型"><a href="#网络应用模型" class="headerlink" title="网络应用模型"></a>网络应用模型</h3><p><strong>1.客户端/服务器模型</strong></p>
+<p><strong>2.P2P模型</strong></p>
+<p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goelui0r86j30ii06etal.jpg" alt="image"></p>
+<h4 id="客户端-服务器模型"><a href="#客户端-服务器模型" class="headerlink" title="客户端/服务器模型"></a>客户端/服务器模型</h4><p>1.服务器处于保持接受请求的状态</p>
+<p>2.客户端发出请求，等待服务器返回结果</p>
+<p>3.服务器收到请求后，分析请求，将结果返回给客户端</p>
+<p>缺点：</p>
+<p>1.性能瓶颈在服务器，请求过多时，服务器压力大</p>
+<p>2.客户机之间不能直接通信</p>
+<h4 id="P2P模型"><a href="#P2P模型" class="headerlink" title="P2P模型"></a>P2P模型</h4><p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310103715616.png" alt="image-20210310103715616"></p>
+<h3 id="域名系统"><a href="#域名系统" class="headerlink" title="域名系统"></a>域名系统</h3><p>网站url可以分为顶级域名，二级域名，三级域名等。</p>
+<p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1goem0jadukj307s03vq36.jpg" alt="image"></p>
+<p>顶级域名：</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goem2ogtfsj30k004p3zz.jpg" alt="image"></p>
+<h4 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h4><p>功能：域名-&gt;IP地址解析</p>
+<p>模型：客户/服务器模型</p>
+<p><strong>1.根域名服务器</strong></p>
+<p><strong>2.顶级域名服务器</strong></p>
+<p><strong>3.授权域名服务器</strong></p>
+<p><strong>4.本地域名服务器</strong></p>
+<p>根域名服务器：知道所有顶级域名服务器的IP地址，通常不会告诉本地域名服务器所查找的域名的IP地址，而是告诉本地域名服务器下一步该查找哪一个顶级域名服务器</p>
+<h4 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h4><p>正向解析：域名-&gt;IP地址</p>
+<p>反向解析：IP地址-&gt;域名</p>
+<p>解析方式：</p>
+<p>1.递归查询</p>
+<p>2.迭代与递归相结合</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goemg7jk03j30lx09racb.jpg" alt="image"></p>
+<h5 id="递归查询"><a href="#递归查询" class="headerlink" title="递归查询"></a>递归查询</h5><p>主机向本地域名服务器的查询采用递归查询的情况：</p>
+<p>所谓递归查询就是：如果主机所询问的本地域名服务器不知道被查询的域名的IP地址，那么本地域名服务器就以DNS客户的身份，</p>
+<p>向其它根域名服务器继续发出查询请求报文(即替主机继续查询)，而不是让主机自己进行下一步查询。</p>
+<p>因此，递归查询返回的查询结果或者是所要查询的IP地址，或者是报错，表示无法查询到所需的IP地址。</p>
+<h5 id="迭代查询"><a href="#迭代查询" class="headerlink" title="迭代查询"></a>迭代查询</h5><p>迭代查询的特点：当根域名服务器收到本地域名服务器发出的迭代查询请求报文时，要么给出所要查询的IP地址，要么告诉本地服务器：“你下一步应当向哪一个域名服务器进行查询”。</p>
+<p>然后让本地服务器进行后续的查询。根域名服务器通常是把自己知道的顶级域名服务器的IP地址告诉本地域名服务器，让本地域名服务器再向顶级域名服务器查询。</p>
+<p>顶级域名服务器在收到本地域名服务器的查询请求后，要么给出所要查询的IP地址，要么告诉本地服务器下一步应当向哪一个权限域名服务器进行查询。</p>
+<p>最后，知道了所要解析的IP地址或报错，然后把这个结果返回给发起查询的主机</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goemq413e8j30qi0bpdk5.jpg" alt="image"></p>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><p>超文本传输协议。定义了浏览器如何向服务器请求万维网文档，服务器怎么把万维网文档返回给浏览器。</p>
+<h4 id="连接过程"><a href="#连接过程" class="headerlink" title="连接过程"></a>连接过程</h4><p>服务过程：</p>
+<p>1.万维网站点不断监听服务器的TCP端口，等待浏览器的连接请求</p>
+<p>2.建立TCP连接</p>
+<p>3.浏览器发送HTTP请求报文</p>
+<p>4.服务器返回HTTP响应报文</p>
+<p>5.释放TCP连接</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goemzitlj0j30b505q74t.jpg" alt="image"></p>
+<p>例如：</p>
+<p>访问某个网站的过程：<img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1goen1buk79j30hs0e60ut.jpg" alt="image"></p>
+<p>1.用户点击页面的URL</p>
+<p>2.浏览器向DNS发出解析IP地址的请求</p>
+<p>3.DNS返回IP地址</p>
+<p>4.和该服务器进行TCP连接</p>
+<p>5.发出HTTP请求</p>
+<p>6.服务器返回HTTP响应</p>
+<p>7.关闭TCP连接</p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p>1.无状态。同一个用户第二次或以上访问服务器的同一个页面时，和第一次访问是没有差别的，依旧是建立TCP连接等等。</p>
+<p>2.可靠传输：采用TCP连接</p>
+<h4 id="报文结构"><a href="#报文结构" class="headerlink" title="报文结构"></a>报文结构</h4><p>HTTP是面向文本的，因此报文段的所有字段都是ASCII码。</p>
+<p>请求报文：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1goendfm5jtj30c207xgm7.jpg" alt="image"></p>
+<p>常见请求方法：</p>
+<p>1.GET：请求读取由URL标识的信息</p>
+<p>2.POST：向服务器添加信息</p>
+<p>3.HEAD：请求读取由URL标识的信息的头部</p>
+<p>4.CONNECT：用于来历服务器</p>
+<p>响应报文：</p>
+<p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310112726216.png" alt="image-20210310112726216"></p>
+
                 
             </div>
             <hr/>
@@ -1068,18 +1163,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%AA%81%E5%87%BB/">
+                <a href="/2021/03/10/%E9%9D%A2%E7%BB%8F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="计算机网络面试突击">
+                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="面经">
                         
-                        <span class="card-title">计算机网络面试突击</span>
+                        <span class="card-title">面经</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1089,18 +1183,14 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                    计算机网络
-                                </a>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/" class="post-category">
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/" class="post-category">
                                     面试突击
                                 </a>
                             
@@ -1108,13 +1198,8 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">计算机网络</span>
-                    </a>
                     
                     <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
                         <span class="chip bg-color">面试突击</span>
@@ -1377,7 +1462,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">158.7k</span>&nbsp;字
+                class="white-color">160.8k</span>&nbsp;字
             
             
             
