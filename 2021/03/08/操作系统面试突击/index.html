@@ -456,14 +456,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    4.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    15 分
                 </div>
                 
 
@@ -636,7 +636,61 @@
 <h3 id="组成-1"><a href="#组成-1" class="headerlink" title="组成"></a>组成</h3><p>程序段，数据段，TCB(和PCB类似)</p>
 <h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>1.可并发执行</p>
 <p>2.共享同一进程的资源</p>
-
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><h3 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h3><p>主存不会很大，但用户进程往往需要很多的空间，这就需要进行特定操作来扩容</p>
+<h4 id="覆盖"><a href="#覆盖" class="headerlink" title="覆盖"></a>覆盖</h4><p>将用户空间分成固定区和覆盖区。经常使用的数据放在固定区，准备使用的数据放在覆盖区，其他字段放在外存里。</p>
+<h4 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h4><p>将等待的进程从内存中移到辅存，将就绪的进程从辅存中移入内存。</p>
+<h3 id="连续分配"><a href="#连续分配" class="headerlink" title="连续分配"></a>连续分配</h3><p>分配内存空间给进程。</p>
+<p>分配方式如下：</p>
+<h4 id="单一连续分配"><a href="#单一连续分配" class="headerlink" title="单一连续分配"></a>单一连续分配</h4><p>将内存分配用户区和系统区。系统区只能由操作系统来使用。</p>
+<p>用户区中只有一道程序，然后利用覆盖技术完成这个程序。</p>
+<p>优点：</p>
+<p>1.不需要进行内存保护，因为只有一个程序；</p>
+<p>2.实现简单</p>
+<p>3.不会产生外部碎片(未分配的区域剩余空间太小，无法再分配)</p>
+<p>缺点：</p>
+<p>1.只能处理单道程序，效率低下</p>
+<p>2.会产生内存碎片(已分配的区域有间隙，无法分配)</p>
+<h4 id="固定分区连续分配"><a href="#固定分区连续分配" class="headerlink" title="固定分区连续分配"></a>固定分区连续分配</h4><p>用于多道程序处理。当有空闲的分区时，就从外存的就绪队列中取出，放入到分区中执行。</p>
+<h5 id="等大小分区"><a href="#等大小分区" class="headerlink" title="等大小分区"></a>等大小分区</h5><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1gof5og7mhbj304t09p3yj.jpg" alt="image"></p>
+<p>可能会因为作业需要容量过大，无法放入，只能使用覆盖技术。</p>
+<p>作业比较小时，利用率会很低。</p>
+<h5 id="自定义分区"><a href="#自定义分区" class="headerlink" title="自定义分区"></a>自定义分区</h5><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gof5oq9p0qj305p09qmx7.jpg" alt="image"></p>
+<p>较为灵活的分配。</p>
+<p>但也不可避免的存在内存碎片。</p>
+<h4 id="动态分区分配"><a href="#动态分区分配" class="headerlink" title="动态分区分配"></a>动态分区分配</h4><p>在进程装入内存时，动态的建立分区。</p>
+<p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1gof5w69lsuj30oa0h6q5j.jpg" alt="image"></p>
+<p>动态分区非常容易出现外部碎片。当碎片越来越多，在野无法分配时，就需要通过<strong>紧凑</strong>来处理外部碎片。但是紧凑的开销非常大：需要对进程移动和整理，需要更改都重定位寄存器。</p>
+<h5 id="动态分区分配算法"><a href="#动态分区分配算法" class="headerlink" title="动态分区分配算法"></a>动态分区分配算法</h5><h6 id="首次适应-First-Fit"><a href="#首次适应-First-Fit" class="headerlink" title="首次适应(First Fit)"></a>首次适应(First Fit)</h6><p>按内存地址进行查找，找到第一个大小满足自己的分区。</p>
+<p>一般来说是最大的策略。但是开销比较大，每次都要经过容量较小的分区慢慢查找到适合自己的。临近算法改进了这一点</p>
+<h6 id="最佳适应-Best-Fit"><a href="#最佳适应-Best-Fit" class="headerlink" title="最佳适应(Best Fit)"></a>最佳适应(Best Fit)</h6><p>按照分区空闲的大小递增的顺序进行查找，选择第一个适合自己的。</p>
+<p>通常效率是最垃圾的。会产生很多的外部碎片。</p>
+<h6 id="最坏适应-Worst-Fit"><a href="#最坏适应-Worst-Fit" class="headerlink" title="最坏适应(Worst Fit)"></a>最坏适应(Worst Fit)</h6><p>挑选系统当前最大的分区。这将内存的大容量分区都占有了，到时后面越来越难分配分区给需要容量较大的进程</p>
+<h6 id="临近适应-Next-Fit"><a href="#临近适应-Next-Fit" class="headerlink" title="临近适应(Next Fit)"></a>临近适应(Next Fit)</h6><p>是首次适应算法的改进版本。从上一次查找的位置往下继续查找</p>
+<h3 id="非连续分配"><a href="#非连续分配" class="headerlink" title="非连续分配"></a>非连续分配</h3><p>连续分配对内存的要求比较高。如果没有足够大的连续内存，依旧是很难执行程序。于是有了非连续分配内存。</p>
+<p>非连续分配：</p>
+<p><strong>1.分页存储</strong></p>
+<p><strong>2.分段存储</strong></p>
+<h4 id="分页存储"><a href="#分页存储" class="headerlink" title="分页存储"></a>分页存储</h4><h5 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h5><p>分页的思想：将主存分成大小相等的块，把进程也按块进行划分，进程申请内存时，按照块为单位进行申请。</p>
+<p>这样，只有在最后一个块中，进程通过分块占有，才会产生内部碎片(也叫页内碎片)。</p>
+<p>页：进程中的块。</p>
+<p>页框：内存中的块。页面大小为2的整数幂，太大会使内存碎片增多，太小会导致页表过长，占用内存开销大，地址转换时的换入换出开销大。</p>
+<p>块：外存中的块</p>
+<p>页表：建立了页和物理地址的映射关系。结构：页号+物理地址块号</p>
+<h5 id="基本分页存储"><a href="#基本分页存储" class="headerlink" title="基本分页存储"></a>基本分页存储</h5><p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1gof6w8l8fxj30ng035wf6.jpg" alt="image"></p>
+<p>先通过逻辑地址，获取页号，以及页内偏移地址，再通过页号和物理地址的映射，算出实际的物理地址。</p>
+<p>缺点：需要访问两次内存。</p>
+<p>1.第一次是访问页表，获取实际的物理地址</p>
+<p>2.通过该地址，进行存数或者取数</p>
+<p>改进方法：<strong>快表</strong></p>
+<p>相当于cache，存放部分页表的内容。对应的，主存中的页表称为慢表。</p>
+<p>从快表中读取可以加速访问速度。</p>
+<h6 id="基于快表"><a href="#基于快表" class="headerlink" title="基于快表"></a>基于快表</h6><p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gof79rs8pfj30j90a0mxr.jpg" alt="image"></p>
+<p>1.CPU给出逻辑地址，换算后得到页号。</p>
+<p>2.首先在快表中查找是否有页号，有的话就能直接通过页框号和页内偏移量，算出物理地址。实现了只访存一次就能获取到物理地址</p>
+<p>3.如果没命中，就需要到慢表中获取。获取后，需要将刚获取的页表存入到快表中，如果快表满了，就需要使用替换算法。</p>
+<h6 id="二级页表"><a href="#二级页表" class="headerlink" title="二级页表"></a>二级页表</h6><p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gof7a2w9sqj30k802i3yh.jpg" alt="image"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gof7aapso6j30l70ezdha.jpg" alt="image"></p>
+<h5 id="请求分页存储"><a href="#请求分页存储" class="headerlink" title="请求分页存储"></a>请求分页存储</h5><h4 id="分段存储"><a href="#分段存储" class="headerlink" title="分段存储"></a>分段存储</h4>
                 
             </div>
             <hr/>
@@ -1208,7 +1262,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">163k</span>&nbsp;字
+                class="white-color">164k</span>&nbsp;字
             
             
             

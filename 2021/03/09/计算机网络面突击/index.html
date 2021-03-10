@@ -456,14 +456,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.9k
+                    9.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    31 分
+                    34 分
                 </div>
                 
 
@@ -721,7 +721,7 @@
 <p>2.默认每30s，相邻的路由器广播一次自己的路由信息</p>
 <p>3.如果180s还未收到相邻的路由器的更新信息，就把相邻的路由器的距离设为16</p>
 <h3 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h3><p>基于链路状态路由算法</p>
-<p>具体看上面的链路状态路由算.</p>
+<p>具体看上面的链路状态路由算法.</p>
 <h3 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h3><p>边界网关协议。外部协议，不是在同一个自治系统中进行。</p>
 <p>每个自治系统选择一个或多个发言人，和其他自治系统的发言人建立TCP连接来交换路由表信息。</p>
 <p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goe0ej17y1j30mm077myq.jpg" alt="image"></p>
@@ -850,6 +850,8 @@
 <p>顶级域名服务器在收到本地域名服务器的查询请求后，要么给出所要查询的IP地址，要么告诉本地服务器下一步应当向哪一个权限域名服务器进行查询。</p>
 <p>最后，知道了所要解析的IP地址或报错，然后把这个结果返回给发起查询的主机</p>
 <p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goemq413e8j30qi0bpdk5.jpg" alt="image"></p>
+<h4 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h4><p>DNS使用TCP和UDP协议。在区域内传输时使用TCP，其他时间使用UDP。</p>
+<p>例如辅域名服务器会定时地向主域名服务器发送查询请求，查看是否有数据地变更。发生变更时，就进行数据同步。数据同步使用TCP，因为数据量大，而且需要保证数据的可靠性。</p>
 <h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><p>超文本传输协议。定义了浏览器如何向服务器请求万维网文档，服务器怎么把万维网文档返回给浏览器。</p>
 <h4 id="连接过程"><a href="#连接过程" class="headerlink" title="连接过程"></a>连接过程</h4><p>服务过程：</p>
 <p>1.万维网站点不断监听服务器的TCP端口，等待浏览器的连接请求</p>
@@ -879,6 +881,23 @@
 <p>4.CONNECT：用于来历服务器</p>
 <p>响应报文：</p>
 <p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310112726216.png" alt="image-20210310112726216"></p>
+<h4 id="HTTP事务"><a href="#HTTP事务" class="headerlink" title="HTTP事务"></a>HTTP事务</h4><p>http事务 = 请求命令  +  返回结果</p>
+<p>是http请求的最小处理单位。</p>
+<h4 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h4><p>结构：请求行   + 请求头部 + 空行  + 报文主体</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gof352t4zzj30jv09ljv1.jpg" alt="image"></p>
+<h4 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h4><p>结构：响应行 + 响应头部  + 空行 + 报文主体</p>
+<h4 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h4><p>1.域名解析</p>
+<p>查看浏览器缓存-&gt;查看本地域名服务器-&gt;查看host文件-&gt;向本地域名服务器发起查询请求</p>
+<p>2.TCP三次握手</p>
+<p>3.发起http请求</p>
+<p>4.服务器响应并返回html</p>
+<p>5.浏览器解析html</p>
+<p>6.渲染页面</p>
+<h4 id="GET和POST对比"><a href="#GET和POST对比" class="headerlink" title="GET和POST对比"></a>GET和POST对比</h4><p>GET：从指定的资源中获取数据</p>
+<p>POST：向指定的资源提交数据</p>
+<p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gof3eljedlj30sq0juwgl.jpg" alt="image"></p>
+<p>GET：可保存在书签，可重复提交，可保存在浏览器缓存，对数据长度有限制，只允许ASCII码</p>
+<p>POST：提交时应询问用户，不会存在浏览器的缓存中，不能收藏在数千，数据不会显示在url中，较为安全。</p>
 <h2 id="面经"><a href="#面经" class="headerlink" title="面经"></a>面经</h2><h3 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h3><p><strong>1.介绍一下TCP和UDP？</strong></p>
 <p>·TCP面向连接，UDP不面向连接</p>
 <p>·TCP保证可靠传输，UDP是尽最大交付</p>
@@ -914,6 +933,23 @@
 <p>快重传和快恢复：</p>
 <p>快重传：当收到三个冗余ACK时，不再等待某个报文段的计时器超时，而是直接重传。</p>
 <p>快恢复：当收到三个冗余ACK时，将慢开始的阈值设为原来的一半，也将拥塞窗口的当前值设为慢开始阈值的一半，而不是像慢开始算法那样从1开始.</p>
+<p><strong>8.TCP粘包</strong></p>
+<p>什么是粘包?</p>
+<p>TCP发送的数据有可能在接收方出现了前一个数据的尾部和后一个数据的头部相连，导致接收方无法识别。</p>
+<p>为什么会发生TCP粘包？</p>
+<p>发送方：使用了Nagle算法：只有上一个分组确认时，才会发送下一个分组；收集多个小分组，组成一个大的数据包一起发送。这就导致了可能会发生粘包的现象</p>
+<p>接收方：接受的速度大于应用层从缓存读取的速度，导致缓存中存在多个数据包。</p>
+<p>什么时候需要处理TCP粘包？</p>
+<p>数据不具有关联性时，需要处理TCP粘包。(关联性：比如一个文件分成了很多的字节流进行发送，那么即使粘包了也不需要处理)</p>
+<p>怎么处理TCP粘包？</p>
+<p>1.发送方：关闭Nagle算法：TCP_NODELAY</p>
+<p>2.接收方：无法处理</p>
+<p>3.应用层：从缓存中读取分组时，就应该读取完所有的指令。这对指令有要求：如果不声明或者限制指令的长度，还是会失败。</p>
+<p>对指令的处理：</p>
+<p>1.声明指令的开始部分和结束部门(可以使用特定的二进制规定)，但是这同时也导致了数据包不能出现对应的开始符号和结束符号</p>
+<p>2.每条指令的长度在指令的头部进行声明</p>
+<p><strong>9.UDP会粘包？</strong></p>
+<p>不会。UDP采用的是发送消息，接收方每次只接收一个消息，这就导致了不会发生粘包。</p>
 <h3 id="HTTP-1"><a href="#HTTP-1" class="headerlink" title="HTTP"></a>HTTP</h3><p><strong>1.域名解析的过程？</strong></p>
 <p>​        先在缓存中寻找是否有该IP地址。没有的话向本地域名服务器发送查询请求。本地域名服务器向根域名服务器发送请求。这是将任务分给根域名服务器，如果有的话就返回给客户机，没有的话向顶级域名服务器请求。同理再到权限域名服务器。这就是递归的方法。</p>
 <p>​        迭代：引路。本地-&gt;根域名服务器，告诉你该去哪找-&gt;本地域名服务器找到顶级域名服务器，告诉你该去哪找-&gt;本地域名服务器找权限域名服务器，得到IP地址。</p>
@@ -1545,7 +1581,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">163k</span>&nbsp;字
+                class="white-color">164k</span>&nbsp;字
             
             
             
