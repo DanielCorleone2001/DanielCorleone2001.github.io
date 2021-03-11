@@ -449,21 +449,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-10
+                    2021-03-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.6k
+                    11.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    34 分
+                    40 分
                 </div>
                 
 
@@ -898,6 +898,70 @@
 <p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gof3eljedlj30sq0juwgl.jpg" alt="image"></p>
 <p>GET：可保存在书签，可重复提交，可保存在浏览器缓存，对数据长度有限制，只允许ASCII码</p>
 <p>POST：提交时应询问用户，不会存在浏览器的缓存中，不能收藏在数千，数据不会显示在url中，较为安全。</p>
+<h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><p>加密版本的http协议。</p>
+<p>HTTPS = HTTP  + SSL/TSL</p>
+<h4 id="SSL-TSL"><a href="#SSL-TSL" class="headerlink" title="SSL/TSL"></a>SSL/TSL</h4><h5 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h5><h6 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h6><p>加密与解密使用的是同一个密钥。常用加密算法：AES。</p>
+<p>问题：怎么把密钥发送给对方来解密？如果密钥被截取，那就再无加密可言。</p>
+<p>非对称加密解决了这个问题。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gog6umu8hfj30fm06sjs1.jpg" alt="image"></p>
+<h6 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h6><p>明文使用公钥加密，密文使用私钥解密。</p>
+<p>对称加密速度快，但是不安全；</p>
+<p>非对称加密安全，但是运算速度慢。</p>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gog6vunuaxj30ge0a7ab3.jpg" alt="image"></p>
+<h5 id="加密实现"><a href="#加密实现" class="headerlink" title="加密实现"></a>加密实现</h5><p>TLS使用对称加密和非对称加密结合。</p>
+<p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gog712n9exj30ev0a0gni.jpg" alt="image"></p>
+<p>具体实现：</p>
+<p>1.用非对称加密，对公钥进行加密。</p>
+<p>2.得到加密后的公钥，相当于是对称加密的密钥。这时候用这个当作对称加密的密钥，对明文进行加密</p>
+<p>3.接收方通过密钥对非对称加密进行解密，得到对称加密的密钥</p>
+<p>4.通过对称加密的密钥解密，获得明文。</p>
+<p>优点：解决了对称加密无法传递密钥的问题。</p>
+<h5 id="摘要算法"><a href="#摘要算法" class="headerlink" title="摘要算法"></a>摘要算法</h5><p>尽管加密了，但还是不安全。</p>
+<p>黑客虽然拿不到会话密钥，无法破解密文，但可以通过窃听收集到足够多的密文，再尝试着修改、重组后发给网站。因为没有完整性保证，服务器只能“照单全收”，然后他就可以通过服务器的响应获取进一步的线索，最终就会破解出明文。</p>
+<p>另外，黑客也可以伪造身份发布公钥。如果你拿到了假的公钥，混合加密就完全失效了。你以为自己是在和“某宝”通信，实际上网线的另一端却是黑客，银行卡号、密码等敏感信息就在“安全”的通信过程中被窃取了。</p>
+<p>所以需要在加密的基础上进行完整性，身份认证等。</p>
+<p><strong>摘要算法：</strong>将任意长度的数据压缩成固定长度，且独一无二的摘要文字。</p>
+<p>也就是说，摘要算法依赖与算法，而不是密钥，加密后不能逆向推导。</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gog7afd03xj30c30bm3zc.jpg" alt="image"></p>
+<p>由于它是基于类似哈希表的key-value的映射关系，因此必然存在冲突。所以TLS一般用摘要算法来生成随机数。</p>
+<p>目前使用的摘要算法：SHA-2</p>
+<p>通俗的来说：你发送了条消息，“转账100”，然后附上摘要，那么网站收到后就会比如消息摘要，将二者对比。只要有人恶意更改，就相当于“key-value”中的key被修改了，那必定会导致比对失败而不允许。</p>
+<p><strong>但是摘要算法不具备机密性，所以需要和明文一起加密，再发送</strong>。</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1gog7ex5ivpj30jh076abg.jpg" alt="image"></p>
+<h5 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h5><p>尽管通过加密和摘要算法已经很安全，但还可以恶意伪装成网站或者用户签发消息。</p>
+<p>因此需要数字签名的帮助。</p>
+<p><strong>数字签名：</strong>私钥加密，公钥解密。和加密的“公钥加密，私钥解密反过来了”。</p>
+<p>意思就是，我先用私钥将签名进行加密，防止你能通过手段去篡改，然后把数字签名和用于解密的公钥公开，接收到的时候进行解密，然后比对是否是正确的信息。如果是的话，那就说明，这条消息确实是你发的。</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gog7pjyk8ej30gp0exdhv.jpg" alt="image"></p>
+<h5 id="数字证书和CA"><a href="#数字证书和CA" class="headerlink" title="数字证书和CA"></a>数字证书和CA</h5><p>目前已经使用了对称、非对称加密，摘要算法，但还是不安全！</p>
+<p>还缺少对公钥签发者的问题。需要防止他人恶意伪造公钥。</p>
+<p><strong>CA：证书认证机构。</strong>相当于是公安局，可信度高，由他来签发公钥，是可信的。</p>
+<p>CA发公钥，并附上序列号，用途，有效时间等等，就成了<strong>数字证书</strong>。</p>
+<p>签发的可信程度：DV &lt; OV &lt; EV</p>
+<h4 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a>建立连接</h4><p>输入https开头的url时，会发生：</p>
+<p>1.从url中提取出协议与域名</p>
+<p>2.使用443端口号(https默认端口)，使用DNS进行域名解析，获取到目的IP。</p>
+<p>3.使用三次握手，和服务器进行TCP连接。</p>
+<p>4.在http中，此时已经可以发送报文。但https还需要进行一次握手，在TCP上建立安全连接，此时才会发送HTTP报文</p>
+<h4 id="TLS协议"><a href="#TLS协议" class="headerlink" title="TLS协议"></a>TLS协议</h4><p>组成：</p>
+<p>1.记录协议：规定了TLS收发数据的单位：记录</p>
+<p>2.警报协议：向对方发送警报信息。比如版本不匹配，证书有问题等。</p>
+<p>3.握手协议：浏览器和服务器会协商好信息，交换证书和密钥。</p>
+<p>4.变更密码协议：通知对方，后续数据都使用加密保护</p>
+<h6 id="ECDHE握手"><a href="#ECDHE握手" class="headerlink" title="ECDHE握手"></a>ECDHE握手</h6><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1gog86cqt13j30ib0h4n1g.jpg" alt="image"></p>
+<p>1.<strong>客户端发送Client Hello</strong>。相当于给服务器发招呼。里面声明了客户端版本号，支持的<strong>密码加密方式</strong>，<strong>还有一个随机数。</strong>(随机数用于生成会话密钥)</p>
+<p>2.服务器回应<strong>Server Hello</strong>。回应客户端的招呼。里面表明了接下来使用的<strong>加密方式</strong>，<strong>TLS版本号</strong>，<strong>以及随机数</strong></p>
+<p>3.服务器发送 <strong>Server Certificate</strong>。发送数字证书，表明自己的身份。</p>
+<p>4.服务器发送 <strong>Server Key Exchange</strong>。相当于我刚刚选择的算法，需要这个参数才能解密，你得拿着。并附上私钥签名认证。所以这次发送了：<strong>公钥（Server Params）**</strong>私钥签名认证**</p>
+<p>5.服务器发送<strong>Server Hello Done</strong>。说明：我说完了，你可以开始处理了。</p>
+<p>​        这一过程下来，客户端和服务器共享了三个信息：<strong>客户端产生的随机数(Client Random)，服务器产生的随机数(Server Random)，服务器的公钥(Server Params)</strong></p>
+<hr>
+<p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gog8k6f13lj30gk0m9td9.jpg" alt="image"></p>
+<p>客户端获取了证书后，就开始通过证书来验证其真实性，再用证书公钥验证签名，从而保证服务器的身份是对的。验证成功后，接下来：</p>
+<p>1.客户端发送<strong>“Client Key Exchange”</strong>.其中包含了<strong>公钥(Client Params)**。这时客户端和服务器都拥有了</strong>Client Params，Server Params<strong>。使用ECDHE算法计算后，得到</strong>Pre-Master<strong>。这时候客户端和服务器都拥有的随机数(**Client Random, Server Random, Pre-Master</strong>)，就可以用户生成<strong>加密会话的密钥</strong>(<strong>Master Secret</strong>).</p>
+<p>2.客户端发送<strong>Change Cipher Spec和Finished</strong>。表明之后的数据都要使用加密通信，并附上了摘要。</p>
+<p>3.服务器发送<strong>Changer Cipher Spec和Finished</strong>。表示我验证了你的加密解密，可以开始通信</p>
+<p>最后就可以发送http报文了。</p>
 <h2 id="面经"><a href="#面经" class="headerlink" title="面经"></a>面经</h2><h3 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h3><p><strong>1.介绍一下TCP和UDP？</strong></p>
 <p>·TCP面向连接，UDP不面向连接</p>
 <p>·TCP保证可靠传输，UDP是尽最大交付</p>
@@ -992,7 +1056,7 @@
 <p>2.Token要随机，最好每次完成请求后都刷新token</p>
 <p><strong>7.断点续传？</strong></p>
 <p>客户端发送的请求方法，头部加入片段：Ranger：xxx-</p>
-<h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><p><strong>1.说说HTTPS？</strong></p>
+<h3 id="HTTPS-1"><a href="#HTTPS-1" class="headerlink" title="HTTPS"></a>HTTPS</h3><p><strong>1.说说HTTPS？</strong></p>
 <p>经过SSL/TLS加密的HTTP。</p>
 <p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goewfy0ea0j30kw06g75k.jpg" alt="image"></p>
 <p><strong>2.为什么HTTP不安全？</strong></p>
@@ -1581,7 +1645,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">165.9k</span>&nbsp;字
+                class="white-color">169.6k</span>&nbsp;字
             
             
             

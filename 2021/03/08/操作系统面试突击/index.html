@@ -456,14 +456,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.3k
+                    6.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    24 分
                 </div>
                 
 
@@ -783,6 +783,24 @@
 <h5 id="控制器控制表-COCT"><a href="#控制器控制表-COCT" class="headerlink" title="控制器控制表(COCT)"></a>控制器控制表(COCT)</h5><p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goftr8i38tj30o50a4whj.jpg" alt="image"></p>
 <p>….不重要</p>
 <h4 id="设备分配步骤"><a href="#设备分配步骤" class="headerlink" title="设备分配步骤"></a>设备分配步骤</h4><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goftse7nypj30nc0afn3f.jpg" alt="image"></p>
+<h2 id="面经"><a href="#面经" class="headerlink" title="面经"></a>面经</h2><h3 id="I-O多路复用"><a href="#I-O多路复用" class="headerlink" title="I/O多路复用"></a>I/O多路复用</h3><p>IO多路复用：</p>
+<p>1.BIO：阻塞IO。</p>
+<p>操作系统在使用read，write函数时，会一直等待IO的输入或读出，使程序处于挂起状态，阻塞掉其他程序，一直占用CPU资源。</p>
+<p>2.NIO：非阻塞IO。用fcntl或者ioctl设为非阻塞模式。相当于是轮询。请求一次IO时，允许读的话，就立即返回数据，否则就返回错误。这样就能不阻塞其他的程序。但是轮询的开销会很大，依旧是需要不断地轮询来读取或者写入。</p>
+<p>3.IO多路复用技术。使用一个线程来检查多个文件描述符(socke的状态)，调用select或者poll函数,当有文件描述符就绪的时候，就会在线程中进行IO的读写，否则就一直堵塞到超时。</p>
+<p>4.AIO，异步非阻塞。发送请求，如果数据准备好了就返回，如果没有的话返回为准备好的信息，同时留下监听功能， 一直监听直到准备好后，通知请求来获取数据。这时请求就会继续发请求，从而取到数据。</p>
+<p><strong>1.select，poll，epoll的区别？</strong></p>
+<p>select：将所有的文件描述符都写入，但并不知道哪个请求能接收IO响应，只能轮询的查找所有的请求。时间复杂度为O(N)</p>
+<p>poll：用链表来保存文件描述符，查找时依旧轮询的进行查找对应的文件描述符，时间复杂度为O(N)</p>
+<p>epoll：sys_epoll_create中创建了eventpoll结构体。结构体有</p>
+<p>就绪队列，存放就绪事件的描述符</p>
+<p>红黑树，内核的时间表，收集文件描述符。每个新的事件都会被挂到红黑树上。</p>
+<p>epoll的事件和驱动程序建立了回调关系，事件发生的时候，会将事件放入就绪队列中。</p>
+<p>当epoll检查是否有事件发生，只需要检查就绪队列中是否有元素即可，非空的话就把事件复制到用户态，空的话就一直等待到超时。</p>
+<p>epoll的工作模式：</p>
+<p>1.ET：边缘触发模式。有事件描述符的数据没读取完，那么下次epoll_wait在读取时就找不到这个描述符中的数据了</p>
+<p>2.LT：水平触发模式：同理，下次epoll_wait()还能读取到该数据。</p>
+<p>综上所述，epoll是实现了O(1)的查找响应文件描述符。</p>
 
                 
             </div>
@@ -1355,7 +1373,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">165.9k</span>&nbsp;字
+                class="white-color">169.6k</span>&nbsp;字
             
             
             
