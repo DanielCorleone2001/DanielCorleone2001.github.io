@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-26
+                    2021-03-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    768
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    11 分
                 </div>
                 
 
@@ -575,9 +575,100 @@
 
 <h3 id="删除表的字段"><a href="#删除表的字段" class="headerlink" title="删除表的字段"></a>删除表的字段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student DROP age</span><br></pre></td></tr></table></figure>
 
+<h2 id="基本组成"><a href="#基本组成" class="headerlink" title="基本组成"></a>基本组成</h2><h3 id="连接器"><a href="#连接器" class="headerlink" title="连接器"></a>连接器</h3><p>负责和客户端进行连接。进行权限认证，建立连接，保持连接，管理连接。</p>
+<h3 id="分析器"><a href="#分析器" class="headerlink" title="分析器"></a>分析器</h3><p>进行词法分析，语法分析。</p>
+<h3 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h3><p>获取分析器的结果后，选择优化的策略。</p>
+<h3 id="执行器"><a href="#执行器" class="headerlink" title="执行器"></a>执行器</h3><p>根据执行方案，调用引擎的接口来执行sql语句。</p>
+<h2 id="基本名词"><a href="#基本名词" class="headerlink" title="基本名词"></a>基本名词</h2><h3 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h3><p>读取到其他事务未提交的数据，其他事务更改后，自己却未改变。比如A，B事务。余额2000。B事务取出1000块，这时候A事务查余额，余额1000。但是B事务突然发现取款操作有问题，事务回滚，B事务看到的余额就为2000，而A只有1000。这时候A事务再充5000，显示余额为6000.但实际上应该是7000</p>
+<h3 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h3><p>前后多次读取，数据内容不一致。事务A比较庞大，需要的时间长。事务A第一次查询余额为2000，这时候去执行其他的。事务B修改了余额为5000，提交后跑路。事务A再查询余额时，发现余额变成了5000，前后发生了不一致。</p>
+<h3 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a>幻读</h3><p>前后多次读取，数据总量不一致。事务A使用Select查询，获得1000条数据，然后去执行其他任务。这时事务B新提交了1000数据然后跑路。A在查询时获得了2000条数据，像是产生了幻觉，凭空多产生了1000 条数据。</p>
+<p><strong>不可重复读针对的是update语句，幻读针对的是insert和delete操作。</strong></p>
+<h3 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h3><p>多版本并发控制。是行级锁的变种。</p>
+<p>优点：有时能避免进行加锁操作，减小了系统的开销。</p>
+<p>应用：应用在<strong>读提交</strong>，<strong>可重复读</strong>这两个事务隔离级别。因为读未提交默认读取最新的行，串行化默认是加行级锁。</p>
+<p>具体内容：保存数据在某个时间点的快照。在每一行都有版本号和删除版本号，保存新快照时，版本号加一。</p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>BEGIN/START TRANSACTION：开启事务。</p>
+<p>COMMIT/COMMIT WORK：提交事务。</p>
+<p>ROLLBACK/ROLLBACK WORK：回滚事务。</p>
+<p>SAVEPOINT IDENTIFIER：在事务中创建一个保存点。</p>
+<p>RELEASE SAVEPOINT IDENTIFIER：删除一个事务的保存点，当没有指定的保存点时会抛出异常。</p>
+<p>ROLLBACK TO IDENTIFIER：把事务回滚到保存点。</p>
+<p>SET TRANSACTION 隔离级别：设置事务的隔离级别。READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ 和 SERIALIZABLE。</p>
+<h3 id="基本特性ACID"><a href="#基本特性ACID" class="headerlink" title="基本特性ACID"></a>基本特性ACID</h3><p>A：原子性。事务的操作要么全部成功，要么全部失败</p>
+<p>C：一致性。事务开始前和结束后，数据库的完整性没被破坏。</p>
+<p>I：隔离性。针对并发事务访问数据，隔离程度有四种。</p>
+<p>D：持久性。事务结束后，对数据库的修改就是永久的</p>
+<h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><h4 id="读未提交"><a href="#读未提交" class="headerlink" title="读未提交"></a>读未提交</h4><p>即使事务中的修改并没有提交，做出的修改也会被其他事务所看到并获取。</p>
+<p><strong>问题：不可重复读，脏读，幻读。</strong></p>
+<h4 id="读提交"><a href="#读提交" class="headerlink" title="读提交"></a>读提交</h4><p>事务只能看到已经提交过后进行的修改。解决了脏读问题</p>
+<p><strong>问题：不可重复读，幻读</strong></p>
+<h4 id="可重复读"><a href="#可重复读" class="headerlink" title="可重复读"></a>可重复读</h4><p>MySQL默认的事务隔离级别。保证了在同一事物中，多次读取的数据的结果是一样的。解决了脏读和不可重复读。</p>
+<p><strong>问题：幻读。</strong></p>
+<h5 id="MVCC的操作"><a href="#MVCC的操作" class="headerlink" title="MVCC的操作"></a>MVCC的操作</h5><h6 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h6><p>InnoDB查找的两个标准：</p>
+<p><strong>1.所查找的行的版本号，小于当前事务数据行的版本号。</strong></p>
+<p>原因：保证了所获取的数据，是在事务之前就已经存在，或者是事务自身插入或者修改过的。</p>
+<p><strong>2.行的删除版本号要么为空，要么大于事务的版本号。</strong></p>
+<p>原因：保证事务结束前，数据不会被删除。</p>
+<h6 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h6><p><strong>InnoDB将新插入的那一行的版本号，赋值当前的版本号</strong></p>
+<p>原因：声明数据进行修改的时间。</p>
+<h6 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h6><p><strong>InnoDB将删除的行的删除版本赋值为当前的系统版本号。</strong></p>
+<p>原因：记录删除的时间</p>
+<h6 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h6><p><strong>InnoDB会新创建一行，将创建版本号记为当前版本号。而旧的那一行，将删除版本号记为当前版本号。</strong></p>
+<p>原因：新建一行进行操作，这样既保留的旧的数据，又达到了更新的目的</p>
+<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><p>使用MVCC + 封锁技术。为事务设置了一致性视图，视图中读取的数据不可能读到比事务要晚的其他事务的数据更新。</p>
+<h4 id="串行化"><a href="#串行化" class="headerlink" title="串行化"></a>串行化</h4><p>强行让事务按行进行操作(使用了行锁)。<strong>解决了幻读问题。</strong></p>
+<h3 id="事务日志"><a href="#事务日志" class="headerlink" title="事务日志"></a>事务日志</h3><p>避免每次更改数据的操作，都要写入磁盘。</p>
+<p>实现：引擎在修改数据的时候，只需修改内存拷贝。而修改操作，会以追加的方式写进硬盘里的事务日志。</p>
+<p>写入磁盘次数：两次。1：写入到磁盘里的事务日志； 2：从事务日志中慢慢读取操作然后写入磁盘。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><h4 id="B-TREE索引"><a href="#B-TREE索引" class="headerlink" title="B-TREE索引"></a>B-TREE索引</h4><p>InnoDB底层的索引实现是B+树。</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1gogaxc71fmj30o70bbjs7.jpg" alt="image"></p>
+<h4 id="哈希索引"><a href="#哈希索引" class="headerlink" title="哈希索引"></a>哈希索引</h4><p>基于哈希表实现。所有的哈希索引中，都存有每一行数据的hashCode。因此查找的时候非常方便。</p>
+<p><strong>缺点：</strong></p>
+<p>1.哈希索引只存储了哈希值和行指针。所以不能通过索引的值来避免读取行</p>
+<p>2.不能通过索引来进行排序。</p>
+<p>3.不支持部分索引查询。比如查询A时不能用哈希索引A-B</p>
+<p>4.哈希索引只支持等值比较查询。</p>
+<p>5.出现哈希冲突时，需要遍历链表中的所有行指针</p>
+<h4 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a>全文索引</h4><p> 和常用的模糊匹配使用 like + % 不同，全文索引有自己的语法格式，使用 match 和 against 关键字，比如</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> fulltext_test </span><br><span class="line">    <span class="keyword">where</span> <span class="keyword">match</span>(<span class="keyword">content</span>,tag) against(<span class="string">&#x27;xxx xxx&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
+<p>查找的是文本中的关键词，而不是直接比较索引中的值。</p>
+<h4 id="覆盖索引"><a href="#覆盖索引" class="headerlink" title="覆盖索引"></a>覆盖索引</h4><p>一个索引包含了所有需要查询的字段的值，成为覆盖索引。</p>
+<p>优点：</p>
+<p>1.避免了回表操作。(回表操作：如果查询到的是主键，需要用主键再查一次表)</p>
+<p>2.在只需要读取索引的情况下，覆盖索引的优势很大：占用空间比数据要小。</p>
+<p>3.覆盖索引按列值来顺序存储。I/O密集型的范围查询会比随机从磁盘里读取每一行的I/O次数少很多</p>
+<h4 id="聚簇索引"><a href="#聚簇索引" class="headerlink" title="聚簇索引"></a>聚簇索引</h4><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gogc32nfsjj30nu0lrk27.jpg" alt="image"></p>
+<p>聚簇索引是一种存储结构。InnoDB在聚簇索引中存储了B-Tree索引和数据行。</p>
+<p>表内有聚簇索引时，数据行会放在索引的叶子节点。</p>
+<p>InnoDB默认使用主键来聚集数据。没有主键的话就用某一个非空列来替代；如果仍然没有的话，就隐式的定义一个主键来作为聚簇索引。</p>
+<p><strong>优点：</strong></p>
+<p>1.把具有相关性的数据保存在一起。例如按用户ID作为聚簇索引，可实现从磁盘读取少量的数据即可获得用户的邮件。</p>
+<p>2.访问数据更快。因为数据存在和B+树的叶子节点</p>
+<p>3.聚簇索引存了数据行，所以使用聚簇索引查询时，可以直接使用其中的主键值。即能直接读取数据。</p>
+<p><strong>缺点：</strong></p>
+<p>1.插入速度依赖于插入的顺序。按住键插入的话速度最快。所以最好使用OPTIMIZE TABLE来重新组织表结构。</p>
+<p>2.更新聚簇索引列的代价很高。会强制InnoDB将被更新的行移到新的位置。</p>
+<p>3.基于聚簇索引的表在插入新行，或者主键被更新需要移动时，可能存在页分裂的情况。</p>
+<p>4.聚簇索引可能导致全表扫描变慢，特别是当行比较稀疏，或由于页分裂导致数据存储不联系时。</p>
+<p>5.二级索引(非聚簇索引/辅助索引)的空间占用可能较大，因为二级索引叶子节点中包含主键列。</p>
+<p>6.二级索引访问需要两次索引查找而非一次。</p>
+<h5 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h5><h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><h3 id="上锁"><a href="#上锁" class="headerlink" title="上锁"></a>上锁</h3><p>InnoDB使用的是两阶段锁协议。</p>
+<h4 id="隐式锁定"><a href="#隐式锁定" class="headerlink" title="隐式锁定"></a>隐式锁定</h4><p>事务执行过程中，可以随时上锁。但是只有执行Commit或者RollBack的时候，才会释放锁。</p>
+<h4 id="显示锁定"><a href="#显示锁定" class="headerlink" title="显示锁定"></a>显示锁定</h4><p>使用sql语句控制。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> .... <span class="keyword">LOCK</span> <span class="keyword">IN</span> <span class="keyword">SHARE</span> <span class="keyword">MODE</span></span><br></pre></td></tr></table></figure>
 
-
+<h3 id="对比MyISAM"><a href="#对比MyISAM" class="headerlink" title="对比MyISAM"></a>对比MyISAM</h3><p>事务：InnoDB支持事务，MyISAM不支持</p>
+<p>外键：InnoDB支持，MyISAM不支持</p>
+<p>索引：InnoDB使用聚簇索引和辅助索引，MyISAM使用非聚簇索引</p>
+<p>锁：InnoDB默认使用行级锁，并支持表级锁。 MyISAM支支持表级锁。</p>
+<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><h3 id="redo-log"><a href="#redo-log" class="headerlink" title="redo log"></a>redo log</h3><p>InnoDB特有的日志。物理日志，记录了在某个数据也上进行了什么修改。</p>
+<p>redo log是循环写的，空间随时会用完</p>
+<p><strong>具体使用：</strong>当记录需要更新的时候，将操作写入redo log，并更新内存即视为完成更改操作。redo log有四个文件，有写指针和读指针。当二者相遇的时候，就代表这4个G写满了，需要将记录写入到磁盘中。</p>
+<h3 id="bin-log"><a href="#bin-log" class="headerlink" title="bin log"></a>bin log</h3><p>逻辑日志，记录的是语句的原始逻辑。如给ID= 2的这一行的A字段加一。</p>
+<p>bin log是可追加的写，写到一定大小后会切换到下一个文件。</p>
+<h3 id="两阶段提交"><a href="#两阶段提交" class="headerlink" title="两阶段提交"></a>两阶段提交</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>redo log和bin log使用两阶段提交来配合。</p>
+<h4 id="使用原因"><a href="#使用原因" class="headerlink" title="使用原因"></a>使用原因</h4>
                 
             </div>
             <hr/>
@@ -1161,7 +1252,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">169.6k</span>&nbsp;字
+                class="white-color">172k</span>&nbsp;字
             
             
             
