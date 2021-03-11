@@ -449,21 +449,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-10
+                    2021-03-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    6.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    21 分
                 </div>
                 
 
@@ -690,7 +690,100 @@
 <p>3.如果没命中，就需要到慢表中获取。获取后，需要将刚获取的页表存入到快表中，如果快表满了，就需要使用替换算法。</p>
 <h6 id="二级页表"><a href="#二级页表" class="headerlink" title="二级页表"></a>二级页表</h6><p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gof7a2w9sqj30k802i3yh.jpg" alt="image"></p>
 <p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gof7aapso6j30l70ezdha.jpg" alt="image"></p>
-<h5 id="请求分页存储"><a href="#请求分页存储" class="headerlink" title="请求分页存储"></a>请求分页存储</h5><h4 id="分段存储"><a href="#分段存储" class="headerlink" title="分段存储"></a>分段存储</h4>
+<p>在原来的基础上，在建立一层索引，用于对页表的映射。</p>
+<p>作用：节约空间，也不用每次查找时需要从头到尾寻找页表项。</p>
+<h4 id="分段存储"><a href="#分段存储" class="headerlink" title="分段存储"></a>分段存储</h4><h5 id="基本分段存储管理"><a href="#基本分段存储管理" class="headerlink" title="基本分段存储管理"></a>基本分段存储管理</h5><p>分页存储管理，提高了内存利用率，对用户透明；</p>
+<p>分段存储管理，考虑了信息保护和共享，动态增长等，对程序员友好</p>
+<p>分段存储管理：将用户进程分成几段，段内的内存必须是连续的，段间不需要是连续。</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1gofotje19vj30a502daa2.jpg" alt="image"></p>
+<p>段表：</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gofou1ihf8j30ad01uq2v.jpg" alt="image"></p>
+<p>地址变换：</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gofoudifexj30ei076wfd.jpg" alt="image"></p>
+<h5 id="段页式存储管理"><a href="#段页式存储管理" class="headerlink" title="段页式存储管理"></a>段页式存储管理</h5><p>将内存分成若干个段，段内按照分页存储管理，分成很多个页。</p>
+<p>基本地址：</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gofoxg5r32j30a501kdfs.jpg" alt="image"></p>
+<h3 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h3><h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><p>​        分页和分段，都是需要一开始就要把作业全都加载到内存中，并且只有当作业结束时，才会把作业从内存中撤出。如果作业过于庞大，内存无法放入，则作业就无法运行；又因为作业在内存中有滞留性，如果遇到I/O请求而阻塞，就会长时间占有内存却不工作，降低了内存利用率和多道程序的并发性。</p>
+<p>​        基于这种情况，引入了虚拟内存。</p>
+<h4 id="局部性原理"><a href="#局部性原理" class="headerlink" title="局部性原理"></a>局部性原理</h4><h5 id="时间局部性"><a href="#时间局部性" class="headerlink" title="时间局部性"></a>时间局部性</h5><p>某条指令一旦执行，那么不久之后该指令会有很大的可能会继续执行。</p>
+<h5 id="空间局部性"><a href="#空间局部性" class="headerlink" title="空间局部性"></a>空间局部性</h5><p>某个存储单元被访问了，那么不久过后它附近的存储单元也会被访问。典型例子：数组</p>
+<h4 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h4><h5 id="请求分页存储"><a href="#请求分页存储" class="headerlink" title="请求分页存储"></a>请求分页存储</h5><p>基于分页存储。作业执行的时候，只在内存中加载部分的页面，在有需要时，通过请求调页来获取页面，通过页面置换把暂时不同的从内存中放入外存。</p>
+<p><strong>1.存储结构</strong></p>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gofp93rg2yj30cq0213yk.jpg" alt="image"></p>
+<p>状态位：标记是否在内存中</p>
+<p>访问字段：记录在一段时间内页面被访问的次数，页面置换算法会用到</p>
+<p>修改位：标记进入内存后是否被修改</p>
+<p>外存地址：指出该页在外存上的地址，也就是物理块号，供调入页面时参考</p>
+<p><strong>2.缺页中断机制</strong></p>
+<p>访问页面不存在时，会产生缺页中断，进而进入系统调用，让操作系统帮忙让请求的页面调入到内存中。</p>
+<p>缺页中断属于内部中断，一条指令可能会引发多次缺页中断。</p>
+<h6 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h6><p><strong>-最佳置换算法</strong>(OPT)</p>
+<p>淘汰以后再也不会用到的页面。但是认识无法预知接下来需要的页面的，所以无法实现这个算法。</p>
+<p><strong>-先进先出算法</strong>(FIFO)</p>
+<p>优先淘汰最早进入内存的。将页面号组成队列即可实现。会出现Belady</p>
+<p><strong>Belady异常</strong>：有可能分配的物理块增大了，但是缺页率不减反增。</p>
+<p><strong>-最近最久未使用算法</strong>(LRU)</p>
+<p>选择最近最长时间未使用的页面进行淘汰</p>
+<p><strong>-时钟置换算法</strong>(CLOCK)</p>
+<p>也叫做不是最近使用。Not Recently Use</p>
+<h5 id="请求分段存储"><a href="#请求分段存储" class="headerlink" title="请求分段存储"></a>请求分段存储</h5><h5 id="请求段页式存储"><a href="#请求段页式存储" class="headerlink" title="请求段页式存储"></a>请求段页式存储</h5><h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><h3 id="文件保护"><a href="#文件保护" class="headerlink" title="文件保护"></a>文件保护</h3><h4 id="口令"><a href="#口令" class="headerlink" title="口令"></a>口令</h4><p>访问文件需要比对FCB中是否有该文件的正确口令</p>
+<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><p>对文件内容加密，访问时有用户自行解密</p>
+<h4 id="访问控制表"><a href="#访问控制表" class="headerlink" title="访问控制表"></a>访问控制表</h4><p>记录每个用户能对文件进行的操作类型。</p>
+<h3 id="文件共享"><a href="#文件共享" class="headerlink" title="文件共享"></a>文件共享</h3><h4 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h4><p>将文件的索引存到用户的FCB中，使得用户通过就可以访问到文件。</p>
+<p>访问速度较慢。</p>
+<p>删除文件时，会将文件删除，其他FCB访问找不到该文件时，自动删除掉自己FCB中存的路径。</p>
+<p>但是存在问题：当某用户删除了共享问价，而另一用户相同路径下创建的同名的文件，就会导致其他用户本应该删除掉自己的FCB索引内容，却访问了新创建的文件。</p>
+<h4 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h4><p>基于索引节点。索引节点中存入文件引用次数，有指向文件的指针。</p>
+<p>而用户要实现文件共享，就在FCB中存有索引节点的指针。</p>
+<p>删除文件时，只会把索引节点中的文件引用次数减一，这样才不会出现用户空指针的情况。 当引用次数位0，操作系统就会将文件删除。</p>
+<h3 id="磁盘结构"><a href="#磁盘结构" class="headerlink" title="磁盘结构"></a>磁盘结构</h3><p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gofsaoi2a3j308r07sjrn.jpg" alt="image"></p>
+<p><strong>磁盘地址：柱面号·盘面号·扇区号</strong></p>
+<p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1gofsbrmeinj30b00aemxm.jpg" alt="image"></p>
+<h3 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h3><h4 id="FCFS"><a href="#FCFS" class="headerlink" title="FCFS"></a>FCFS</h4><p>先来先服务算法。</p>
+<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gofseihfz4j30jy07w75b.jpg" alt="image"></p>
+<h4 id="SSTF"><a href="#SSTF" class="headerlink" title="SSTF"></a>SSTF</h4><p>最短寻找时间优先算法</p>
+<p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1gofsgbttvjj30j0061gme.jpg" alt="image"></p>
+<p>优先响应离磁头最近的请求。会导致饥饿，会出现可能频繁在某个区域附近写入而使得其他的请求无法得到满足。</p>
+<h4 id="SCAN"><a href="#SCAN" class="headerlink" title="SCAN"></a>SCAN</h4><p>扫描算法。或者是电梯调度算法</p>
+<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gofsi5rq24j30jq07g3zv.jpg" alt="image"></p>
+<p>改进版本的最短寻找时间优先算法。规定了方向。也就是说，会在当前的方向上寻找距离最短的请求进行响应。</p>
+<h4 id="C-SCAN"><a href="#C-SCAN" class="headerlink" title="C-SCAN"></a>C-SCAN</h4><p>循环扫描算法</p>
+<p>固定磁头单向移动。会达到磁道尽头又再返回。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gofslh5tfkj30h604daa8.jpg" alt="image"></p>
+<p>改进：不需要达到磁道的尽头，达到最远的请求即可返回。</p>
+<h2 id="I-O"><a href="#I-O" class="headerlink" title="I/O"></a>I/O</h2><h3 id="I-O控制方式"><a href="#I-O控制方式" class="headerlink" title="I/O控制方式"></a>I/O控制方式</h3><p>控制设备和处理及/内存的数据传送。</p>
+<h4 id="程序直接控制"><a href="#程序直接控制" class="headerlink" title="程序直接控制"></a>程序直接控制</h4><p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gofsqadkzyj306j0ahwew.jpg" alt="image"></p>
+<p>每次只读一个字的数据，CPU需要不断确认I/O状态。</p>
+<p>未设置中断，导致CPU需要不断监控I/O设备是否已经完成读写。</p>
+<p>缺点：只能串行输入。无法解决CPU和I/O读写之间速度差值过大的矛盾，导致CPU利用率低下。</p>
+<h4 id="中断驱动控制"><a href="#中断驱动控制" class="headerlink" title="中断驱动控制"></a>中断驱动控制</h4><p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gofstl0u5kj306o0ab3yy.jpg" alt="image"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gofsw1vv5tj30jq07ajth.jpg" alt="image"></p>
+<p>数据在存储器和I/O中传输都需要经过CPU的控制，会浪费时间。</p>
+<h4 id="DMA控制"><a href="#DMA控制" class="headerlink" title="DMA控制"></a>DMA控制</h4><p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1gofsxso8m2j30dq06kwet.jpg" alt="image"></p>
+<p>引入DMA控制器，和IO、内存、CPU相连。CPU收到DMA的IO请求时，发送允许写入的指令，然后继续执行自己的作业。而DMA收到同意请求后，按字读取I/O输入到内存中。</p>
+<p>优点：不需要像中断那样， 所有数据的写入都要经过CPU。</p>
+<p>缺点：数据块较多并且离散的时候，需要发出多条指令</p>
+<h4 id="通道控制"><a href="#通道控制" class="headerlink" title="通道控制"></a>通道控制</h4><p>通道：一种硬件，类似于CPU.</p>
+<p>执行过程：CPU要完成一组读写操作时，向通道发送相关信息：如要执行的程序的首地址，要访问的IO设备。接下来通道就通过这个任务清单，去完成CPU的任务。在数据传输结束时，发送一个中断给CPU，告诉CPU任务已完成。</p>
+<p>通道相当于是秘书，CPU则是老板。</p>
+<h3 id="I-O核心子系统"><a href="#I-O核心子系统" class="headerlink" title="I/O核心子系统"></a>I/O核心子系统</h3><p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goftd93a77j307x01smxi.jpg" alt="image"></p>
+<p>IO调度：确定响应IO请求的顺序</p>
+<p>设备保护：类似于文件系统中的文件保护。</p>
+<p>1.设备独立性软件</p>
+<p>2.设备驱动软件</p>
+<p>3.中断处理程序</p>
+<h3 id="假脱机技术-Spooling"><a href="#假脱机技术-Spooling" class="headerlink" title="假脱机技术(Spooling)"></a>假脱机技术(Spooling)</h3><p>脱机技术：缓解CPU运行指令和IO读写速度相差过大的矛盾，将IO设备的数据传送在高速磁盘上。</p>
+<p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goftjsxteyj30ef07ydhn.jpg" alt="image"></p>
+<p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1goftl8yqunj30p70bodit.jpg" alt="image"></p>
+<h3 id="设备分配"><a href="#设备分配" class="headerlink" title="设备分配"></a>设备分配</h3><h4 id="分配策略"><a href="#分配策略" class="headerlink" title="分配策略"></a>分配策略</h4><h5 id="静态分配"><a href="#静态分配" class="headerlink" title="静态分配"></a>静态分配</h5><p>进程运行前，将所有所需资源全分给他，等运行结束后再将资源全部返回。</p>
+<h5 id="动态分配"><a href="#动态分配" class="headerlink" title="动态分配"></a>动态分配</h5><p>进程运行过程中动态的分配所需的资源。</p>
+<h4 id="设备分配的数据结构"><a href="#设备分配的数据结构" class="headerlink" title="设备分配的数据结构"></a>设备分配的数据结构</h4><p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1goftotrc20j30l90aztat.jpg" alt="image"></p>
+<h5 id="设备控制表-DCT"><a href="#设备控制表-DCT" class="headerlink" title="设备控制表(DCT)"></a>设备控制表(DCT)</h5><p>记录设备的情况。</p>
+<p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goftq9wgclj30ll078tdr.jpg" alt="image"></p>
+<h5 id="控制器控制表-COCT"><a href="#控制器控制表-COCT" class="headerlink" title="控制器控制表(COCT)"></a>控制器控制表(COCT)</h5><p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goftr8i38tj30o50a4whj.jpg" alt="image"></p>
+<p>….不重要</p>
+<h4 id="设备分配步骤"><a href="#设备分配步骤" class="headerlink" title="设备分配步骤"></a>设备分配步骤</h4><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goftse7nypj30nc0afn3f.jpg" alt="image"></p>
+
                 
             </div>
             <hr/>
@@ -1262,7 +1355,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164k</span>&nbsp;字
+                class="white-color">165.9k</span>&nbsp;字
             
             
             
