@@ -449,7 +449,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-11
+                    2021-03-12
                 </div>
                 
 
@@ -773,6 +773,7 @@
 <p>此时客户端已经不能再向服务器发送信息，而服务器仍能向客户端发送信息</p>
 <p>3.服务器没有要发送给客户端的数据了，FIN = 1，ACK = 1，seq = w，ack = u + 1</p>
 <p>4.客户端收到连接释放的请求，回复确认收到，ACK = 1， ack = w + 1，seq = u + 1</p>
+<p>他是李卓与</p>
 <p><strong>总结：</strong></p>
 <p>三次握手：</p>
 <p>1.客户端: SYN = 1 , seq = x</p>
@@ -885,7 +886,7 @@
 <p>是http请求的最小处理单位。</p>
 <h4 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h4><p>结构：请求行   + 请求头部 + 空行  + 报文主体</p>
 <p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gof352t4zzj30jv09ljv1.jpg" alt="image"></p>
-<h4 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h4><p>结构：响应行 + 响应头部  + 空行 + 报文主体</p>
+<h4 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h4><p>结构：响应行 + 响应头部  + 空行 + 报文主体 </p>
 <h4 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h4><p>1.域名解析</p>
 <p>查看浏览器缓存-&gt;查看本地域名服务器-&gt;查看host文件-&gt;向本地域名服务器发起查询请求</p>
 <p>2.TCP三次握手</p>
@@ -952,7 +953,7 @@
 <p>1.<strong>客户端发送Client Hello</strong>。相当于给服务器发招呼。里面声明了客户端版本号，支持的<strong>密码加密方式</strong>，<strong>还有一个随机数。</strong>(随机数用于生成会话密钥)</p>
 <p>2.服务器回应<strong>Server Hello</strong>。回应客户端的招呼。里面表明了接下来使用的<strong>加密方式</strong>，<strong>TLS版本号</strong>，<strong>以及随机数</strong></p>
 <p>3.服务器发送 <strong>Server Certificate</strong>。发送数字证书，表明自己的身份。</p>
-<p>4.服务器发送 <strong>Server Key Exchange</strong>。相当于我刚刚选择的算法，需要这个参数才能解密，你得拿着。并附上私钥签名认证。所以这次发送了：<strong>公钥（Server Params）**</strong>私钥签名认证**</p>
+<p>4.服务器发送 <strong>Server Key Exchange</strong>。相当于我刚刚选择的算法，需要这个参数才能解密，你得拿着。并附上私钥签名认证。所以这次发送了：<strong>公钥（Server Params，私钥签名认证</strong></p>
 <p>5.服务器发送<strong>Server Hello Done</strong>。说明：我说完了，你可以开始处理了。</p>
 <p>​        这一过程下来，客户端和服务器共享了三个信息：<strong>客户端产生的随机数(Client Random)，服务器产生的随机数(Server Random)，服务器的公钥(Server Params)</strong></p>
 <hr>
@@ -1346,17 +1347,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/10/%E9%9D%A2%E7%BB%8F/">
+                <a href="/2021/03/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%AA%81%E5%87%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="面经">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="计算机网络面试突击">
                         
-                        <span class="card-title">面经</span>
+                        <span class="card-title">计算机网络面试突击</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1366,14 +1368,18 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/" class="post-category">
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
+                                </a>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/" class="post-category">
                                     面试突击
                                 </a>
                             
@@ -1381,8 +1387,13 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
                     
                     <a href="/tags/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
                         <span class="chip bg-color">面试突击</span>
@@ -1645,7 +1656,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173k</span>&nbsp;字
+                class="white-color">171.4k</span>&nbsp;字
             
             
             
