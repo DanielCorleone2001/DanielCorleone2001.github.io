@@ -445,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-11
+                    2021-03-12
                 </div>
                 
 
@@ -665,7 +665,7 @@
 <h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><h3 id="redo-log"><a href="#redo-log" class="headerlink" title="redo log"></a>redo log</h3><p>InnoDB特有的日志。物理日志，记录了在某个数据也上进行了什么修改。</p>
 <p>redo log是循环写的，空间随时会用完</p>
 <p><strong>具体使用：</strong>当记录需要更新的时候，将操作写入redo log，并更新内存即视为完成更改操作。redo log有四个文件，有写指针和读指针。当二者相遇的时候，就代表这4个G写满了，需要将记录写入到磁盘中。</p>
-<h3 id="bin-log"><a href="#bin-log" class="headerlink" title="bin log"></a>bin log</h3><p>逻辑日志，记录的是语句的原始逻辑。如给ID= 2的这一行的A字段加一。</p>
+<h3 id="bin-log"><a href="#bin-log" class="headerlink" title="bin log"></a>bin log</h3><p>逻辑日志，记录的是语句的原始逻辑。如给ID = 2的这一行的A字段加一。</p>
 <p>bin log是可追加的写，写到一定大小后会切换到下一个文件。</p>
 <h3 id="两阶段提交"><a href="#两阶段提交" class="headerlink" title="两阶段提交"></a>两阶段提交</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>redo log和bin log使用两阶段提交来配合。</p>
 <h4 id="使用原因"><a href="#使用原因" class="headerlink" title="使用原因"></a>使用原因</h4>
