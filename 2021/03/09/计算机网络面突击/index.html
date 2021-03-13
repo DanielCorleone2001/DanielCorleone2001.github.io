@@ -449,7 +449,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-12
+                    2021-03-13
                 </div>
                 
 
@@ -901,13 +901,15 @@
 <p>POST：提交时应询问用户，不会存在浏览器的缓存中，不能收藏在数千，数据不会显示在url中，较为安全。</p>
 <h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><p>加密版本的http协议。</p>
 <p>HTTPS = HTTP  + SSL/TSL</p>
-<h4 id="SSL-TSL"><a href="#SSL-TSL" class="headerlink" title="SSL/TSL"></a>SSL/TSL</h4><h5 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h5><h6 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h6><p>加密与解密使用的是同一个密钥。常用加密算法：AES。</p>
+<h4 id="SSL-TSL"><a href="#SSL-TSL" class="headerlink" title="SSL/TSL"></a>SSL/TSL</h4><h5 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h5><h6 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h6><p>加密与解密使用的是同一个密钥。</p>
+<p>常用加密算法：DES(比较垃圾的)，AES(DES升级版，常用)，ChaCha20.</p>
 <p>问题：怎么把密钥发送给对方来解密？如果密钥被截取，那就再无加密可言。</p>
 <p>非对称加密解决了这个问题。</p>
 <p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gog6umu8hfj30fm06sjs1.jpg" alt="image"></p>
 <h6 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h6><p>明文使用公钥加密，密文使用私钥解密。</p>
 <p>对称加密速度快，但是不安全；</p>
 <p>非对称加密安全，但是运算速度慢。</p>
+<p>常用非对称加密算法：RSA，ECC</p>
 <p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gog6vunuaxj30ge0a7ab3.jpg" alt="image"></p>
 <h5 id="加密实现"><a href="#加密实现" class="headerlink" title="加密实现"></a>加密实现</h5><p>TLS使用对称加密和非对称加密结合。</p>
 <p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gog712n9exj30ev0a0gni.jpg" alt="image"></p>
