@@ -432,21 +432,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-07
+                    2021-03-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    4.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    17 分
                 </div>
                 
 
@@ -502,7 +502,8 @@
 <p>使用方法：</p>
 <p>1.在控制层使用@Api注解，controller的方法中使用@ApiOperation注解</p>
 <p>2.在VO的属性上使用@ApiModelPropertiy注解</p>
-<h2 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>用户与服务器的通信：</p>
+<h2 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h2><p><a target="_blank" rel="noopener" href="https://learnku.com/articles/17883">科普</a></p>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>用户与服务器的通信：</p>
 <p><strong>基于cookie-session的通信</strong>：</p>
 <p>1.用户向服务器发送账号与密码</p>
 <p>2.服务器通过对比后，在当前session中存入登录的信息，比如用户角色信息，登录时间等等</p>
@@ -571,6 +572,29 @@
 <p>2.调用签发token的方法重新生成新的refreshToken</p>
 <h4 id="获取token的剩余时间"><a href="#获取token的剩余时间" class="headerlink" title="获取token的剩余时间"></a>获取token的剩余时间</h4><p>1.调用解析token方法，获取负载信息</p>
 <p>2.通过负载信息获取token的过期时间，减去当前时间</p>
+<h3 id="Token业务逻辑"><a href="#Token业务逻辑" class="headerlink" title="Token业务逻辑"></a>Token业务逻辑</h3><h4 id="注销token问题"><a href="#注销token问题" class="headerlink" title="注销token问题"></a>注销token问题</h4><p>当用户进行以下操作：</p>
+<p>1.退出登录</p>
+<p>2.修改密码</p>
+<p>3.自己的角色或者权限发生变化</p>
+<p>4.被其他人设为被禁用或者锁定</p>
+<p>5.被删除</p>
+<p>6.被管理员注销账号</p>
+<p>由于session是存在数据库中的，那么从数据库中删掉session就可以了。但是token是签发之后就有效，要么删除，要么等自己失效。</p>
+<p>解决方法：</p>
+<p>1.将token存在缓存中，如redis。如果发生了上面的逻辑，那么就将token从redis中删除。但是存在一个问题，每次使用token时发送请求，都要在redis中查找，这很明显违背了token的初衷：无状态</p>
+<p>2.维护一个新的黑名单token。如果想让token失效就直接把token加入到黑名单。</p>
+<h4 id="token续签问题"><a href="#token续签问题" class="headerlink" title="token续签问题"></a>token续签问题</h4><p>token存在过期时间，如果过期了怎么签发新的token，来使得避免用户重新登录呢？</p>
+<p>1.方法一，类似于session的方法进行更新。设置token的过期时间，每次服务器进行校验的时候，如果发现了快要过期的token，就要发送新的token，客户端发送请求的时候，就要将新token和本地token进行对比。如果不一样的话就更新本地token成新的token。</p>
+<p>优点：思路简单，容易实现</p>
+<p>缺点：只有token快过期的时候才会更新token，而且开销会比较大。</p>
+<p>2.方法二：登录时发送两个token：accessToken和refreshToken。accessToken的过期时间较为短暂，比如三十分钟，而refreshToken的过期时间会比较长，比如十天。登录之后，客户端发送请求时，如果accessToken过期，将refreshToken发送给服务器，服务器通过refreshToken来生成新的accessToken。如果refreshToken也过期，那么就需要重新登录。</p>
+<h4 id="用户登录"><a href="#用户登录" class="headerlink" title="用户登录"></a>用户登录</h4><p>第一次登陆时，用hashMap存储用户的用户信息和权限信息。然后将hashmap注入到token的负载中生成accessToken和refreshToken。接着将token存在客户端。</p>
+<h4 id="退出登录"><a href="#退出登录" class="headerlink" title="退出登录"></a>退出登录</h4><p>用户退出登录时，将accessToken和refreshToken同时失效，即放到黑名单中。</p>
+<h4 id="修改密码-token的注销"><a href="#修改密码-token的注销" class="headerlink" title="修改密码(token的注销)"></a>修改密码(token的注销)</h4><p>修改密码时，之前的token应该是失效的了，因此需要将accessToken和refreshToken加入黑名单中。在登陆的逻辑中，需要对token是否被加入黑名单进行判断。</p>
+<h4 id="shiro中的token认证逻辑"><a href="#shiro中的token认证逻辑" class="headerlink" title="shiro中的token认证逻辑"></a>shiro中的token认证逻辑</h4><p>1.从登录请求中获取到用户ID</p>
+<p>2.判断用户ID对应的token是否被锁定、被删除、被加入黑名单</p>
+<p>3.判断accessToken是否有效</p>
+<p>4.判断token是否被刷新过，刷新过的话表明当前token应该是无效的</p>
 <h2 id="Shiro"><a href="#Shiro" class="headerlink" title="Shiro"></a>Shiro</h2><h3 id="身份认证流程"><a href="#身份认证流程" class="headerlink" title="身份认证流程"></a>身份认证流程</h3><p>1.subject.login(token)，传入前端的token</p>
 <p>2.进入AuthenticatingSecurityManager的anthenticate执行用户认证</p>
 <p>3.进入到ModularRealmAuthenticator的doAuthenticate方法进行认证</p>
@@ -627,7 +651,7 @@
 <p>​    首先从发生异常的控制器中寻找@ExceptionHandler方法来处理</p>
 <p>​    找不到的话就从所有@ControllerAdvice注解类中寻找@ExceptionHandler来处理该异常</p>
 <p>5.找到方法后处理该异常</p>
-<h2 id="用户登录"><a href="#用户登录" class="headerlink" title="用户登录"></a>用户登录</h2><p>1.接收到前端传入的请求VO，该VO只有用户名和密码</p>
+<h2 id="用户登录-1"><a href="#用户登录-1" class="headerlink" title="用户登录"></a>用户登录</h2><p>1.接收到前端传入的请求VO，该VO只有用户名和密码</p>
 <p>2.通过VO的用户名来获取用户，并判断非空</p>
 <p>3.获取用户的盐值，用户的明文密码，数据库的密文密码。传入方法类中来进行比对</p>
 <p>4.新建哈希表，建立用户用户名，角色名，权限列表的映射。key为自定义的String类型的Constans，value为用户的实际值。</p>
@@ -1236,7 +1260,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">172.4k</span>&nbsp;字
+                class="white-color">173.1k</span>&nbsp;字
             
             
             
