@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-12
+                    2021-03-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    16 分
                 </div>
                 
 
@@ -620,40 +620,77 @@
 <h3 id="事务日志"><a href="#事务日志" class="headerlink" title="事务日志"></a>事务日志</h3><p>避免每次更改数据的操作，都要写入磁盘。</p>
 <p>实现：引擎在修改数据的时候，只需修改内存拷贝。而修改操作，会以追加的方式写进硬盘里的事务日志。</p>
 <p>写入磁盘次数：两次。1：写入到磁盘里的事务日志； 2：从事务日志中慢慢读取操作然后写入磁盘。</p>
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><h4 id="B-TREE索引"><a href="#B-TREE索引" class="headerlink" title="B-TREE索引"></a>B-TREE索引</h4><p>InnoDB底层的索引实现是B+树。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>相当于是文章的目录，通过查目录可以得到文章的页码，同理通过查索引能得到满足查询条件的列。</p>
+<p>优化查询的最有效手段就是索引优化。</p>
+<p>而索引可以是一列或者多个列的值，如果是多个列，那么列的顺序也会很重要，因此MySQL使用的是索引的最左前缀列。而索引的顺序一般是在建表语句那里确定。</p>
+<p><strong>索引存储的层次：引擎层</strong></p>
+<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><h4 id="B-TREE索引"><a href="#B-TREE索引" class="headerlink" title="B-TREE索引"></a>B-TREE索引</h4><p>MyISAM引擎使用B-tree索引时使用了前缀压缩技术，使得索引需要的空间更小。InnoDB时按原数据进行存储，需要的空间会更大。</p>
+<p>InnoDB底层的索引实现是B+树。</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1gokbohbc0hj30go0b0abs.jpg" alt="image"></p>
 <p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1gogaxc71fmj30o70bbjs7.jpg" alt="image"></p>
-<h4 id="哈希索引"><a href="#哈希索引" class="headerlink" title="哈希索引"></a>哈希索引</h4><p>基于哈希表实现。所有的哈希索引中，都存有每一行数据的hashCode。因此查找的时候非常方便。</p>
+<p><strong>优点：</strong></p>
+<p>1.引入B-Tree索引后，进行查询时不再需要扫描整张表，而是不断地检索索引节点来获取结果。</p>
+<p>2.由于叶子节点的有序性，对于范围查找，比如查询名字从‘a到k’的人，查找效率会很高效。</p>
 <p><strong>缺点：</strong></p>
-<p>1.哈希索引只存储了哈希值和行指针。所以不能通过索引的值来避免读取行</p>
-<p>2.不能通过索引来进行排序。</p>
+<p>1.如果不是按照最左前缀原则进行查找，那么无法使用该索引。例如索引的列顺序为A-B-C，那么无法直接通过索引查询首列的B的查询条件</p>
+<p>2.对于键值重复率很高的字段，查询的效率非常低</p>
+<p>3.如果使用了like模糊查询，那么这个列后的其他列没有得到查询的优化。由于模糊查询，还是得需要扫描该列，从而导致索引后面的其他列并没有得到查询优化</p>
+<h4 id="哈希索引"><a href="#哈希索引" class="headerlink" title="哈希索引"></a>哈希索引</h4><p>基于哈希表实现。所有的哈希索引中，都存有每一行数据的hashCode。哈希索引存着所有的哈希码，并保存指向所有数据行的指针，方便查找。</p>
+<p>支持非唯一哈希码的存储引擎：Memory引擎。即同一个哈希码对应了多个数据行，和其他哈希冲突类似，使用拉链法将数据行展开。 </p>
+<p><strong>缺点：</strong></p>
+<p>1.哈希索引只存储了哈希值和行指针，所以不能通过索引的值来避免读取行。</p>
+<p>2.不能通过索引来进行排序。因为哈希索引是按值查找。</p>
 <p>3.不支持部分索引查询。比如查询A时不能用哈希索引A-B</p>
-<p>4.哈希索引只支持等值比较查询。</p>
-<p>5.出现哈希冲突时，需要遍历链表中的所有行指针</p>
+<p>4.哈希索引只支持等值比较查询，不支持范围查询，比如where id  &gt; 2</p>
+<p>5.出现哈希冲突时，需要遍历拉链法产生的链表中的所有行指针</p>
+<h5 id="InnoDB的改进：自适应哈希索引"><a href="#InnoDB的改进：自适应哈希索引" class="headerlink" title="InnoDB的改进：自适应哈希索引"></a>InnoDB的改进：自适应哈希索引</h5><p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gokd93tdrjj30ij0c8n00.jpg" alt="image"></p>
+<p>InnoDB如果发现某些索引被使用得非常频繁时，会在B-TREE索引的基础上创建哈希索引。</p>
 <h4 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a>全文索引</h4><p> 和常用的模糊匹配使用 like + % 不同，全文索引有自己的语法格式，使用 match 和 against 关键字，比如</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> fulltext_test </span><br><span class="line">    <span class="keyword">where</span> <span class="keyword">match</span>(<span class="keyword">content</span>,tag) against(<span class="string">&#x27;xxx xxx&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>查找的是文本中的关键词，而不是直接比较索引中的值。</p>
 <h4 id="覆盖索引"><a href="#覆盖索引" class="headerlink" title="覆盖索引"></a>覆盖索引</h4><p>一个索引包含了所有需要查询的字段的值，成为覆盖索引。</p>
-<p>优点：</p>
-<p>1.避免了回表操作。(回表操作：如果查询到的是主键，需要用主键再查一次表)</p>
+<p>实现：将非主键的列联合组成一个多字段的联合索引，那么这时候就不需要进行回表操作(通过主键索引去查找)，就能查询到所有的字段得到值。</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1gokf753apyj30n90et0v4.jpg" alt="image"></p>
+<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><p>1.避免了回表操作。(回表操作：如果查询到的是主键，需要用主键再查一次表)</p>
 <p>2.在只需要读取索引的情况下，覆盖索引的优势很大：占用空间比数据要小。</p>
 <p>3.覆盖索引按列值来顺序存储。I/O密集型的范围查询会比随机从磁盘里读取每一行的I/O次数少很多</p>
+<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><p>聚簇索引并不是一种特定的索引类型，而是一种数据的存储方式。</p>
 <h4 id="聚簇索引"><a href="#聚簇索引" class="headerlink" title="聚簇索引"></a>聚簇索引</h4><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gogc32nfsjj30nu0lrk27.jpg" alt="image"></p>
 <p>聚簇索引是一种存储结构。InnoDB在聚簇索引中存储了B-Tree索引和数据行。</p>
 <p>表内有聚簇索引时，数据行会放在索引的叶子节点。</p>
 <p>InnoDB默认使用主键来聚集数据。没有主键的话就用某一个非空列来替代；如果仍然没有的话，就隐式的定义一个主键来作为聚簇索引。</p>
-<p><strong>优点：</strong></p>
-<p>1.把具有相关性的数据保存在一起。例如按用户ID作为聚簇索引，可实现从磁盘读取少量的数据即可获得用户的邮件。</p>
+<p>InnoDB的主键索引和二级索引区别：</p>
+<p>1主键索引</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1goker0pd2cj308308dwff.jpg" alt="image"></p>
+<p>主键索引：通过唯一为空自增主键作为主键索引，也叫做聚簇索引。主键索引存的是字段的所有内容:主键ID以及其他所有数据。</p>
+<p>2.二级索引</p>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goketyv31uj307d08pgn1.jpg" alt="image"></p>
+<p>二级索引：非主键索引就是二级索引。二级索引存的是索引值和主键值。查询时先使用索引值进行查询，如果无法查询到对应的值，就要进行回表操作，通过主键索引来查询对应的字段。</p>
+<h5 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h5><p>1.把具有相关性的数据保存在一起。例如按用户ID作为聚簇索引，可实现从磁盘读取少量的数据即可获得用户的邮件。</p>
 <p>2.访问数据更快。因为数据存在和B+树的叶子节点</p>
 <p>3.聚簇索引存了数据行，所以使用聚簇索引查询时，可以直接使用其中的主键值。即能直接读取数据。</p>
-<p><strong>缺点：</strong></p>
-<p>1.插入速度依赖于插入的顺序。按住键插入的话速度最快。所以最好使用OPTIMIZE TABLE来重新组织表结构。</p>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><p>1.插入速度依赖于插入的顺序。按主键插入的话速度最快。所以最好使用OPTIMIZE TABLE来重新组织表结构。</p>
 <p>2.更新聚簇索引列的代价很高。会强制InnoDB将被更新的行移到新的位置。</p>
 <p>3.基于聚簇索引的表在插入新行，或者主键被更新需要移动时，可能存在页分裂的情况。</p>
 <p>4.聚簇索引可能导致全表扫描变慢，特别是当行比较稀疏，或由于页分裂导致数据存储不联系时。</p>
 <p>5.二级索引(非聚簇索引/辅助索引)的空间占用可能较大，因为二级索引叶子节点中包含主键列。</p>
 <p>6.二级索引访问需要两次索引查找而非一次。</p>
-<h5 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h5><h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><h3 id="上锁"><a href="#上锁" class="headerlink" title="上锁"></a>上锁</h3><p>InnoDB使用的是两阶段锁协议。</p>
+<h5 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h5><h3 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a>优化策略</h3><h4 id="独立的列"><a href="#独立的列" class="headerlink" title="独立的列"></a>独立的列</h4><p>查询语句应当选择独立的列，使得MySQL能解析语句并使用合适的索引进行查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user_id from scool.student where user_id + 1 &#x3D; 4</span><br></pre></td></tr></table></figure>
+
+<p>很明显可以用user_id = 3，但如果用上面的查询语句，那么mysql就无法使用引擎来优化查询，只能扫描整张表。</p>
+<h4 id="索引选择性"><a href="#索引选择性" class="headerlink" title="索引选择性"></a>索引选择性</h4><p>索引选择性：不重复的索引值（也称为基数，cardinality）和数据表的记录总数（#T）的比值，范围从1/#T到1之间。</p>
+<p>说人话，拿来做索引的列必须要有区分度，比如性别无非男女，拿来做索引区分度非常的低。</p>
+<h4 id="前缀索引"><a href="#前缀索引" class="headerlink" title="前缀索引"></a>前缀索引</h4><p>索引的字符长度不应该太长。比如名字可以有很多字符，需要作为索引时，可以适当的选择合适的长度。如果选择的长度非常长，会导致索引文件很大。</p>
+<h4 id="合适的索引列顺序"><a href="#合适的索引列顺序" class="headerlink" title="合适的索引列顺序"></a>合适的索引列顺序</h4><p>通过具体的业务逻辑来进行选择。因为B-tree索引是按照最左前缀顺序来查找的，所以列的顺序会直接影响索引的查询性能。</p>
+<h4 id="考虑聚簇索引的特性"><a href="#考虑聚簇索引的特性" class="headerlink" title="考虑聚簇索引的特性"></a>考虑聚簇索引的特性</h4><p>1.频繁变更的列不适合作为索引。每次更新，要保持b-tree的有序性， 需要的维护成本高。</p>
+<p>2.使用自增ID作为主键。B-tree叶子节点数据是按照主键的顺序来存放的，使用自增ID作为主键，那么添加数据时是要在B-tree的叶子节点尾部进行添加即可。如果超过了负载因子，那就开辟新的一页。</p>
+<h4 id="避免冗余和重复索引"><a href="#避免冗余和重复索引" class="headerlink" title="避免冗余和重复索引"></a>避免冗余和重复索引</h4><p>如果已经有了某个唯一key(name,age)，又新建一个key(name)，那么name这个列就重复了。</p>
+<h4 id="删除未使用的索引"><a href="#删除未使用的索引" class="headerlink" title="删除未使用的索引"></a>删除未使用的索引</h4><p>建表时可能需要某个字段作为条件进行查询，但不断迭代后可能不再需要，那么就应该将这个字段删除掉。</p>
+<h3 id="索引排序"><a href="#索引排序" class="headerlink" title="索引排序"></a>索引排序</h3><p>如何判断MySQL是否使用了索引进行排序？</p>
+<p>EXPLAIN的结果中，<strong>type类型为index</strong>，那么就是用了索引扫描来排序。</p>
+<h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><h3 id="上锁"><a href="#上锁" class="headerlink" title="上锁"></a>上锁</h3><p>InnoDB使用的是两阶段锁协议。</p>
 <h4 id="隐式锁定"><a href="#隐式锁定" class="headerlink" title="隐式锁定"></a>隐式锁定</h4><p>事务执行过程中，可以随时上锁。但是只有执行Commit或者RollBack的时候，才会释放锁。</p>
 <h4 id="显示锁定"><a href="#显示锁定" class="headerlink" title="显示锁定"></a>显示锁定</h4><p>使用sql语句控制。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> .... <span class="keyword">LOCK</span> <span class="keyword">IN</span> <span class="keyword">SHARE</span> <span class="keyword">MODE</span></span><br></pre></td></tr></table></figure>
@@ -1252,7 +1289,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">173.1k</span>&nbsp;字
+                class="white-color">174.4k</span>&nbsp;字
             
             
             
