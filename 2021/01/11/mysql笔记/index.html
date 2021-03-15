@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.5k
+                    5.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    19 分
                 </div>
                 
 
@@ -688,8 +688,52 @@
 <p>2.使用自增ID作为主键。B-tree叶子节点数据是按照主键的顺序来存放的，使用自增ID作为主键，那么添加数据时是要在B-tree的叶子节点尾部进行添加即可。如果超过了负载因子，那就开辟新的一页。</p>
 <h4 id="避免冗余和重复索引"><a href="#避免冗余和重复索引" class="headerlink" title="避免冗余和重复索引"></a>避免冗余和重复索引</h4><p>如果已经有了某个唯一key(name,age)，又新建一个key(name)，那么name这个列就重复了。</p>
 <h4 id="删除未使用的索引"><a href="#删除未使用的索引" class="headerlink" title="删除未使用的索引"></a>删除未使用的索引</h4><p>建表时可能需要某个字段作为条件进行查询，但不断迭代后可能不再需要，那么就应该将这个字段删除掉。</p>
-<h3 id="索引排序"><a href="#索引排序" class="headerlink" title="索引排序"></a>索引排序</h3><p>如何判断MySQL是否使用了索引进行排序？</p>
+<h3 id="索引扫描"><a href="#索引扫描" class="headerlink" title="索引扫描"></a>索引扫描</h3><p>如何判断MySQL是否使用了索引扫描进行排序？</p>
 <p>EXPLAIN的结果中，<strong>type类型为index</strong>，那么就是用了索引扫描来排序。</p>
+<p>索引的扫描是很快的，但是如果用于排序的话，如果不包含全部的字段，那么还是需要回表操作来慢慢查找。</p>
+<p>所以：</p>
+<p>1.只有当索引顺序和order by句子顺序一致时，并且所有列的方向都一样，才能使用索引来对排序进行扫描。</p>
+<p>2.查询关联多个表的时候，只有order by子句引用的字段全部为第一个表时，才能用索引扫描进行排序</p>
+<h2 id="查询优化"><a href="#查询优化" class="headerlink" title="查询优化"></a>查询优化</h2><h3 id="执行查询的流程"><a href="#执行查询的流程" class="headerlink" title="执行查询的流程"></a>执行查询的流程</h3><p>1.客户端发送一条查询请求给服务器</p>
+<p>2.服务器查询缓存。如果命中的话直接返回；如果没命中，进入到步骤3</p>
+<p>3.执行器执行SQL解析，包括词法分析和语法分析。</p>
+<p>4.优化器生成对应的执行步骤</p>
+<p>5.执行器根据执行步骤，调用引擎的API去执行任务</p>
+<p>6.将结果返回给客户端</p>
+<h3 id="查看执行计划-explain"><a href="#查看执行计划-explain" class="headerlink" title="查看执行计划(explain)"></a>查看执行计划(explain)</h3><p>EXPLAIN关键字，能对select关键字进行解析。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gokhx874ixj30n602tt96.jpg" alt="image"></p>
+<p>select type：查询的类型</p>
+<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gokib8quo7j30sa03paaf.jpg" alt="image"></p>
+<p>table：查询的表名</p>
+<p>partitions：匹配的分区</p>
+<p>type：join的类型</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1gokibrkp1cj30mb0hjgme.jpg" alt="image"></p>
+<p>possible_keys：本次查询可能用到的索引</p>
+<p>key：用到的索引</p>
+<p>key_len:表示查询优化器使用了索引的字节数</p>
+<p>ref：哪个字段或常数与key一起使用</p>
+<p>rows：扫描了多少行</p>
+<p>filtered: 表示此查询条件所过滤的数据的百分比</p>
+<p>extra: 额外的信息</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gokic7vd16j30mw0bawf6.jpg" alt="image"></p>
+<h3 id="设计Schema"><a href="#设计Schema" class="headerlink" title="设计Schema"></a>设计Schema</h3><h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h4><p>1.小。存储数据的数据类型刚好能满足数的类型即可。而INT类型代价比CHAR类型小，如果不是必要，可以选择INT类型</p>
+<p>2.尽量将数据设为NOT NULL。除非不是有必要，否则尽量将字段设为非空，能显著降低查询、索引等方面的开销。</p>
+<p>3.列不要设计得太多。</p>
+<h3 id="慢查询优化"><a href="#慢查询优化" class="headerlink" title="慢查询优化"></a>慢查询优化</h3><h4 id="基本查询语句"><a href="#基本查询语句" class="headerlink" title="基本查询语句"></a>基本查询语句</h4><p>1.查询已经执行成功的SQL</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;slow_query_log&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>2.查询慢查询的日志存放位置</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;slow_query_log_file&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>3.查看慢查询的时间</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;long_query_time&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1gokimrvebkj30fy042t96.jpg" alt="image"></p>
+<h4 id="优化前的判断逻辑"><a href="#优化前的判断逻辑" class="headerlink" title="优化前的判断逻辑"></a>优化前的判断逻辑</h4><h5 id="是否请求了多余的数据"><a href="#是否请求了多余的数据" class="headerlink" title="是否请求了多余的数据"></a>是否请求了多余的数据</h5><p>1.是否查询了不需要的数据。比如只需要某一列，却查询select *</p>
+<p>2.是否查询了大量的结果，最后只取一部分。比如网页的分页操作查询，只需要显示10条结果，却先查询了所有的分页信息，再取十条。解决方法：限定返回数量(使用 LIMIT)</p>
+<p>3.多表关联的查询，应当注意是否返回的是自己想要的结果，而不应该返回全部的数据。</p>
+<p>4.如果多次执行结果相同的查询语句，应该考虑将结果存在缓存中， 而不是一直在内存中查找。</p>
+<h5 id="是否扫描了多余的数据"><a href="#是否扫描了多余的数据" class="headerlink" title="是否扫描了多余的数据"></a>是否扫描了多余的数据</h5><p>判断指标：响应时间、扫描行数、返回行数</p>
 <h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><h3 id="上锁"><a href="#上锁" class="headerlink" title="上锁"></a>上锁</h3><p>InnoDB使用的是两阶段锁协议。</p>
 <h4 id="隐式锁定"><a href="#隐式锁定" class="headerlink" title="隐式锁定"></a>隐式锁定</h4><p>事务执行过程中，可以随时上锁。但是只有执行Commit或者RollBack的时候，才会释放锁。</p>
 <h4 id="显示锁定"><a href="#显示锁定" class="headerlink" title="显示锁定"></a>显示锁定</h4><p>使用sql语句控制。</p>
@@ -1289,7 +1333,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">174.4k</span>&nbsp;字
+                class="white-color">176.6k</span>&nbsp;字
             
             
             
