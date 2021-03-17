@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-15
+                    2021-03-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.3k
+                    5.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    21 分
                 </div>
                 
 
@@ -734,6 +734,30 @@
 <p>3.多表关联的查询，应当注意是否返回的是自己想要的结果，而不应该返回全部的数据。</p>
 <p>4.如果多次执行结果相同的查询语句，应该考虑将结果存在缓存中， 而不是一直在内存中查找。</p>
 <h5 id="是否扫描了多余的数据"><a href="#是否扫描了多余的数据" class="headerlink" title="是否扫描了多余的数据"></a>是否扫描了多余的数据</h5><p>判断指标：响应时间、扫描行数、返回行数</p>
+<p>优化方法：</p>
+<p>1.使用索引覆盖查询，将所有需要的列都加入到索引中，减少回表操作</p>
+<p>2.重写这个查询语句，即下面的重构查询</p>
+<p>3.改变库表的结构，使用单独的汇总表</p>
+<h3 id="重构查询"><a href="#重构查询" class="headerlink" title="重构查询"></a>重构查询</h3><h4 id="复杂查询还是多个简单查询"><a href="#复杂查询还是多个简单查询" class="headerlink" title="复杂查询还是多个简单查询"></a>复杂查询还是多个简单查询</h4><p>当有一个复杂的查询时，也可以考虑是否有必要将其优化成简单的子查询。适当的进行分析对比。</p>
+<h4 id="切分查询"><a href="#切分查询" class="headerlink" title="切分查询"></a>切分查询</h4><p>如果一次性查询的结果太多，可以考虑分而治之大的思想，一次查询一小部门，然后分多次查询，减小同一时间内MySQL的压力。</p>
+<p>典型的例子就是删除：</p>
+<p>​        例如需要删除一个月内的数据，这时候如果直接按日期<strong>一次性</strong>删除，那么就会需要阻塞其他的事务以及小型但是非常重要的查询，也会占用系统资源，写满事务日志。</p>
+<p>​        但是使用切分查询，即分而治之的思想，就能将服务器的压力分散的不同的时间段上。</p>
+<h4 id="分解关联查询"><a href="#分解关联查询" class="headerlink" title="分解关联查询"></a>分解关联查询</h4><p>多关联的查询语句分成多个不关联的查询语句，性能会更优。</p>
+<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gon52qr11pj30fa05mwfa.jpg" alt="image"></p>
+<p>原因：</p>
+<p>1.缓存的命中率更高。关联的表如果发生了变化，那么就无法使用查询缓存了；而对于不关联的表，如果只发生很小的变化，是可以使用查询缓存的。</p>
+<p>2.查询拆解后，能减少锁的竞争，从而能更快的执行</p>
+<p>3.查询效率本身也有可能因为查询语句的变化而得到优化，比如上面的in()，减少了mysql的查询次数。</p>
+<p>4.减少冗余记录的查询。例如在应用层做关联查询的时候，某条记录只需查询一次，而在数据库中做关联查询，是需要对某些数据做非常多次的查询。</p>
+<h3 id="执行查询相关的基础知识"><a href="#执行查询相关的基础知识" class="headerlink" title="执行查询相关的基础知识"></a>执行查询相关的基础知识</h3><p>查询过程：</p>
+<p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1gon5u1zdw7j30ii0edq5p.jpg" alt="image"></p>
+<p>1.客户端发送查询请求</p>
+<p>2.缓存中查询是否发生命中。命中的话就直接返回</p>
+<p>3.sql进入到解析器与预处理器</p>
+<p>4.进入到查询优化器，得到查询执行方案</p>
+<p>5.进入到查询的执行引擎执行查询计划</p>
+<p>6.返回结果</p>
 <h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><h3 id="上锁"><a href="#上锁" class="headerlink" title="上锁"></a>上锁</h3><p>InnoDB使用的是两阶段锁协议。</p>
 <h4 id="隐式锁定"><a href="#隐式锁定" class="headerlink" title="隐式锁定"></a>隐式锁定</h4><p>事务执行过程中，可以随时上锁。但是只有执行Commit或者RollBack的时候，才会释放锁。</p>
 <h4 id="显示锁定"><a href="#显示锁定" class="headerlink" title="显示锁定"></a>显示锁定</h4><p>使用sql语句控制。</p>
@@ -1333,7 +1357,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">176.6k</span>&nbsp;字
+                class="white-color">70.1k</span>&nbsp;字
             
             
             

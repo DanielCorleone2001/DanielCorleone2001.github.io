@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="秒杀系统笔记, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="Java虚拟机, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>秒杀系统笔记 | Welcome to Daniel&#39;s Blog !</title>
+    <title>Java虚拟机 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">秒杀系统笔记</h1>
+                    <h1 class="description center-align post-title">Java虚拟机</h1>
                 </div>
             </div>
         </div>
@@ -409,8 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F/">
-                                <span class="chip bg-color">秒杀系统</span>
+                            <a href="/tags/JAVA/">
+                                <span class="chip bg-color">JAVA</span>
+                            </a>
+                        
+                            <a href="/tags/JVM/">
+                                <span class="chip bg-color">JVM</span>
                             </a>
                         
                     </div>
@@ -421,8 +425,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                秒杀系统
+                            <a href="/categories/JAVA/" class="post-category">
+                                JAVA
+                            </a>
+                        
+                            <a href="/categories/JAVA/JVM/" class="post-category">
+                                JVM
                             </a>
                         
                     </div>
@@ -434,28 +442,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-08
+                    2021-03-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-09
+                    2021-03-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    50
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -475,18 +483,218 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><h3 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h3><p>1.Springboot</p>
-<p>2.JSR303</p>
-<p>3.MyBatis</p>
-<h3 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h3><p>1.RabbitMQ</p>
-<p>2.Redis</p>
-<p>3.Druid</p>
-<h2 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h2><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goctlzlgdvj30k60ct435.jpg" alt="image"></p>
-<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000022404396">分布式会话</a>：</p>
-<p>系统压测：使用JMeter</p>
-<p>缓存优化：Redis</p>
-<p>消息队列：RabbitMQ</p>
-<p>接口安全：</p>
+                <h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>线程占用</th>
+<th>是否会OOM</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>方法区</td>
+<td>所有线程共享</td>
+<td>会</td>
+</tr>
+<tr>
+<td>堆内存</td>
+<td>所有线程共享</td>
+<td>会</td>
+</tr>
+<tr>
+<td>虚拟机栈</td>
+<td>线程私有</td>
+<td>会</td>
+</tr>
+<tr>
+<td>本地方法栈</td>
+<td>线程私有</td>
+<td>会</td>
+</tr>
+<tr>
+<td>程序计数器</td>
+<td>线程私有</td>
+<td>不会</td>
+</tr>
+</tbody></table>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>存储：记录此线程执行到的字节码的地址。</p>
+<p>作用：<strong>记录当前指令的位置</strong>，当发生循环，跳转等功能时，需要通过程序计数器来<strong>找到原来发生切换前所执行的指令的地址</strong></p>
+<table>
+<thead>
+<tr>
+<th>线程正在执行的方法</th>
+<th>程序技术器存放的内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Java方法</td>
+<td>字节码指令的地址</td>
+</tr>
+<tr>
+<td>本地方法(Native方法)</td>
+<td>空</td>
+</tr>
+</tbody></table>
+<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4><p>Java方法被执行时，虚拟机栈会创建一个<strong>栈帧</strong>，存放局部变量表，操作数栈，动态连接，方法出口等。</p>
+<table>
+<thead>
+<tr>
+<th>栈帧存放内容</th>
+<th>里面的具体内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>局部变量表</td>
+<td>基本数据类型、引用数据类型的<strong>指针</strong>，returnAddress类型(指向了一条字节码的地址)</td>
+</tr>
+<tr>
+<td>操作数栈</td>
+<td>需要操作的数据</td>
+</tr>
+<tr>
+<td>动态连接</td>
+<td></td>
+</tr>
+<tr>
+<td>方法出口</td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>局部变量表的内容</th>
+<th>存放的类型</th>
+<th>个数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>short</td>
+<td>局部变量槽(Slot)</td>
+<td>1个slot</td>
+</tr>
+<tr>
+<td>int</td>
+<td>slot</td>
+<td>1</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>slot</td>
+<td>1</td>
+</tr>
+<tr>
+<td>long</td>
+<td>slot</td>
+<td>2</td>
+</tr>
+<tr>
+<td>double</td>
+<td>slot</td>
+<td>2</td>
+</tr>
+<tr>
+<td>…</td>
+<td>slot</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>除了long和double占用两个slot(局部变量槽)。</p>
+<p>之所以叫做栈帧，是因为java方法执行的过程，就对应一个栈帧从入栈再到弹出栈的过程。</p>
+<table>
+<thead>
+<tr>
+<th>溢出类型</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OutOfStackMemory</td>
+<td>线程申请的栈深度大于虚拟机所允许的最大深度</td>
+</tr>
+<tr>
+<td>OutOfMemory</td>
+<td>栈容量动态扩容，扩容申请不到足够的容量就会发生</td>
+</tr>
+</tbody></table>
+<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><table>
+<thead>
+<tr>
+<th>栈类型</th>
+<th>运行的内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>虚拟机栈</td>
+<td>Java方法</td>
+</tr>
+<tr>
+<td>本地方法栈</td>
+<td>Native方法</td>
+</tr>
+</tbody></table>
+<p>Native方法，简单来说就是不调用java方法接口的方法，可以是c语言的方法。</p>
+<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p>存放内容：<strong>对象实例</strong></p>
+<p>java中的对象在实例化后申请内存就是在堆中申请内存。</p>
+<p>抛出错误：OutOfMemoryError，在对象申请内存无法满足时就会抛出。</p>
+<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>存放的内容：</p>
+<p>1.常量</p>
+<p>2.静态变量</p>
+<p>3.编译后的代码</p>
+<h2 id="HotSpot"><a href="#HotSpot" class="headerlink" title="HotSpot"></a>HotSpot</h2><p>HotSpot是常用的虚拟机。</p>
+<h3 id="对象创建的过程"><a href="#对象创建的过程" class="headerlink" title="对象创建的过程"></a>对象创建的过程</h3><p>1.遇到new指令，去常量池定位到类的符号引用(符号引用即用用字符串符号的形式来表示引用，被引用的类、方法或者变量还<strong>没有被加载到内存中</strong>。直接引用则是有具体引用地址的指针，被引用的类、方法或者变量<strong>已经被加载到内存中</strong>)</p>
+<p>2.检查类的符号引用所代表的类，<strong>是否被加载，解析，初始化</strong>。如果没有，就要进行类加载</p>
+<p>3.完成类加载的检查后，在<strong>堆</strong>中为新生的对象分配内存。</p>
+<p><strong>分配内存的方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>收集器</th>
+<th>分配方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Serial</td>
+<td>指针碰撞</td>
+</tr>
+<tr>
+<td>ParNew</td>
+<td>指针碰撞</td>
+</tr>
+<tr>
+<td>使用CMS算法的收集器</td>
+<td>空闲列表</td>
+</tr>
+</tbody></table>
+<p><strong>指针碰撞：</strong>将已分配和未分配的内存，通过<strong>指针化成两部分</strong>，分配内存时，通过移动指针即可实现</p>
+<p><strong>空闲列表：</strong>维护一个空闲表，类似于操作系统的页表，记录哪些是可用的。</p>
+<p><strong>分配内存的并发性</strong></p>
+<p>分配内存还要考虑并发的安全性！否则可能会出现：A线程申请某一块内存还没来得及确认，B线程马上使用这块内存，这就会导致A线程创建对象失败</p>
+<p>解决方法：</p>
+<p>​    1.CAS(compare and swap)+失败重试。</p>
+<p>​    2.在TLAB中申请内存。具体过程：每个线程都有一个叫做本地线程分配缓冲的区域，是线程初始化时，从堆中获取到的一小部门内存。线程创建对象需要申请内存，首先在TLAB中申请内存，只有当TLAB中无可用空间时，才会在堆中进行同步操作来申请内存。</p>
+<p>4.将申请到的内存空间初始化为零值。目的：对象申请后，其中的实例字段即使对象未初始化也能使用。如果使用TLAB来申请内存时，在TLAB中就可以提前进行该初始化操作。</p>
+<p>5.初始化对象的属性值。</p>
+<table>
+<thead>
+<tr>
+<th>初始化的类型</th>
+<th>简要描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所属的类</td>
+<td>创建的对象，是哪个类的实例</td>
+</tr>
+<tr>
+<td>哈希码</td>
+<td>对象的哈希码，用于快速寻找到对象，在判断对象是否相等时会用到</td>
+</tr>
+<tr>
+<td>分代信息</td>
+<td>对象被分配到了新生代还是老年代</td>
+</tr>
+</tbody></table>
 
                 
             </div>
@@ -513,7 +721,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/08/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/">http://example.com/2021/03/08/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/</a>
+                    <a href="http://example.com/2021/03/17/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">http://example.com/2021/03/17/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -551,8 +759,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F/">
-                                    <span class="chip bg-color">秒杀系统</span>
+                                <a href="/tags/JAVA/">
+                                    <span class="chip bg-color">JAVA</span>
+                                </a>
+                            
+                                <a href="/tags/JVM/">
+                                    <span class="chip bg-color">JVM</span>
                                 </a>
                             
                         </div>
@@ -768,17 +980,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/08/%E7%AE%97%E6%B3%95%E7%AA%81%E5%87%BB/">
+                <a href="/2021/03/17/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="算法知识点">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Java虚拟机">
                         
-                        <span class="card-title">算法知识点</span>
+                        <span class="card-title">Java虚拟机</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -788,34 +1001,35 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    计算机基础
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
                                 </a>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/JAVA/JVM/" class="post-category">
+                                    JVM
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/JAVA/">
+                        <span class="chip bg-color">JAVA</span>
                     </a>
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">计算机基础</span>
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -829,13 +1043,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
+                <a href="/2021/03/14/Linux%E5%91%BD%E4%BB%A4/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="操作系统知识点">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Linux命令">
                         
-                        <span class="card-title">操作系统知识点</span>
+                        <span class="card-title">Linux命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -846,18 +1060,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/" class="post-category">
-                                    面试突击
-                                </a>
-                            
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    计算机基础
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -867,12 +1077,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">操作系统</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">计算机基础</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -1075,7 +1281,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">176.6k</span>&nbsp;字
+                class="white-color">70.1k</span>&nbsp;字
             
             
             
