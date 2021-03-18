@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux命令, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="并发, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux命令 | Welcome to Daniel&#39;s Blog !</title>
+    <title>并发 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux命令</h1>
+                    <h1 class="description center-align post-title">并发</h1>
                 </div>
             </div>
         </div>
@@ -409,8 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/JAVA/">
+                                <span class="chip bg-color">JAVA</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B9%B6%E5%8F%91/">
+                                <span class="chip bg-color">并发</span>
                             </a>
                         
                     </div>
@@ -421,8 +425,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/JAVA/" class="post-category">
+                                JAVA
+                            </a>
+                        
+                            <a href="/categories/JAVA/%E5%B9%B6%E5%8F%91/" class="post-category">
+                                并发
                             </a>
                         
                     </div>
@@ -434,28 +442,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-14
+                    2021-03-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-14
+                    2021-03-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    720
+                    150
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -475,54 +483,34 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="文件管理指令"><a href="#文件管理指令" class="headerlink" title="文件管理指令"></a>文件管理指令</h2><p>ls：展示当前目录的文件</p>
-<p>cd 路径：进入到某个文件路径</p>
-<p>touch 文件名 ：创建某个文件</p>
-<p>rm：删除普通文件</p>
-<p>rm -r：删除某文件，并且该文件下的文件也全都删除</p>
-<p>rm -rf：删除某文件，其子目录也会全部删除，即使文件类型为只读也会被删掉</p>
-<p>mkdir 文件夹名：创建文件夹</p>
-<p>mv 文件名1 文件名2/某路径 ：将文件名1重新命名成文件名2；或者是将文件名1的文件移动到某路径下</p>
-<p>cp sourceFile destinationDirectory：将源文件复制到目标文件夹</p>
-<p>cp -r sourceDirectory/  destinationDirectory：将，源文件夹下的所有文件都复制到目标文件夹下</p>
-<p>rmdir directory：删除掉文件目录</p>
-<p>find fileName：查找文件名为？？的文件</p>
-<p>pwd：显示当前目录的绝对路径</p>
-<p>vim：文本编辑器</p>
-<p>whereis  ？？：搜索？？所在的路径</p>
-<p>more：显示文件内容，按回车会显示下一行，结束之后自动回到命令行</p>
-<p>less：显示文件内容，按回车会是下一行，按q会退出</p>
-<p>cat：显示文件的所有内容，而且会直接退回命令行，所以能看到末尾的内容，想看往上的需要自己滑动光标</p>
-<p>head：显示文件前面部分的一些内容</p>
-<h2 id="权限管理指令"><a href="#权限管理指令" class="headerlink" title="权限管理指令"></a>权限管理指令</h2><p>chmod：change mode,修改文件权限</p>
-<p>chown：change own 修改文件的拥有者</p>
-<h2 id="系统管理指令"><a href="#系统管理指令" class="headerlink" title="系统管理指令"></a>系统管理指令</h2><p>top：动态显示进程的信息和系统运行的统计信息</p>
-<p>free：查看系统的总内存，已使用内存，缓存等</p>
-<p>ipcs：查看系统的消息队，信号量，共享内存</p>
-<p>lsof：list open file，展示系统当前打开的所有文件描述符号</p>
-<p>mpstat：查看cpu的使用情况</p>
-<p>vmstat：查看输出系统的资源使用情况</p>
-<h2 id="进程管理指令"><a href="#进程管理指令" class="headerlink" title="进程管理指令"></a>进程管理指令</h2><p>ps：显示进程的信息。</p>
-<p>ps -e：显示所有进程</p>
-<p>ps -f：按格式展示进程</p>
-<p>kill pid：pid为进程号。杀死进程</p>
-<p>kill -9 pid：强制杀死进程</p>
-<p>kill -stop pid：挂起进程</p>
-<p>jobs：显示后台正在挂起的进程</p>
-<p>pstree：按树状的形式显示进程</p>
-<p>bg：后台运行挂起的进程</p>
-<p>fg：前台运行挂起的进程</p>
-<h2 id="网络通讯指令"><a href="#网络通讯指令" class="headerlink" title="网络通讯指令"></a>网络通讯指令</h2><p>ping：测试网络的连通性。发送ICMP报文</p>
-<p>ifconfig：查看网络的相关信息</p>
-<p>netstat：显示网络的状态。</p>
-<p>netstat -a：查看所有正在连接的socket</p>
-<p>tcpdump：显示tcp包的信息</p>
-<h2 id="文件压缩指令"><a href="#文件压缩指令" class="headerlink" title="文件压缩指令"></a>文件压缩指令</h2><p>tail：显示文件后面部门的一些内容</p>
-<p>tar -zxvf：解压文件名为**.tar.gz的文件到某个路径下</p>
-<p>tar -xvf：解压tar包</p>
-<p>tar文件只是将文件打包，文件大小没得到压缩。tar.gz确确实实压缩了文件的大小</p>
-<p>tar -xjvf：解压tar.bz2</p>
-<p>tar -xZvf：解压tar.Z文件</p>
+                <h2 id="Synchronized"><a href="#Synchronized" class="headerlink" title="Synchronized"></a>Synchronized</h2><p>作用：保证互斥性。</p>
+<table>
+<thead>
+<tr>
+<th>作用的对象</th>
+<th>锁</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>静态方法</td>
+<td>该静态方法的类的锁</td>
+</tr>
+<tr>
+<td>实例方法</td>
+<td>实例方法对象的锁</td>
+</tr>
+<tr>
+<td>实例对象</td>
+<td>实例对象的锁</td>
+</tr>
+<tr>
+<td>class对象</td>
+<td>类的锁</td>
+</tr>
+</tbody></table>
+<p>锁指的是，被synchronized修饰后，需要获得的锁的类型，才能访问。</p>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>从汇编的代码来看，执行synchronized之前使用了monitorenter执行，执行结束后使用monitorexit指令。</p>
+<p>并且，synchronized具有<strong>可重入性</strong>，获得了某方法的锁，该方法中还需要相同的锁才能进入时，不需要再获得该锁。</p>
 
                 
             </div>
@@ -549,7 +537,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/14/Linux%E5%91%BD%E4%BB%A4/">http://example.com/2021/03/14/Linux%E5%91%BD%E4%BB%A4/</a>
+                    <a href="http://example.com/2021/03/18/%E5%B9%B6%E5%8F%91/">http://example.com/2021/03/18/%E5%B9%B6%E5%8F%91/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -587,8 +575,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/JAVA/">
+                                    <span class="chip bg-color">JAVA</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B9%B6%E5%8F%91/">
+                                    <span class="chip bg-color">并发</span>
                                 </a>
                             
                         </div>
@@ -804,9 +796,68 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/03/18/%E5%B9%B6%E5%8F%91/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="并发">
+                        
+                        <span class="card-title">并发</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category">
+                                    JAVA
+                                </a>
+                            
+                            <a href="/categories/JAVA/%E5%B9%B6%E5%8F%91/" class="post-category">
+                                    并发
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JAVA/">
+                        <span class="chip bg-color">JAVA</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B9%B6%E5%8F%91/">
+                        <span class="chip bg-color">并发</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/03/17/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">
                     <div class="card-image">
@@ -824,9 +875,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -852,63 +903,6 @@
                     
                     <a href="/tags/JVM/">
                         <span class="chip bg-color">JVM</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E7%AA%81%E5%87%BB/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="计算机网络知识点">
-                        
-                        <span class="card-title">计算机网络知识点</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
-                                    计算机网络
-                                </a>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    计算机基础
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">计算机网络</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">计算机基础</span>
                     </a>
                     
                 </div>
