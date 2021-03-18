@@ -456,14 +456,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    14 分
                 </div>
                 
 
@@ -754,7 +754,9 @@
 <p><img src="https://tva3.sinaimg.cn/large/0085EwgIly1gonwefvx73j30kh09fgnd.jpg" alt="image"></p>
 <p>**优点:**一次访问即可获取到对象。</p>
 <p><strong>缺点：</strong>维护对象的成本很高：对象地址发生变化时，在堆中需要进行很多操作。</p>
-<h2 id="对象存活"><a href="#对象存活" class="headerlink" title="对象存活"></a>对象存活</h2><h3 id="对象存活的判断过程"><a href="#对象存活的判断过程" class="headerlink" title="对象存活的判断过程"></a>对象存活的判断过程</h3><h3 id="对象存活判断方法"><a href="#对象存活判断方法" class="headerlink" title="对象存活判断方法"></a>对象存活判断方法</h3><h4 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h4><p><strong>原理：</strong>为每个对象都添加一个引用计数器，每出现一个地方引用了该对象，就让引用计数器加一。</p>
+<h2 id="对象存活"><a href="#对象存活" class="headerlink" title="对象存活"></a>对象存活</h2><h3 id="对象存活的判断过程"><a href="#对象存活的判断过程" class="headerlink" title="对象存活的判断过程"></a>对象存活的判断过程</h3><p>1.进行第一次可达性分析，标记可能需要杀死的对象</p>
+<p>2.对标记的对象进行筛选，看是否被覆盖了finalize()方法</p>
+<h3 id="对象存活判断方法"><a href="#对象存活判断方法" class="headerlink" title="对象存活判断方法"></a>对象存活判断方法</h3><h4 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h4><p><strong>原理：</strong>为每个对象都添加一个引用计数器，每出现一个地方引用了该对象，就让引用计数器加一。</p>
 <p><strong>优点：</strong>实现简单，逻辑清晰</p>
 <p><strong>缺点：</strong>容易发生互相引用，从而出现垃圾收集器无法回收这两个对象的现象。</p>
 <h4 id="可达性分析"><a href="#可达性分析" class="headerlink" title="可达性分析"></a>可达性分析</h4><p><strong>原理：</strong>将根对象作为GC Root，作为起始节点，有引用关系的就加一个<strong>引用链</strong>。当需要判断对象是否存活时，只需要判断该对象是否有从它本身到GC Root的引用链。如果没有，就成为不可达，可以被回收。</p>
@@ -799,6 +801,118 @@
 <p><strong>回收时机：</strong>下一次垃圾回收到来时，一定要将对象进行回收。</p>
 <p>可见弱引用是比软引用，引用关系更低级的。</p>
 <h3 id="虚引用"><a href="#虚引用" class="headerlink" title="虚引用"></a>虚引用</h3><p><strong>作用：</strong>对象是否存在虚引用，完全不影响它的存活时间。它的作用只不过是，在对象被垃圾收集器回收时，能收到一个系统通知</p>
+<h2 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h2><h3 id="分代理论引申"><a href="#分代理论引申" class="headerlink" title="分代理论引申"></a>分代理论引申</h3><p>将java堆分成新生代和老年代，分配原则：熬过垃圾收集次数多的就会进入老年代。</p>
+<p>分代的优点：每次收集时，只需要收集新生代，熬过的放入老年代即可。那么收集的效率会高很多。</p>
+<h4 id="记忆集"><a href="#记忆集" class="headerlink" title="记忆集"></a>记忆集</h4><p>定义：是一种全局的数据结构，将老年代划分成了很多小块，标记哪些块存在着跨代引用。</p>
+<p>作用：在发生**新生代收集(Minor GC)**时，从记忆集中寻找存在跨代引用的对象进行可达性分析，用于判断是否需要进行收集。</p>
+<p>优点：在发生Minor GC时，如果存在新生代引用老年代，不需要再全部扫描老年代，而是通过查看记忆集就行了。对于新增的内存开销，是值得的。</p>
+<h4 id="GC分类"><a href="#GC分类" class="headerlink" title="GC分类"></a>GC分类</h4><table>
+<thead>
+<tr>
+<th>部分收集(Partial GC)</th>
+<th>全部收集</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Minor GC：新生代收集</td>
+<td>Full GC：收集整个java堆和方法区</td>
+</tr>
+<tr>
+<td>Major GC：老年代收集</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记-清除法"><a href="#标记-清除法" class="headerlink" title="标记-清除法"></a>标记-清除法</h4><p><strong>过程：</strong>标记所有需要回收的对象，在垃圾回收到来时，回收被标记的对象</p>
+<p><strong>缺点：</strong></p>
+<p>1.<strong>效率低</strong>。JAVA堆中对象过多时，标记和清除的效率都很低</p>
+<p>2.会<strong>产生很多内存碎片</strong>。内存空间不连续，导致大对象无法分配内存空间。</p>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIly1goo9t2jd3oj30m00ce40c.jpg" alt="image"></p>
+<h4 id="标记-复制法"><a href="#标记-复制法" class="headerlink" title="标记-复制法"></a>标记-复制法</h4><p><strong>过程：</strong>将内存分成两半，只使用其中的半内存，标记存活的对象，在一般内存满的时候，复制存活的对象到另一半空闲的内存，然后将现在的内存全都释放。</p>
+<p><strong>优点：</strong>避免产生内存碎片</p>
+<p><strong>缺点：</strong></p>
+<p>1.<strong>空间利用率低</strong>，只用了一半</p>
+<p>2.当多数对象存活时，<strong>复制的开销会很大</strong></p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIly1goo9x95g3qj30m10cgq4p.jpg" alt="image"></p>
+<h4 id="标记-整理法"><a href="#标记-整理法" class="headerlink" title="标记-整理法"></a>标记-整理法</h4><p><strong>过程：</strong>标记存活的对象，垃圾收集掉不存活的对象时，将存活的对象往内存的同一端移动。</p>
+<p>优点：内存碎片消除。</p>
+<p>缺点：移动存活的对象，尤其是老年代，这开销非常庞大，同时需要<strong>停止用户所有的程序</strong>，也就是<strong>stop the world</strong>。</p>
+<h2 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h2><h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>单线程的收集器，在发生垃圾收集的时候，会导致<strong>Stop the World</strong> ！！</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIly1gooaare9c7j30lx05lgnp.jpg" alt="image"></p>
+<h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>多线程版本的Serial收集器。</p>
+<p>多线程：指的是多线程的进行垃圾回收，还是<strong>会导致Stop the World</strong>。</p>
+<p><strong>约束：必须配合CMS收集器使用</strong></p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIly1gooab69qhsj30lv05yaca.jpg" alt="image"></p>
+<h3 id="Parallel-Scavenge收集器"><a href="#Parallel-Scavenge收集器" class="headerlink" title="Parallel Scavenge收集器"></a>Parallel Scavenge收集器</h3><p>多线程的进行垃圾回收。但它的特别点在于关注<strong>吞吐量</strong></p>
+<p>吞吐量 = 用户代码运行时间/ (用户代码运行时间+垃圾回收时间)</p>
+<p>能控制的参数：</p>
+<p>1.新生代的内存大小。这个大小如果过大，就会导致垃圾回收比较慢；过小，导致垃圾回收会很频繁。</p>
+<p>2.垃圾回收占总时间的比率。</p>
+<h3 id="Serial-Old收集器"><a href="#Serial-Old收集器" class="headerlink" title="Serial Old收集器"></a>Serial Old收集器</h3><p>Serial收集器的老年代版本，是单线程收集器，使用<strong>标记-整理算法</strong></p>
+<p><img src="https://tvax3.sinaimg.cn/large/0085EwgIly1gooaje0nq3j30m904r75j.jpg" alt="image"></p>
+<h3 id="Parallel-Old收集器"><a href="#Parallel-Old收集器" class="headerlink" title="Parallel Old收集器"></a>Parallel Old收集器</h3><p>Parallel Scavenge的老年代版本，是多线程收集器，使用<strong>标记-整理算法</strong></p>
+<p>作用：<strong>和Parallel Scavenge配合使用</strong></p>
+<p><img src="https://tvax1.sinaimg.cn/large/0085EwgIly1gooalh7956j30ly06ytap.jpg" alt="image"></p>
+<h3 id="CMS收集器"><a href="#CMS收集器" class="headerlink" title="CMS收集器"></a>CMS收集器</h3><p><strong>目的：</strong>追求<strong>最短回收停顿</strong>的收集器。</p>
+<p><strong>收集算法：标记-清除</strong></p>
+<p>步骤：<strong>初始标记</strong>-&gt;<strong>并发标记</strong>-&gt;<strong>重新标记</strong>-&gt;<strong>并发清除</strong></p>
+<table>
+<thead>
+<tr>
+<th>步骤名</th>
+<th>目的</th>
+<th>是否StopTheWorld</th>
+<th>下一步</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初始标记</td>
+<td>标记GC Root能到达的对象</td>
+<td>是</td>
+<td>并发标记</td>
+</tr>
+<tr>
+<td>并发标记</td>
+<td>从GC Root<strong>直接关联的对象</strong>进行遍历，标记被关联的对象</td>
+<td>否</td>
+<td>重新标记</td>
+</tr>
+<tr>
+<td>重新标记</td>
+<td>消除掉并发标记过程中，因用户线程改变而使引用状态发生变化的对象</td>
+<td>是</td>
+<td>并发消除</td>
+</tr>
+<tr>
+<td>并发消除</td>
+<td>并发的清除掉被标记的对象</td>
+<td>否</td>
+<td>无</td>
+</tr>
+</tbody></table>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIly1gooas9tssqj30m405hq5l.jpg" alt="image"></p>
+<p><strong>缺点：</strong></p>
+<p>1.<strong>对CPU资源敏感</strong>。由于分配了一部分线程进行并发标记和并发清除，因此用户的直观感觉会是速度较慢</p>
+<p>2.<strong>无法处理浮动垃圾</strong>。浮动垃圾：在并发标记阶段产生的垃圾，CMS是无法在这次收集中处理，只能等待下一次垃圾收集。</p>
+<p>3.<strong>会产生内存碎片。</strong>因为它用的是标记-清除算法，会产生内存碎片，严重时会导致Full GC。</p>
+<h3 id="Garbage-First收集器"><a href="#Garbage-First收集器" class="headerlink" title="Garbage First收集器"></a>Garbage First收集器</h3><p>不想写了。我是懒狗</p>
+<h2 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h2><p><strong>含义：</strong>JVM将类的数据从Class文件加载到内存，对数据进行校验，初始化，最后形成能被JVM加载的Java类型的过程，就是类加载。</p>
+<p>过程：<strong>加载-&gt;验证-&gt;准备&gt;&gt;解析-&gt;初始化-&gt;使用-&gt;卸载</strong></p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIly1goobdj2cp7j30qw0a8jtu.jpg" alt="image"></p>
+<h3 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h3><h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><p>任务：</p>
+<p>1.通过类的全限定名来<strong>获取类的二进制字节流</strong></p>
+<p>2.将<strong>字节流代表的静态存储结构</strong>，<strong>转成方法区中的数据结构</strong></p>
+<p>3.在内存中生成java.lang.Class对象，是方法区的各种数据的访问入口</p>
+<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>确保Class文件的字节流是否符合约束要求，保证代码运行后不会危害虚拟机的安全</p>
+<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>为类中的<strong>变量分配内存</strong>，并对其进行<strong>初始化</strong>。</p>
+<h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>将<strong>常量池中的符号引用</strong>改成<strong>直接引用</strong>。</p>
+<p>目的：能直接指向目标，或者定位到目标。</p>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>初始化阶段就是执行类构造器()方法的过程。</p>
+<p>具体内容待补充。为什么？因为我是懒狗 ：）</p>
+<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>类加载器，就是要完成上面所提到的加载过程：通过类的全限定名，将其转成二进制字节流。</p>
+<h4 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h4><p><img src="https://tvax4.sinaimg.cn/large/0085EwgIly1goocd38moij30fo0e7n02.jpg" alt="image"></p>
+<p><strong>双亲委派模型的加载过程：</strong>当一个类加载器收到类加载的请求，它不会马上继续类加载，而是委派更上层的类加载器去完成加载请求，直到传到顶层的启动类加载器。如果父加载器无法完成请求，他才会自己去加载请求。</p>
+<p><strong>优点：</strong></p>
+<p>​        将java的类赋予了层级关系，从而使得java库中的类不管怎么加载都是唯一的。(意思就是说，比如Object类最终一定要进入到启动类加载器进行加载，保证了不同加载器的Object类是唯一的。如果不使用双亲委派模型，用户自己编写Object类，这时候不进入到启动类加载器进行加载，得到的Object类就是千奇百怪，那么原生的功能就无法使用了)</p>
 
                 
             </div>
@@ -1385,7 +1499,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.3k</span>&nbsp;字
+                class="white-color">73.1k</span>&nbsp;字
             
             
             
