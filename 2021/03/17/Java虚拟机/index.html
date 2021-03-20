@@ -449,7 +449,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-18
+                    2021-03-19
                 </div>
                 
 
@@ -836,7 +836,8 @@
 <h4 id="标记-整理法"><a href="#标记-整理法" class="headerlink" title="标记-整理法"></a>标记-整理法</h4><p><strong>过程：</strong>标记存活的对象，垃圾收集掉不存活的对象时，将存活的对象往内存的同一端移动。</p>
 <p>优点：内存碎片消除。</p>
 <p>缺点：移动存活的对象，尤其是老年代，这开销非常庞大，同时需要<strong>停止用户所有的程序</strong>，也就是<strong>stop the world</strong>。</p>
-<h2 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h2><h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>单线程的收集器，在发生垃圾收集的时候，会导致<strong>Stop the World</strong> ！！</p>
+<h2 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h2><p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gooy6ddkqqj30nw0h9dha.jpg" alt="image"></p>
+<h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>单线程的收集器，在发生垃圾收集的时候，会导致<strong>Stop the World</strong> ！！</p>
 <p><img src="https://tva2.sinaimg.cn/large/0085EwgIly1gooaare9c7j30lx05lgnp.jpg" alt="image"></p>
 <h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>多线程版本的Serial收集器。</p>
 <p>多线程：指的是多线程的进行垃圾回收，还是<strong>会导致Stop the World</strong>。</p>
@@ -1497,7 +1498,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.2k</span>&nbsp;字
+                class="white-color">43.6k</span>&nbsp;字
             
             
             

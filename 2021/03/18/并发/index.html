@@ -449,21 +449,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-18
+                    2021-03-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    150
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -509,9 +509,89 @@
 </tr>
 </tbody></table>
 <p>锁指的是，被synchronized修饰后，需要获得的锁的类型，才能访问。</p>
-<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>从汇编的代码来看，执行synchronized之前使用了monitorenter执行，执行结束后使用monitorexit指令。</p>
+<h3 id="实现原理：Monitor"><a href="#实现原理：Monitor" class="headerlink" title="实现原理：Monitor"></a>实现原理：Monitor</h3><p>从汇编的代码来看，执行synchronized之前使用了monitorenter执行，执行结束后使用monitorexit指令。</p>
 <p>并且，synchronized具有<strong>可重入性</strong>，获得了某方法的锁，该方法中还需要相同的锁才能进入时，不需要再获得该锁。</p>
-
+<p><strong>说明：</strong>Monitor是重量级锁，是依赖于操作系统的Mutex Lock实现。而操作系统进行线程的切换，需要从用户态进入到核心态，开销非常大。</p>
+<h2 id="Volatile"><a href="#Volatile" class="headerlink" title="Volatile"></a>Volatile</h2><p>保证线程对于变量的<strong>可见性</strong>(线程A修改了某个值，线程B一定会看到的是修改后的值)。</p>
+<h3 id="实现原理：Lock指令"><a href="#实现原理：Lock指令" class="headerlink" title="实现原理：Lock指令"></a>实现原理：Lock指令</h3><p>变量使用volatile修饰时，在汇编的层面，加了一个<strong>Lock前缀指令</strong>。</p>
+<h4 id="Lock指令"><a href="#Lock指令" class="headerlink" title="Lock指令"></a>Lock指令</h4><p>Lock指令的作用：</p>
+<p>1.强制将当前处理器的缓存行内容写入到内存</p>
+<p>2.写回操作，会使得其他处理器缓存了该变量内存地址的缓存行<strong>失效</strong></p>
+<p>要让<strong>缓存行失效的原因</strong>：虽然写回了内存，但其他CPU中的缓存行，存的数据不是修改后的值。为了保证<strong>缓存一致性</strong>，每个CPU都要检测总线上传播的数据，检查自己的数据是否已经过期。如果过期了，就将对应的缓存行置为无效，等下次需要数据时，需要从内存中调用。</p>
+<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><p>锁之前只有无锁状态和重量级锁状态。</p>
+<p>但是后来发现，锁不仅在线程之间竞争激烈，同时一个线程也有可能会多次获得锁。因此需要细分锁，减少线程获得锁的开销，从而引入了<strong>偏向锁</strong>和<strong>轻量级锁</strong>。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>偏向锁</th>
+<th>轻量级锁</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>释放锁的时机</td>
+<td>发生竞争</td>
+<td>每次退出同步块</td>
+</tr>
+<tr>
+<td>退出的操作</td>
+<td>使用CAS更新对象头，失败的话变成轻量级锁</td>
+<td>CAS更新对象头，失败的话变成重量级锁</td>
+</tr>
+<tr>
+<td>申请锁失败时</td>
+<td></td>
+<td>会<strong>自旋</strong>尝试抢占锁</td>
+</tr>
+</tbody></table>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goqbrnm411j30oh06ujub.jpg" alt="image"></p>
+<h3 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h3><p>线程在访问同步代码块时，会在对象头中的<strong>MarkWord</strong>和<strong>栈帧</strong>中存储<strong>锁偏向的线程ID</strong>。</p>
+<h4 id="偏向锁的访问"><a href="#偏向锁的访问" class="headerlink" title="偏向锁的访问"></a>偏向锁的访问</h4><p>1.线程访问同步块 </p>
+<p>2.检查对象头中的MarkWord是否存有该线程的偏向锁</p>
+<p>3.没有的话，查看MardWord中的偏向锁标识是否为1(1代表拥有偏向锁)</p>
+<p>4.如果是1的话，就使用<strong>CAS操作</strong>将<strong>对象头的偏向锁指向当前线程</strong>；如果是0的话，就使用<strong>CAS操作</strong>来<strong>竞争锁</strong></p>
+<h4 id="偏向锁的加锁"><a href="#偏向锁的加锁" class="headerlink" title="偏向锁的加锁"></a>偏向锁的加锁</h4><p>使用原子的CAS操作，将MarkWord的锁标识记为偏向锁，并记录锁偏向的线程ID</p>
+<h4 id="偏向锁的解锁"><a href="#偏向锁的解锁" class="headerlink" title="偏向锁的解锁"></a>偏向锁的解锁</h4><p>偏向锁，只有等到<strong>竞争出现</strong>，才会将锁撤销。</p>
+<p>撤销的过程：</p>
+<p>1.偏向锁的撤销，需要等待<strong>全局安全点</strong>(此时没有正在执行的字节码)，才能撤销。</p>
+<p>2.暂停所有拥有偏向锁的线程</p>
+<p>3.检查线程是否活着</p>
+<p>4.已经<strong>死亡的线程</strong>，将其对象头的MarkWord中的标识置为<strong>无锁状态</strong></p>
+<p>5.还活着的线程，就遍历拥有<strong>偏向锁的栈帧</strong>，以及<strong>拥有偏向锁的对象的锁记录</strong></p>
+<p>6.栈帧和对象的Markword要么重新偏向于线程，要么恢复到无锁状态</p>
+<p>7.唤醒被暂停的线程</p>
+<h3 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h3><h4 id="轻量级锁的加锁"><a href="#轻量级锁的加锁" class="headerlink" title="轻量级锁的加锁"></a>轻量级锁的加锁</h4><p>1.在<strong>栈帧</strong>中开辟内存空间，存放<strong>锁记录</strong></p>
+<p>2.将线程的<strong>MarkWord</strong>，<strong>复制到栈帧中的锁记录中</strong>。</p>
+<p>3.线程尝试使用<strong>CAS操作</strong>，将自己MarkWord中的锁记录指针，替换成锁记录的指针</p>
+<p>4.成功的话就获得锁</p>
+<p>5.失败的话尝试使用<strong>自旋锁</strong>来获得锁</p>
+<h4 id="轻量级锁的解锁"><a href="#轻量级锁的解锁" class="headerlink" title="轻量级锁的解锁"></a>轻量级锁的解锁</h4><p>1.使用<strong>原子的CAS操作</strong>,将<strong>MarkWord的锁标识置为无锁状态</strong></p>
+<p>2.如果成功，说明不存在锁竞争，可直接解锁</p>
+<p>2.如果失败，说明存在锁竞争，轻量级锁会<strong>膨胀成重量级锁</strong>。</p>
+<h2 id="JAVA实现原子操作"><a href="#JAVA实现原子操作" class="headerlink" title="JAVA实现原子操作"></a>JAVA实现原子操作</h2><p>一般是使用<strong>循环CAS</strong>或者<strong>锁</strong>来实现</p>
+<h3 id="循环CAS"><a href="#循环CAS" class="headerlink" title="循环CAS"></a>循环CAS</h3><p>循环的进行CAS操作，直到成功位置。</p>
+<p>CAS的实现原理：CMPXCHG</p>
+<h4 id="可能导致的问题"><a href="#可能导致的问题" class="headerlink" title="可能导致的问题"></a>可能导致的问题</h4><p>1.<strong>ABA问题。</strong>比如线程X存储某内存中的旧值是A，然后内存中修改了A的值为B，又再修改成了A，会导致线程X认为A的值没有发生变化过。</p>
+<p><strong>解决方法：</strong>对值附上版本号。Atomic包里的AtomicStampedRefrence解决了这个问题。它首先检查线程的引用是否和内存中的相等，再比较标志位是否等于预期的标志,即版本号。</p>
+<p>2.<strong>循环的时间开销大</strong>。CAS不成功的时候就会一直自旋，直到成功。</p>
+<p><strong>解决方法：</strong>JVM的pause指令。</p>
+<p>3.<strong>只能保证一个共享变量的原子操作</strong>。</p>
+<p><strong>解决方法：</strong>将多个变量相乘，记录乘积结果，相当于又变成了一个变量。</p>
+<h3 id="锁实现原子操作"><a href="#锁实现原子操作" class="headerlink" title="锁实现原子操作"></a>锁实现原子操作</h3><p>一般使用<strong>偏向锁</strong>，<strong>互斥锁</strong>，<strong>轻量级锁</strong>实现。</p>
+<h2 id="JMM"><a href="#JMM" class="headerlink" title="JMM"></a>JMM</h2><p>JMM：Java内存模型。</p>
+<p>并发编程需要解决两个问题：线程的通信；同步问题。</p>
+<p><strong>线程的通信：</strong></p>
+<p>1.在共享存储的模型中，采用隐式的通信。例如线程A、B通过写入内存，读内存来实现通信</p>
+<p>2.消息传递的并发模型里，使用直接发送信息来进行线程之间的通信</p>
+<p><strong>同步：</strong>使线程之间的某些操作是按照特定顺序的。</p>
+<hr>
+<p>Java中采用的是共享存储的模型。</p>
+<h3 id="JMM抽象结构"><a href="#JMM抽象结构" class="headerlink" title="JMM抽象结构"></a>JMM抽象结构</h3><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goqcjlld7ij30ir0hcq5y.jpg" alt="image"></p>
+<p>简单来说，分成的两部分：</p>
+<p>1.每个线程的本地副本</p>
+<p>2.主内存。</p>
+<p>线程需要进行通信，就需要将自己的本地写入到内存中，其他线程再读取出来，从而实现线程间的通信。</p>
+<h2 id="指令重排"><a href="#指令重排" class="headerlink" title="指令重排"></a>指令重排</h2>
                 
             </div>
             <hr/>
@@ -1105,7 +1185,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.2k</span>&nbsp;字
+                class="white-color">43.6k</span>&nbsp;字
             
             
             
