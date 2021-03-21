@@ -776,7 +776,7 @@
 <p>哈希节点使用的是dictEntry。结构如下：</p>
 <p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goqq4pzbvhj30ev090dgl.jpg" alt="image"></p>
 <p>可以发现，value可以是一个指针(*val),可以是uint_64的整数，也可以是int64的整数。</p>
-<p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210320221126925.png" alt="image-20210320221126925"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gorec2n5jpj30mc07ddhe.jpg" alt="image-20210320221126925"></p>
 <p>但这上面只展示了哈希表，其实和链表一样，redis里的map也有一个数据结构来管理哈希表，也就是一个叫做dict的结构体</p>
 <p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goqqc3h7uzj30lk09bq42.jpg" alt="image"></p>
 <p>privdata：保存了某些特定函数的可选参数。</p>
