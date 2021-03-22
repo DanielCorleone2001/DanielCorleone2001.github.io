@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.5k
+                    6.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    29 分
                 </div>
                 
 
@@ -1300,6 +1300,159 @@ nums 已按升序排列
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="88-合并两个有序数组"><a href="#88-合并两个有序数组" class="headerlink" title="88.合并两个有序数组"></a>88.合并两个有序数组</h2><p>问题：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">给你两个有序整数数组 nums1 和 nums2，请你将 nums2 合并到 nums1 中，使 nums1 成为一个有序数组。
+
+初始化 nums1 和 nums2 的元素数量分别为 m 和 n 。你可以假设 nums1 的空间大小等于 m <span class="token operator">+</span> n，这样它就有足够的空间保存来自 nums2 的元素。
+
+ 
+
+示例 <span class="token number">1</span>：
+
+输入：nums1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> m <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> nums2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">3</span>
+输出：<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>
+示例 <span class="token number">2</span>：
+
+输入：nums1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> m <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> nums2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">0</span>
+输出：<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+ 
+
+提示：
+
+nums1<span class="token punctuation">.</span>length <span class="token operator">==</span> m <span class="token operator">+</span> n
+nums2<span class="token punctuation">.</span>length <span class="token operator">==</span> n
+<span class="token number">0</span> <span class="token operator">&lt;=</span> m<span class="token punctuation">,</span> n <span class="token operator">&lt;=</span> <span class="token number">200</span>
+<span class="token number">1</span> <span class="token operator">&lt;=</span> m <span class="token operator">+</span> n <span class="token operator">&lt;=</span> <span class="token number">200</span>
+<span class="token operator">-</span><span class="token number">109</span> <span class="token operator">&lt;=</span> nums1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> nums2<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token number">109</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="思路：双指针-2"><a href="#思路：双指针-2" class="headerlink" title="思路：双指针"></a>思路：双指针</h3><p>下面的是最优解，其实还可以：先把nums1的前m个拷贝出来到temp数组，再慢慢对比nums2和temp即可。</p>
+<h3 id="代码-10"><a href="#代码-10" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums1<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums2<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//双指针，从尾部向头部逼近</span>
+        <span class="token keyword">int</span> a <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> p <span class="token operator">=</span> m <span class="token operator">+</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span> <span class="token punctuation">(</span>a <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>b <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">//先选出最大的放入到nums1的末尾，以此类推</span>
+            nums1<span class="token punctuation">[</span>p<span class="token operator">--</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums1<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">></span> nums2<span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token operator">?</span> nums1<span class="token punctuation">[</span>a<span class="token operator">--</span><span class="token punctuation">]</span> <span class="token operator">:</span> nums2<span class="token punctuation">[</span>b<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">//补充nums2中没有添加进去的元素。</span>
+        <span class="token comment">//原因：1.如果上面的while循环是由于a而退出，也就是nums1走完了前n个元素，全都放到后面了，</span>
+        <span class="token comment">//那么这时候nums2还剩一些更小的没放进去，就要从头开始遍历到当前的元素加一，填充到nums1中</span>
+        <span class="token comment">//2.如果是由于b而退出，那说明nums2的元素都放进去，剩下的只有nums1的元素，这时候是不需要维护的。</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> b<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            nums1<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> nums2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> 
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h2><p>梦开始的地方。</p>
+<p>问题：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。
+
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+
+你可以按任意顺序返回答案。
+
+ 
+
+示例 <span class="token number">1</span>：
+
+输入：nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">,</span> target <span class="token operator">=</span> <span class="token number">9</span>
+输出：<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+解释：因为 nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">9</span> ，返回 <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> 。
+示例 <span class="token number">2</span>：
+
+输入：nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> target <span class="token operator">=</span> <span class="token number">6</span>
+输出：<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+示例 <span class="token number">3</span>：
+
+输入：nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> target <span class="token operator">=</span> <span class="token number">6</span>
+输出：<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+ 
+
+提示：
+
+<span class="token number">2</span> <span class="token operator">&lt;=</span> nums<span class="token punctuation">.</span>length <span class="token operator">&lt;=</span> <span class="token number">103</span>
+<span class="token operator">-</span><span class="token number">109</span> <span class="token operator">&lt;=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token number">109</span>
+<span class="token operator">-</span><span class="token number">109</span> <span class="token operator">&lt;=</span> target <span class="token operator">&lt;=</span> <span class="token number">109</span>
+只会存在一个有效答案
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="思路：HashMap"><a href="#思路：HashMap" class="headerlink" title="思路：HashMap"></a>思路：HashMap</h3><p>HashMap存这样的键值对：nums[i] - i</p>
+<p>key：nums[i]，数组的元素</p>
+<p>value：i，数组元素的索引。这样找到的时候就可以很快的把索引返回。</p>
+<p>遍历数组，如果不存在这样的key：target剪掉当前的nums[i],那就把它放入哈希表中，value是他的索引。</p>
+<p>不想写了，不会的请面壁。</p>
+<h3 id="代码-11"><a href="#代码-11" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> hashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> hashMap<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span> target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">&#123;</span> hashMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target<span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> i<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                hashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="66-加一"><a href="#66-加一" class="headerlink" title="66.加一"></a>66.加一</h2><p>问题：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">给定一个由 整数 组成的 非空 数组所表示的非负整数，在该数的基础上加一。
+
+最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。
+
+你可以假设除了整数 <span class="token number">0</span> 之外，这个整数不会以零开头。
+
+ 
+
+示例 <span class="token number">1</span>：
+
+输入：digits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
+输出：<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>
+解释：输入数组表示数字 <span class="token number">123</span>。
+示例 <span class="token number">2</span>：
+
+输入：digits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+输出：<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+解释：输入数组表示数字 <span class="token number">4321</span>。
+示例 <span class="token number">3</span>：
+
+输入：digits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+输出：<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+ 
+
+提示：
+
+<span class="token number">1</span> <span class="token operator">&lt;=</span> digits<span class="token punctuation">.</span>length <span class="token operator">&lt;=</span> <span class="token number">100</span>
+<span class="token number">0</span> <span class="token operator">&lt;=</span> digits<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token number">9</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="思路：末尾遍历不断对十取余数"><a href="#思路：末尾遍历不断对十取余数" class="headerlink" title="思路：末尾遍历不断对十取余数"></a>思路：末尾遍历不断对十取余数</h3><h3 id="代码-12"><a href="#代码-12" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//从最后一位开始遍历，让元素加一，然后让他和十取余数。</span>
+    <span class="token comment">//如果它是九，加一变成十，余数为0，需要特殊处理</span>
+    <span class="token comment">//如果它不是九，那么加一后取余数，余数会是它本身，不需要处理，直接返回</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">plusOne</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> digits<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//遍历数组，从末尾开始遍历</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> digits<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">//加一之后对十取余数</span>
+            digits<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+            digits<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">%=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token comment">//如果余数不为0，说明就可以直接返回结果了，比如 129 + 1，变成 130，3对10取余数不为0.</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> digits<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> digits<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">//如果上面一系列的操作都没有返回，那只有一种情况：n个9加一。</span>
+        <span class="token comment">//这时候直接新建数组，长度为原来的数组长度加一，将第一位置为1，其他位默认位0，就会结果</span>
+        <span class="token comment">//比如：999+1 = 1000</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>digits<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1884,7 +2037,7 @@ nums 已按升序排列
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.9k</span>&nbsp;字
+                class="white-color">53.1k</span>&nbsp;字
             
             
             
