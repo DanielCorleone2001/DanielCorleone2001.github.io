@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    4.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    19 分
                 </div>
                 
 
@@ -846,8 +846,9 @@ lRUCache<span class="token punctuation">.</span><span class="token function">get
             cur <span class="token operator">=</span> pre<span class="token punctuation">;</span>
             pre <span class="token operator">=</span> next<span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> cur<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>递归：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
@@ -1003,6 +1004,158 @@ lRUCache<span class="token punctuation">.</span><span class="token function">get
         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="142-环形链表II"><a href="#142-环形链表II" class="headerlink" title="142.环形链表II"></a>142.环形链表II</h2><p>问题：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 <span class="token keyword">null</span>。
+
+为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 <span class="token number">0</span> 开始）。 如果 pos 是 <span class="token operator">-</span><span class="token number">1</span>，则在该链表中没有环。注意，pos 仅仅是用于标识环的情况，并不会作为参数传递到函数中。
+
+说明：不允许修改给定的链表。
+
+进阶：
+
+你是否可以使用 <span class="token class-name">O</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> 空间解决此题？
+ 
+
+示例 <span class="token number">1</span>：
+
+
+输入：head <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token number">1</span>
+输出：返回索引为 <span class="token number">1</span> 的链表节点
+解释：链表中有一个环，其尾部连接到第二个节点。
+示例 <span class="token number">2</span>：
+
+
+
+输入：head <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token number">0</span>
+输出：返回索引为 <span class="token number">0</span> 的链表节点
+解释：链表中有一个环，其尾部连接到第一个节点。
+示例 <span class="token number">3</span>：
+
+
+
+输入：head <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+输出：返回 <span class="token keyword">null</span>
+解释：链表中没有环。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gosixgjo6zj30er04r3yi.jpg" alt="image"></p>
+<h3 id="思路：数学推导-双指针"><a href="#思路：数学推导-双指针" class="headerlink" title="思路：数学推导+双指针"></a>思路：数学推导+双指针</h3><p>用快慢指针，快指针是慢指针速度的两倍，则：</p>
+<p>f = 2 * s</p>
+<p>当快慢指针相遇的时候，一定会是快指针比慢指针多走了 n圈的环，假设环的步数为b</p>
+<p>f = s + n * b</p>
+<p>那么我们只要针对二者相遇的情况作为切入点即可：</p>
+<p>f = 2 n*b</p>
+<p>s = n * b</p>
+<p>而我们要寻找的是进入环需要的步数a。在这链表中走的话，有一个特点，就是他走的步数k，一定是进环再绕圈圈，所以：</p>
+<p>k  = a + n * b。</p>
+<p>即在环的入口的步数，一定会是进环的步数加上绕圈圈的次数。</p>
+<p>而上面我们已经有了 s = nb，那么只要让他再走 a步，s就会到达环的入口。</p>
+<p>怎么找a步？很简单，头节点到环的距离也是a步，将快指针移回头节点，当快慢指针再次相遇时，那就是走了a步，问题解决。</p>
+<h3 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * class ListNode &#123;
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) &#123;
+ *         val = x;
+ *         next = null;
+ *     &#125;
+ * &#125;
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">detectCycle</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//为空或者只有一个节点，那么不可能有环，直接返回</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> head <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">//定义快慢指针</span>
+       <span class="token class-name">ListNode</span> fast <span class="token operator">=</span> head<span class="token punctuation">;</span>
+       <span class="token class-name">ListNode</span> slow <span class="token operator">=</span> head<span class="token punctuation">;</span>
+
+      <span class="token keyword">while</span> <span class="token punctuation">(</span> <span class="token boolean">true</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token comment">//无环的话，快指针就会走出链表，因此直接返回</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span> fast <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> fast<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+              <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span>
+          <span class="token comment">//快慢指针的步数</span>
+          fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+          slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+          <span class="token comment">//二者相遇，这时候就是上面说的</span>
+          <span class="token comment">// f = 2*s, f = s + n * b, s = n * b</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span> fast <span class="token operator">==</span> slow <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+              <span class="token keyword">break</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token comment">//从头结点开始，二者再相遇，那么一定是在入口相遇。</span>
+      fast <span class="token operator">=</span> head<span class="token punctuation">;</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span> fast <span class="token operator">!=</span> slow <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+          slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">return</span> fast<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="26-删除有序数组中的重复项"><a href="#26-删除有序数组中的重复项" class="headerlink" title="26.删除有序数组中的重复项"></a>26.删除有序数组中的重复项</h2><p>题目：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。
+
+不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 <span class="token class-name">O</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> 额外空间的条件下完成。
+
+ 
+
+说明<span class="token operator">:</span>
+
+为什么返回数值是整数，但输出的答案是数组呢<span class="token operator">?</span>
+
+请注意，输入数组是以「引用」方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。
+
+你可以想象内部操作如下<span class="token operator">:</span>
+
+<span class="token comment">// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝</span>
+<span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 在函数里修改输入数组对于调用者是可见的。</span>
+<span class="token comment">// 根据你的函数返回的长度, 它会打印出数组中 该长度范围内 的所有元素。</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+ 
+示例 <span class="token number">1</span>：
+
+输入：nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+输出：<span class="token number">2</span><span class="token punctuation">,</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+解释：函数应该返回新的长度 <span class="token number">2</span> ，并且原数组 nums 的前两个元素被修改为 <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span> 。不需要考虑数组中超出新长度后面的元素。
+示例 <span class="token number">2</span>：
+
+输入：nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>
+输出：<span class="token number">5</span><span class="token punctuation">,</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>
+解释：函数应该返回新的长度 <span class="token number">5</span> ， 并且原数组 nums 的前五个元素被修改为 <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span> 。不需要考虑数组中超出新长度后面的元素。
+ 
+
+提示：
+
+<span class="token number">0</span> <span class="token operator">&lt;=</span> nums<span class="token punctuation">.</span>length <span class="token operator">&lt;=</span> <span class="token number">3</span> <span class="token operator">*</span> <span class="token number">104</span>
+<span class="token operator">-</span><span class="token number">104</span> <span class="token operator">&lt;=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token number">104</span>
+nums 已按升序排列
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="思路：双指针-1"><a href="#思路：双指针-1" class="headerlink" title="思路：双指针"></a>思路：双指针</h3><p>寻找每一个元素的第一个不相等的数，然后赋值。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//双指针。i用于记录不重复的，j用于向前寻找对于i而言的第一个不重复的元素。</span>
+        <span class="token comment">//当j找到第一个不和i相等的元素时，nums[i+1] = nums[j];</span>
+        <span class="token comment">//接着j自增加一，继续寻找。</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length <span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">//想让i加一，再赋值，才能实现nums[i+1]=nums[j]</span>
+                nums<span class="token punctuation">[</span><span class="token operator">++</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1589,7 +1742,7 @@ lRUCache<span class="token punctuation">.</span><span class="token function">get
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">49.8k</span>&nbsp;字
+                class="white-color">51k</span>&nbsp;字
             
             
             
