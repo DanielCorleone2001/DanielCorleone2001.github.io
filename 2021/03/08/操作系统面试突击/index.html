@@ -409,12 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                                <span class="chip bg-color">操作系统</span>
-                            </a>
-                        
                             <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
                                 <span class="chip bg-color">计算机基础</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
                             </a>
                         
                     </div>
@@ -605,16 +605,71 @@
 <p>3.退出区：清除用户占用的标志</p>
 <p>4.剩余区：和临界区不相关的代码</p>
 <h5 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h5><p>1.实现进程互斥</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">semaphore mutex=<span class="number">1</span>;<span class="comment">//定义互斥信号量</span></span><br><span class="line"></span><br><span class="line">P1()&#123;</span><br><span class="line">    P(mutex);<span class="comment">//访问临界区，先用PV操作中的P上锁</span></span><br><span class="line">    临界区代码;</span><br><span class="line">    V(mutex);<span class="comment">//解锁，资源数+1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">P2()&#123;</span><br><span class="line">    P(mutex);<span class="comment">//访问临界区，先用PV操作中的P上锁</span></span><br><span class="line">    临界区代码;</span><br><span class="line">    V(mutex);<span class="comment">//解锁，资源数+1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">执行P操作时会使得临界资源-1，如果资源数小于零，会自动将进程阻塞进行等待</span></span><br><span class="line"><span class="comment">从而达到了进程互斥的目的</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">semaphore mutex<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment">//定义互斥信号量</span>
+
+<span class="token function">P1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//访问临界区，先用PV操作中的P上锁</span>
+    临界区代码<span class="token punctuation">;</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//解锁，资源数+1</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">P2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//访问临界区，先用PV操作中的P上锁</span>
+    临界区代码<span class="token punctuation">;</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//解锁，资源数+1</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/**
+执行P操作时会使得临界资源-1，如果资源数小于零，会自动将进程阻塞进行等待
+从而达到了进程互斥的目的
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>2.实现进程同步</p>
 <p>前趋代码+V操作。</p>
 <p>P操作+后继代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">假设必须先执行code2才能执行code4.</span></span><br><span class="line"><span class="comment">用下面的方式就实现了进程同步</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">semaphore S=<span class="number">0</span>;</span><br><span class="line">P1()&#123;</span><br><span class="line">    code1;</span><br><span class="line">    code2;</span><br><span class="line">    V(S);<span class="comment">//S+=1,此时S=1</span></span><br><span class="line">    code3;</span><br><span class="line">&#125;</span><br><span class="line">P2()&#123;</span><br><span class="line">    P(S);<span class="comment">//S-=1,此时S=0</span></span><br><span class="line">    code4;</span><br><span class="line">    code5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/**
+假设必须先执行code2才能执行code4.
+用下面的方式就实现了进程同步
+*/</span>
+semaphore S<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token function">P1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    code1<span class="token punctuation">;</span>
+    code2<span class="token punctuation">;</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//S+=1,此时S=1</span>
+    code3<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">P2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>S<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//S-=1,此时S=0</span>
+    code4<span class="token punctuation">;</span>
+    code5<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>3.生产者-消费者问题</p>
 <p>PPVV</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">semaphore mutex=<span class="number">1</span>;<span class="comment">//互斥信号量</span></span><br><span class="line">semaphore empty=n;<span class="comment">//同步信号量，指向缓冲区空闲的数量</span></span><br><span class="line">semaphore full=<span class="number">0</span>;<span class="comment">//同步信号量，指向缓冲区非空的数量</span></span><br><span class="line"></span><br><span class="line">producer()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        ...<span class="comment">//生产产品</span></span><br><span class="line">		P(empty);<span class="comment">//empty-1,消耗一个空闲的数量</span></span><br><span class="line">        P(mutex);<span class="comment">//mutex-1,与consumer实现进程互斥</span></span><br><span class="line">        ...<span class="comment">//产品放入缓冲区</span></span><br><span class="line">        v(mutex);</span><br><span class="line">        V(full);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">consumer()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        P(full);<span class="comment">//full-1</span></span><br><span class="line">        P(mutex);<span class="comment">//mutex-1,与producer实现进程互斥</span></span><br><span class="line">        ...<span class="comment">//取出一产品</span></span><br><span class="line">        V(mutex);<span class="comment">//解锁</span></span><br><span class="line">        V(empty);<span class="comment">//empty+1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">semaphore mutex<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment">//互斥信号量</span>
+semaphore empty<span class="token operator">=</span>n<span class="token punctuation">;</span><span class="token comment">//同步信号量，指向缓冲区空闲的数量</span>
+semaphore full<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//同步信号量，指向缓冲区非空的数量</span>
+
+<span class="token function">producer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token comment">//生产产品</span>
+		<span class="token function">P</span><span class="token punctuation">(</span>empty<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//empty-1,消耗一个空闲的数量</span>
+        <span class="token function">P</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//mutex-1,与consumer实现进程互斥</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token comment">//产品放入缓冲区</span>
+        <span class="token function">v</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">V</span><span class="token punctuation">(</span>full<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">consumer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">P</span><span class="token punctuation">(</span>full<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//full-1</span>
+        <span class="token function">P</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//mutex-1,与producer实现进程互斥</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token comment">//取出一产品</span>
+        <span class="token function">V</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//解锁</span>
+        <span class="token function">V</span><span class="token punctuation">(</span>empty<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//empty+1</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h5><p>1.互斥锁：同一时间只能有一个线程访问互斥锁的数据</p>
 <p>2.自旋锁：用户一直等待对上了自旋锁的资源，直到锁结束了马上占有</p>
@@ -864,12 +919,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                                    <span class="chip bg-color">操作系统</span>
-                                </a>
-                            
                                 <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
                                     <span class="chip bg-color">计算机基础</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
                                 </a>
                             
                         </div>
@@ -1382,7 +1437,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53.1k</span>&nbsp;字
+                class="white-color">53.5k</span>&nbsp;字
             
             
             

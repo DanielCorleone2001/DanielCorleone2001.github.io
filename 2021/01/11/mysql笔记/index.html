@@ -485,15 +485,32 @@
                 <h2 id="数据库分类"><a href="#数据库分类" class="headerlink" title="数据库分类"></a>数据库分类</h2><h3 id="关系型数据库（SQL）"><a href="#关系型数据库（SQL）" class="headerlink" title="关系型数据库（SQL）"></a>关系型数据库（SQL）</h3><p>ex:MySQL、Oracl、 Sql Server</p>
 <h3 id="非关系型数据库-NoSQL"><a href="#非关系型数据库-NoSQL" class="headerlink" title="非关系型数据库(NoSQL)"></a>非关系型数据库(NoSQL)</h3><p>Not only SQL</p>
 <p>ex：Redis、MongDb</p>
-<h2 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">登录：mysql -h localhost -P 3306 -u root -p</span><br><span class="line"></span><br><span class="line">显示数据库：show databases;</span><br><span class="line"></span><br><span class="line">进到某个数据库：use **;</span><br><span class="line"></span><br><span class="line">展示表：show tables;</span><br><span class="line"></span><br><span class="line">拼接函数(类似于字符串拼接): SELECT CONCAT(str1,str2) AS &quot;?&quot; FROM **;</span><br><span class="line"></span><br><span class="line">显示表的所有数据： DESC **;</span><br><span class="line"></span><br><span class="line">判断为空的函数: IFNULL(**,0);</span><br><span class="line"></span><br><span class="line">转义函数: ESCAPE &#39;*&#39;;</span><br><span class="line"></span><br><span class="line">从高到低排序: SELECT * FROM * ORDER BY * DESC;</span><br><span class="line">从低到高排序: SELECT * FROM * ORDER BY * ASC;</span><br></pre></td></tr></table></figure>
+<h2 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h2><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">登录：mysql -h localhost -P 3306 -u root -p
 
-<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database if not exits database_test</span><br></pre></td></tr></table></figure>
+显示数据库：show databases;
 
-<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Drop database if exits database_test</span><br></pre></td></tr></table></figure>
+进到某个数据库：use **;
 
-<h3 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use &#96;database_test&#96;</span><br></pre></td></tr></table></figure>
+展示表：show tables;
 
-<h3 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases       -- 查看所有数据库</span><br></pre></td></tr></table></figure>
+拼接函数(类似于字符串拼接): SELECT CONCAT(str1,str2) AS &quot;?&quot; FROM **;
+
+显示表的所有数据： DESC **;
+
+判断为空的函数: IFNULL(**,0);
+
+转义函数: ESCAPE &#39;*&#39;;
+
+从高到低排序: SELECT * FROM * ORDER BY * DESC;
+从低到高排序: SELECT * FROM * ORDER BY * ASC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create database if not exits database_test<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">Drop database if exits database_test<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h3><pre class="line-numbers language-MYSQL" data-language="MYSQL"><code class="language-MYSQL">use &#96;database_test&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show databases       -- 查看所有数据库<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="数据库的数据类型-列类型"><a href="#数据库的数据类型-列类型" class="headerlink" title="数据库的数据类型(列类型)"></a>数据库的数据类型(列类型)</h2><h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><p>tinyint                                                         1Byte</p>
 <p>smallint                                                      2Byte</p>
@@ -518,14 +535,22 @@
 <h3 id="zerofill"><a href="#zerofill" class="headerlink" title="zerofill"></a>zerofill</h3><p>不足的位数用0填充</p>
 <h3 id="NotNull"><a href="#NotNull" class="headerlink" title="NotNull"></a>NotNull</h3><p>非空，如果不给它赋值就会报错。</p>
 <h3 id="Default"><a href="#Default" class="headerlink" title="Default"></a>Default</h3><p>设置默认的值是多少。</p>
-<h2 id="创建数据库表"><a href="#创建数据库表" class="headerlink" title="创建数据库表"></a>创建数据库表</h2><h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table if not exists &#96;student&#96;(</span><br><span class="line">	&#96;id&#96; INT(4) NOT NULL AUTO_INCREMENT COMMENT &#96;学号&#96;，</span><br><span class="line">    &#96;name&#96; VARCHAR(30) NOT NULL DEFAULT &#96;无名氏&#96; COMMENT &#96;姓名&#96;,</span><br><span class="line">    &#96;pwd&#96; VARCHAR(30) NOT NULL DEFAULT &#96;123456&#96; COMMENT &#96;密码&#96;，</span><br><span class="line">    &#96;sex&#96; VARCHAR(2) NOT NULL DEFAULT &#96;男&#96; COMMENT &#96;性别&#96;,</span><br><span class="line">    &#96;address&#96; VARCHAR(100) DEFAULT NULL COMMENT &#96;住址&#96;,</span><br><span class="line">    PRIMARY KEY(&#96;id&#96;)</span><br><span class="line">)ENGINE&#x3D; INNODB DEFAULT CHARSET &#x3D;utf8</span><br></pre></td></tr></table></figure>
+<h2 id="创建数据库表"><a href="#创建数据库表" class="headerlink" title="创建数据库表"></a>创建数据库表</h2><h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create table if not exists &#96;student&#96;(
+	&#96;id&#96; INT(4) NOT NULL AUTO_INCREMENT COMMENT &#96;学号&#96;，
+    &#96;name&#96; VARCHAR(30) NOT NULL DEFAULT &#96;无名氏&#96; COMMENT &#96;姓名&#96;,
+    &#96;pwd&#96; VARCHAR(30) NOT NULL DEFAULT &#96;123456&#96; COMMENT &#96;密码&#96;，
+    &#96;sex&#96; VARCHAR(2) NOT NULL DEFAULT &#96;男&#96; COMMENT &#96;性别&#96;,
+    &#96;address&#96; VARCHAR(100) DEFAULT NULL COMMENT &#96;住址&#96;,
+    PRIMARY KEY(&#96;id&#96;)
+)ENGINE&#x3D; INNODB DEFAULT CHARSET &#x3D;utf8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>引擎不声明的话也会<strong>默认是INNODB</strong></p>
 <p><strong>记得**</strong>要设计主键**</p>
 <h3 id="偷懒写法"><a href="#偷懒写法" class="headerlink" title="偷懒写法"></a>偷懒写法</h3><p>当然也可以偷懒，使用其他已经存在的表的SQL语句作为模板</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show create table student</span><br><span class="line">-- 这样就能得到创建某张表的SQL语句</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show create table student
+-- 这样就能得到创建某张表的SQL语句<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="显示表结构"><a href="#显示表结构" class="headerlink" title="显示表结构"></a>显示表结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DESC student</span><br></pre></td></tr></table></figure>
+<h3 id="显示表结构"><a href="#显示表结构" class="headerlink" title="显示表结构"></a>显示表结构</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">DESC student<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="数据表的类型"><a href="#数据表的类型" class="headerlink" title="数据表的类型"></a>数据表的类型</h2><h3 id="MYISAM与INOODB"><a href="#MYISAM与INOODB" class="headerlink" title="MYISAM与INOODB"></a>MYISAM与INOODB</h3><table>
 <thead>
@@ -566,17 +591,27 @@
 <td>安全性高，支持事务，多表多用户操作</td>
 </tr>
 </tbody></table>
-<h2 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h2><h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-- 重命名</span><br><span class="line">ALTER TABLE student RENAME AS student1</span><br><span class="line">-- 增加表的字段</span><br><span class="line">ALTER TABLE student ADD age INT(11)</span><br><span class="line">-- 修改表的字段的约束</span><br><span class="line">ALTER TABLE student MODIFY age VARCHAR(11)</span><br><span class="line">-- 修改表的字段的名字</span><br><span class="line">ALTER TABLE student CHANGE age age1</span><br><span class="line"></span><br><span class="line">-- 删除表的字段</span><br><span class="line">ALTER TABLE student DROP age</span><br></pre></td></tr></table></figure>
+<h2 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h2><h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 重命名
+ALTER TABLE student RENAME AS student1
+-- 增加表的字段
+ALTER TABLE student ADD age INT(11)
+-- 修改表的字段的约束
+ALTER TABLE student MODIFY age VARCHAR(11)
+-- 修改表的字段的名字
+ALTER TABLE student CHANGE age age1
 
-<h3 id="表重命名"><a href="#表重命名" class="headerlink" title="表重命名"></a>表重命名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student RENAME AS student1</span><br></pre></td></tr></table></figure>
+-- 删除表的字段
+ALTER TABLE student DROP age<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="增加表的字段"><a href="#增加表的字段" class="headerlink" title="增加表的字段"></a>增加表的字段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student ADD age INT(11)</span><br></pre></td></tr></table></figure>
+<h3 id="表重命名"><a href="#表重命名" class="headerlink" title="表重命名"></a>表重命名</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER TABLE student RENAME AS student1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="修改表的字段的约束"><a href="#修改表的字段的约束" class="headerlink" title="修改表的字段的约束"></a>修改表的字段的约束</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student MODIFY age VARCHAR(11)</span><br></pre></td></tr></table></figure>
+<h3 id="增加表的字段"><a href="#增加表的字段" class="headerlink" title="增加表的字段"></a>增加表的字段</h3><pre class="line-numbers language-mysq" data-language="mysq"><code class="language-mysq">ALTER TABLE student ADD age INT(11)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="修改表的字段的名字"><a href="#修改表的字段的名字" class="headerlink" title="修改表的字段的名字"></a>修改表的字段的名字</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student CHANGE age age1</span><br></pre></td></tr></table></figure>
+<h3 id="修改表的字段的约束"><a href="#修改表的字段的约束" class="headerlink" title="修改表的字段的约束"></a>修改表的字段的约束</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER TABLE student MODIFY age VARCHAR(11)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="删除表的字段"><a href="#删除表的字段" class="headerlink" title="删除表的字段"></a>删除表的字段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE student DROP age</span><br></pre></td></tr></table></figure>
+<h3 id="修改表的字段的名字"><a href="#修改表的字段的名字" class="headerlink" title="修改表的字段的名字"></a>修改表的字段的名字</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER TABLE student CHANGE age age1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="删除表的字段"><a href="#删除表的字段" class="headerlink" title="删除表的字段"></a>删除表的字段</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER TABLE student DROP age<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="基本组成"><a href="#基本组成" class="headerlink" title="基本组成"></a>基本组成</h2><h3 id="连接器"><a href="#连接器" class="headerlink" title="连接器"></a>连接器</h3><p>负责和客户端进行连接。进行权限认证，建立连接，保持连接，管理连接。</p>
 <h3 id="分析器"><a href="#分析器" class="headerlink" title="分析器"></a>分析器</h3><p>进行词法分析，语法分析。</p>
@@ -649,7 +684,8 @@
 <h5 id="InnoDB的改进：自适应哈希索引"><a href="#InnoDB的改进：自适应哈希索引" class="headerlink" title="InnoDB的改进：自适应哈希索引"></a>InnoDB的改进：自适应哈希索引</h5><p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gokd93tdrjj30ij0c8n00.jpg" alt="image"></p>
 <p>InnoDB如果发现某些索引被使用得非常频繁时，会在B-TREE索引的基础上创建哈希索引。</p>
 <h4 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a>全文索引</h4><p> 和常用的模糊匹配使用 like + % 不同，全文索引有自己的语法格式，使用 match 和 against 关键字，比如</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> fulltext_test </span><br><span class="line">    <span class="keyword">where</span> <span class="keyword">match</span>(<span class="keyword">content</span>,tag) against(<span class="string">&#x27;xxx xxx&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> fulltext_test 
+    <span class="token keyword">where</span> <span class="token keyword">match</span><span class="token punctuation">(</span>content<span class="token punctuation">,</span>tag<span class="token punctuation">)</span> against<span class="token punctuation">(</span><span class="token string">'xxx xxx'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>查找的是文本中的关键词，而不是直接比较索引中的值。</p>
 <h4 id="覆盖索引"><a href="#覆盖索引" class="headerlink" title="覆盖索引"></a>覆盖索引</h4><p>一个索引包含了所有需要查询的字段的值，成为覆盖索引。</p>
@@ -680,7 +716,7 @@
 <p>5.二级索引(非聚簇索引/辅助索引)的空间占用可能较大，因为二级索引叶子节点中包含主键列。</p>
 <p>6.二级索引访问需要两次索引查找而非一次。</p>
 <h5 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h5><h3 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a>优化策略</h3><h4 id="独立的列"><a href="#独立的列" class="headerlink" title="独立的列"></a>独立的列</h4><p>查询语句应当选择独立的列，使得MySQL能解析语句并使用合适的索引进行查询</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user_id from scool.student where user_id + 1 &#x3D; 4</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select user_id from scool.student where user_id + 1 &#x3D; 4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>很明显可以用user_id = 3，但如果用上面的查询语句，那么mysql就无法使用引擎来优化查询，只能扫描整张表。</p>
 <h4 id="索引选择性"><a href="#索引选择性" class="headerlink" title="索引选择性"></a>索引选择性</h4><p>索引选择性：不重复的索引值（也称为基数，cardinality）和数据表的记录总数（#T）的比值，范围从1/#T到1之间。</p>
@@ -723,13 +759,13 @@
 <p>2.尽量将数据设为NOT NULL。除非不是有必要，否则尽量将字段设为非空，能显著降低查询、索引等方面的开销。</p>
 <p>3.列不要设计得太多。</p>
 <h3 id="慢查询优化"><a href="#慢查询优化" class="headerlink" title="慢查询优化"></a>慢查询优化</h3><h4 id="基本查询语句"><a href="#基本查询语句" class="headerlink" title="基本查询语句"></a>基本查询语句</h4><p>1.查询已经执行成功的SQL</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;slow_query_log&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'slow_query_log'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>2.查询慢查询的日志存放位置</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;slow_query_log_file&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'slow_query_log_file'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>3.查看慢查询的时间</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;long_query_time&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> variables <span class="token operator">like</span> <span class="token string">'long_query_time'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1gokimrvebkj30fy042t96.jpg" alt="image"></p>
 <h4 id="优化前的判断逻辑"><a href="#优化前的判断逻辑" class="headerlink" title="优化前的判断逻辑"></a>优化前的判断逻辑</h4><h5 id="是否请求了多余的数据"><a href="#是否请求了多余的数据" class="headerlink" title="是否请求了多余的数据"></a>是否请求了多余的数据</h5><p>1.是否查询了不需要的数据。比如只需要某一列，却查询select *</p>
@@ -764,7 +800,7 @@
 <h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><h3 id="上锁"><a href="#上锁" class="headerlink" title="上锁"></a>上锁</h3><p>InnoDB使用的是两阶段锁协议。</p>
 <h4 id="隐式锁定"><a href="#隐式锁定" class="headerlink" title="隐式锁定"></a>隐式锁定</h4><p>事务执行过程中，可以随时上锁。但是只有执行Commit或者RollBack的时候，才会释放锁。</p>
 <h4 id="显示锁定"><a href="#显示锁定" class="headerlink" title="显示锁定"></a>显示锁定</h4><p>使用sql语句控制。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> .... <span class="keyword">LOCK</span> <span class="keyword">IN</span> <span class="keyword">SHARE</span> <span class="keyword">MODE</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">LOCK</span> <span class="token operator">IN</span> <span class="token keyword">SHARE</span> <span class="token keyword">MODE</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="对比MyISAM"><a href="#对比MyISAM" class="headerlink" title="对比MyISAM"></a>对比MyISAM</h3><p>事务：InnoDB支持事务，MyISAM不支持</p>
 <p>外键：InnoDB支持，MyISAM不支持</p>
@@ -1359,7 +1395,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53.1k</span>&nbsp;字
+                class="white-color">53.5k</span>&nbsp;字
             
             
             
