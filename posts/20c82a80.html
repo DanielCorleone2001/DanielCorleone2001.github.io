@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Shiro框架, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="JWT入门, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Shiro框架 | Welcome to Daniel&#39;s Blog !</title>
+    <title>JWT入门 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://tva3.sinaimg.cn/large/0085EwgIgy1gorcmesxd5j30k00dcdgt.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://tva4.sinaimg.cn/large/0085EwgIgy1gorcp4q3nqj30k00b9jsb.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Shiro框架</h1>
+                    <h1 class="description center-align post-title">JWT入门</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Shiro/">
-                                <span class="chip bg-color">Shiro</span>
+                            <a href="/tags/JWT/">
+                                <span class="chip bg-color">JWT</span>
                             </a>
                         
-                            <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/">
-                                <span class="chip bg-color">权限管理框架</span>
+                            <a href="/tags/%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/">
+                                <span class="chip bg-color">登录认证</span>
                             </a>
                         
                     </div>
@@ -425,8 +425,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/" class="post-category">
-                                权限管理框架
+                            <a href="/categories/JWT/" class="post-category">
+                                JWT
                             </a>
                         
                     </div>
@@ -438,7 +438,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-05
+                    2021-03-06
                 </div>
                 
 
@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    699
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    2 分
                 </div>
                 
 
@@ -482,67 +482,59 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>不同的人拥有不同的权限，那么他在访问系统的时候，所能访问的资源也会是不一样的。</p>
-<p>Shiro能帮我们完成这个功能。</p>
-<p>Shiro可以完成认证、用户授权、加密、会话管理(SessionManager)、Web集成、缓存等。</p>
-<h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><h2 id="Authentication"><a href="#Authentication" class="headerlink" title="Authentication"></a>Authentication</h2><p>认证功能，即登录功能</p>
-<h2 id="Authoriza"><a href="#Authoriza" class="headerlink" title="Authoriza"></a>Authoriza</h2><p>授权功能，帮助我们判断用户是否拥有权限。</p>
-<h2 id="Session-Management"><a href="#Session-Management" class="headerlink" title="Session Management"></a>Session Management</h2><p>会话管理功能，对http的session进行托管。</p>
-<h2 id="Cryptography"><a href="#Cryptography" class="headerlink" title="Cryptography"></a>Cryptography</h2><p>加密功能，可以使用Shiro为密码加盐</p>
-<h2 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h2><p>缓存模块，使得权限系统运行得更快</p>
-<h2 id="Remember-me"><a href="#Remember-me" class="headerlink" title="Remember me"></a>Remember me</h2><p>下次无需再进行登录认证</p>
-<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><h2 id="抽象架构"><a href="#抽象架构" class="headerlink" title="抽象架构"></a>抽象架构</h2><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1go99r0gyh2j30ly0bl0xu.jpg" alt="image"></p>
-<p>Application code -&gt; Subject ：用户访问权限管理系统时，就会生成一个对应的subject，代表当前的访问对象</p>
-<p>Security Manager：Shiro各种功能的集成</p>
-<p>Realm：存储Shiro的安全数据。相当于Shiro的DataSource</p>
-<p>用户进行登录时，Security Manager 需要从Realm中获取用户身份是否合法，以及密码是否正确;</p>
-<p>用户登陆后，Security Manager需要从Realm中获取相关的权限信息。</p>
-<h2 id="物理架构"><a href="#物理架构" class="headerlink" title="物理架构"></a>物理架构</h2><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1go99vez9j3j30k90fhna9.jpg" alt="image"></p>
-<p>1.Subject：代表任何与应用程序发送交互的用户。<br>2.SecurityManager：相当于SpringMVC的Dispatcher，是Shiro的心脏。所有交互都会通过SecurityManager进行控制，它管理着所有Subject，且负责进行认证、授权、会话以及缓存的管理。<br>3.Authenticator：负责Subject认证，是一个拓展点，可以自定义实现。可以使用认证策略（Authentication Strategy），即在什么情况下算用户认证通过了。<br>4.Authorizer：授权器，即访问控制器，用来决定主体是否有权进行相应的操作，即控制着用户能访问应用中的哪些功能。<br>5.Realm：安全实体数据源。即是提供安全数据的源头，数据源可以是JDBC操作的数据库数据，也可以是缓存中的数据。该实体由用户提供，一般在应用中都需要实现自己的Realm。可以有一个或者多个Realm。<br>6.SessionManager：管理Session生命周期的组件。Shiro不仅仅可以在Web环境，也可以在普通的JavaSE环境中。<br>7.CacheManager：缓存控制器，来管理如用户、角色、权限等信息的缓存。由于这些数据基本上很少发生变动，所以存放在缓存中可以提供访问的性能。<br>8.Cryptography：密码模块。Shiro提供了一些常见的加密组件用于密码的加密/解密。</p>
-<h1 id="登录与授权认证"><a href="#登录与授权认证" class="headerlink" title="登录与授权认证"></a>登录与授权认证</h1><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1go9ae0aztwj30qc0c4n12.jpg" alt="image"></p>
-<p>1.首先调用getSubjec()方法获取到正在登录的subject。</p>
-<p>2.调用subject.isAuthoricated()来判断是否进行身份认证，即登录</p>
-<p>未登陆的话就会自动跳转到登录页面(自己定义跳转的url)</p>
-<p>3.进入到登录的url，用户输入账号密码后，前端返回httoServletRequest。</p>
-<p>4.调用subject.login()方法进行登录</p>
-<p>5.这时候shiro会去执行继承了AthorizingRealm方法中的doGetAuthenticationInfo方法进行登录认证。</p>
-<p>6.进行登录认证时还需要对密码的对比，因此进入继承了HashCredentialMatcher中的doCredentialsMatch方法进行密码的比对。</p>
-<p>7.密码无误后调用subject.getPrincipal()来获取subject的信息。</p>
-<p>8.获取principal信息后进入自定义的Realm中，调用doGetAnthorizationInfo进行授权的认证</p>
-<h1 id="拦截URL"><a href="#拦截URL" class="headerlink" title="拦截URL"></a>拦截URL</h1><p>在ShiroFilterFactoryBean中配置对url的处理。</p>
-<p>ShiroFilterFactoryBean有以下几种拦击种类</p>
-<p>1.’’anon’’：匿名访问，无需权限认证</p>
-<p>2.’’user’’：需要RememberMe</p>
-<p>3.’’perms’’:需要权限才能访问</p>
-<p>4.’’authc’’：需要身份认证后才能访问</p>
-<p>以上的配置可以存在LinkedHashMap中，将比如登录页面等比较容易出现的页面放在最前面，例如：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> filterChainDefinitionMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedHashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token comment">// 配置不会被拦截的链接 顺序判断</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/api/user/login"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/index/**"</span><span class="token punctuation">,</span><span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/static/images/**"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/images/**"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/js/**"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/layui/**"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/css/**"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/treetable-lay/**"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/api/user/token"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/api/user/**"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token comment">//放开swagger-ui地址</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/swagger/**"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/v2/api-docs"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/swagger-ui.html"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/swagger-resources/**"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/webjars/**"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/favicon.ico"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/captcha.jpg"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token comment">//druid sql监控配置</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/druid/**"</span><span class="token punctuation">,</span> <span class="token string">"anon"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       filterChainDefinitionMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"/**"</span><span class="token punctuation">,</span><span class="token string">"token,authc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <h2 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>用户与服务器的通信：</p>
+<p><strong>基于cookie-session的通信</strong>：</p>
+<p>1.用户向服务器发送账号与密码</p>
+<p>2.服务器通过对比后，在当前session中存入登录的信息，比如用户角色信息，登录时间等等</p>
+<p>3.服务器返回给用户一个session_id,写入到用户的cookie</p>
+<p>4.用户每次再访问服务器，都通过cookie来获取session_id，传给服务器</p>
+<p>5.服务器通过session_id来获取之前的登录信息，从而达到用户身份认证的目的</p>
+<p>缺点：系统的拓展性不强。在服务器集群中，需要将session的信息进行共享，使得每台服务器都能读取到该session。</p>
+<p><strong>基于JWT的用户认证：</strong></p>
+<p>用户首次登录，和服务器认证成功后，返回一个JSON对象给用户</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"姓名"</span><span class="token operator">:</span> <span class="token string">"张三"</span><span class="token punctuation">,</span>
+  <span class="token property">"角色"</span><span class="token operator">:</span> <span class="token string">"管理员"</span><span class="token punctuation">,</span>
+  <span class="token property">"到期时间"</span><span class="token operator">:</span> <span class="token string">"2018年7月1日0点0分"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-       shiroFilterFactoryBean<span class="token punctuation">.</span><span class="token function">setFilterChainDefinitionMap</span><span class="token punctuation">(</span>filterChainDefinitionMap<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>最后用过setFilterChainDefinitionMap()注入我们的url拦截顺序。</p>
+<p>此后用户与服务器进行通信的时候，都需要发送JSON对象给服务器，服务器通过JSON来进行身份的认证。同时服务器生成这个JSON对象时，会加上签名，防止用户篡改JSON对象。</p>
+<h3 id="引用更好的解释"><a href="#引用更好的解释" class="headerlink" title="引用更好的解释"></a>引用更好的解释</h3><h4 id="传统的-session-流程"><a href="#传统的-session-流程" class="headerlink" title="传统的 session 流程"></a>传统的 session 流程</h4><ol>
+<li>浏览器发起请求登陆</li>
+<li>服务端验证身份，生成身份验证信息，存储在服务端，并且告诉浏览器写入 Cookie</li>
+<li>浏览器发起请求获取用户资料，此时 Cookie 内容也跟随这发送到服务器</li>
+<li>服务器发现 Cookie 中有身份信息，验明正身</li>
+<li>服务器返回该用户的用户资料</li>
+</ol>
+<h4 id="JWT-流程"><a href="#JWT-流程" class="headerlink" title="JWT 流程"></a>JWT 流程</h4><ol>
+<li>浏览器发起请求登陆</li>
+<li>服务端验证身份，根据算法，将用户标识符打包生成 token, 并且返回给浏览器</li>
+<li>浏览器发起请求获取用户资料，把刚刚拿到的 token 一起发送给服务器</li>
+<li>服务器发现数据中有 token，验明正身</li>
+<li>服务器返回该用户的用户资料</li>
+</ol>
+<p><strong>区别</strong></p>
+<ol>
+<li><p>session 存储在服务端占用服务器资源，而 JWT 存储在客户端</p>
+</li>
+<li><p>session 存储在 Cookie 中，存在伪造跨站请求伪造攻击的风险</p>
+</li>
+<li><p>session 只存在一台服务器上，那么下次请求就必须请求这台服务器，不利于分布式应用</p>
+</li>
+<li><p>存储在客户端的 JWT 比存储在服务端的 session 更具有扩展性</p>
+</li>
+</ol>
+<p><strong>JWT的缺点</strong></p>
+<p>服务器不保存session状态，那么使用期间不可能取消令牌和更改令牌权限，只要Token签发了，在有效期内会一直生效</p>
+<h3 id="JWT的token的结构"><a href="#JWT的token的结构" class="headerlink" title="JWT的token的结构"></a>JWT的token的结构</h3><p>header.payload.signature</p>
+<p>即：头部.负载.签名</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak3m58wgj30sf07mmzl.jpg" alt="image"></p>
+<p>header: JSON对象</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1goak5kh8zrj30wr0admye.jpg" alt="image"></p>
+<p>Payload: JSON对象</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak6ekblrj30wu0lwwgz.jpg" alt="image"></p>
+<p>signature： 指定密钥，然后通过算法来产生token</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak7nohsjj30y30aydh9.jpg" alt="image"></p>
 
                 
             </div>
@@ -569,7 +561,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/05/Shiro%E6%A1%86%E6%9E%B6/">http://example.com/2021/03/05/Shiro%E6%A1%86%E6%9E%B6/</a>
+                    <a href="http://example.com/posts/20c82a80.html">http://example.com/posts/20c82a80.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -607,12 +599,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Shiro/">
-                                    <span class="chip bg-color">Shiro</span>
+                                <a href="/tags/JWT/">
+                                    <span class="chip bg-color">JWT</span>
                                 </a>
                             
-                                <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/">
-                                    <span class="chip bg-color">权限管理框架</span>
+                                <a href="/tags/%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/">
+                                    <span class="chip bg-color">登录认证</span>
                                 </a>
                             
                         </div>
@@ -832,12 +824,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/06/JWT%E5%85%A5%E9%97%A8/">
+                <a href="/posts/38059bce.html">
                     <div class="card-image">
                         
-                        <img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gorcp4q3nqj30k00b9jsb.jpg" class="responsive-img" alt="JWT入门">
+                        <img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gorcsfj5g8j30k00b9aco.jpg" class="responsive-img" alt="操作系统知识点">
                         
-                        <span class="card-title">JWT入门</span>
+                        <span class="card-title">操作系统知识点</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -848,14 +840,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JWT/" class="post-category">
-                                    JWT
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    计算机基础
                                 </a>
                             
                             
@@ -865,12 +857,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JWT/">
-                        <span class="chip bg-color">JWT</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
                     </a>
                     
-                    <a href="/tags/%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/">
-                        <span class="chip bg-color">登录认证</span>
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
                     </a>
                     
                 </div>
@@ -884,12 +876,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/25/JAVA%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                <a href="/posts/e676932.html">
                     <div class="card-image">
                         
-                        <img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gorcr593slj30k00dc0t0.jpg" class="responsive-img" alt="JAVA数据结构">
+                        <img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gorcmesxd5j30k00dcdgt.jpg" class="responsive-img" alt="Shiro框架">
                         
-                        <span class="card-title">JAVA数据结构</span>
+                        <span class="card-title">Shiro框架</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -900,14 +892,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
-                                    数据结构
+                            <a href="/categories/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/" class="post-category">
+                                    权限管理框架
                                 </a>
                             
                             
@@ -917,16 +909,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/tags/Shiro/">
+                        <span class="chip bg-color">Shiro</span>
                     </a>
                     
-                    <a href="/tags/JAVA/">
-                        <span class="chip bg-color">JAVA</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="chip bg-color">数组</span>
+                    <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">权限管理框架</span>
                     </a>
                     
                 </div>

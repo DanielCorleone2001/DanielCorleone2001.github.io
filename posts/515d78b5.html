@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="并发, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="Java虚拟机, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>并发 | Welcome to Daniel&#39;s Blog !</title>
+    <title>Java虚拟机 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://tvax2.sinaimg.cn/large/0085EwgIgy1gorcsrvwh2j30k00b9glv.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://tvax1.sinaimg.cn/large/0085EwgIgy1gorcppuz15j30k00cijt9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">并发</h1>
+                    <h1 class="description center-align post-title">Java虚拟机</h1>
                 </div>
             </div>
         </div>
@@ -413,8 +413,8 @@
                                 <span class="chip bg-color">JAVA</span>
                             </a>
                         
-                            <a href="/tags/%E5%B9%B6%E5%8F%91/">
-                                <span class="chip bg-color">并发</span>
+                            <a href="/tags/JVM/">
+                                <span class="chip bg-color">JVM</span>
                             </a>
                         
                     </div>
@@ -438,7 +438,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-18
+                    2021-03-17
                 </div>
                 
 
@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    14 分
                 </div>
                 
 
@@ -482,129 +482,456 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Synchronized"><a href="#Synchronized" class="headerlink" title="Synchronized"></a>Synchronized</h2><p>作用：保证互斥性。</p>
-<table>
+                <h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><table>
 <thead>
 <tr>
-<th>作用的对象</th>
-<th>锁</th>
+<th>名称</th>
+<th>线程占用</th>
+<th>是否会OOM</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>静态方法</td>
-<td>该静态方法的类的锁</td>
+<td>方法区</td>
+<td>所有线程共享</td>
+<td>会</td>
 </tr>
 <tr>
-<td>实例方法</td>
-<td>实例方法对象的锁</td>
+<td>堆内存</td>
+<td>所有线程共享</td>
+<td>会</td>
 </tr>
 <tr>
-<td>实例对象</td>
-<td>实例对象的锁</td>
+<td>虚拟机栈</td>
+<td>线程私有</td>
+<td>会</td>
 </tr>
 <tr>
-<td>class对象</td>
-<td>类的锁</td>
+<td>本地方法栈</td>
+<td>线程私有</td>
+<td>会</td>
+</tr>
+<tr>
+<td>程序计数器</td>
+<td>线程私有</td>
+<td>不会</td>
 </tr>
 </tbody></table>
-<p>锁指的是，被synchronized修饰后，需要获得的锁的类型，才能访问。</p>
-<h3 id="实现原理：Monitor"><a href="#实现原理：Monitor" class="headerlink" title="实现原理：Monitor"></a>实现原理：Monitor</h3><p>从汇编的代码来看，执行synchronized之前使用了monitorenter执行，执行结束后使用monitorexit指令。</p>
-<p>并且，synchronized具有<strong>可重入性</strong>，获得了某方法的锁，该方法中还需要相同的锁才能进入时，不需要再获得该锁。</p>
-<p><strong>说明：</strong>Monitor是重量级锁，是依赖于操作系统的Mutex Lock实现。而操作系统进行线程的切换，需要从用户态进入到核心态，开销非常大。</p>
-<h2 id="Volatile"><a href="#Volatile" class="headerlink" title="Volatile"></a>Volatile</h2><p>保证线程对于变量的<strong>可见性</strong>(线程A修改了某个值，线程B一定会看到的是修改后的值)。</p>
-<h3 id="实现原理：Lock指令"><a href="#实现原理：Lock指令" class="headerlink" title="实现原理：Lock指令"></a>实现原理：Lock指令</h3><p>变量使用volatile修饰时，在汇编的层面，加了一个<strong>Lock前缀指令</strong>。</p>
-<h4 id="Lock指令"><a href="#Lock指令" class="headerlink" title="Lock指令"></a>Lock指令</h4><p>Lock指令的作用：</p>
-<blockquote>
-<p>1.强制将当前处理器的缓存行内容写入到内存</p>
-<p>2.写回操作，会使得其他处理器缓存了该变量内存地址的缓存行<strong>失效</strong></p>
-</blockquote>
-<p>要让<strong>缓存行失效的原因</strong>：虽然写回了内存，但其他CPU中的缓存行，存的数据不是修改后的值。为了保证<strong>缓存一致性</strong>，每个CPU都要检测总线上传播的数据，检查自己的数据是否已经过期。如果过期了，就将对应的缓存行置为无效，等下次需要数据时，需要从内存中调用。</p>
-<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><p>锁之前只有无锁状态和重量级锁状态。</p>
-<p>但是后来发现，锁不仅在线程之间竞争激烈，同时一个线程也有可能会多次获得锁。因此需要细分锁，减少线程获得锁的开销，从而引入了<strong>偏向锁</strong>和<strong>轻量级锁</strong>。</p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>存储：记录此线程执行到的字节码的地址。</p>
+<p>作用：<strong>记录当前指令的位置</strong>，当发生循环，跳转等功能时，需要通过程序计数器来<strong>找到原来发生切换前所执行的指令的地址</strong></p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>偏向锁</th>
-<th>轻量级锁</th>
+<th>线程正在执行的方法</th>
+<th>程序技术器存放的内容</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>释放锁的时机</td>
-<td>发生竞争</td>
-<td>每次退出同步块</td>
+<td>Java方法</td>
+<td>字节码指令的地址</td>
 </tr>
 <tr>
-<td>退出的操作</td>
-<td>使用CAS更新对象头，失败的话变成轻量级锁</td>
-<td>CAS更新对象头，失败的话变成重量级锁</td>
+<td>本地方法(Native方法)</td>
+<td>空</td>
+</tr>
+</tbody></table>
+<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4><p>Java方法被执行时，虚拟机栈会创建一个<strong>栈帧</strong>，存放局部变量表，操作数栈，动态连接，方法出口等。</p>
+<table>
+<thead>
+<tr>
+<th>栈帧存放内容</th>
+<th>里面的具体内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>局部变量表</td>
+<td>基本数据类型、引用数据类型的<strong>指针</strong>，returnAddress类型(指向了一条字节码的地址)</td>
 </tr>
 <tr>
-<td>申请锁失败时</td>
+<td>操作数栈</td>
+<td>需要操作的数据</td>
+</tr>
+<tr>
+<td>动态连接</td>
 <td></td>
-<td>会<strong>自旋</strong>尝试抢占锁</td>
+</tr>
+<tr>
+<td>方法出口</td>
+<td></td>
 </tr>
 </tbody></table>
-<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goqbrnm411j30oh06ujub.jpg" alt="image"></p>
-<h3 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h3><p>线程在访问同步代码块时，会在对象头中的<strong>MarkWord</strong>和<strong>栈帧</strong>中存储<strong>锁偏向的线程ID</strong>。</p>
-<h4 id="偏向锁的访问"><a href="#偏向锁的访问" class="headerlink" title="偏向锁的访问"></a>偏向锁的访问</h4><blockquote>
-<p>1.线程访问同步块 </p>
-<p>2.检查对象头中的MarkWord是否存有该线程的偏向锁</p>
-<p>3.没有的话，查看MardWord中的偏向锁标识是否为1(1代表拥有偏向锁)</p>
-<p>4.如果是1的话，就使用<strong>CAS操作</strong>将<strong>对象头的偏向锁指向当前线程</strong>；如果是0的话，就使用<strong>CAS操作</strong>来<strong>竞争锁</strong></p>
-</blockquote>
-<h4 id="偏向锁的加锁"><a href="#偏向锁的加锁" class="headerlink" title="偏向锁的加锁"></a>偏向锁的加锁</h4><p>使用原子的CAS操作，将MarkWord的锁标识记为偏向锁，并记录锁偏向的线程ID</p>
-<h4 id="偏向锁的解锁"><a href="#偏向锁的解锁" class="headerlink" title="偏向锁的解锁"></a>偏向锁的解锁</h4><p>偏向锁，只有等到<strong>竞争出现</strong>，才会将锁撤销。</p>
-<p>撤销的过程：</p>
+<table>
+<thead>
+<tr>
+<th>局部变量表的内容</th>
+<th>存放的类型</th>
+<th>个数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>short</td>
+<td>局部变量槽(Slot)</td>
+<td>1个slot</td>
+</tr>
+<tr>
+<td>int</td>
+<td>slot</td>
+<td>1</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>slot</td>
+<td>1</td>
+</tr>
+<tr>
+<td>long</td>
+<td>slot</td>
+<td>2</td>
+</tr>
+<tr>
+<td>double</td>
+<td>slot</td>
+<td>2</td>
+</tr>
+<tr>
+<td>…</td>
+<td>slot</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>除了long和double占用两个slot(局部变量槽)。</p>
+<p>之所以叫做栈帧，是因为java方法执行的过程，就对应一个栈帧从入栈再到弹出栈的过程。</p>
+<table>
+<thead>
+<tr>
+<th>溢出类型</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OutOfStackMemory</td>
+<td>线程申请的栈深度大于虚拟机所允许的最大深度</td>
+</tr>
+<tr>
+<td>OutOfMemory</td>
+<td>栈容量动态扩容，扩容申请不到足够的容量就会发生</td>
+</tr>
+</tbody></table>
+<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><table>
+<thead>
+<tr>
+<th>栈类型</th>
+<th>运行的内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>虚拟机栈</td>
+<td>Java方法</td>
+</tr>
+<tr>
+<td>本地方法栈</td>
+<td>Native方法</td>
+</tr>
+</tbody></table>
+<p>Native方法，简单来说就是不调用java方法接口的方法，可以是c语言的方法。</p>
+<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p>存放内容：<strong>对象实例</strong></p>
+<p>java中的对象在实例化后申请内存就是在堆中申请内存。</p>
+<p>抛出错误：OutOfMemoryError，在对象申请内存无法满足时就会抛出。</p>
+<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>存放的内容：</p>
 <blockquote>
-<p>1.偏向锁的撤销，需要等待<strong>全局安全点</strong>(此时没有正在执行的字节码)，才能撤销。</p>
-<p>2.暂停所有拥有偏向锁的线程</p>
-<p>3.检查线程是否活着</p>
-<p>4.已经<strong>死亡的线程</strong>，将其对象头的MarkWord中的标识置为<strong>无锁状态</strong></p>
-<p>5.还活着的线程，就遍历拥有<strong>偏向锁的栈帧</strong>，以及<strong>拥有偏向锁的对象的锁记录</strong></p>
-<p>6.栈帧和对象的Markword要么重新偏向于线程，要么恢复到无锁状态</p>
-<p>7.唤醒被暂停的线程</p>
+<p>1.常量</p>
+<p>2.静态变量</p>
+<p>3.编译后的代码</p>
 </blockquote>
-<h3 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h3><h4 id="轻量级锁的加锁"><a href="#轻量级锁的加锁" class="headerlink" title="轻量级锁的加锁"></a>轻量级锁的加锁</h4><blockquote>
-<p>1.在<strong>栈帧</strong>中开辟内存空间，存放<strong>锁记录</strong></p>
-<p>2.将线程的<strong>MarkWord</strong>，<strong>复制到栈帧中的锁记录中</strong>。</p>
-<p>3.线程尝试使用<strong>CAS操作</strong>，将自己MarkWord中的锁记录指针，替换成锁记录的指针</p>
-<p>4.成功的话就获得锁</p>
-<p>5.失败的话尝试使用<strong>自旋锁</strong>来获得锁</p>
+<h2 id="HotSpot"><a href="#HotSpot" class="headerlink" title="HotSpot"></a>HotSpot</h2><p>HotSpot是常用的虚拟机。</p>
+<h3 id="对象创建的过程"><a href="#对象创建的过程" class="headerlink" title="对象创建的过程"></a>对象创建的过程</h3><blockquote>
+<p>1.遇到new指令，去常量池定位到类的符号引用(符号引用即用用字符串符号的形式来表示引用，被引用的类、方法或者变量还没有被加载到内存中。直接引用则是有具体引用地址的指针，被引用的类、方法或者变量已经被加载到内存中)</p>
+<p>2.检查类的符号引用所代表的类，是否被加载，解析，初始化。如果没有，就要进行类加载</p>
+<p>3.完成类加载的检查后，在堆中为新生的对象分配内存。</p>
+<p>4.将申请到的内存空间初始化为零值。目的：对象申请后，其中的实例字段即使对象未初始化也能使用。如果使用TLAB来申请内存时，在TLAB中就可以提前进行该初始化操作。</p>
+<p>5.初始化对象的属性值。</p>
 </blockquote>
-<h4 id="轻量级锁的解锁"><a href="#轻量级锁的解锁" class="headerlink" title="轻量级锁的解锁"></a>轻量级锁的解锁</h4><blockquote>
-<p>1.使用<strong>原子的CAS操作</strong>,将<strong>MarkWord的锁标识置为无锁状态</strong></p>
-<p>2.如果成功，说明不存在锁竞争，可直接解锁</p>
-<p>2.如果失败，说明存在锁竞争，轻量级锁会<strong>膨胀成重量级锁</strong>。</p>
-</blockquote>
-<h2 id="JAVA实现原子操作"><a href="#JAVA实现原子操作" class="headerlink" title="JAVA实现原子操作"></a>JAVA实现原子操作</h2><p>一般是使用<strong>循环CAS</strong>或者<strong>锁</strong>来实现</p>
-<h3 id="循环CAS"><a href="#循环CAS" class="headerlink" title="循环CAS"></a>循环CAS</h3><p>循环的进行CAS操作，直到成功位置。</p>
-<p>CAS的实现原理：CMPXCHG</p>
-<h4 id="可能导致的问题"><a href="#可能导致的问题" class="headerlink" title="可能导致的问题"></a>可能导致的问题</h4><blockquote>
-<p>1.<strong>ABA问题。</strong>比如线程X存储某内存中的旧值是A，然后内存中修改了A的值为B，又再修改成了A，会导致线程X认为A的值没有发生变化过。</p>
-<p><strong>解决方法：</strong>对值附上版本号。Atomic包里的AtomicStampedRefrence解决了这个问题。它首先检查线程的引用是否和内存中的相等，再比较标志位是否等于预期的标志,即版本号。</p>
-<p>2.<strong>循环的时间开销大</strong>。CAS不成功的时候就会一直自旋，直到成功。</p>
-<p><strong>解决方法：</strong>JVM的pause指令。</p>
-<p>3.<strong>只能保证一个共享变量的原子操作</strong>。</p>
-<p><strong>解决方法：</strong>将多个变量相乘，记录乘积结果，相当于又变成了一个变量。</p>
-</blockquote>
-<h3 id="锁实现原子操作"><a href="#锁实现原子操作" class="headerlink" title="锁实现原子操作"></a>锁实现原子操作</h3><p>一般使用<strong>偏向锁</strong>，<strong>互斥锁</strong>，<strong>轻量级锁</strong>实现。</p>
-<h2 id="JMM"><a href="#JMM" class="headerlink" title="JMM"></a>JMM</h2><p>JMM：Java内存模型。</p>
-<p>并发编程需要解决两个问题：线程的通信；同步问题。</p>
-<p><strong>线程的通信：</strong></p>
+<p><strong>分配内存的方法</strong></p>
+<table>
+<thead>
+<tr>
+<th>收集器</th>
+<th>分配方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Serial</td>
+<td>指针碰撞</td>
+</tr>
+<tr>
+<td>ParNew</td>
+<td>指针碰撞</td>
+</tr>
+<tr>
+<td>使用CMS算法的收集器</td>
+<td>空闲列表</td>
+</tr>
+</tbody></table>
+<p><strong>指针碰撞：</strong>将已分配和未分配的内存，通过<strong>指针化成两部分</strong>，分配内存时，通过移动指针即可实现</p>
+<p><strong>空闲列表：</strong>维护一个空闲表，类似于操作系统的页表，记录哪些是可用的。</p>
+<p><strong>分配内存的并发性</strong></p>
 <blockquote>
-<p>1.在共享存储的模型中，采用隐式的通信。例如线程A、B通过写入内存，读内存来实现通信</p>
-<p>2.消息传递的并发模型里，使用直接发送信息来进行线程之间的通信</p>
+<p>分配内存还要考虑并发的安全性！否则可能会出现：A线程申请某一块内存还没来得及确认，B线程马上使用这块内存，这就会导致A线程创建对象失败</p>
+<p>解决方法：</p>
+<p>​    a.CAS(compare and swap)+失败重试。</p>
+<p>​    b.在TLAB中申请内存。具体过程：每个线程都有一个叫做本地线程分配缓冲的区域，是线程初始化时，从堆中获取到的一小部门内存。线程创建对象需要申请内存，首先在TLAB中申请内存，只有当TLAB中无可用空间时，才会在堆中进行同步操作来申请内存。</p>
 </blockquote>
-<p><strong>同步：</strong>使线程之间的某些操作是按照特定顺序的。</p>
-<hr>
-<p>Java中采用的是共享存储的模型。</p>
-<h3 id="JMM抽象结构"><a href="#JMM抽象结构" class="headerlink" title="JMM抽象结构"></a>JMM抽象结构</h3><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goqcjlld7ij30ir0hcq5y.jpg" alt="JMM"></p>
-<p>简单来说，分成的两部分：</p>
-<p>1.每个线程的本地副本</p>
-<p>2.主内存。</p>
-<p>线程需要进行通信，就需要将自己的本地写入到内存中，其他线程再读取出来，从而实现线程间的通信。</p>
-<h2 id="指令重排"><a href="#指令重排" class="headerlink" title="指令重排"></a>指令重排</h2>
+<table>
+<thead>
+<tr>
+<th>初始化的类型</th>
+<th>简要描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所属的类</td>
+<td>创建的对象，是哪个类的实例</td>
+</tr>
+<tr>
+<td>哈希码</td>
+<td>对象的哈希码，用于快速寻找到对象，在判断对象是否相等时会用到</td>
+</tr>
+<tr>
+<td>分代信息</td>
+<td>对象被分配到了新生代还是老年代</td>
+</tr>
+</tbody></table>
+<h3 id="堆中对象的内存布局"><a href="#堆中对象的内存布局" class="headerlink" title="堆中对象的内存布局"></a>堆中对象的内存布局</h3><p>分成三部分：对象头(header)，实例数据(Instance Data)，对齐填充(Padding).</p>
+<table>
+<thead>
+<tr>
+<th>存放的类型</th>
+<th align="left">存放的内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对象头</td>
+<td align="left">对象运行时的数据；类型指针</td>
+</tr>
+<tr>
+<td>实例数据</td>
+<td align="left">对象属性的值</td>
+</tr>
+<tr>
+<td>对齐填充</td>
+<td align="left">填充，使得对象占的内存是8字节的整数倍</td>
+</tr>
+</tbody></table>
+<h4 id="对象头"><a href="#对象头" class="headerlink" title="对象头"></a>对象头</h4><p>对象头由两部分组成：对象运行时的数据；类型指针。</p>
+<h5 id="对象运行时数据"><a href="#对象运行时数据" class="headerlink" title="对象运行时数据"></a>对象运行时数据</h5><table>
+<thead>
+<tr>
+<th>存储内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对象的<strong>哈希码(hashCode)</strong></td>
+</tr>
+<tr>
+<td>指向<strong>锁记录的指针</strong></td>
+</tr>
+<tr>
+<td>指向<strong>重量级锁的指针</strong></td>
+</tr>
+<tr>
+<td>对象<strong>分代的年龄</strong></td>
+</tr>
+<tr>
+<td><strong>偏向线程ID</strong></td>
+</tr>
+</tbody></table>
+<p>其中这些内容占用的空间是不确定的，可以动态的分配。但是必须是32位或者64位。</p>
+<h5 id="类型指针"><a href="#类型指针" class="headerlink" title="类型指针"></a>类型指针</h5><p>类型指针：指向它的类型元数据的指针。</p>
+<p>作用：通过指针判断对象是哪个类的实例。</p>
+<h4 id="实例数据"><a href="#实例数据" class="headerlink" title="实例数据"></a>实例数据</h4><p>含义：程序运行时，定义属性的值。</p>
+<h4 id="对齐填充"><a href="#对齐填充" class="headerlink" title="对齐填充"></a>对齐填充</h4><p>·任何对象的大小都必须是<strong>8字节的整数倍</strong>。对象头部分已经被精心设计成正好是8字节的倍数（1倍或者 2倍），因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全。</p>
+<h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><p>java中使用reference从栈中读取对象的地址，从而实现访问对象。</p>
+<p>reference访问有两种方式：句柄访问，直接访问</p>
+<h4 id="句柄访问"><a href="#句柄访问" class="headerlink" title="句柄访问"></a>句柄访问</h4><p>句柄访问：是指在JAVA堆中，存放<strong>对象实例数据</strong>和<strong>对象内存数据</strong>的指针。当需要访问对象时，要从句柄池中去寻找到对应的指针，才能在实例池中获取到对象。</p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIly1gonwbpffsrj30kb0ao40h.jpg" alt="image"></p>
+<p><strong>缺点：</strong>所以每一次访问对象，都需要多一次查询才能访问到</p>
+<p><strong>优点：</strong>对象的维护成本低：当对象的内存地址发生了变化时，只需要改变句柄池中对应的指针即可。</p>
+<h4 id="直接访问"><a href="#直接访问" class="headerlink" title="直接访问"></a>直接访问</h4><p>在堆中直接存放<strong>对象类型数据</strong>的指针。当访问对象时，从堆中寻找对象，并获取到对象类型数据指针，从而能访问对象。</p>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIly1gonwefvx73j30kh09fgnd.jpg" alt="image"></p>
+<p>**优点:**一次访问即可获取到对象。</p>
+<p><strong>缺点：</strong>维护对象的成本很高：对象地址发生变化时，在堆中需要进行很多操作。</p>
+<h2 id="对象存活"><a href="#对象存活" class="headerlink" title="对象存活"></a>对象存活</h2><h3 id="对象存活的判断过程"><a href="#对象存活的判断过程" class="headerlink" title="对象存活的判断过程"></a>对象存活的判断过程</h3><p>1.进行第一次可达性分析，标记可能需要杀死的对象</p>
+<p>2.对标记的对象进行筛选，看是否被覆盖了finalize()方法</p>
+<h3 id="对象存活判断方法"><a href="#对象存活判断方法" class="headerlink" title="对象存活判断方法"></a>对象存活判断方法</h3><h4 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h4><p><strong>原理：</strong>为每个对象都添加一个引用计数器，每出现一个地方引用了该对象，就让引用计数器加一。</p>
+<p><strong>优点：</strong>实现简单，逻辑清晰</p>
+<p><strong>缺点：</strong>容易发生互相引用，从而出现垃圾收集器无法回收这两个对象的现象。</p>
+<h4 id="可达性分析"><a href="#可达性分析" class="headerlink" title="可达性分析"></a>可达性分析</h4><p><strong>原理：</strong>将根对象作为GC Root，作为起始节点，有引用关系的就加一个<strong>引用链</strong>。当需要判断对象是否存活时，只需要判断该对象是否有从它本身到GC Root的引用链。如果没有，就成为不可达，可以被回收。</p>
+<p><img src="https://tva1.sinaimg.cn/large/0085EwgIly1gonwodc52xj30oc0fs0vh.jpg" alt="image"></p>
+<p>能作为GC Root的：</p>
+<table>
+<thead>
+<tr>
+<th>存储区域</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>虚拟机栈</td>
+<td>在虚拟机栈中引用的对象</td>
+</tr>
+<tr>
+<td>方法区</td>
+<td>方法区中静态属性引用的对象，常量引用的对象</td>
+</tr>
+<tr>
+<td>本地方法栈</td>
+<td>Native方法引用的对象</td>
+</tr>
+<tr>
+<td>Java虚拟机</td>
+<td>JVM内部引用的对象，如<strong>基本类型的对象</strong>，<strong>常见的异常对象，系统的类加载器</strong></td>
+</tr>
+<tr>
+<td>？</td>
+<td>所有持有同步锁的对象。即Synchronized</td>
+</tr>
+</tbody></table>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>传统的对象引用关系，只有被引用和未被引用，这对于实际场景的需求来说，分类得很宽泛。例如：我们希望内存充足时，对象没被引用也能保存在内存中，而内存不足时，即使垃圾收集后还是内存不足，对于一些已经被引用的对象，也应该要被杀死。</p>
+<p>因此就有了下面的几种更细颗粒度的分类方法。</p>
+<h3 id="强引用"><a href="#强引用" class="headerlink" title="强引用"></a>强引用</h3><p><strong>定义：</strong>对象的引用很重要，不可以回收掉</p>
+<p><strong>回收时机：</strong>无论什么情况下，只要强引用还存在，垃圾收集器就无法对其进行收集，宁可抛出OutOfMemoryError。</p>
+<h3 id="软引用"><a href="#软引用" class="headerlink" title="软引用"></a>软引用</h3><p><strong>含义：</strong>一些还有用，但不是必须的对象。</p>
+<p><strong>回收时机：</strong>在系统内存不足时，将这些对象进行回收。</p>
+<p><strong>发生OutOfMemory的情况：</strong>回收之后还是内存不足才会发生</p>
+<h3 id="弱引用"><a href="#弱引用" class="headerlink" title="弱引用"></a>弱引用</h3><p><strong>含义：</strong>关联的对象不是很重要。</p>
+<p><strong>回收时机：</strong>下一次垃圾回收到来时，一定要将对象进行回收。</p>
+<p>可见弱引用是比软引用，引用关系更低级的。</p>
+<h3 id="虚引用"><a href="#虚引用" class="headerlink" title="虚引用"></a>虚引用</h3><p><strong>作用：</strong>对象是否存在虚引用，完全不影响它的存活时间。它的作用只不过是，在对象被垃圾收集器回收时，能收到一个系统通知</p>
+<h2 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h2><h3 id="分代理论引申"><a href="#分代理论引申" class="headerlink" title="分代理论引申"></a>分代理论引申</h3><p>将java堆分成新生代和老年代，分配原则：熬过垃圾收集次数多的就会进入老年代。</p>
+<p>分代的优点：每次收集时，只需要收集新生代，熬过的放入老年代即可。那么收集的效率会高很多。</p>
+<h4 id="记忆集"><a href="#记忆集" class="headerlink" title="记忆集"></a>记忆集</h4><blockquote>
+<p>定义：是一种全局的数据结构，将老年代划分成了很多小块，标记哪些块存在着跨代引用。</p>
+<p>作用：在发生**新生代收集(Minor GC)**时，从记忆集中寻找存在跨代引用的对象进行可达性分析，用于判断是否需要进行收集。</p>
+<p>优点：在发生Minor GC时，如果存在新生代引用老年代，不需要再全部扫描老年代，而是通过查看记忆集就行了。对于新增的内存开销，是值得的。</p>
+</blockquote>
+<h4 id="GC分类"><a href="#GC分类" class="headerlink" title="GC分类"></a>GC分类</h4><table>
+<thead>
+<tr>
+<th>部分收集(Partial GC)</th>
+<th>全部收集</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Minor GC：新生代收集</td>
+<td>Full GC：收集整个java堆和方法区</td>
+</tr>
+<tr>
+<td>Major GC：老年代收集</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记-清除法"><a href="#标记-清除法" class="headerlink" title="标记-清除法"></a>标记-清除法</h4><p><strong>过程：</strong>标记所有需要回收的对象，在垃圾回收到来时，回收被标记的对象</p>
+<p><strong>缺点：</strong></p>
+<p>1.<strong>效率低</strong>。JAVA堆中对象过多时，标记和清除的效率都很低</p>
+<p>2.会<strong>产生很多内存碎片</strong>。内存空间不连续，导致大对象无法分配内存空间。</p>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIly1goo9t2jd3oj30m00ce40c.jpg" alt="image"></p>
+<h4 id="标记-复制法"><a href="#标记-复制法" class="headerlink" title="标记-复制法"></a>标记-复制法</h4><p><strong>过程：</strong>将内存分成两半，只使用其中的半内存，标记存活的对象，在一般内存满的时候，复制存活的对象到另一半空闲的内存，然后将现在的内存全都释放。</p>
+<p><strong>优点：</strong>避免产生内存碎片</p>
+<p><strong>缺点：</strong></p>
+<p>1.<strong>空间利用率低</strong>，只用了一半</p>
+<p>2.当多数对象存活时，<strong>复制的开销会很大</strong></p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIly1goo9x95g3qj30m10cgq4p.jpg" alt="image"></p>
+<h4 id="标记-整理法"><a href="#标记-整理法" class="headerlink" title="标记-整理法"></a>标记-整理法</h4><blockquote>
+<p><strong>过程：</strong>标记存活的对象，垃圾收集掉不存活的对象时，将存活的对象往内存的同一端移动。</p>
+<p>优点：内存碎片消除。</p>
+<p>缺点：移动存活的对象，尤其是老年代，这开销非常庞大，同时需要<strong>停止用户所有的程序</strong>，也就是<strong>stop the world</strong>。</p>
+</blockquote>
+<h2 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h2><p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gooy6ddkqqj30nw0h9dha.jpg" alt="image"></p>
+<h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>单线程的收集器，在发生垃圾收集的时候，会导致<strong>Stop the World</strong> ！！</p>
+<p><img src="https://tva2.sinaimg.cn/large/0085EwgIly1gooaare9c7j30lx05lgnp.jpg" alt="image"></p>
+<h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>多线程版本的Serial收集器。</p>
+<p>多线程：指的是多线程的进行垃圾回收，还是<strong>会导致Stop the World</strong>。</p>
+<p><strong>约束：必须配合CMS收集器使用</strong></p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIly1gooab69qhsj30lv05yaca.jpg" alt="image"></p>
+<h3 id="Parallel-Scavenge收集器"><a href="#Parallel-Scavenge收集器" class="headerlink" title="Parallel Scavenge收集器"></a>Parallel Scavenge收集器</h3><blockquote>
+<p>多线程的进行垃圾回收。但它的特别点在于关注<strong>吞吐量</strong></p>
+<p>吞吐量 = 用户代码运行时间/ (用户代码运行时间+垃圾回收时间)</p>
+<p>能控制的参数：</p>
+<p>1.新生代的内存大小。这个大小如果过大，就会导致垃圾回收比较慢；过小，导致垃圾回收会很频繁。</p>
+<p>2.垃圾回收占总时间的比率。</p>
+</blockquote>
+<h3 id="Serial-Old收集器"><a href="#Serial-Old收集器" class="headerlink" title="Serial Old收集器"></a>Serial Old收集器</h3><p>Serial收集器的老年代版本，是单线程收集器，使用<strong>标记-整理算法</strong></p>
+<p><img src="https://tvax3.sinaimg.cn/large/0085EwgIly1gooaje0nq3j30m904r75j.jpg" alt="image"></p>
+<h3 id="Parallel-Old收集器"><a href="#Parallel-Old收集器" class="headerlink" title="Parallel Old收集器"></a>Parallel Old收集器</h3><p>Parallel Scavenge的老年代版本，是多线程收集器，使用<strong>标记-整理算法</strong></p>
+<p>作用：<strong>和Parallel Scavenge配合使用</strong></p>
+<p><img src="https://tvax1.sinaimg.cn/large/0085EwgIly1gooalh7956j30ly06ytap.jpg" alt="image"></p>
+<h3 id="CMS收集器"><a href="#CMS收集器" class="headerlink" title="CMS收集器"></a>CMS收集器</h3><p><strong>目的：</strong>追求<strong>最短回收停顿</strong>的收集器。</p>
+<p><strong>收集算法：标记-清除</strong></p>
+<p>步骤：<strong>初始标记</strong>-&gt;<strong>并发标记</strong>-&gt;<strong>重新标记</strong>-&gt;<strong>并发清除</strong></p>
+<table>
+<thead>
+<tr>
+<th>步骤名</th>
+<th>目的</th>
+<th>是否StopTheWorld</th>
+<th>下一步</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初始标记</td>
+<td>标记GC Root能到达的对象</td>
+<td>是</td>
+<td>并发标记</td>
+</tr>
+<tr>
+<td>并发标记</td>
+<td>从GC Root<strong>直接关联的对象</strong>进行遍历，标记被关联的对象</td>
+<td>否</td>
+<td>重新标记</td>
+</tr>
+<tr>
+<td>重新标记</td>
+<td>消除掉并发标记过程中，因用户线程改变而使引用状态发生变化的对象</td>
+<td>是</td>
+<td>并发消除</td>
+</tr>
+<tr>
+<td>并发消除</td>
+<td>并发的清除掉被标记的对象</td>
+<td>否</td>
+<td>无</td>
+</tr>
+</tbody></table>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIly1gooas9tssqj30m405hq5l.jpg" alt="image"></p>
+<blockquote>
+<p><strong>缺点：</strong></p>
+<p>1.<strong>对CPU资源敏感</strong>。由于分配了一部分线程进行并发标记和并发清除，因此用户的直观感觉会是速度较慢</p>
+<p>2.<strong>无法处理浮动垃圾</strong>。浮动垃圾：在并发标记阶段产生的垃圾，CMS是无法在这次收集中处理，只能等待下一次垃圾收集。</p>
+<p>3.<strong>会产生内存碎片。</strong>因为它用的是标记-清除算法，会产生内存碎片，严重时会导致Full GC。</p>
+</blockquote>
+<h3 id="Garbage-First收集器"><a href="#Garbage-First收集器" class="headerlink" title="Garbage First收集器"></a>Garbage First收集器</h3><p>不想写了。我是懒狗</p>
+<h2 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h2><p><strong>含义：</strong>JVM将类的数据从Class文件加载到内存，对数据进行校验，初始化，最后形成能被JVM加载的Java类型的过程，就是类加载。</p>
+<p>过程：<strong>加载-&gt;验证-&gt;准备&gt;&gt;解析-&gt;初始化-&gt;使用-&gt;卸载</strong></p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIly1goobdj2cp7j30qw0a8jtu.jpg" alt="image"></p>
+<h3 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h3><h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><blockquote>
+<p>任务：</p>
+<p>1.通过类的全限定名来<strong>获取类的二进制字节流</strong></p>
+<p>2.将<strong>字节流代表的静态存储结构</strong>，<strong>转成方法区中的数据结构</strong></p>
+<p>3.在内存中生成java.lang.Class对象，是方法区的各种数据的访问入口</p>
+</blockquote>
+<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>确保Class文件的字节流是否符合约束要求，保证代码运行后不会危害虚拟机的安全</p>
+<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>为类中的<strong>变量分配内存</strong>，并对其进行<strong>初始化</strong>。</p>
+<h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>将<strong>常量池中的符号引用</strong>改成<strong>直接引用</strong>。</p>
+<p>目的：能直接指向目标，或者定位到目标。</p>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>初始化阶段就是执行类构造器()方法的过程。</p>
+<p>具体内容待补充。为什么？因为我是懒狗 ：）</p>
+<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>类加载器，就是要完成上面所提到的加载过程：通过类的全限定名，将其转成二进制字节流。</p>
+<h4 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h4><p><img src="https://tvax4.sinaimg.cn/large/0085EwgIly1goocd38moij30fo0e7n02.jpg" alt="image"></p>
+<p><strong>双亲委派模型的加载过程：</strong>当一个类加载器收到类加载的请求，它不会马上继续类加载，而是委派更上层的类加载器去完成加载请求，直到传到顶层的启动类加载器。如果父加载器无法完成请求，他才会自己去加载请求。</p>
+<p><strong>优点：</strong></p>
+<blockquote>
+<p>​    将java的类赋予了层级关系，从而使得java库中的类不管怎么加载都是唯一的。(意思就是说，比如Object类最终一定要进入到启动类加载器进行加载，保证了不同加载器的Object类是唯一的。如果不使用双亲委派模型，用户自己编写Object类，这时候不进入到启动类加载器进行加载，得到的Object类就是千奇百怪，那么原生的功能就无法使用了)</p>
+</blockquote>
+
                 
             </div>
             <hr/>
@@ -630,7 +957,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/18/%E5%B9%B6%E5%8F%91/">http://example.com/2021/03/18/%E5%B9%B6%E5%8F%91/</a>
+                    <a href="http://example.com/posts/515d78b5.html">http://example.com/posts/515d78b5.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,8 +999,8 @@
                                     <span class="chip bg-color">JAVA</span>
                                 </a>
                             
-                                <a href="/tags/%E5%B9%B6%E5%8F%91/">
-                                    <span class="chip bg-color">并发</span>
+                                <a href="/tags/JVM/">
+                                    <span class="chip bg-color">JVM</span>
                                 </a>
                             
                         </div>
@@ -893,12 +1220,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/20/Redis/">
+                <a href="/posts/46bf65ac.html">
                     <div class="card-image">
                         
-                        <img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gorclw630jj30k00dcwf3.jpg" class="responsive-img" alt="Redis">
+                        <img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1gorcsrvwh2j30k00b9glv.jpg" class="responsive-img" alt="并发">
                         
-                        <span class="card-title">Redis</span>
+                        <span class="card-title">并发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -909,60 +1236,8 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
-                                    中间件
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Redis/">
-                        <span class="chip bg-color">Redis</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
-                        <span class="chip bg-color">中间件</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/17/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">
-                    <div class="card-image">
-                        
-                        <img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1gorcppuz15j30k00cijt9.jpg" class="responsive-img" alt="Java虚拟机">
-                        
-                        <span class="card-title">Java虚拟机</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -982,8 +1257,56 @@
                         <span class="chip bg-color">JAVA</span>
                     </a>
                     
-                    <a href="/tags/JVM/">
-                        <span class="chip bg-color">JVM</span>
+                    <a href="/tags/%E5%B9%B6%E5%8F%91/">
+                        <span class="chip bg-color">并发</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/82734d8.html">
+                    <div class="card-image">
+                        
+                        <img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gorcnoerpmj30k00dc3yy.jpg" class="responsive-img" alt="Linux命令">
+                        
+                        <span class="card-title">Linux命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
