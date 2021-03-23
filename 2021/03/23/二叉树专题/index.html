@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="JWT入门, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="二叉树专题, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JWT入门 | Welcome to Daniel&#39;s Blog !</title>
+    <title>二叉树专题 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://tva4.sinaimg.cn/large/0085EwgIgy1gorcp4q3nqj30k00b9jsb.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JWT入门</h1>
+                    <h1 class="description center-align post-title">二叉树专题</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/JWT/">
-                                <span class="chip bg-color">JWT</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/">
-                                <span class="chip bg-color">登录认证</span>
+                            <a href="/tags/LeetCode/">
+                                <span class="chip bg-color">LeetCode</span>
                             </a>
                         
                     </div>
@@ -425,8 +425,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JWT/" class="post-category">
-                                JWT
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -438,28 +438,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-06
+                    2021-03-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-21
+                    2021-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    699
+                    275
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -482,59 +482,78 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>用户与服务器的通信：</p>
-<p><strong>基于cookie-session的通信</strong>：</p>
-<p>1.用户向服务器发送账号与密码</p>
-<p>2.服务器通过对比后，在当前session中存入登录的信息，比如用户角色信息，登录时间等等</p>
-<p>3.服务器返回给用户一个session_id,写入到用户的cookie</p>
-<p>4.用户每次再访问服务器，都通过cookie来获取session_id，传给服务器</p>
-<p>5.服务器通过session_id来获取之前的登录信息，从而达到用户身份认证的目的</p>
-<p>缺点：系统的拓展性不强。在服务器集群中，需要将session的信息进行共享，使得每台服务器都能读取到该session。</p>
-<p><strong>基于JWT的用户认证：</strong></p>
-<p>用户首次登录，和服务器认证成功后，返回一个JSON对象给用户</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
-  <span class="token property">"姓名"</span><span class="token operator">:</span> <span class="token string">"张三"</span><span class="token punctuation">,</span>
-  <span class="token property">"角色"</span><span class="token operator">:</span> <span class="token string">"管理员"</span><span class="token punctuation">,</span>
-  <span class="token property">"到期时间"</span><span class="token operator">:</span> <span class="token string">"2018年7月1日0点0分"</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="144-二叉树的前序遍历"><a href="#144-二叉树的前序遍历" class="headerlink" title="144.二叉树的前序遍历"></a>144.二叉树的前序遍历</h2><p>问题：</p>
+<blockquote>
+<p>给你二叉树的根节点 root ，返回它节点值的 前序 遍历。</p>
+</blockquote>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for a binary tree node.
+ * public class TreeNode &#123;
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() &#123;&#125;
+ *     TreeNode(int val) &#123; this.val = val; &#125;
+ *     TreeNode(int val, TreeNode left, TreeNode right) &#123;
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     &#125;
+ * &#125;
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">preorderTraversal</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">recurPreorder</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
 
-<p>此后用户与服务器进行通信的时候，都需要发送JSON对象给服务器，服务器通过JSON来进行身份的认证。同时服务器生成这个JSON对象时，会加上签名，防止用户篡改JSON对象。</p>
-<h3 id="引用更好的解释"><a href="#引用更好的解释" class="headerlink" title="引用更好的解释"></a>引用更好的解释</h3><h4 id="传统的-session-流程"><a href="#传统的-session-流程" class="headerlink" title="传统的 session 流程"></a>传统的 session 流程</h4><ol>
-<li>浏览器发起请求登陆</li>
-<li>服务端验证身份，生成身份验证信息，存储在服务端，并且告诉浏览器写入 Cookie</li>
-<li>浏览器发起请求获取用户资料，此时 Cookie 内容也跟随这发送到服务器</li>
-<li>服务器发现 Cookie 中有身份信息，验明正身</li>
-<li>服务器返回该用户的用户资料</li>
-</ol>
-<h4 id="JWT-流程"><a href="#JWT-流程" class="headerlink" title="JWT 流程"></a>JWT 流程</h4><ol>
-<li>浏览器发起请求登陆</li>
-<li>服务端验证身份，根据算法，将用户标识符打包生成 token, 并且返回给浏览器</li>
-<li>浏览器发起请求获取用户资料，把刚刚拿到的 token 一起发送给服务器</li>
-<li>服务器发现数据中有 token，验明正身</li>
-<li>服务器返回该用户的用户资料</li>
-</ol>
-<p><strong>区别</strong></p>
-<ol>
-<li><p>session 存储在服务端占用服务器资源，而 JWT 存储在客户端</p>
-</li>
-<li><p>session 存储在 Cookie 中，存在伪造跨站请求伪造攻击的风险</p>
-</li>
-<li><p>session 只存在一台服务器上，那么下次请求就必须请求这台服务器，不利于分布式应用</p>
-</li>
-<li><p>存储在客户端的 JWT 比存储在服务端的 session 更具有扩展性</p>
-</li>
-</ol>
-<p><strong>JWT的缺点</strong></p>
-<p>服务器不保存session状态，那么使用期间不可能取消令牌和更改令牌权限，只要Token签发了，在有效期内会一直生效</p>
-<h3 id="JWT的token的结构"><a href="#JWT的token的结构" class="headerlink" title="JWT的token的结构"></a>JWT的token的结构</h3><p>header.payload.signature</p>
-<p>即：头部.负载.签名</p>
-<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak3m58wgj30sf07mmzl.jpg" alt="image"></p>
-<p>header: JSON对象</p>
-<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1goak5kh8zrj30wr0admye.jpg" alt="image"></p>
-<p>Payload: JSON对象</p>
-<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak6ekblrj30wu0lwwgz.jpg" alt="image"></p>
-<p>signature： 指定密钥，然后通过算法来产生token</p>
-<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goak7nohsjj30y30aydh9.jpg" alt="image"></p>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">recurPreorder</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">,</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> res <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> root <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">recurPreorder</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">recurPreorder</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for a binary tree node.
+ * public class TreeNode &#123;
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() &#123;&#125;
+ *     TreeNode(int val) &#123; this.val = val; &#125;
+ *     TreeNode(int val, TreeNode left, TreeNode right) &#123;
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     &#125;
+ * &#125;
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">preorderTraversal</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">></span></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">TreeNode</span> cur <span class="token operator">=</span> root<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span> <span class="token operator">!</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> cur <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span> cur<span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>cur<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>cur<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">//已经到达了底层， 当前节点没左节点了，进而获取当前节点，再进入其右节点</span>
+            cur <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -561,7 +580,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/06/JWT%E5%85%A5%E9%97%A8/">http://example.com/2021/03/06/JWT%E5%85%A5%E9%97%A8/</a>
+                    <a href="http://example.com/2021/03/23/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%98/">http://example.com/2021/03/23/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%98/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -599,12 +618,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/JWT/">
-                                    <span class="chip bg-color">JWT</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
-                                <a href="/tags/%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/">
-                                    <span class="chip bg-color">登录认证</span>
+                                <a href="/tags/LeetCode/">
+                                    <span class="chip bg-color">LeetCode</span>
                                 </a>
                             
                         </div>
@@ -820,16 +839,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E7%AA%81%E5%87%BB/">
+                <a href="/2021/03/23/%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%93%E9%A2%98/">
                     <div class="card-image">
                         
-                        <img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gorcsfj5g8j30k00b9aco.jpg" class="responsive-img" alt="操作系统知识点">
                         
-                        <span class="card-title">操作系统知识点</span>
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="二叉树专题">
+                        
+                        <span class="card-title">二叉树专题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -839,30 +860,31 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    计算机基础
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">计算机基础</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">操作系统</span>
+                    <a href="/tags/LeetCode/">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
@@ -876,12 +898,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/05/Shiro%E6%A1%86%E6%9E%B6/">
+                <a href="/2021/03/23/Map-Set%E4%B8%93%E9%A2%98/">
                     <div class="card-image">
                         
-                        <img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gorcmesxd5j30k00dcdgt.jpg" class="responsive-img" alt="Shiro框架">
+                        <img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gotqxg58z0j30k00ci74z.jpg" class="responsive-img" alt="Map&amp;Set专题">
                         
-                        <span class="card-title">Shiro框架</span>
+                        <span class="card-title">Map&amp;Set专题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -892,14 +914,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/" class="post-category">
-                                    权限管理框架
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -909,12 +931,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Shiro/">
-                        <span class="chip bg-color">Shiro</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6/">
-                        <span class="chip bg-color">权限管理框架</span>
+                    <a href="/tags/LeetCode/">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
