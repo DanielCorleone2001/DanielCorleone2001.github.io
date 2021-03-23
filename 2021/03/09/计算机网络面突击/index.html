@@ -445,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-21
+                    2021-03-23
                 </div>
                 
 
@@ -512,9 +512,11 @@
 <p><strong>5.应用层</strong></p>
 <p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1godq2sh8cej30ih0cw78o.jpg" alt="image"></p>
 <h2 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h4 id="计算机网络的概念"><a href="#计算机网络的概念" class="headerlink" title="计算机网络的概念"></a>计算机网络的概念</h4><p>互联、自洽的计算机系统的集合</p>
-<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>1.广域网(WAN)</p>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><blockquote>
+<p>1.广域网(WAN)</p>
 <p>2.局域网(LAN)</p>
 <p>3.个人局域网(PAN)</p>
+</blockquote>
 <h4 id="拓扑结构"><a href="#拓扑结构" class="headerlink" title="拓扑结构"></a>拓扑结构</h4><p>1.总线型：一条总线，连接所有的主机</p>
 <p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1godrijepmej306b0550so.jpg" alt="image"></p>
 <p>2.星型：一个中央设备机连接着所有的主机</p>
@@ -524,20 +526,27 @@
 <p>4.网状形：一个节点主机至少有两个节点相连，应用在广域网中</p>
 <p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1godrlbrnthj305l05at8p.jpg" alt="image"></p>
 <h4 id="交换技术"><a href="#交换技术" class="headerlink" title="交换技术"></a>交换技术</h4><p>1.电路交换</p>
+<blockquote>
 <p>源节点和目标节点通过一条通路进行信息交换，包括了建立连接，传输数据，断开连接的过程、</p>
 <p>优点：传播时延小</p>
 <p>缺点：线路利用率低，只能某两节点断开了，其他才能继续数据传输；</p>
 <p>​            不能进行差错控制</p>
+</blockquote>
 <p>2.报文交换</p>
+<blockquote>
 <p>将用户发送的信息，加上源节点，目标节点，校验码等，封装成报文。整个报文发送到目标节点后，需要全部存储，再查看转发表，转发给下一个节点。所以也成为存储-转发网络。</p>
 <p>优点：充分利用线路 ，可实现差错控制</p>
 <p>缺点：需要额外的存储空间；缓冲难以管理，因为没有限定报文的大小，无法知道是否已经传输结束</p>
+</blockquote>
 <p>3.分组交换</p>
+<blockquote>
 <p>将数据包分成相等大小的数据块，在每个数据块中加上目的地址、源地址等，再进行存储转发</p>
 <p>优点：提高了线路的利用率；差错控制；易于缓冲管理，因为数据块的大小是确定的；包的平均时延更小，不需要等全部报文都存储成功再转发，每个数据块存储成功即可转发</p>
+</blockquote>
 <h4 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h4><p>1.带宽</p>
 <p>单位：b/s 比特每秒。每秒能传输的比特位。表示传输的速率</p>
 <p>2.时延</p>
+<blockquote>
 <p>数据(报文或者分组)从发送端到接收端需要的时间。</p>
 <p>组成：发送时延，传播时延，处理时延，排队时延。</p>
 <p><strong>发送时延：</strong>数据从准备到可以发送所需要的时间。</p>
@@ -545,11 +554,16 @@
 <p>因为传播时延=信道长度/电磁波速度</p>
 <p><strong>排队时延：</strong>分组在进入路由器后在输入队列中等待</p>
 <p><strong>处理时延：</strong>在交换节点中进行分发处理需要进行的操作</p>
+</blockquote>
 <p>3.时延带宽积</p>
+<blockquote>
 <p>发送端发送第一个即将到达终点时，发送端已经发送了多少比特。</p>
 <p>时延带宽积=传播时延x信道带宽，很类似速度(信道带宽)*时间(传播时延)</p>
+</blockquote>
 <p>4.往返时延(RTT)</p>
+<blockquote>
 <p>从发送端发送到发送端接收到接收端发送的确认，所需要的时间</p>
+</blockquote>
 <p>5.吞吐量：单位时间内通过信道的数据量</p>
 <p>6.信道利用率：有数据通过的时间/有数据通过的时间+无数据通过的时间</p>
 <h3 id="分层模型"><a href="#分层模型" class="headerlink" title="分层模型"></a>分层模型</h3><h4 id="OSI七层参考模型"><a href="#OSI七层参考模型" class="headerlink" title="OSI七层参考模型"></a>OSI七层参考模型</h4><p>1.物理层</p>
@@ -574,16 +588,21 @@
 <p>相当于会话层、表示层、应用层</p>
 <h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h2><h3 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h3><p>建立连接前，两节点之间需要建立独占的信道，这个信道只能由两个节点占有。</p>
 <p>电路交换分成三个部分：连接建立、数据传输、连接释放</p>
+<blockquote>
 <p>优点：</p>
 <p>1.时延小</p>
 <p>2.实现简单</p>
 <p>3.没有冲突</p>
 <p>4.可保证有序传输</p>
+</blockquote>
+<blockquote>
 <p>缺点：</p>
 <p>1.可拓展性差</p>
 <p>2.建立连接时间长</p>
 <p>3.信道独占，利用率低</p>
+</blockquote>
 <h3 id="报文交换"><a href="#报文交换" class="headerlink" title="报文交换"></a>报文交换</h3><p>将信息携带上源地址，目的地址，封装成报文。<strong>无需建立连接</strong>，在每个交换节点要进行存储转发</p>
+<blockquote>
 <p>优点：</p>
 <p>1.无需建立连接</p>
 <p>2.线路可靠性好，如果该线路发生故障，可选择其他的线路</p>
@@ -591,15 +610,19 @@
 <p>缺点：</p>
 <p>1.由于存储转发，产生的时延(检查正确性、排队)会很高</p>
 <p>2.对报文的大小没有限制，对缓冲区很不友好</p>
+</blockquote>
 <h3 id="分组交换"><a href="#分组交换" class="headerlink" title="分组交换"></a>分组交换</h3><p>将数据分成大小相同的数据块，携带上源地址，目的地址，序号。</p>
 <p>其他和报文交换一致</p>
+<blockquote>
 <p>优点：</p>
 <p>1.无需建立连接</p>
 <p>2.保证了有序性</p>
 <p>3.减小出错和重发的概率</p>
 <p>缺点：</p>
 <p>1.需要额外的空间</p>
+</blockquote>
 <h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><p>帧：对数据加上头部和尾部，就变成了数据帧</p>
+<blockquote>
 <p>功能：</p>
 <p>1.流量控制</p>
 <p>协调发送方发送速度与接收方接受速度的差异。</p>
@@ -607,14 +630,18 @@
 <p>由于噪声的存在，可能会让数据帧出现位差错。需对其进行校验</p>
 <p>3.帧定界</p>
 <p>将数据化成以帧为单位，容易对差错进行排查</p>
+</blockquote>
 <h3 id="差错控制"><a href="#差错控制" class="headerlink" title="差错控制"></a>差错控制</h3><p>方法：</p>
+<blockquote>
 <p>1.奇偶校验码</p>
 <p>n-1位数据元+校验码</p>
 <p>奇校验码：添加校验码后使得1的个数位奇数</p>
 <p>偶检验码：添加校验码后使得1的个数为偶数</p>
 <p>2.循环冗余码</p>
 <p>3.纠错编码：汉明码</p>
-<h3 id="流量控制与可靠传输"><a href="#流量控制与可靠传输" class="headerlink" title="流量控制与可靠传输"></a>流量控制与可靠传输</h3><p>1.停止-等待</p>
+</blockquote>
+<h3 id="流量控制与可靠传输"><a href="#流量控制与可靠传输" class="headerlink" title="流量控制与可靠传输"></a>流量控制与可靠传输</h3><blockquote>
+<p>1.停止-等待</p>
 <p>发送方每次发送一帧，都需要等待接收方的响应，才能继续发送。</p>
 <p>相当于发送窗口和接收窗口都是1的滑动窗口</p>
 <p>否则只能一直等待</p>
@@ -624,6 +651,7 @@
 <p>3.选择重传</p>
 <p>发送方和接受方的滑动窗口均大于1，而发送窗口小于等于接收窗口。</p>
 <p>接收方对于出错的帧只需要求发送方发送该帧，而不是像后退N帧那样，发送该帧以及之前的所有帧。</p>
+</blockquote>
 <h3 id="介质访问控制"><a href="#介质访问控制" class="headerlink" title="介质访问控制"></a>介质访问控制</h3><h4 id="信道划分介质访问控制"><a href="#信道划分介质访问控制" class="headerlink" title="信道划分介质访问控制"></a>信道划分介质访问控制</h4><p>解决同一信道上，不同信源进行通信时进行隔离，不会被干扰。</p>
 <p>多路复用技术：将输入信息整合到一条信道上</p>
 <p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1godvxd7i3tj30go062jsd.jpg" alt="image"></p>
@@ -649,22 +677,27 @@
 <p><strong>2.时隙ALOHA协议</strong></p>
 <p>将时间同步起来，并划分成时隙，规定只有在时隙开始的时候，才能发送一个帧，进少了碰撞发生的概率</p>
 <p><strong>3.CSMA协议：载波侦听多路访问</strong></p>
+<blockquote>
 <p>CSMA协议：每个信源发送信号时，都要对信道进行监听。</p>
 <p>1-坚持CSMA：持续监听信道，忙则等待，不忙时马上发送</p>
 <p>非坚持CSMA：空闲则发送，忙则随机时间后在监听</p>
 <p>p-坚持CSMA：忙则监听，空闲的话以p的概率发送，1-p的概率不发送</p>
+</blockquote>
 <p><strong>4.CSMA/CD协议</strong></p>
 <p>载波侦听多路访问/碰撞检测</p>
 <p>先监听信道后再发，发的时候要一直监听。遇到冲突就停止发送，然后随机一段时间后重新发送</p>
 <p><strong>5.CSMA/CA协议</strong></p>
 <p>载波侦听多路复用/碰撞避免</p>
 <h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><p>功能：将异构的网络进行互联，从而能够通信</p>
-<h3 id="路由与转发"><a href="#路由与转发" class="headerlink" title="路由与转发"></a>路由与转发</h3><p>路由器的功能：</p>
+<h3 id="路由与转发"><a href="#路由与转发" class="headerlink" title="路由与转发"></a>路由与转发</h3><blockquote>
+<p>路由器的功能：</p>
 <p>1.路由选择</p>
 <p>通过路由选择协议构造出路由表。路由表需要不断进行维护</p>
 <p>2.分组转发</p>
 <p>按照路由表，将数据报从正确的端口进行转发出去</p>
-<h3 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h3><p>1.静态路由算法</p>
+</blockquote>
+<h3 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h3><blockquote>
+<p>1.静态路由算法</p>
 <p>网络管理员手动配置路由信息。</p>
 <p>2.动态路由算法</p>
 <p>通过相互连接的路由器交换信息，再经过算法处理得到</p>
@@ -673,7 +706,9 @@
 <p>4.链路状态路由算法</p>
 <p>只有当某路由的状态发生变化时，即链路状态发生了变化，路由器会检查和它所连接的路由器的状态，然后发送给所有其他不是直接相连的路由器。接着路由器通过迪杰斯特拉算法计算出到其他所欲路由的最小路径。</p>
 <p>链路状态路由算法的优点在于，最短路径的计算不依赖于中间节点；寻找故障也会更加方便；而距离-向量算法可能会遇到路由环路的问题。</p>
+</blockquote>
 <h3 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h3><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gody4h107bj30l00cx0w9.jpg" alt="image"></p>
+<blockquote>
 <p>1.总长度：头部与数据总长。当超过1500字节时，需要对数据报进行分片。</p>
 <p>2.标志：</p>
 <p>有MF和DF。</p>
@@ -686,105 +721,142 @@
 <p>5.首部检验和。</p>
 <p>6.源IP地址</p>
 <p>7.目的IP地址</p>
+</blockquote>
 <h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1godyny4q2jj30iv08jaci.jpg" alt="image"></p>
+<blockquote>
 <p>A类地址：首位为0，网络号的长度为8位。由于规定了网络号首位为0，而且全0和全1的网络号分别代表本网络和换回测试地址，所以可用的网络号个数为(2^7)-1。范围:( 1- 126)；可用主机号为(2^24)-2,减2是去掉了全零和全一</p>
 <p>B类地址：首位为10，网络号长度为16为，可用的网络号个数为(2^14) - 1.减一是因为128.0这个网络号是不可指派的。网络号范围(128 ~ 191)，可用主机号为</p>
 <p>2^16 -2.</p>
 <p>C类地址：首位为110，网络号长度为24位。可用的网络号数位(2^ 21 - 1),因为192.0.0是不可指派的。可用主机数为(2^8) -2 </p>
+</blockquote>
 <p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1godz0pwph9j30no05jabw.jpg" alt="image"></p>
+<blockquote>
 <p>A类：1.0.0.0 ~ 126.255.255.255，<strong>127.0.0.0 ~ 127.255.255.255不能使用</strong></p>
 <p>B类：128.1.0.0 ~ 191.255.255.255，<strong>128.0.0.0 ~ 128.0.255.255不能使用</strong></p>
 <p>C类：192.0.1.0 ~ 223.255.255.255，<strong>192.0.0.0 ~  192.0.0.255不能使用</strong></p>
+</blockquote>
+<blockquote>
 <p>私有IP地址：也叫做可重用地址</p>
 <p>A类：10.0.0.0 ~ 10.255.255.255</p>
 <p>B类：172.16.0.0 ~ 172.31.255.255</p>
 <p>C类：192.168.0.0 ~ 192.168.255.255</p>
+</blockquote>
 <h3 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h3><p>地址解析协议</p>
+<blockquote>
 <p>主机A需要发送IP数据报给主机B时，先从ARP高速缓存表中查找主机B的IP地址。有的话直接完善数据报然后发送；没有的话就要使用目的MAC地址为FF-FF-FF-FF的数据报来发送广播，使得局域网内都收到请求。主机B收到后响应，返回主机B的IP和MAC地址的映射关系，主机A收到后，写入高速缓存表，然后完善数据爆再发送。</p>
+</blockquote>
 <h3 id="DHCP-应用层的协议"><a href="#DHCP-应用层的协议" class="headerlink" title="DHCP(应用层的协议)"></a>DHCP(应用层的协议)</h3><p>动态主机配置协议</p>
+<blockquote>
 <p>给主机动态的分配IP地址。</p>
 <p>需要IP地址的主机向DHCP服务器发送请求报文，本地网络上的所有主机都能收到报文，只有DHCP服务器能响应该报文。DHCP服务器先在数据库中寻找主机的信息，找到的话就返回，找不到的话就从IP地址池中分配一个。</p>
 <p>DHCP服务器分配的地址是会过期的</p>
+</blockquote>
 <h3 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h3><p>让主机或者路由器能报告IP数据报的差错信息</p>
+<blockquote>
 <p>ICMP报文分两种：</p>
 <p>1.ICMP差错报告报文</p>
 <p>2.ICMP询问报文(不重要)</p>
+</blockquote>
+<blockquote>
 <p>ICMP差错控制报文：</p>
 <p>1.终点不可达</p>
 <p>2.源点抑制</p>
 <p>3.时间超过</p>
 <p>4.参数问题</p>
 <p>5、重定向</p>
-<h3 id="RIP"><a href="#RIP" class="headerlink" title="RIP"></a>RIP</h3><p>基于距离-向量路由算法的协议。</p>
+</blockquote>
+<h3 id="RIP"><a href="#RIP" class="headerlink" title="RIP"></a>RIP</h3><blockquote>
+<p>基于距离-向量路由算法的协议。</p>
 <p>1.跳数最多为15，为16时代表无穷远</p>
 <p>2.默认每30s，相邻的路由器广播一次自己的路由信息</p>
 <p>3.如果180s还未收到相邻的路由器的更新信息，就把相邻的路由器的距离设为16</p>
+</blockquote>
 <h3 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h3><p>基于链路状态路由算法</p>
 <p>具体看上面的链路状态路由算法.</p>
 <h3 id="BGP"><a href="#BGP" class="headerlink" title="BGP"></a>BGP</h3><p>边界网关协议。外部协议，不是在同一个自治系统中进行。</p>
 <p>每个自治系统选择一个或多个发言人，和其他自治系统的发言人建立TCP连接来交换路由表信息。</p>
 <p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goe0ej17y1j30mm077myq.jpg" alt="image"></p>
 <h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><p>功能：</p>
+<blockquote>
 <p>1.提供进程之间的逻辑通信</p>
 <p>2.为应用程序提供可靠服务</p>
 <p>3.对数据报进行首部和数据部分的差错控制</p>
 <p>而网络层只对头部进行差错控制</p>
+</blockquote>
+<blockquote>
 <p>数据链路层的服务访问点是MAC地址</p>
 <p>网络层的服务访问点是IP地址</p>
 <p>传输层的服务访问点是端口号，通过端口号，使得应用能和进程一一对应。</p>
+</blockquote>
 <h3 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h3><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goe0lqe6wuj30mn07xac1.jpg" alt="image"></p>
 <h3 id="可靠连接与非可靠连接"><a href="#可靠连接与非可靠连接" class="headerlink" title="可靠连接与非可靠连接"></a>可靠连接与非可靠连接</h3><p>可靠连接：TCP</p>
 <p>特点：</p>
+<blockquote>
 <p>1.面向连接。传输数据：建立连接-&gt;传输数据-&gt;断开连接</p>
 <p>俗称 三次握手，四次挥手</p>
 <p>2.全双工通信</p>
 <p>3.用于文件传输协议(FTP)，超文本传输协议(HTTP)，远程登录(TELENT)</p>
+</blockquote>
 <p>非可靠链接：UDP</p>
 <p>特点：</p>
+<blockquote>
 <p>1.无连接</p>
 <p>2.无需任何确认</p>
 <p>3.应用于小文件传输(TFTP)，DNS，SNMP和实时传输协议(RTP)</p>
 <p>4.面向报文</p>
+</blockquote>
 <h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p>数据报格式：</p>
 <p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goe0so2n00j30k206qt93.jpg" alt="image"></p>
 <p>UDP校验：</p>
 <p>计算校验和之前，先在UDP头部加上12字节的伪头部，计算结束后就再无用处。校验和方法：二进制反码求和再取反。</p>
 <p>UDP的校验会检查头部和数据，IP只会检查头部</p>
-<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p>1.需要建立连接</p>
+<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><blockquote>
+<p>1.需要建立连接</p>
 <p>2.保证可靠的交付，保证不乱序，不丢失，无差错</p>
 <p>3.全双工通信</p>
 <p>4.面向字节流</p>
+</blockquote>
 <p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goe0whsimlj30gd0ak0uf.jpg" alt="image"></p>
+<blockquote>
 <p>1.序列号seq</p>
 <p>2.确认号ack</p>
 <p>3.同步号SYN，三次握手的前两次需要用到，用于建立连接。</p>
 <p>4.结束连接FIN，用于释放连接</p>
+</blockquote>
 <h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goe11aqogjj30ke0d7mys.jpg" alt="image"></p>
 <p>用于建立连接：</p>
+<blockquote>
 <p>1.客户端发送seq = x, SYN = 1，表示需要建立连接，该报文的数据部分不含任何信息。</p>
 <p>2.ACK = 1，ack = x + 1，SYN = 1，seq = y，服务器响应连接请求，表示同意该连接请求，并为该TCP连接分配缓存和变量。</p>
 <p>3.ACK = 1，ack = y + 1, seq = x + 1,客户端收到确认后，还要恢复确认收到。</p>
+</blockquote>
 <p>其中，服务器的资源是在第二次握手分配的，客户端的资源是第三次握手分配的，那么容易出现SYN泛洪攻击。即恶意请求连接，却不回复第三次握手，导致连接一直存在，并不断申请新的TCP连接，最终导致服务器宕机。</p>
 <h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goe17hrb67j30hg0byabj.jpg" alt="image"></p>
 <p>用于进行释放TCP连接。</p>
+<blockquote>
 <p>1.客户端发送连接释放请求：seq = u, FIN = 1</p>
 <p>2.服务器收到释放请求，回复收到确认释放的请求：ack = u + 1，ACK = 1，seq = v</p>
 <p>此时客户端已经不能再向服务器发送信息，而服务器仍能向客户端发送信息</p>
 <p>3.服务器没有要发送给客户端的数据了，FIN = 1，ACK = 1，seq = w，ack = u + 1</p>
 <p>4.客户端收到连接释放的请求，回复确认收到，ACK = 1， ack = w + 1，seq = u + 1</p>
-<p>他是李卓与</p>
+</blockquote>
 <p><strong>总结：</strong></p>
 <p>三次握手：</p>
+<blockquote>
 <p>1.客户端: SYN = 1 , seq = x</p>
 <p>2.服务器：ACK = 1, ack = x + 1，SYN  = 1，seq = y</p>
 <p>3.客户端：ACK = 1, ack = y + 1，seq = x + 1</p>
+</blockquote>
 <p>四次挥手：</p>
+<blockquote>
 <p>1.客户端：FIN  = 1， seq = u</p>
 <p>2.服务器：FIN = 1，ACK = 1，ack = u + 1，seq = v</p>
 <p>3.服务器：FIN = 1，ACK = 1，ack = u + 1，seq = w</p>
 <p>4.客户端：ack = w + 1, seq = u + 1, ACK = 1</p>
+</blockquote>
 <h4 id="可靠传输"><a href="#可靠传输" class="headerlink" title="可靠传输"></a>可靠传输</h4><p>含义：保证接收方进程从缓存区读出的字节流与发送方发送的字节流</p>
 <p>实现：</p>
+<blockquote>
 <p>1.将报文段视为字节流，给字节上编号，即seq</p>
 <p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goejkq7g7rj30ca03qwey.jpg" alt="image"></p>
 <p>2.确认号ack表明希望接收到对方的下一个字节的序号。发送方会存储那些已经发送但是还没收到确认的报文段，以便需要时重传。</p>
@@ -792,9 +864,12 @@
 <p>超时重传：为报文设置一个计时器，当超过时间后认为丢包，选择重新传输该报文段。</p>
 <p>冗余ACK：TCP规定当接收方收到的报文序号和期待的不一样时，就会发送期待的报文的前一个序号的冗余ACK，让发送方发送期待的报文段。</p>
 <p>比如发送方发送了1，2，3，4，5报文段。接收方收到了1，3，4，5.于是接收方发送三个1号的冗余ACK，表明自己收到了乱序的报文段，请补充缺少的报文段。</p>
-<h4 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h4><p>含义：消除发送方可能导致接收方缓冲区溢出的可能。</p>
+</blockquote>
+<h4 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h4><blockquote>
+<p>含义：消除发送方可能导致接收方缓冲区溢出的可能。</p>
 <p>实现：使用滑动窗口的机制进行流量控制。发送方根据网络的拥塞程度规定拥塞窗口，接收方按自己的接受能力调整发送方的发送窗口大小，称为接收窗口。</p>
 <p>在建立连接时，接收方会声明接收窗口的大小。</p>
+</blockquote>
 <p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310094138556.png" alt="image-20210310094138556"></p>
 <h4 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h4><p>含义：防止过度的数据注入到网络中而导致路由器或者链路过载，保证稳定性。</p>
 <p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goekg7gh1cj30jm055dhw.jpg" alt="image"></p>
@@ -803,26 +878,34 @@
 <p><strong>2.拥塞避免</strong></p>
 <p><strong>3.快重传</strong></p>
 <p><strong>4.慢重传</strong></p>
-<h5 id="慢开始和拥塞避免算法"><a href="#慢开始和拥塞避免算法" class="headerlink" title="慢开始和拥塞避免算法"></a>慢开始和拥塞避免算法</h5><p>慢开始：开始时，客户端的拥塞窗口大小为最大报文段的两倍，那么发送端每次能发送两个TCP报文段。等收到两个报文的确认后，将拥塞窗口的大小调整为两倍。就这样一直增加拥塞窗口的大小，当到达阈值的时候，改用拥塞避免算法.</p>
+<h5 id="慢开始和拥塞避免算法"><a href="#慢开始和拥塞避免算法" class="headerlink" title="慢开始和拥塞避免算法"></a>慢开始和拥塞避免算法</h5><blockquote>
+<p>慢开始：开始时，客户端的拥塞窗口大小为最大报文段的两倍，那么发送端每次能发送两个TCP报文段。等收到两个报文的确认后，将拥塞窗口的大小调整为两倍。就这样一直增加拥塞窗口的大小，当到达阈值的时候，改用拥塞避免算法.</p>
 <p>拥塞避免算法：发送端拥塞窗口每完成一次RTT的确认，就让拥塞窗口加1，使得拥塞窗口线性增长，当出现一次超时的时候，让慢开始的阈值变成当前拥塞窗口的一半。</p>
+</blockquote>
 <p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310095514600.png" alt="image-20210310095514600"></p>
 <p>总结：</p>
+<blockquote>
 <p>1.首先使用慢开始算法，每次乘以二。</p>
 <p>2.达到阈值后改用拥塞避免算法，拥塞窗口每次加一</p>
 <p>3.出现网络拥塞时，将慢开始的阈值设为当前的一半，将拥塞窗口设为1，重新执行满开始算法</p>
-<h5 id="快重传和快恢复算法"><a href="#快重传和快恢复算法" class="headerlink" title="快重传和快恢复算法"></a>快重传和快恢复算法</h5><p>快重传：当收到三个冗余ACK时，不再等待某个报文段的计时器超时，而是直接重传。</p>
+</blockquote>
+<h5 id="快重传和快恢复算法"><a href="#快重传和快恢复算法" class="headerlink" title="快重传和快恢复算法"></a>快重传和快恢复算法</h5><blockquote>
+<p>快重传：当收到三个冗余ACK时，不再等待某个报文段的计时器超时，而是直接重传。</p>
 <p>快恢复：当收到三个冗余ACK时，将慢开始的阈值设为原来的一半，也将拥塞窗口的当前值设为慢开始阈值的一半，而不是像慢开始算法那样从1开始.</p>
+</blockquote>
 <p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310100009891.png" alt="image-20210310100009891"></p>
 <h4 id="Time-wait和Close-wait"><a href="#Time-wait和Close-wait" class="headerlink" title="Time-wait和Close-wait"></a>Time-wait和Close-wait</h4><p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310115318942.png" alt="image-20210310115318942"></p>
 <h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><h3 id="网络应用模型"><a href="#网络应用模型" class="headerlink" title="网络应用模型"></a>网络应用模型</h3><p><strong>1.客户端/服务器模型</strong></p>
 <p><strong>2.P2P模型</strong></p>
 <p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goelui0r86j30ii06etal.jpg" alt="image"></p>
-<h4 id="客户端-服务器模型"><a href="#客户端-服务器模型" class="headerlink" title="客户端/服务器模型"></a>客户端/服务器模型</h4><p>1.服务器处于保持接受请求的状态</p>
+<h4 id="客户端-服务器模型"><a href="#客户端-服务器模型" class="headerlink" title="客户端/服务器模型"></a>客户端/服务器模型</h4><blockquote>
+<p>1.服务器处于保持接受请求的状态</p>
 <p>2.客户端发出请求，等待服务器返回结果</p>
 <p>3.服务器收到请求后，分析请求，将结果返回给客户端</p>
 <p>缺点：</p>
 <p>1.性能瓶颈在服务器，请求过多时，服务器压力大</p>
 <p>2.客户机之间不能直接通信</p>
+</blockquote>
 <h4 id="P2P模型"><a href="#P2P模型" class="headerlink" title="P2P模型"></a>P2P模型</h4><p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310103715616.png" alt="image-20210310103715616"></p>
 <h3 id="域名系统"><a href="#域名系统" class="headerlink" title="域名系统"></a>域名系统</h3><p>网站url可以分为顶级域名，二级域名，三级域名等。</p>
 <p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1goem0jadukj307s03vq36.jpg" alt="image"></p>
@@ -841,27 +924,34 @@
 <p>1.递归查询</p>
 <p>2.迭代与递归相结合</p>
 <p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goemg7jk03j30lx09racb.jpg" alt="image"></p>
-<h5 id="递归查询"><a href="#递归查询" class="headerlink" title="递归查询"></a>递归查询</h5><p>主机向本地域名服务器的查询采用递归查询的情况：</p>
+<h5 id="递归查询"><a href="#递归查询" class="headerlink" title="递归查询"></a>递归查询</h5><blockquote>
+<p>主机向本地域名服务器的查询采用递归查询的情况：</p>
 <p>所谓递归查询就是：如果主机所询问的本地域名服务器不知道被查询的域名的IP地址，那么本地域名服务器就以DNS客户的身份，</p>
 <p>向其它根域名服务器继续发出查询请求报文(即替主机继续查询)，而不是让主机自己进行下一步查询。</p>
 <p>因此，递归查询返回的查询结果或者是所要查询的IP地址，或者是报错，表示无法查询到所需的IP地址。</p>
-<h5 id="迭代查询"><a href="#迭代查询" class="headerlink" title="迭代查询"></a>迭代查询</h5><p>迭代查询的特点：当根域名服务器收到本地域名服务器发出的迭代查询请求报文时，要么给出所要查询的IP地址，要么告诉本地服务器：“你下一步应当向哪一个域名服务器进行查询”。</p>
+</blockquote>
+<h5 id="迭代查询"><a href="#迭代查询" class="headerlink" title="迭代查询"></a>迭代查询</h5><blockquote>
+<p>迭代查询的特点：当根域名服务器收到本地域名服务器发出的迭代查询请求报文时，要么给出所要查询的IP地址，要么告诉本地服务器：“你下一步应当向哪一个域名服务器进行查询”。</p>
 <p>然后让本地服务器进行后续的查询。根域名服务器通常是把自己知道的顶级域名服务器的IP地址告诉本地域名服务器，让本地域名服务器再向顶级域名服务器查询。</p>
 <p>顶级域名服务器在收到本地域名服务器的查询请求后，要么给出所要查询的IP地址，要么告诉本地服务器下一步应当向哪一个权限域名服务器进行查询。</p>
 <p>最后，知道了所要解析的IP地址或报错，然后把这个结果返回给发起查询的主机</p>
+</blockquote>
 <p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1goemq413e8j30qi0bpdk5.jpg" alt="image"></p>
 <h4 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h4><p>DNS使用TCP和UDP协议。在区域内传输时使用TCP，其他时间使用UDP。</p>
 <p>例如辅域名服务器会定时地向主域名服务器发送查询请求，查看是否有数据地变更。发生变更时，就进行数据同步。数据同步使用TCP，因为数据量大，而且需要保证数据的可靠性。</p>
 <h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><p>超文本传输协议。定义了浏览器如何向服务器请求万维网文档，服务器怎么把万维网文档返回给浏览器。</p>
 <h4 id="连接过程"><a href="#连接过程" class="headerlink" title="连接过程"></a>连接过程</h4><p>服务过程：</p>
+<blockquote>
 <p>1.万维网站点不断监听服务器的TCP端口，等待浏览器的连接请求</p>
 <p>2.建立TCP连接</p>
 <p>3.浏览器发送HTTP请求报文</p>
 <p>4.服务器返回HTTP响应报文</p>
 <p>5.释放TCP连接</p>
+</blockquote>
 <p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goemzitlj0j30b505q74t.jpg" alt="image"></p>
 <p>例如：</p>
 <p>访问某个网站的过程：<img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1goen1buk79j30hs0e60ut.jpg" alt="image"></p>
+<blockquote>
 <p>1.用户点击页面的URL</p>
 <p>2.浏览器向DNS发出解析IP地址的请求</p>
 <p>3.DNS返回IP地址</p>
@@ -869,16 +959,19 @@
 <p>5.发出HTTP请求</p>
 <p>6.服务器返回HTTP响应</p>
 <p>7.关闭TCP连接</p>
+</blockquote>
 <h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p>1.无状态。同一个用户第二次或以上访问服务器的同一个页面时，和第一次访问是没有差别的，依旧是建立TCP连接等等。</p>
 <p>2.可靠传输：采用TCP连接</p>
 <h4 id="报文结构"><a href="#报文结构" class="headerlink" title="报文结构"></a>报文结构</h4><p>HTTP是面向文本的，因此报文段的所有字段都是ASCII码。</p>
 <p>请求报文：</p>
 <p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1goendfm5jtj30c207xgm7.jpg" alt="image"></p>
 <p>常见请求方法：</p>
+<blockquote>
 <p>1.GET：请求读取由URL标识的信息</p>
 <p>2.POST：向服务器添加信息</p>
 <p>3.HEAD：请求读取由URL标识的信息的头部</p>
 <p>4.CONNECT：用于来历服务器</p>
+</blockquote>
 <p>响应报文：</p>
 <p><img src="C:\Users\daniel\AppData\Roaming\Typora\typora-user-images\image-20210310112726216.png" alt="image-20210310112726216"></p>
 <h4 id="HTTP事务"><a href="#HTTP事务" class="headerlink" title="HTTP事务"></a>HTTP事务</h4><p>http事务 = 请求命令  +  返回结果</p>
@@ -886,13 +979,15 @@
 <h4 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h4><p>结构：请求行   + 请求头部 + 空行  + 报文主体</p>
 <p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gof352t4zzj30jv09ljv1.jpg" alt="image"></p>
 <h4 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h4><p>结构：响应行 + 响应头部  + 空行 + 报文主体 </p>
-<h4 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h4><p>1.域名解析</p>
+<h4 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h4><blockquote>
+<p>1.域名解析</p>
 <p>查看浏览器缓存-&gt;查看本地域名服务器-&gt;查看host文件-&gt;向本地域名服务器发起查询请求</p>
 <p>2.TCP三次握手</p>
 <p>3.发起http请求</p>
 <p>4.服务器响应并返回html</p>
 <p>5.浏览器解析html</p>
 <p>6.渲染页面</p>
+</blockquote>
 <h4 id="GET和POST对比"><a href="#GET和POST对比" class="headerlink" title="GET和POST对比"></a>GET和POST对比</h4><p>GET：从指定的资源中获取数据</p>
 <p>POST：向指定的资源提交数据</p>
 <p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gof3eljedlj30sq0juwgl.jpg" alt="image"></p>
@@ -913,10 +1008,12 @@
 <h5 id="加密实现"><a href="#加密实现" class="headerlink" title="加密实现"></a>加密实现</h5><p>TLS使用对称加密和非对称加密结合。</p>
 <p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gog712n9exj30ev0a0gni.jpg" alt="image"></p>
 <p>具体实现：</p>
+<blockquote>
 <p>1.用非对称加密，对公钥进行加密。</p>
 <p>2.得到加密后的公钥，相当于是对称加密的密钥。这时候用这个当作对称加密的密钥，对明文进行加密</p>
 <p>3.接收方通过密钥对非对称加密进行解密，得到对称加密的密钥</p>
 <p>4.通过对称加密的密钥解密，获得明文。</p>
+</blockquote>
 <p>优点：解决了对称加密无法传递密钥的问题。</p>
 <h5 id="摘要算法"><a href="#摘要算法" class="headerlink" title="摘要算法"></a>摘要算法</h5><p>尽管加密了，但还是不安全。</p>
 <p>黑客虽然拿不到会话密钥，无法破解密文，但可以通过窃听收集到足够多的密文，再尝试着修改、重组后发给网站。因为没有完整性保证，服务器只能“照单全收”，然后他就可以通过服务器的响应获取进一步的线索，最终就会破解出明文。</p>
@@ -941,30 +1038,39 @@
 <p>CA发公钥，并附上序列号，用途，有效时间等等，就成了<strong>数字证书</strong>。</p>
 <p>签发的可信程度：DV &lt; OV &lt; EV</p>
 <h4 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a>建立连接</h4><p>输入https开头的url时，会发生：</p>
+<blockquote>
 <p>1.从url中提取出协议与域名</p>
 <p>2.使用443端口号(https默认端口)，使用DNS进行域名解析，获取到目的IP。</p>
 <p>3.使用三次握手，和服务器进行TCP连接。</p>
 <p>4.在http中，此时已经可以发送报文。但https还需要进行一次握手，在TCP上建立安全连接，此时才会发送HTTP报文</p>
+</blockquote>
 <h4 id="TLS协议"><a href="#TLS协议" class="headerlink" title="TLS协议"></a>TLS协议</h4><p>组成：</p>
+<blockquote>
 <p>1.记录协议：规定了TLS收发数据的单位：记录</p>
 <p>2.警报协议：向对方发送警报信息。比如版本不匹配，证书有问题等。</p>
 <p>3.握手协议：浏览器和服务器会协商好信息，交换证书和密钥。</p>
 <p>4.变更密码协议：通知对方，后续数据都使用加密保护</p>
+</blockquote>
 <h6 id="ECDHE握手"><a href="#ECDHE握手" class="headerlink" title="ECDHE握手"></a>ECDHE握手</h6><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1gog86cqt13j30ib0h4n1g.jpg" alt="image"></p>
+<blockquote>
 <p>1.<strong>客户端发送Client Hello</strong>。相当于给服务器发招呼。里面声明了客户端版本号，支持的<strong>密码加密方式</strong>，<strong>还有一个随机数。</strong>(随机数用于生成会话密钥)</p>
 <p>2.服务器回应<strong>Server Hello</strong>。回应客户端的招呼。里面表明了接下来使用的<strong>加密方式</strong>，<strong>TLS版本号</strong>，<strong>以及随机数</strong></p>
 <p>3.服务器发送 <strong>Server Certificate</strong>。发送数字证书，表明自己的身份。</p>
 <p>4.服务器发送 <strong>Server Key Exchange</strong>。相当于我刚刚选择的算法，需要这个参数才能解密，你得拿着。并附上私钥签名认证。所以这次发送了：<strong>公钥（Server Params，私钥签名认证</strong></p>
 <p>5.服务器发送<strong>Server Hello Done</strong>。说明：我说完了，你可以开始处理了。</p>
 <p>​        这一过程下来，客户端和服务器共享了三个信息：<strong>客户端产生的随机数(Client Random)，服务器产生的随机数(Server Random)，服务器的公钥(Server Params)</strong></p>
+</blockquote>
 <hr>
 <p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gog8k6f13lj30gk0m9td9.jpg" alt="image"></p>
 <p>客户端获取了证书后，就开始通过证书来验证其真实性，再用证书公钥验证签名，从而保证服务器的身份是对的。验证成功后，接下来：</p>
+<blockquote>
 <p>1.客户端发送<strong>“Client Key Exchange”</strong>.其中包含了<strong>公钥(Client Params)**。这时客户端和服务器都拥有了</strong>Client Params，Server Params<strong>。使用ECDHE算法计算后，得到</strong>Pre-Master<strong>。这时候客户端和服务器都拥有的随机数(**Client Random, Server Random, Pre-Master</strong>)，就可以用户生成<strong>加密会话的密钥</strong>(<strong>Master Secret</strong>).</p>
 <p>2.客户端发送<strong>Change Cipher Spec和Finished</strong>。表明之后的数据都要使用加密通信，并附上了摘要。</p>
 <p>3.服务器发送<strong>Changer Cipher Spec和Finished</strong>。表示我验证了你的加密解密，可以开始通信</p>
 <p>最后就可以发送http报文了。</p>
+</blockquote>
 <h2 id="面经"><a href="#面经" class="headerlink" title="面经"></a>面经</h2><h3 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h3><p><strong>1.介绍一下TCP和UDP？</strong></p>
+<blockquote>
 <p>·TCP面向连接，UDP不面向连接</p>
 <p>·TCP保证可靠传输，UDP是尽最大交付</p>
 <p>·TCP面向字节流，UDP面向报文段</p>
@@ -972,34 +1078,50 @@
 <p>·TCP头部20个字节，UDP头部8个字节，在计算校验和时需要加上伪头部</p>
 <p>·TCP连接开销大，速度比UDP慢</p>
 <p>·TCP支持全双工通信，发送方和接收方都有缓存</p>
+</blockquote>
 <p><strong>2.介绍三次握手和四次挥手？</strong></p>
 <p>三次握手：</p>
+<blockquote>
 <p>1.客户端向服务器发送连接请求：SYN  = 1，代表连接请求。seq = x</p>
 <p>2.服务器收到连接请求，回复SYN = 1，ACK =1 ，ack = x +1，seq = y。代表服务器收到了连接请求，并开始为连接分配资源。ack表示希望下次收到的序列号为x+1</p>
 <p>3.客户端收到回复后 发送ACK = 1，ack = y + 1，seq = x + 1.代表收到了你的确认消息。</p>
+</blockquote>
 <p>四次挥手：</p>
+<blockquote>
 <p>1.客户端向服务器发送断开连接请求：FIN =1 ，seq = u</p>
 <p>2.服务器收到断开连接请求，回复确认收到：seq = v，ACK = 1，ack = u + 1。这时候服务器进入到Close-wait状态，即TCP告诉应用程序，客户端向服务器的方向已经没有数据要发送了，但服务器向客户端发送信息，客户端仍要接收。</p>
 <p>3.服务器向客户端说明自己已经完成数据的发送，可以断开连接：FIN = 1，ack = u + 1，seq = w，ACK = 1</p>
 <p>4.客户端回复确认收到服务器断开的消息：ACK = 1，ack = w + 1，seq = u + 1，客户端处于Time-wait状态。这时候TCP连接还是没有释放，必须等到2*MSL才能释放连接。而服务器接收到确认报文后，就关闭了。</p>
+</blockquote>
 <p><strong>3.为什么三次回收中，客户端要进行最后一次挥手？</strong></p>
-<p>​        防止失效的请求连接报文又申请新的连接。例如如果使用和两次握手，客户端发送的第一个请求没有丢失，而是经过了很长时间才到达。由于服务器并没有收到请求，就不可能进行确认报文的回复，相应的客户端也收不到确认报文，则通过超时重传机制，再次发送这个连接的报文，导致建立了新的连接，并传输了数据然后断开。这时候之前的连接请求报文才到达，服务器以为是新的连接请求，但 其实是无效的，却仍然建立了连接，这就导致了资源的浪费和错误。</p>
+<blockquote>
+<p>防止失效的请求连接报文又申请新的连接。例如如果使用和两次握手，客户端发送的第一个请求没有丢失，而是经过了很长时间才到达。由于服务器并没有收到请求，就不可能进行确认报文的回复，相应的客户端也收不到确认报文，则通过超时重传机制，再次发送这个连接的报文，导致建立了新的连接，并传输了数据然后断开。这时候之前的连接请求报文才到达，服务器以为是新的连接请求，但 其实是无效的，却仍然建立了连接，这就导致了资源的浪费和错误。</p>
 <p>​        如果使用三次握手，就算服务器收到了这条无效的请求连接报文，就会回复这条报文的确认请求报文，而客户端是不会回应的。这时候服务器就能知道是无效的连接啦。</p>
+</blockquote>
 <p>*<em>4.为什么最后客户端要等待2</em>MSL？**</p>
+<blockquote>
 <p>1.保证客户端的最后一次挥手的信息能成功发送到服务器。当服务器发送了第三次挥手后，1MSL内没收到第四次挥手，就重新发第三次握手来等待客户端的第四次挥手。而客户端存活时间是2MSL，就能回复第四次挥手。并且会重置客户端存活时间为2MSL</p>
 <p>2.保证这次连接的报文全都失效后再关闭，防止下次连接出现旧的连接报文。</p>
+</blockquote>
 <p><strong>5.TCP协议怎么保证可靠传输？</strong></p>
+<blockquote>
 <p>1.将数据包视为字节流，并对字节流编号，在传输的时候会表明自己的序号(seq)以及下次期望收到报文的序号(ack)。</p>
 <p>2.有重传机制。分为超时重传和冗余ACK。超时重传是指超过某一时间后收不到确认报文就会重传；冗余ACK用于说明自己收到的报文是否正确且有序。比如A发送1，2，3，4，5报文，而B收到的却是1，3，4，5.那么3，4，5都会发送一个冗余ACK为1的报文，冗余ACK为三个时判定传输出现错误，于是就会重传该ACK后的那个报文，即2.</p>
+</blockquote>
 <p><strong>6.TCP的流量控制？</strong></p>
+<blockquote>
 <p>TCP接收方缓存设置了接收窗口，规定了能接受的字节数。当来不及接收发送方的数据时，会提醒对方降低速率，即调整接收窗口的数量， 让发送方改变速率。</p>
+</blockquote>
 <p><strong>7.TCP如何实现拥塞控制？</strong></p>
 <p>有两种算法来实现：慢开始和拥塞避免；快重传和快恢复</p>
+<blockquote>
 <p>慢开始和拥塞避免：首先规定发送窗口的大小为1，每次变成之前的两倍。达到阈值的时候改用每次加一，直到出现网络拥塞，就将发送窗口置为1，阈值设为原来的一般，重新开始。</p>
 <p>快重传和快恢复：</p>
 <p>快重传：当收到三个冗余ACK时，不再等待某个报文段的计时器超时，而是直接重传。</p>
 <p>快恢复：当收到三个冗余ACK时，将慢开始的阈值设为原来的一半，也将拥塞窗口的当前值设为慢开始阈值的一半，而不是像慢开始算法那样从1开始.</p>
+</blockquote>
 <p><strong>8.TCP粘包</strong></p>
+<blockquote>
 <p>什么是粘包?</p>
 <p>TCP发送的数据有可能在接收方出现了前一个数据的尾部和后一个数据的头部相连，导致接收方无法识别。</p>
 <p>为什么会发生TCP粘包？</p>
@@ -1014,19 +1136,25 @@
 <p>对指令的处理：</p>
 <p>1.声明指令的开始部分和结束部门(可以使用特定的二进制规定)，但是这同时也导致了数据包不能出现对应的开始符号和结束符号</p>
 <p>2.每条指令的长度在指令的头部进行声明</p>
+</blockquote>
 <p><strong>9.UDP会粘包？</strong></p>
 <p>不会。UDP采用的是发送消息，接收方每次只接收一个消息，这就导致了不会发生粘包。</p>
 <h3 id="HTTP-1"><a href="#HTTP-1" class="headerlink" title="HTTP"></a>HTTP</h3><p><strong>1.域名解析的过程？</strong></p>
+<blockquote>
 <p>​        先在缓存中寻找是否有该IP地址。没有的话向本地域名服务器发送查询请求。本地域名服务器向根域名服务器发送请求。这是将任务分给根域名服务器，如果有的话就返回给客户机，没有的话向顶级域名服务器请求。同理再到权限域名服务器。这就是递归的方法。</p>
 <p>​        迭代：引路。本地-&gt;根域名服务器，告诉你该去哪找-&gt;本地域名服务器找到顶级域名服务器，告诉你该去哪找-&gt;本地域名服务器找权限域名服务器，得到IP地址。</p>
+</blockquote>
 <p><strong>2.网站中输入url再到网页回显的过程？</strong></p>
-<p>​    先解析url，找到服务器的IP地址。浏览器向web服务器提交一个http请求，这时候cookie也会一起发送过去。服务器接收到请求后，处理请求，返回一个html响应，浏览器渲染html产生页面。</p>
+<blockquote>
+<p>先解析url，找到服务器的IP地址。浏览器向web服务器提交一个http请求，这时候cookie也会一起发送过去。服务器接收到请求后，处理请求，返回一个html响应，浏览器渲染html产生页面。</p>
+</blockquote>
 <p><strong>3.http状态码？</strong></p>
 <p>1xx：接收的请求正在处理</p>
 <p>2xx：请求处理成功</p>
 <p>3xx：重定向状态码。需要进行附加操作才能完成请求</p>
 <p>4xx：服务器无法处理请求，客户端请求的方法有误</p>
 <p>5xx：服务器处理请求出错</p>
+<blockquote>
 <p>200：请求访问成功</p>
 <p>301：资源被永久的移到了某个url</p>
 <p>302：资源被临时 移动到某个url</p>
@@ -1042,6 +1170,7 @@
 <p>502：网关或者代理的服务器执行请求时，收到了无效的响应</p>
 <p>503：由于超载或系统维护，系统暂时无法处理请求</p>
 <p>504：网关或服务器，无法从远端服务器获取请求</p>
+</blockquote>
 <p><strong>4.HTTP的长连接与短连接？</strong></p>
 <p>http1.0使用的是短连接。有请求时就建立连接，等请求结束后马上就断开连接。每访问一次资源，都要进行一个会话连接。</p>
 <p>而1.1开始，使用长连接，设置keep-alive。网页打开后客户端和服务器之间的tcp连接不会断开，继续访问时会继续使用之前的tcp连接。keep-alive也有时间限制，可以设定。</p>
@@ -1049,13 +1178,17 @@
 <p>1.基于TCP连接</p>
 <p>2.无状态连接，不记录客户端的状态</p>
 <p><strong>6.HTTP请求的类型？</strong></p>
+<blockquote>
 <p>1.PUT：用客户端的数据来更改服务器中指定页面的内容</p>
 <p>2.GET：获取某个页面的信息</p>
 <p>3.POST：向指定资源提交添加数据的请求</p>
 <p>4.DELETE：删除某个页面</p>
+</blockquote>
 <p><strong>6.防止跨站攻击？</strong></p>
+<blockquote>
 <p>1.关键的操作使用POST请求</p>
 <p>2.Token要随机，最好每次完成请求后都刷新token</p>
+</blockquote>
 <p><strong>7.断点续传？</strong></p>
 <p>客户端发送的请求方法，头部加入片段：Ranger：xxx-</p>
 <h3 id="HTTPS-1"><a href="#HTTPS-1" class="headerlink" title="HTTPS"></a>HTTPS</h3><p><strong>1.说说HTTPS？</strong></p>

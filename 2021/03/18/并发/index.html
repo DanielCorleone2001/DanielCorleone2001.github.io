@@ -514,8 +514,10 @@
 <h2 id="Volatile"><a href="#Volatile" class="headerlink" title="Volatile"></a>Volatile</h2><p>保证线程对于变量的<strong>可见性</strong>(线程A修改了某个值，线程B一定会看到的是修改后的值)。</p>
 <h3 id="实现原理：Lock指令"><a href="#实现原理：Lock指令" class="headerlink" title="实现原理：Lock指令"></a>实现原理：Lock指令</h3><p>变量使用volatile修饰时，在汇编的层面，加了一个<strong>Lock前缀指令</strong>。</p>
 <h4 id="Lock指令"><a href="#Lock指令" class="headerlink" title="Lock指令"></a>Lock指令</h4><p>Lock指令的作用：</p>
+<blockquote>
 <p>1.强制将当前处理器的缓存行内容写入到内存</p>
 <p>2.写回操作，会使得其他处理器缓存了该变量内存地址的缓存行<strong>失效</strong></p>
+</blockquote>
 <p>要让<strong>缓存行失效的原因</strong>：虽然写回了内存，但其他CPU中的缓存行，存的数据不是修改后的值。为了保证<strong>缓存一致性</strong>，每个CPU都要检测总线上传播的数据，检查自己的数据是否已经过期。如果过期了，就将对应的缓存行置为无效，等下次需要数据时，需要从内存中调用。</p>
 <h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><p>锁之前只有无锁状态和重量级锁状态。</p>
 <p>但是后来发现，锁不仅在线程之间竞争激烈，同时一个线程也有可能会多次获得锁。因此需要细分锁，减少线程获得锁的开销，从而引入了<strong>偏向锁</strong>和<strong>轻量级锁</strong>。</p>
@@ -590,8 +592,10 @@
 <h2 id="JMM"><a href="#JMM" class="headerlink" title="JMM"></a>JMM</h2><p>JMM：Java内存模型。</p>
 <p>并发编程需要解决两个问题：线程的通信；同步问题。</p>
 <p><strong>线程的通信：</strong></p>
+<blockquote>
 <p>1.在共享存储的模型中，采用隐式的通信。例如线程A、B通过写入内存，读内存来实现通信</p>
 <p>2.消息传递的并发模型里，使用直接发送信息来进行线程之间的通信</p>
+</blockquote>
 <p><strong>同步：</strong>使线程之间的某些操作是按照特定顺序的。</p>
 <hr>
 <p>Java中采用的是共享存储的模型。</p>

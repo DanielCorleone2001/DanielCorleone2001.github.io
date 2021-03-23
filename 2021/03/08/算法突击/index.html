@@ -445,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-21
+                    2021-03-23
                 </div>
                 
 
@@ -483,11 +483,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>树的节点的度不大于2的有序树</p>
-<h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><p>节点的个数为2^k - 1，k为层数</p>
+<h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><blockquote>
+<p>节点的个数为2^k - 1，k为层数</p>
 <p>第i层的节点个数为2^(i - 1)</p>
-<h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p>深度为k，节点个数为n的二叉树，当且仅当每个节点都和深度为k的满二叉树的1到n节点能一一对应。</p>
+</blockquote>
+<h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><blockquote>
+<p>深度为k，节点个数为n的二叉树，当且仅当每个节点都和深度为k的满二叉树的1到n节点能一一对应。</p>
 <p>说人话：如果有右节点，那必须要有左节点。而只能最后一层的节点能小于</p>
 <p>2^(k - 1)</p>
+</blockquote>
 <h3 id="二叉树的创建"><a href="#二叉树的创建" class="headerlink" title="二叉树的创建"></a>二叉树的创建</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Tree</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">int</span> data<span class="token punctuation">;</span>
     <span class="token class-name">Tree</span> left<span class="token punctuation">,</span> right<span class="token punctuation">;</span>
@@ -500,16 +504,21 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="哈夫曼编码树"><a href="#哈夫曼编码树" class="headerlink" title="哈夫曼编码树"></a>哈夫曼编码树</h3><p>带权路径最小的二叉树。带权路径最小：叶子节点的权值乘以从根节点到叶子节点的乘积之和是最小的。</p>
-<h3 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h3><p>1.左节点的节点值比根节点小，右节点比根节点的大。</p>
+<h3 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h3><blockquote>
+<p>1.左节点的节点值比根节点小，右节点比根节点的大。</p>
 <p>2.不存在节点值相等的节点</p>
 <p>查找时间复杂度为O(log N)，最坏情况(不平衡)下为O(N).</p>
+</blockquote>
 <h4 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h4><p>是一种自平衡的二叉查找树。</p>
+<blockquote>
 <p>特点：</p>
 <p>1.任意节点的子树的高度差不超过1</p>
 <p>2.左子树和右子树都是平衡二叉树</p>
 <p>增加和删除可能需要多次树旋转来维护树的平衡。</p>
 <p>高度为K的平衡二叉树，节点数最多为(2^k) - 1.即满二叉树</p>
+</blockquote>
 <h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>每个节点要么是红色，要么是黑色。</p>
+<blockquote>
 <p>特点：</p>
 <p>1.每个节点要么是红色，要么是黑色。</p>
 <p>2.根节点为黑色</p>
@@ -518,40 +527,53 @@
 <p>5.从任意节点到叶子节点的所有简单路径都含有相同数量的黑色节点</p>
 <p>简单路径：除了起点和终点相同以外，其他顶点均不相同。</p>
 <p>插入和删除：恢复红黑树的性质，需要进行O(log N)的颜色变更，插入需要树旋转两次，删除需要树旋转三次。</p>
-<h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><p>访问，查找，插入，删除数据的复杂度均为O(N)</p>
+</blockquote>
+<h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><blockquote>
+<p>访问，查找，插入，删除数据的复杂度均为O(N)</p>
 <p>M阶：树的叶子节点最多有M个。</p>
 <p>特点：</p>
 <p>1.节点关键字从左到右递增</p>
 <p>2.非叶子节点的子节点个数大于等于1，小于等于M</p>
 <p>3.叶子节点都在同一层，叶子节点存的是关键字和关键字的地址指针</p>
-<h3 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h3><p>1.B+树的非叶子节点只保存数据的数据索引，不保存关键字的指针</p>
+</blockquote>
+<h3 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h3><blockquote>
+<p>1.B+树的非叶子节点只保存数据的数据索引，不保存关键字的指针</p>
 <p>2.叶子节点保存了父节点的关键字指针。因此所有数据的地址只有达到了叶子节点才能获取到。</p>
 <p>3.叶子节点关键字从小到大排序。左边结尾的数据会保留右边节点开始数据的指针</p>
+</blockquote>
 <h5 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h5><p>1.B+树层级更少。</p>
 <p>2.查询更稳定</p>
 <p>3.叶子节点是有序链表，缓存命中率比B树高</p>
 <p>4.全节点遍历更快</p>
 <h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gogt6g4xehj30l00e2n0l.jpg" alt="image"></p>
 <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gogtb7kjlmg30my075wqv.gif" alt="849589-20171015223238449-2146169197"></p>
+<blockquote>
 <p>1.比较相邻的元素，不满足大小顺序就交换</p>
 <p>2.从开始的一对到结尾的一对都这么进行，就使得最大的出现在数组末尾</p>
 <p>3.继续执行，这时候是对非末尾的其他元素继续执行步骤1</p>
 <p>4.就这样执行，每一次都使得最末尾是满足条件的，以此类推，就使得整个数组有序</p>
+</blockquote>
 <p>时间复杂度：O(n^2)</p>
 <p>空间复杂度：O(1)</p>
 <p>稳定型算法</p>
 <h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1gogtpygx53g30mj06w7l2.gif" alt="选择排序"></p>
+<blockquote>
 <p>每一次遍历。选择最大的元素放在末尾。</p>
+</blockquote>
 <p>时间复杂度：O(n^2)</p>
 <p>空间复杂度：O(1)</p>
 <p>稳定型算法</p>
 <h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gogtrtdlwbg30mj0e113f.gif" alt="插入排序"></p>
+<blockquote>
 <p>将数组分成有序区和无序区，每次遍历，从无序区中取出一个元素，插入到有序区中。</p>
+</blockquote>
 <p>时间复杂度：O(n^2)</p>
 <p>空间复杂度：O(1)</p>
 <p>稳定型算法</p>
 <h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gogtumtejhg30mj0e1qcv.gif" alt="归并排序"></p>
-<p>先划分数组，一直划分到两个元素，然后进行比较。最后再将数组段间进行排序。</p>
+<blockquote>
+<p>先划分数组，一直划分到两个元素，然后进行比较。最后再将数组段间进行排序</p>
+</blockquote>
 <p>时间复杂度：O(N logN)</p>
 <p>空间复杂度：O(n)</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
@@ -596,8 +618,10 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gogtxqh741g30mj0707d3.gif" alt="快速排序"></p>
+<blockquote>
 <p>设置哨兵节点，比节点大的放在右边，比节点小的放在左边。</p>
 <p>再递归的对两个部分进行排序。</p>
+</blockquote>
 <p>时间复杂度：O(N logN)</p>
 <p>空间复杂度：O(N logN)</p>
 <p>不稳定的排序算法。如果数组反序，那么时间复杂度退化到O(n^2)</p>
