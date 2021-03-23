@@ -445,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-21
+                    2021-03-23
                 </div>
                 
 
@@ -545,13 +545,16 @@
 </tbody></table>
 <p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goqbrnm411j30oh06ujub.jpg" alt="image"></p>
 <h3 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h3><p>线程在访问同步代码块时，会在对象头中的<strong>MarkWord</strong>和<strong>栈帧</strong>中存储<strong>锁偏向的线程ID</strong>。</p>
-<h4 id="偏向锁的访问"><a href="#偏向锁的访问" class="headerlink" title="偏向锁的访问"></a>偏向锁的访问</h4><p>1.线程访问同步块 </p>
+<h4 id="偏向锁的访问"><a href="#偏向锁的访问" class="headerlink" title="偏向锁的访问"></a>偏向锁的访问</h4><blockquote>
+<p>1.线程访问同步块 </p>
 <p>2.检查对象头中的MarkWord是否存有该线程的偏向锁</p>
 <p>3.没有的话，查看MardWord中的偏向锁标识是否为1(1代表拥有偏向锁)</p>
 <p>4.如果是1的话，就使用<strong>CAS操作</strong>将<strong>对象头的偏向锁指向当前线程</strong>；如果是0的话，就使用<strong>CAS操作</strong>来<strong>竞争锁</strong></p>
+</blockquote>
 <h4 id="偏向锁的加锁"><a href="#偏向锁的加锁" class="headerlink" title="偏向锁的加锁"></a>偏向锁的加锁</h4><p>使用原子的CAS操作，将MarkWord的锁标识记为偏向锁，并记录锁偏向的线程ID</p>
 <h4 id="偏向锁的解锁"><a href="#偏向锁的解锁" class="headerlink" title="偏向锁的解锁"></a>偏向锁的解锁</h4><p>偏向锁，只有等到<strong>竞争出现</strong>，才会将锁撤销。</p>
 <p>撤销的过程：</p>
+<blockquote>
 <p>1.偏向锁的撤销，需要等待<strong>全局安全点</strong>(此时没有正在执行的字节码)，才能撤销。</p>
 <p>2.暂停所有拥有偏向锁的线程</p>
 <p>3.检查线程是否活着</p>
@@ -559,23 +562,30 @@
 <p>5.还活着的线程，就遍历拥有<strong>偏向锁的栈帧</strong>，以及<strong>拥有偏向锁的对象的锁记录</strong></p>
 <p>6.栈帧和对象的Markword要么重新偏向于线程，要么恢复到无锁状态</p>
 <p>7.唤醒被暂停的线程</p>
-<h3 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h3><h4 id="轻量级锁的加锁"><a href="#轻量级锁的加锁" class="headerlink" title="轻量级锁的加锁"></a>轻量级锁的加锁</h4><p>1.在<strong>栈帧</strong>中开辟内存空间，存放<strong>锁记录</strong></p>
+</blockquote>
+<h3 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h3><h4 id="轻量级锁的加锁"><a href="#轻量级锁的加锁" class="headerlink" title="轻量级锁的加锁"></a>轻量级锁的加锁</h4><blockquote>
+<p>1.在<strong>栈帧</strong>中开辟内存空间，存放<strong>锁记录</strong></p>
 <p>2.将线程的<strong>MarkWord</strong>，<strong>复制到栈帧中的锁记录中</strong>。</p>
 <p>3.线程尝试使用<strong>CAS操作</strong>，将自己MarkWord中的锁记录指针，替换成锁记录的指针</p>
 <p>4.成功的话就获得锁</p>
 <p>5.失败的话尝试使用<strong>自旋锁</strong>来获得锁</p>
-<h4 id="轻量级锁的解锁"><a href="#轻量级锁的解锁" class="headerlink" title="轻量级锁的解锁"></a>轻量级锁的解锁</h4><p>1.使用<strong>原子的CAS操作</strong>,将<strong>MarkWord的锁标识置为无锁状态</strong></p>
+</blockquote>
+<h4 id="轻量级锁的解锁"><a href="#轻量级锁的解锁" class="headerlink" title="轻量级锁的解锁"></a>轻量级锁的解锁</h4><blockquote>
+<p>1.使用<strong>原子的CAS操作</strong>,将<strong>MarkWord的锁标识置为无锁状态</strong></p>
 <p>2.如果成功，说明不存在锁竞争，可直接解锁</p>
 <p>2.如果失败，说明存在锁竞争，轻量级锁会<strong>膨胀成重量级锁</strong>。</p>
+</blockquote>
 <h2 id="JAVA实现原子操作"><a href="#JAVA实现原子操作" class="headerlink" title="JAVA实现原子操作"></a>JAVA实现原子操作</h2><p>一般是使用<strong>循环CAS</strong>或者<strong>锁</strong>来实现</p>
 <h3 id="循环CAS"><a href="#循环CAS" class="headerlink" title="循环CAS"></a>循环CAS</h3><p>循环的进行CAS操作，直到成功位置。</p>
 <p>CAS的实现原理：CMPXCHG</p>
-<h4 id="可能导致的问题"><a href="#可能导致的问题" class="headerlink" title="可能导致的问题"></a>可能导致的问题</h4><p>1.<strong>ABA问题。</strong>比如线程X存储某内存中的旧值是A，然后内存中修改了A的值为B，又再修改成了A，会导致线程X认为A的值没有发生变化过。</p>
+<h4 id="可能导致的问题"><a href="#可能导致的问题" class="headerlink" title="可能导致的问题"></a>可能导致的问题</h4><blockquote>
+<p>1.<strong>ABA问题。</strong>比如线程X存储某内存中的旧值是A，然后内存中修改了A的值为B，又再修改成了A，会导致线程X认为A的值没有发生变化过。</p>
 <p><strong>解决方法：</strong>对值附上版本号。Atomic包里的AtomicStampedRefrence解决了这个问题。它首先检查线程的引用是否和内存中的相等，再比较标志位是否等于预期的标志,即版本号。</p>
 <p>2.<strong>循环的时间开销大</strong>。CAS不成功的时候就会一直自旋，直到成功。</p>
 <p><strong>解决方法：</strong>JVM的pause指令。</p>
 <p>3.<strong>只能保证一个共享变量的原子操作</strong>。</p>
 <p><strong>解决方法：</strong>将多个变量相乘，记录乘积结果，相当于又变成了一个变量。</p>
+</blockquote>
 <h3 id="锁实现原子操作"><a href="#锁实现原子操作" class="headerlink" title="锁实现原子操作"></a>锁实现原子操作</h3><p>一般使用<strong>偏向锁</strong>，<strong>互斥锁</strong>，<strong>轻量级锁</strong>实现。</p>
 <h2 id="JMM"><a href="#JMM" class="headerlink" title="JMM"></a>JMM</h2><p>JMM：Java内存模型。</p>
 <p>并发编程需要解决两个问题：线程的通信；同步问题。</p>
@@ -585,7 +595,7 @@
 <p><strong>同步：</strong>使线程之间的某些操作是按照特定顺序的。</p>
 <hr>
 <p>Java中采用的是共享存储的模型。</p>
-<h3 id="JMM抽象结构"><a href="#JMM抽象结构" class="headerlink" title="JMM抽象结构"></a>JMM抽象结构</h3><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goqcjlld7ij30ir0hcq5y.jpg" alt="image"></p>
+<h3 id="JMM抽象结构"><a href="#JMM抽象结构" class="headerlink" title="JMM抽象结构"></a>JMM抽象结构</h3><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goqcjlld7ij30ir0hcq5y.jpg" alt="JMM"></p>
 <p>简单来说，分成的两部分：</p>
 <p>1.每个线程的本地副本</p>
 <p>2.主内存。</p>
@@ -1172,7 +1182,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">57k</span>&nbsp;字
+                class="white-color">57.4k</span>&nbsp;字
             
             
             

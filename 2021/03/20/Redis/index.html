@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    4.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    15 分
                 </div>
                 
 
@@ -964,7 +964,61 @@
 <p>如果之前节点都是小于254位，那么如果要插入一个超过254的节点到节点头，就会导致后面的所有节点都要更新previous_entry_length，而占用的字节变多，那么就需要不断更新。这就是<strong>连锁更新</strong>。</p>
 <p>而每次连锁更新，需要先更新头节点的第一个节点，更新了第一个节点就需要更新第二个节点….依次类推，需要更新N次，每一次都需要内存重分配，因此时间复杂度是O(n^2).</p>
 <h4 id="API-2"><a href="#API-2" class="headerlink" title="API"></a>API</h4><p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goty928qrfj30ln0e4n2c.jpg" alt="image"></p>
-<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><blockquote>
+<p>Redis并没有直接使用上面说的数据结构来实现键值对数据库，而是基于这些数据结构创建了一个<strong>对象系统</strong>，这个系统包含字符串对象、列表对象、哈希对象、集合对象和有序集合对象这五种类型的对象，每种对象都用到了至少一种前面所介绍的数据结构.</p>
+</blockquote>
+<h4 id="对象类型与编码"><a href="#对象类型与编码" class="headerlink" title="对象类型与编码"></a>对象类型与编码</h4><p>Redis在执行一个键值对的时候，需要创建两个对象：<strong>键对象</strong>，<strong>值对象</strong>。</p>
+<p>例如</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> msg <span class="token string">"hello"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>创建了一个字符串类型的对象，值为”msg”；</p>
+<p>创建了一个字符串类型的对象，值为”hello”。</p>
+<blockquote>
+<p>Redis中每个对象都由一个redisObject类型来表示。</p>
+<p>该结构体由三个属性：</p>
+<p>1.type。type就是下面的五种类型</p>
+<p>2.encoding。encoding记录了对象使用的编码，也就是对象使用了什么数据结构来进行存储</p>
+<p>3.ptr。指向对象的底层数据结构</p>
+</blockquote>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gou0bsv592j30gm08hdgj.jpg" alt="redisObject"></p>
+<h5 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h5><p>Redis的键都是字符串对象，值的对象类型有五种。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>用TYPE命令会产生的输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>REDIS_STRING</td>
+<td>字符串对象</td>
+<td>“string”</td>
+</tr>
+<tr>
+<td>REDIS_LIST</td>
+<td>列表对象</td>
+<td>“list”</td>
+</tr>
+<tr>
+<td>REDIS_HASH</td>
+<td>哈希对象</td>
+<td>“hash”</td>
+</tr>
+<tr>
+<td>REDIS_SET</td>
+<td>集合对象</td>
+<td>“set”</td>
+</tr>
+<tr>
+<td>REDIS_ZSET</td>
+<td>有序集合对象</td>
+<td>“zset”</td>
+</tr>
+</tbody></table>
+<h5 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h5><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1gou0kv9oa7j30qn0cfjxr.jpg" alt="Redis对象编码"></p>
+<p>使用Object Encoding+key，可以查看对象的值的编码方式。</p>
+<h4 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h4>
                 
             </div>
             <hr/>
@@ -1546,7 +1600,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">57k</span>&nbsp;字
+                class="white-color">57.4k</span>&nbsp;字
             
             
             
