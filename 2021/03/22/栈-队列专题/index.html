@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-22
+                    2021-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    731
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    9 分
                 </div>
                 
 
@@ -575,6 +575,111 @@
  * int param_4 = obj.getMin();
  */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="84-柱状图中最大的矩形"><a href="#84-柱状图中最大的矩形" class="headerlink" title="84.柱状图中最大的矩形"></a>84.柱状图中最大的矩形</h2><p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gotmyb4flbj305805ot8i.jpg" alt="image"></p>
+<p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gotmyopps4j305805o0sl.jpg" alt="image"></p>
+<blockquote>
+<p>给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
+<p>求在该柱状图中，能够勾勒出来的矩形的最大面积。</p>
+<p>以上是柱状图的示例，其中每个柱子的宽度为 1，给定的高度为 [2,1,5,6,2,3]。</p>
+<p>图中阴影部分为所能勾勒出的最大矩形面积，其面积为 10 个单位。</p>
+<p>示例:</p>
+<p>输入: [2,1,5,6,2,3]<br>输出: 10</p>
+</blockquote>
+<h3 id="思路：最小栈"><a href="#思路：最小栈" class="headerlink" title="思路：最小栈"></a>思路：最小栈</h3><h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">largestRectangleArea</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> heights<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//将数组进行拷贝，加入头尾为0的元素，简化没必要的检查步骤。</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> temp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>heights<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">arraycopy</span><span class="token punctuation">(</span>heights<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> temp<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> heights<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token comment">//使用最小栈来存储元素的下标，栈中的元素有这样的特点：</span>
+        <span class="token comment">//栈中存的是下标，而栈顶是下标对应的高度最高的，依次类推</span>
+        <span class="token comment">//栈底的下标对应的元素是最小的</span>
+        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> area <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> temp<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">//通过分析可以得出，一个柱形所能形成的最大面积，只有在他左边和右边的高度都比他小时，才会得到。</span>
+            <span class="token comment">//而通过维护最小栈，栈中存的就是他左边的第一个比他小的柱形，</span>
+            <span class="token comment">//因此只需要向右开始找，找到右边的第一个比栈顶小的值，</span>
+            <span class="token comment">//然后不断维护面积，就能得到最大值。</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span> <span class="token operator">!</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> temp<span class="token punctuation">[</span>stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">//找到右边的第一个比栈顶的柱形小的值，开始计算面积</span>
+                <span class="token comment">//高度很明显就是栈顶的柱形</span>
+                <span class="token keyword">int</span> h <span class="token operator">=</span> temp<span class="token punctuation">[</span>stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token comment">//宽度的话，是当前索引剪掉栈顶元素再减一。</span>
+                <span class="token comment">//为什么要减一？因为计算高度的时候已经把真正的需要的栈顶弹出来了</span>
+                <span class="token comment">//所以实际上的宽度，如果用i-stack.peek()的话，就类似于</span>
+                <span class="token comment">//应该用 i - 10，但是10已经弹出来，栈顶这时候是9，所以还需要减一</span>
+                area <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>area<span class="token punctuation">,</span> h <span class="token operator">*</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">//不断将索引压入栈中</span>
+            stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> area<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="239-滑动窗口最大值"><a href="#239-滑动窗口最大值" class="headerlink" title="239.滑动窗口最大值"></a>239.滑动窗口最大值</h2><p>问题：</p>
+<blockquote>
+<p>给你一个整数数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 k 个数字。滑动窗口每次只向右移动一位。</p>
+<p>返回滑动窗口中的最大值。</p>
+<p>示例 1：</p>
+<p>输入：nums = [1,3,-1,-3,5,3,6,7], k = 3<br>输出：[3,3,5,5,6,7]<br>解释：<br>滑动窗口的位置                最大值</p>
+<hr>
+<p>[1  3  -1] -3  5  3  6  7       3<br>1 [3  -1  -3] 5  3  6  7       3<br>1  3 [-1  -3  5] 3  6  7       5<br>1  3  -1 [-3  5  3] 6  7       5<br>1  3  -1  -3 [5  3  6] 7       6<br>1  3  -1  -3  5 [3  6  7]      7<br>示例 2：</p>
+<p>输入：nums = [1], k = 1<br>输出：[1]<br>示例 3：</p>
+<p>输入：nums = [1,-1], k = 1<br>输出：[1,-1]<br>示例 4：</p>
+<p>输入：nums = [9,11], k = 2<br>输出：[11]<br>示例 5：</p>
+<p>输入：nums = [4,-2], k = 2<br>输出：[4]</p>
+<p>提示：</p>
+<p>1 &lt;= nums.length &lt;= 105<br>-104 &lt;= nums[i] &lt;= 104<br>1 &lt;= k &lt;= nums.length</p>
+</blockquote>
+<h3 id="思路：单调栈"><a href="#思路：单调栈" class="headerlink" title="思路：单调栈"></a>思路：单调栈</h3><h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">maxSlidingWindow</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> nums <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> nums<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span> <span class="token punctuation">)</span> <span class="token keyword">return</span> nums<span class="token punctuation">;</span>
+        <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>nums<span class="token punctuation">.</span>length <span class="token operator">-</span> k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment">//维护递减的栈。</span>
+        <span class="token comment">//判断栈顶元素的索引是否有效，也就是说，当前走到了第十个元素，k等于3</span>
+        <span class="token comment">//如果栈顶元素如果不是10，9，8中的一个，那就需要把它踢掉</span>
+        <span class="token comment">//判断窗口是否已经形成，形成的话每遍历下一个元素，都要把栈顶加入到结果数组中</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">//注意要使用while循环，才能使得栈的末尾中所有小于即将加入的元素都能出栈</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span> <span class="token operator">!</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>stack<span class="token punctuation">.</span><span class="token function">peekLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                stack<span class="token punctuation">.</span><span class="token function">pollLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            stack<span class="token punctuation">.</span><span class="token function">addLast</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> i <span class="token operator">-</span> k  <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                stack<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">//i - k + 1代表的是，结果窗口的左边，结果的索引是从0开始的</span>
+            <span class="token comment">//所以需要判断大于等于0，才能加入到结果数组中</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> i <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">>=</span> k <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                res<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">-</span> k<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="641-设置循环双端队列"><a href="#641-设置循环双端队列" class="headerlink" title="641.设置循环双端队列"></a>641.设置循环双端队列</h2><p>问题：</p>
+<blockquote>
+<p>设计实现双端队列。<br>你的实现需要支持以下操作：</p>
+<p>MyCircularDeque(k)：构造函数,双端队列的大小为k。<br>insertFront()：将一个元素添加到双端队列头部。 如果操作成功返回 true。<br>insertLast()：将一个元素添加到双端队列尾部。如果操作成功返回 true。<br>deleteFront()：从双端队列头部删除一个元素。 如果操作成功返回 true。<br>deleteLast()：从双端队列尾部删除一个元素。如果操作成功返回 true。<br>getFront()：从双端队列头部获得一个元素。如果双端队列为空，返回 -1。<br>getRear()：获得双端队列的最后一个元素。 如果双端队列为空，返回 -1。<br>isEmpty()：检查双端队列是否为空。<br>isFull()：检查双端队列是否满了。</p>
+<p>示例：</p>
+<p>MyCircularDeque circularDeque = new MycircularDeque(3); // 设置容量大小为3<br>circularDeque.insertLast(1);                    // 返回 true<br>circularDeque.insertLast(2);                    // 返回 true<br>circularDeque.insertFront(3);                    // 返回 true<br>circularDeque.insertFront(4);                    // 已经满了，返回 false<br>circularDeque.getRear();                  // 返回 2<br>circularDeque.isFull();                        // 返回 true<br>circularDeque.deleteLast();                    // 返回 true<br>circularDeque.insertFront(4);                    // 返回 true<br>circularDeque.getFront();                // 返回 4</p>
+<p>提示：</p>
+<p>所有值的范围为 [1, 1000]<br>操作次数的范围为 [1, 1000]<br>请不要使用内置的双端队列库。</p>
+</blockquote>
+<h2 id="42-接雨水"><a href="#42-接雨水" class="headerlink" title="42.接雨水"></a>42.接雨水</h2><p>问题：</p>
+<p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gotq2n9o54j30bg04hgll.jpg" alt="image"></p>
+<blockquote>
+<p>给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。</p>
+<p>示例 1：</p>
+<p>输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]<br>输出：6<br>解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。<br>示例 2：</p>
+<p>输入：height = [4,2,0,3,2,5]<br>输出：9</p>
+<p>提示：</p>
+<p>n == height.length<br>0 &lt;= n &lt;= 3 * 104<br>0 &lt;= height[i] &lt;= 105</p>
+</blockquote>
 
                 
             </div>
@@ -860,17 +965,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/22/%E6%A0%88-%E9%98%9F%E5%88%97%E4%B8%93%E9%A2%98/">
+                <a href="/2021/03/23/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B8%93%E9%A2%98/">
                     <div class="card-image">
                         
-                        <img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1got1ogtdt9j30k00bajsw.jpg" class="responsive-img" alt="栈&amp;队列专题">
                         
-                        <span class="card-title">栈&amp;队列专题</span>
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="动态规划专题">
+                        
+                        <span class="card-title">动态规划专题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -880,9 +985,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -895,7 +1000,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1159,7 +1263,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53.5k</span>&nbsp;字
+                class="white-color">55.5k</span>&nbsp;字
             
             
             
