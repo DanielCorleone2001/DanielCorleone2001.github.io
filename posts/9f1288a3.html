@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Redis, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="递归专题, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Redis | Welcome to Daniel&#39;s Blog !</title>
+    <title>递归专题 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://tva1.sinaimg.cn/large/0085EwgIgy1gorclw630jj30k00dcwf3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Redis</h1>
+                    <h1 class="description center-align post-title">递归专题</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Redis/">
-                                <span class="chip bg-color">Redis</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
-                                <span class="chip bg-color">中间件</span>
+                            <a href="/tags/%E9%80%92%E5%BD%92/">
+                                <span class="chip bg-color">递归</span>
                             </a>
                         
                     </div>
@@ -425,8 +425,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
-                                中间件
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -438,28 +438,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-20
+                    2021-03-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-23
+                    2021-03-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    445
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    2 分
                 </div>
                 
 
@@ -482,543 +482,95 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="SDS"><a href="#SDS" class="headerlink" title="SDS"></a>SDS</h3><p>SDS：Simple dynamic string，简单动态字符串。</p>
-<p>Redis表示不可变的东西时，或者说简单的打印日志，使用的是C语言的字符串。而自己实际存储的字符串，是一种叫做SDS的字符串。</p>
-<h4 id="底层结构"><a href="#底层结构" class="headerlink" title="底层结构"></a>底层结构</h4><p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goqnnpzzyqj30ls06fmy8.jpg" alt="image"></p>
-<p>是一个C语言中的结构体，有len，free两个int类型，还有一个字符数组。</p>
-<p>SDS还是像C语言一样，字符后以’\0’结尾，方便直接使用C语言的一些库函数。</p>
-<h4 id="SDS与C语言字符串对比"><a href="#SDS与C语言字符串对比" class="headerlink" title="SDS与C语言字符串对比"></a>SDS与C语言字符串对比</h4><p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goqokoqbb8j30m10610uy.jpg" alt="image"></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>C语言字符串</th>
-<th>Redis</th>
-<th>概念</th>
-<th>结果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>获取字符串长度</td>
-<td>O(N)</td>
-<td>O(1)，不断维护结构体中len的值</td>
-<td></td>
-<td>Redis的strlen指令的时间复杂度是O(1)</td>
-</tr>
-<tr>
-<td>字符串拼接是否会导致缓冲区溢出</td>
-<td>会，如果用户不对字符串拼接进行检查就会溢出。</td>
-<td>SDS API对SDS进行修改时，会自动检查空间是否足够。不够的话会自动申请足够的内存来完成凭借操作</td>
-<td>缓冲区溢出：拼接的字符串覆盖了不该不属于该数组的内存空间</td>
-<td>Redis完全避免了缓冲区溢出的现象。</td>
-</tr>
-<tr>
-<td>修改字符串带来的内存重分配次数</td>
-<td>拼接：通过内存重分配增加字符数组大小；截断：通过内存重分配来释放掉不需要的空间，防止内存泄漏。可见每次更改都需要内存重分配</td>
-<td>Redis提供了改进：buf的长度不一定就是字符串长度+1，也还有预分配的多余的内存空间，通过free记录。因此能大大降低内存重分配的次数。优化策略有：空间预分配，惰性空间</td>
-<td>内存重分配：涉及到复杂的算法，还有可能执行系统调用，开销大，因此次数越少肯定就越好</td>
-<td>Redis减少了内存重分配的次数，对于读写频繁的操作场景，也能发挥很好的效果。</td>
-</tr>
-<tr>
-<td>空间预分配</td>
-<td>无</td>
-<td>SDS API对SDS修改时，不仅申请SDS所需的空间，还会适当分配多余的空间。当len小于1MB时，分配相当大小的多余空间，使得len = free；len大于2MB时，每次申请1MB，即free = 1MB</td>
-<td>用于Redis字符串拼接操作</td>
-<td>显著的减少了内存重分配的次数。</td>
-</tr>
-<tr>
-<td>惰性空间释放</td>
-<td>无</td>
-<td>尽管redis进行截断的操作，但是空余出来的内存并没有释放，所以称为惰性。</td>
-<td>用于Redis字符串截断操作</td>
-<td>当下次需要拼接时，可能就不需要内存重分配；同时也使得截断操作每次都要内存重分配</td>
-</tr>
-<tr>
-<td>二进制安全</td>
-<td>c语言用’\0‘来判断字符串的末尾，因此字符串的中间不能保存’\0‘，否则就相当于发生了截断</td>
-<td>Redis不会出现这种问题。它有len字段来声明字符串长度</td>
-<td></td>
-<td>C只能保存文本文件，Redis能保存任意格式的二进制。</td>
-</tr>
-<tr>
-<td>库函数&lt;String.h&gt;</td>
-<td>全都能使用</td>
-<td>只能使用一部分</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="SDS-API"><a href="#SDS-API" class="headerlink" title="SDS API"></a>SDS API</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>作用</th>
-<th>时间复杂度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>sdsnew</td>
-<td>创建C语言字符对应的SDS</td>
-<td>O(N)</td>
-</tr>
-<tr>
-<td>sdsempty</td>
-<td>创建一个空的SDS</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>sdsfree</td>
-<td>释放SDS</td>
-<td>O(N)</td>
-</tr>
-<tr>
-<td>sdslen</td>
-<td>返回SDS中的len字段，即获取字符串长度</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>sdsavail</td>
-<td>返回SDS中的free字段，即获取空闲的内存</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>sdsdup</td>
-<td>创建一个SDS的副本，即copy操作</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>sdsclear</td>
-<td>清空SDS中的字符串内容</td>
-<td>O(1),因为惰性空间分配，所以并没有释放内存</td>
-</tr>
-<tr>
-<td>sdscat</td>
-<td>将C字符串拼接到SDS字符串的末尾</td>
-<td>O(N)</td>
-</tr>
-<tr>
-<td>sdscatsds</td>
-<td>将SDS拼接到某一SDS的末尾</td>
-<td>O(N)</td>
-</tr>
-<tr>
-<td>sdscpy</td>
-<td>将C字符串覆盖的写入到SDS中的字符串</td>
-<td>O(N)</td>
-</tr>
-<tr>
-<td>sdsgrowzero</td>
-<td>用空字符串拓展到给定的长度</td>
-<td>O(N)</td>
-</tr>
-<tr>
-<td>sdsrange</td>
-<td>range内的字符串会保留，其他的全都被覆盖或者删除</td>
-<td>O(N)</td>
-</tr>
-<tr>
-<td>sdstrim</td>
-<td>接受两参数，其中一个是c字符串，将SDS中的该C字符串全都删掉</td>
-<td>O(N^2),N为C字符串的长度</td>
-</tr>
-<tr>
-<td>sdscmp</td>
-<td>对比SDS的字符串是否相等</td>
-<td>O(N),N为较短的那个字符串</td>
-</tr>
-</tbody></table>
-<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><p>c语言并没有链表，因此Redis需自己实现。</p>
-<p>Redis中的应用：一个键对应的value有很多个。</p>
-<h4 id="底层结构-1"><a href="#底层结构-1" class="headerlink" title="底层结构"></a>底层结构</h4><p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1goqp9hed63j30jg09djt2.jpg" alt="image"></p>
-<p>很明显，是个双向链表。但是这还不够，再加入一个list，那么对于链表的整体结构就能更好的控制。</p>
-<p><strong>list：</strong></p>
-<p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1goqp7blnqjj30em099wfh.jpg" alt="image"></p>
-<p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1goqp8kbuwtj30h406c0tp.jpg" alt="image"></p>
-<p>可见，链表是通过双向链表和一个list来管理。</p>
-<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><blockquote>
-<p>1.<strong>无环</strong>。head节点的pre和tail的next都指向null</p>
-<p>2.<strong>双端</strong>。使用的pre和next指针，访问前一个数据为O(1)</p>
-<p>3.带头指针和尾指针。获取的时间复杂度为O(1)</p>
-<p>4.带有链表长度计数器，获取长度时间复杂度为O(1)</p>
-<p>5.多态。节点使用(* void)指针来保存节点值，可以在dup，match，free的节点值设定特殊的函数。</p>
-</blockquote>
-<h4 id="API（待完善）"><a href="#API（待完善）" class="headerlink" title="API（待完善）"></a>API（待完善）</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>作用</th>
-<th>时间复杂度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>listSetDupMethod</td>
-<td>将链表的节点复制函数更新为给定的函数</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listGetDupMethod</td>
-<td>获取当前链表正在使用的节点复制函数</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listSetFreeMethod</td>
-<td>将链表的节点释放函数更新为给定的函数</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listGetFree</td>
-<td>获取当前链表正在使用的节点释放函数</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listSetMatchMethod</td>
-<td>将链表的节点匹配函数更新为给定的函数</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listGetMactchMethod</td>
-<td>获取当前链表正在使用的节点匹配函数</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listLength</td>
-<td>获取链表的长度</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listFirst</td>
-<td>获取链表的头节点</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listLast</td>
-<td>获取链表的尾节点</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listPrevNode</td>
-<td>获取当前节点的前一节点</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listNextNode</td>
-<td>获取当前节点的后一节点</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listNodeValue</td>
-<td>获取当前节点的节点值</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listCreate</td>
-<td>创建一个不含任何节点的链表</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listAddNodeHead</td>
-<td>在表头插入一个新的节点作为新的表头</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listAddNodeTail</td>
-<td>在表尾插入一个新的节点作为新的表尾</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>listInsertNode</td>
-<td>将新节点插入到当前节点之前或者之后</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td><strong>listSearchKey</strong></td>
-<td>查找并返回包含某个定值的所有节点</td>
-<td><strong>O(N)</strong></td>
-</tr>
-<tr>
-<td><strong>listIndex</strong></td>
-<td>返回给定节点在链表中的索引</td>
-<td><strong>O(N)</strong></td>
-</tr>
-<tr>
-<td><strong>listDelNode</strong></td>
-<td>从链表中删除掉给定的节点</td>
-<td><strong>O(N)</strong></td>
-</tr>
-<tr>
-<td><strong>listRotate</strong></td>
-<td><strong>将尾节点弹出，放到表头，成为新的表头</strong></td>
-<td><strong>O(1)</strong></td>
-</tr>
-<tr>
-<td>listDup</td>
-<td>复制一个给定链表的副本</td>
-<td>O(N)</td>
-</tr>
-<tr>
-<td>listRelease</td>
-<td>释放链表的内存</td>
-<td>O(N)</td>
-</tr>
-</tbody></table>
-<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p>key-value的映射。</p>
-<p>例如</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> msg <span class="token string">"hello"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="递归模板"><a href="#递归模板" class="headerlink" title="递归模板"></a>递归模板</h2><blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">></span><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">recur</span><span class="token punctuation">(</span> <span class="token keyword">int</span> level<span class="token punctuation">,</span> <span class="token keyword">int</span> param <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+   <span class="token comment">//递归终止条件</span>
+   <span class="token keyword">if</span> <span class="token punctuation">(</span> level <span class="token operator">></span> MAX_VALUE <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       <span class="token comment">//返回结果</span>
+       <span class="token keyword">return</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+   <span class="token comment">//进行对应的事件逻辑</span>
+   <span class="token function">process</span><span class="token punctuation">(</span>leval<span class="token punctuation">,</span> param<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment">//往下递归</span>
+   <span class="token function">recur</span><span class="token punctuation">(</span> level <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">new</span> param<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+    <span class="token comment">// restore current status </span>
+<span class="token operator">></span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>msg就是key，hello就是对应的value。</p>
-<h4 id="底层结构-2"><a href="#底层结构-2" class="headerlink" title="底层结构"></a>底层结构</h4><p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goqpwt2t5hj30dx09cab4.jpg" alt="image"></p>
-<p>table是一个数组，里面的元素存放的是指向dictEntry的指针。</p>
-<p>哈希表的结构：</p>
-<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goqq08oz6jj30c707dwfb.jpg" alt="image"></p>
-<p>size：记录table的大小</p>
-<p>sizemask：总是为size - 1，通过hashCode和sizemask来决定某个key应该放到那个table中的索引中。</p>
-<p>used：哈希表中已经有的key的个数。</p>
-<hr>
-<p>哈希节点使用的是dictEntry。结构如下：</p>
-<p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goqq4pzbvhj30ev090dgl.jpg" alt="image"></p>
-<p>可以发现，value可以是一个指针(*val),可以是uint_64的整数，也可以是int64的整数。</p>
-<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gorec2n5jpj30mc07ddhe.jpg" alt="image-20210320221126925"></p>
-<p>但这上面只展示了哈希表，其实和链表一样，redis里的map也有一个数据结构来管理哈希表，也就是一个叫做dict的结构体</p>
-<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goqqc3h7uzj30lk09bq42.jpg" alt="image"></p>
-<p>privdata：保存了某些特定函数的可选参数。</p>
-<p>ht：是两个元素的数组。每一个数组的元素都是哈希表，即上面的dictht。一般只使用第一个，第二个是在ht[0]进行rehash才使用。</p>
-<p>rehashidx：没有使用时，值为-1.记录了rehash的进度。</p>
-<p>type：指向了dictType类型的结构体，该结构体封装了很多函数，方便进行某些功能。</p>
-<p><img src="https://tva1.sinaimg.cn/large/0085EwgIgy1goqqg988baj30nd0cgdi8.jpg" alt="image"></p>
-<p>综上，redis里实际的map是这样的：</p>
-<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goqqljxpymj30ms0cv76l.jpg" alt="image"></p>
-<h4 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h4><p>插入过程：</p>
-<p>1.首先通过键值，计算出对应的hashCode和索引值。</p>
-<p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1goqqpyr1dij30dp03sq3r.jpg" alt="image"></p>
-<p>上面说的type和sizemask的作用就体现出来了。type相当于时对函数的封装，sizemask则是计算索引时需要的参数。</p>
-<p>2.根据索引值，将新的key-value加入到对应的dictht中的table中。</p>
-<p>例如这个例子：</p>
-<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1goqqteoo8bj30pe0fxwif.jpg" alt="image"></p>
-<h4 id="哈希冲突"><a href="#哈希冲突" class="headerlink" title="哈希冲突"></a>哈希冲突</h4><p>哈希冲突：两个或者更多的键，通过计算索引，映射到了同一个索引上面。</p>
-<p>解决方法：Redis使用拉链法。</p>
-<p>不同于HashMap使用的是尾插法，Redis使用的是头插法，这是基于速度的考虑。</p>
-<h4 id="Rehash"><a href="#Rehash" class="headerlink" title="Rehash"></a>Rehash</h4><p>为了让哈希因子维持在正常的范围，当键值对过多或者过少的时候，应当进行rehash一下，对哈希表进行适当扩大或者缩小。</p>
-<p>过程：</p>
-<blockquote>
-<p>1.为ht[1]分配内存空间：</p>
-<p>如果是扩大操作，那么就获取ht[0]的used值，为ht[1]分配第一个2的次方数，该数满足大于等于ht[0].used * 2。说人话，分配内存大小为ht[0]已经使用的数组大小的两倍，同时要向上取2的次方。</p>
-<p>如果是缩小操作，那么就分配ht[0].used的向上取的二次方数。</p>
-<p>2.将保存在ht[0]的所有key-value都转移到ht[1]，转移的时候得进行重新哈希，来放入到新的索引中。</p>
-<p>3.将ht[1]置为ht[0],释放ht[0]。在ht[1]那儿新建一个空的哈希表，为下一次rehash做准备。</p>
-</blockquote>
-<h4 id="渐进式Rehash"><a href="#渐进式Rehash" class="headerlink" title="渐进式Rehash"></a>渐进式Rehash</h4><p>上面说到将ht[0]重新哈希到ht[1]时，如果数据量很大的话，不是一次性全部都hash获取，不然会导致服务器直接停止服务。而是渐进的，分多次的进行。</p>
-<p><strong>步骤：</strong></p>
-<blockquote>
-<p>1.分配ht[1]的内存</p>
-<p>2.将rehashidx从 -1 自增变成0</p>
-<p>3.将ht[0]中rehashidx对应的索引中的键值对，hash后放入到ht[1]</p>
-<p>4.rehashidx自增1</p>
-<p>5.不断重复3和4，直到结束。</p>
-<p>6.将rehashidx设为 -1，表示rehash结束。</p>
-</blockquote>
-<p><strong>问题：</strong></p>
-<p>1.在渐进式rehash过程中，如果需要进行查找、删除、更新等操作，要在两个哈希表中进行。比如查找，现在ht[0]查找，后在ht[1]中查找.</p>
-<p>2.rehash过程中，新增的键值对不会再放入到ht[0]，而是放到ht[1]，保证ht[0]在被慢慢的减少数量，从而成功释放内存。</p>
-<h4 id="哈希表的扩展与收缩"><a href="#哈希表的扩展与收缩" class="headerlink" title="哈希表的扩展与收缩"></a>哈希表的扩展与收缩</h4><p>哈希负载因子计算方法：已保存节点数量/哈希数组的长度</p>
-<p>满足下面条件的时候，会对哈希表进行拓展操作：</p>
-<p>1.服务器没有正在执行的BGSAVE命令，也没有BGREWRITEAOF命名，负载因子大于等于1时；</p>
-<p>2.服务器正在执行BGSAVE命令或者BGREWRITEAOF命令，负载因子大于等于5</p>
-<p>同理，负载因子小于1时进行收缩。</p>
-<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>作用</th>
-<th>时间复杂度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>dictCreate</td>
-<td>创建新的Map</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>dictAdd</td>
-<td>新增一个键值对</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>dictReplace</td>
-<td>新增键值对，如果已经存在就要进行替换</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>dictFetchValue</td>
-<td>获取key对应的value</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>dictGetRandomKey</td>
-<td>从Map中随机返回一个键值对</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>dictDelete</td>
-<td>从Map中删除掉对应的键值对</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>dictRelease</td>
-<td>释放Map的内存</td>
-<td>O(N)</td>
-</tr>
-</tbody></table>
-<h3 id="跳跃表"><a href="#跳跃表" class="headerlink" title="跳跃表"></a>跳跃表</h3><p>在Redis中的用途：</p>
-<blockquote>
-<p>1.实现有序的集合键</p>
-<p>2.在集群节点中用作内部数据结构</p>
-</blockquote>
-<h3 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h3><p>当一个集合只包含整数值，并且集合的元素数量不多时，redis就会将整数集合作为集合键的底层实现。</p>
-<h4 id="底层结构-3"><a href="#底层结构-3" class="headerlink" title="底层结构"></a>底层结构</h4><p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1gotvkb2w7tj30b1056mxi.jpg" alt="image"></p>
-<p>contents数组存放了整数集合的元素，各个项在数组当中<strong>从小到大排序，并且不含重复项。</strong></p>
-<p>虽然contents数组是用int8_t来定义，但是数组的实际类型是有encoding来决定的。</p>
-<p>一个具体的例子展示整数集合的逻辑结构</p>
-<p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1gotvohk12ij30cv060wf5.jpg" alt="image"></p>
-<h4 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h4><p>当添加新元素到整数集合里面时，如果新元素的类型比当前所有整数集合的元素的<strong>类型</strong>都要长的时候，要进行升级操作，才能将新元素添加到整数集合中去。</p>
-<p>升级的过程：</p>
-<blockquote>
-<p>1.根据新元素的类型，给contents数组分配足够的内存空间</p>
-<p>2.将原来的元素转换成新的元素的类型，并保持原来的有序性没有被破坏</p>
-<p>3.将新的元素加入到contents中</p>
-<p>4.更改len，len自增1，更改encoding</p>
-</blockquote>
-<p>如果新元素的类型小于现有的所有元素，就会把新元素放到索引为0的地方；</p>
-<p>如果新元素的类型大于现有的所有元素，就会把新元素放到索引为length-1的地方；</p>
-<h4 id="升级的好处"><a href="#升级的好处" class="headerlink" title="升级的好处"></a>升级的好处</h4><blockquote>
-<p>1.提升整数集合的灵活性。像c语言中，一个数组的元素的类型必须是一样的，不一样的类型不能存入同一个数组。Redis这么设计，能让用户的输入更加随意，而不会发生类型错误。</p>
-<p>2.节约内存。如果程序一开始就将contents定义成int64_t，那么会很浪费内存空间。这样设计，就只会在加入更大的元素的时候才会升级，因此可以认为节约了内存。</p>
-</blockquote>
-<p>ps：一旦升级之后就不能再降级了</p>
-<h4 id="API-1"><a href="#API-1" class="headerlink" title="API"></a>API</h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>作用</th>
-<th>时间复杂度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>intsetNew</td>
-<td>创建一个新的整数集合</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>intsetAdd</td>
-<td>将给定的元素添加到整数集合中</td>
-<td>O(N)</td>
-</tr>
-<tr>
-<td>intsetRemove</td>
-<td>从整数集合中移除给定的元素</td>
-<td>O(N)</td>
-</tr>
-<tr>
-<td>intsetFind</td>
-<td>检查整数集合中时候有某个整数</td>
-<td>O(log N),有序，使用二分查找</td>
-</tr>
-<tr>
-<td>intsetRandom</td>
-<td>从整数集合中随机返回一个元素</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>intsetGet</td>
-<td>取出底层数组在给定索引中的元素</td>
-<td>O(1),即访问某个数组元素</td>
-</tr>
-<tr>
-<td>intsetLen</td>
-<td>返回整数集合的元素个数</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>inisetBloLen</td>
-<td>返回整数集合占用的内存字节数</td>
-<td>O(1)</td>
-</tr>
-</tbody></table>
-<h3 id="压缩列表-ziplist"><a href="#压缩列表-ziplist" class="headerlink" title="压缩列表(ziplist)"></a>压缩列表(ziplist)</h3><p>当<strong>列表键</strong>或者<strong>哈希键</strong>是一些比较小的<strong>整数</strong>或者较短的<strong>字符串</strong>时，redis会使用压缩列表来作为列表键或者哈希键的底层实现。</p>
-<h4 id="底层结构-4"><a href="#底层结构-4" class="headerlink" title="底层结构"></a>底层结构</h4><p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gotwrp1gcjj30m20aidk5.jpg" alt="image"></p>
-<blockquote>
-<p>zlbytes：记录整个压缩列表所占的字节数</p>
-<p>zltail：记录从压缩列表的尾节点到压缩列表的起始地址有多少字节。这样就可以O(1)的获取尾节点的地址</p>
-<p>zllen：记录压缩列表的节点个数。当zllen的数值小于65535时，实际值就是zllen的值；等于65535时，只能遍历整个压缩列表才能得出实际的节点个数。</p>
-<p>entry：存储的节点</p>
-<p>zlend：用特殊的字符标记压缩列表的末端</p>
-</blockquote>
-<h4 id="节点的底层结构"><a href="#节点的底层结构" class="headerlink" title="节点的底层结构"></a>节点的底层结构</h4><p><img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gotwyfvwqoj30ch02i0sx.jpg" alt="image"></p>
-<p>不管存储的是字符数组，或者是整数值，节点的底层结构都是由三部分组成。</p>
-<blockquote>
-<p>1.<strong>previous_entry_length</strong>：记录压缩列表中前一个节点的长度。</p>
-<p>2.<strong>endcoding</strong>：记录当前节点的content属性保存的数据类型与长度</p>
-<p>3.<strong>content</strong>：保存节点具体的属性值</p>
-</blockquote>
-<p><strong>previous_entry_length：</strong>当前一个节点的长度小于254位时，previous_entry_length只占一个字节。当节点大于254位时，previous_entry_length的长度占5个字节，前一个字节位0xFE，即十进制的254，不能用于存储，由后面的四位进行存储。通过previous_entry_length，就可通过一个节点的初始地址，不断寻找，找到头节点。</p>
-<h4 id="连锁更新"><a href="#连锁更新" class="headerlink" title="连锁更新"></a>连锁更新</h4><p>前面说过。previous_entry_length的长度会根据前一节点是否超过254位而改变。</p>
-<p>如果之前节点都是小于254位，那么如果要插入一个超过254的节点到节点头，就会导致后面的所有节点都要更新previous_entry_length，而占用的字节变多，那么就需要不断更新。这就是<strong>连锁更新</strong>。</p>
-<p>而每次连锁更新，需要先更新头节点的第一个节点，更新了第一个节点就需要更新第二个节点….依次类推，需要更新N次，每一次都需要内存重分配，因此时间复杂度是O(n^2).</p>
-<h4 id="API-2"><a href="#API-2" class="headerlink" title="API"></a>API</h4><p><img src="https://tva2.sinaimg.cn/large/0085EwgIgy1goty928qrfj30ln0e4n2c.jpg" alt="image"></p>
-<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><blockquote>
-<p>Redis并没有直接使用上面说的数据结构来实现键值对数据库，而是基于这些数据结构创建了一个<strong>对象系统</strong>，这个系统包含字符串对象、列表对象、哈希对象、集合对象和有序集合对象这五种类型的对象，每种对象都用到了至少一种前面所介绍的数据结构.</p>
-</blockquote>
-<h4 id="对象类型与编码"><a href="#对象类型与编码" class="headerlink" title="对象类型与编码"></a>对象类型与编码</h4><p>Redis在执行一个键值对的时候，需要创建两个对象：<strong>键对象</strong>，<strong>值对象</strong>。</p>
-<p>例如</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> msg <span class="token string">"hello"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>创建了一个字符串类型的对象，值为”msg”；</p>
-<p>创建了一个字符串类型的对象，值为”hello”。</p>
-<blockquote>
-<p>Redis中每个对象都由一个redisObject类型来表示。</p>
-<p>该结构体由三个属性：</p>
-<p>1.type。type就是下面的五种类型</p>
-<p>2.encoding。encoding记录了对象使用的编码，也就是对象使用了什么数据结构来进行存储</p>
-<p>3.ptr。指向对象的底层数据结构</p>
 </blockquote>
-<p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gou0bsv592j30gm08hdgj.jpg" alt="redisObject"></p>
-<h5 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h5><p>Redis的键都是字符串对象，值的对象类型有五种。</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>名称</th>
-<th>用TYPE命令会产生的输出</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>REDIS_STRING</td>
-<td>字符串对象</td>
-<td>“string”</td>
-</tr>
-<tr>
-<td>REDIS_LIST</td>
-<td>列表对象</td>
-<td>“list”</td>
-</tr>
-<tr>
-<td>REDIS_HASH</td>
-<td>哈希对象</td>
-<td>“hash”</td>
-</tr>
-<tr>
-<td>REDIS_SET</td>
-<td>集合对象</td>
-<td>“set”</td>
-</tr>
-<tr>
-<td>REDIS_ZSET</td>
-<td>有序集合对象</td>
-<td>“zset”</td>
-</tr>
-</tbody></table>
-<h5 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h5><p><img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1gou0kv9oa7j30qn0cfjxr.jpg" alt="Redis对象编码"></p>
-<p>使用Object Encoding+key，可以查看对象的值的编码方式。</p>
-<h4 id="字符串对象"><a href="#字符串对象" class="headerlink" title="字符串对象"></a>字符串对象</h4>
+<h2 id="70-爬楼梯"><a href="#70-爬楼梯" class="headerlink" title="70.爬楼梯"></a>70.爬楼梯</h2><blockquote>
+<p>问题：</p>
+<p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
+<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
+<p>注意：给定 n 是一个正整数。</p>
+<p>示例 1：</p>
+<p>输入： 2<br>输出： 2<br>解释： 有两种方法可以爬到楼顶。</p>
+<ol>
+<li> 1 阶 + 1 阶</li>
+<li> 2 阶<br>示例 2：</li>
+</ol>
+<p>输入： 3<br>输出： 3<br>解释： 有三种方法可以爬到楼顶。</p>
+<ol>
+<li> 1 阶 + 1 阶 + 1 阶</li>
+<li> 1 阶 + 2 阶</li>
+<li> 2 阶 + 1 阶</li>
+</ol>
+</blockquote>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><p>很明显 递推公式：f ( n) = f ( n - 1 ) + f ( n - 2).</p>
+<p>最后一直归结到初始两项：f ( 1)  = 1，f ( 2)   = 2。</p>
+<p>这种解法在leetcode是会超时的，但却是训练递归的入门好题，套一下模板。</p>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> n <span class="token operator">&lt;</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> 
+        <span class="token keyword">return</span> <span class="token function">recur</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> recur <span class="token punctuation">(</span> <span class="token keyword">int</span> n <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> n <span class="token operator">&lt;</span> <span class="token number">3</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token function">recur</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">recur</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4><p>递推公式：f ( n) = f ( n - 1 ) + f ( n - 2).</p>
+<p>用递归的话，产生了很多重复的值的开销</p>
+<p>动态规划，只存储前两个的值，然后不断维护即可。</p>
+<h5 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> n <span class="token operator">&lt;</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> n <span class="token operator">&lt;</span> <span class="token number">3</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> n <span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">int</span> f1 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> f2 <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> f3 <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            f1 <span class="token operator">=</span> f2<span class="token punctuation">;</span>
+            f2 <span class="token operator">=</span> f3<span class="token punctuation">;</span>
+            f3 <span class="token operator">=</span> f1 <span class="token operator">+</span> f2<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> f3<span class="token punctuation">;</span> 
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="通项公式"><a href="#通项公式" class="headerlink" title="通项公式"></a>通项公式</h4><blockquote>
+<p><img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gow0japc2lj30qi0c0dhc.jpg" alt="image"></p>
+</blockquote>
+<h5 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">climbStairs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">double</span> sqrt5 <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> fibn <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> sqrt5<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> sqrt5<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>fibn <span class="token operator">/</span> sqrt5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -1044,7 +596,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://qguizhan.top/posts/bae4ff13.html">http://qguizhan.top/posts/bae4ff13.html</a>
+                    <a href="http://qguizhan.top/posts/9f1288a3.html">http://qguizhan.top/posts/9f1288a3.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1082,12 +634,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Redis/">
-                                    <span class="chip bg-color">Redis</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
-                                <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
-                                    <span class="chip bg-color">中间件</span>
+                                <a href="/tags/%E9%80%92%E5%BD%92/">
+                                    <span class="chip bg-color">递归</span>
                                 </a>
                             
                         </div>
@@ -1303,16 +855,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/b112bed5.html">
+                <a href="/posts/9f1288a3.html">
                     <div class="card-image">
                         
-                        <img src="https://tva1.sinaimg.cn/large/0085EwgIgy1goswx7uap6j31z41407wh.jpg" class="responsive-img" alt="数组&amp;链表&amp;专题">
                         
-                        <span class="card-title">数组&amp;链表&amp;专题</span>
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="递归专题">
+                        
+                        <span class="card-title">递归专题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1322,9 +876,62 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%80%92%E5%BD%92/">
+                        <span class="chip bg-color">递归</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/2de37d56.html">
+                    <div class="card-image">
+                        
+                        <img src="https://tva3.sinaimg.cn/large/0085EwgIgy1govzefqt1bj30k00b9gmz.jpg" class="responsive-img" alt="BFS专题">
+                        
+                        <span class="card-title">BFS专题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1344,64 +951,8 @@
                         <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/ArrayList/">
-                        <span class="chip bg-color">ArrayList</span>
-                    </a>
-                    
-                    <a href="/tags/LinkedList/">
-                        <span class="chip bg-color">LinkedList</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/46bf65ac.html">
-                    <div class="card-image">
-                        
-                        <img src="https://tvax2.sinaimg.cn/large/0085EwgIgy1gorcsrvwh2j30k00b9glv.jpg" class="responsive-img" alt="并发">
-                        
-                        <span class="card-title">并发</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/JAVA/" class="post-category">
-                                    JAVA
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/JAVA/">
-                        <span class="chip bg-color">JAVA</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%B9%B6%E5%8F%91/">
-                        <span class="chip bg-color">并发</span>
+                    <a href="/tags/BFS/">
+                        <span class="chip bg-color">BFS</span>
                     </a>
                     
                 </div>
