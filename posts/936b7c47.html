@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Linux命令, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="服务器实操笔记, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux命令 | Welcome to Daniel&#39;s Blog !</title>
+    <title>服务器实操笔记 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://tva3.sinaimg.cn/large/0085EwgIgy1gorcnoerpmj30k00dc3yy.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://tva4.sinaimg.cn/large/0085EwgIgy1gp1w1yc8j8j30rs0h63zy.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux命令</h1>
+                    <h1 class="description center-align post-title">服务器实操笔记</h1>
                 </div>
             </div>
         </div>
@@ -409,8 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/CentOS8/">
+                                <span class="chip bg-color">CentOS8</span>
                             </a>
                         
                     </div>
@@ -421,8 +421,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/CentOS8/" class="post-category">
+                                CentOS8
                             </a>
                         
                     </div>
@@ -434,28 +434,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-14
+                    2021-03-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-23
+                    2021-03-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    720
+                    305
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -478,65 +478,40 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="文件管理指令"><a href="#文件管理指令" class="headerlink" title="文件管理指令"></a>文件管理指令</h2><blockquote>
-<p>ls：展示当前目录的文件</p>
-<p>cd 路径：进入到某个文件路径</p>
-<p>touch 文件名 ：创建某个文件</p>
-<p>rm：删除普通文件</p>
-<p>rm -r：删除某文件，并且该文件下的文件也全都删除</p>
-<p>rm -rf：删除某文件，其子目录也会全部删除，即使文件类型为只读也会被删掉</p>
-<p>mkdir 文件夹名：创建文件夹</p>
-<p>mv 文件名1 文件名2/某路径 ：将文件名1重新命名成文件名2；或者是将文件名1的文件移动到某路径下</p>
-<p>cp sourceFile destinationDirectory：将源文件复制到目标文件夹</p>
-<p>cp -r sourceDirectory/  destinationDirectory：将，源文件夹下的所有文件都复制到目标文件夹下</p>
-<p>rmdir directory：删除掉文件目录</p>
-<p>find fileName：查找文件名为？？的文件</p>
-<p>pwd：显示当前目录的绝对路径</p>
-<p>vim：文本编辑器</p>
-<p>whereis  ？？：搜索？？所在的路径</p>
-<p>more：显示文件内容，按回车会显示下一行，结束之后自动回到命令行</p>
-<p>less：显示文件内容，按回车会是下一行，按q会退出</p>
-<p>cat：显示文件的所有内容，而且会直接退回命令行，所以能看到末尾的内容，想看往上的需要自己滑动光标</p>
-<p>head：显示文件前面部分的一些内容</p>
+                <h2 id="CentOS8安装Redis"><a href="#CentOS8安装Redis" class="headerlink" title="CentOS8安装Redis"></a>CentOS8安装Redis</h2><blockquote>
+<p>1.redis是基于c语言的，先检查是否有gcc：gcc -v</p>
+<p>2.安装gcc：yum install -y gcc</p>
+<p>3.安装wget：yum install wget</p>
+<p>4.下载redis： <strong>wget <a target="_blank" rel="noopener" href="http://download.redis.io/releases/redis-5.0.3.tar.gz">http://download.redis.io/releases/redis-5.0.3.tar.gz</a></strong></p>
+<p>5.解压redis：tar -zxvf <strong>redis-5.0.3.tar.gz</strong></p>
+<p>6.切换到redis目录：cd redis-5.0.3</p>
+<p>7.编译：make</p>
+<p>8.安装：make install</p>
+<p>9.测试一下是否成功：make test</p>
+<p>这一步需要tcl，如果没有的话需要装tcl：</p>
+<blockquote>
+<p>1.下载tcl的linux版本(tar.gz文件)：<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/tcl/">tcl下载链接</a></p>
+<p>2.解压：tar -zxvf ****</p>
+<p>3.进入到文件夹中的unix文件夹：cd /usr/local/tcl***/unix</p>
+<p>4.配置：sudo ./configure</p>
+<p>5.编译：sudo make</p>
+<p>6.安装：sudo make install</p>
 </blockquote>
-<h2 id="权限管理指令"><a href="#权限管理指令" class="headerlink" title="权限管理指令"></a>权限管理指令</h2><blockquote>
-<p>chmod：change mode,修改文件权限</p>
-<p>chown：change own 修改文件的拥有者</p>
+<p>10.配置redis配置文件：vim redis.conf</p>
+<blockquote>
+<p>1.将bind 127.0.0.1注释掉，允许远程连接</p>
+<p>2.关闭保护模式：将protected-mode yes改成 protect-mode no</p>
+<p>3.允许redis后台运行而：将daemonize no改成daemonize yes</p>
+<p>4.将requirepass取消注释，后面接上自己的密码</p>
 </blockquote>
-<h2 id="系统管理指令"><a href="#系统管理指令" class="headerlink" title="系统管理指令"></a>系统管理指令</h2><blockquote>
-<p>top：动态显示进程的信息和系统运行的统计信息</p>
-<p>free：查看系统的总内存，已使用内存，缓存等</p>
-<p>ipcs：查看系统的消息队，信号量，共享内存</p>
-<p>lsof：list open file，展示系统当前打开的所有文件描述符号</p>
-<p>mpstat：查看cpu的使用情况</p>
-<p>vmstat：查看输出系统的资源使用情况</p>
+<p>11.用配置文件的约束启动redis：./src/redis-server   ../redis.conf</p>
+<p>搞定。</p>
 </blockquote>
-<h2 id="进程管理指令"><a href="#进程管理指令" class="headerlink" title="进程管理指令"></a>进程管理指令</h2><blockquote>
-<p>ps：显示进程的信息。</p>
-<p>ps -e：显示所有进程</p>
-<p>ps -f：按格式展示进程</p>
-<p>kill pid：pid为进程号。杀死进程</p>
-<p>kill -9 pid：强制杀死进程</p>
-<p>kill -stop pid：挂起进程</p>
-<p>jobs：显示后台正在挂起的进程</p>
-<p>pstree：按树状的形式显示进程</p>
-<p>bg：后台运行挂起的进程</p>
-<p>fg：前台运行挂起的进程</p>
-</blockquote>
-<h2 id="网络通讯指令"><a href="#网络通讯指令" class="headerlink" title="网络通讯指令"></a>网络通讯指令</h2><blockquote>
-<p>ping：测试网络的连通性。发送ICMP报文</p>
-<p>ifconfig：查看网络的相关信息</p>
-<p>netstat：显示网络的状态。</p>
-<p>netstat -a：查看所有正在连接的socket</p>
-<p>tcpdump：显示tcp包的信息</p>
-</blockquote>
-<h2 id="文件压缩指令"><a href="#文件压缩指令" class="headerlink" title="文件压缩指令"></a>文件压缩指令</h2><blockquote>
-<p>tail：显示文件后面部门的一些内容</p>
-<p>tar -zxvf：解压文件名为**.tar.gz的文件到某个路径下</p>
-<p>tar -xvf：解压tar包</p>
-<p>tar文件只是将文件打包，文件大小没得到压缩。tar.gz确确实实压缩了文件的大小</p>
-<p>tar -xjvf：解压tar.bz2</p>
-<p>tar -xZvf：解压tar.Z文件</p>
+<h2 id="CentOS防火墙"><a href="#CentOS防火墙" class="headerlink" title="CentOS防火墙"></a>CentOS防火墙</h2><blockquote>
+<p>1.查看防火墙状态：<strong>systemctl status firewalld.service</strong></p>
+<p>2.打开防火墙：<strong>systemctl start firewalld.service</strong></p>
+<p>3.关闭防火墙：<strong>systemctl stop firewalld.service</strong></p>
+<p>4.禁用防火墙：<strong>systemctl disable firewalld.service</strong></p>
 </blockquote>
 
                 
@@ -564,7 +539,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://qguizhan.top/posts/82734d8.html">http://qguizhan.top/posts/82734d8.html</a>
+                    <a href="http://qguizhan.top/posts/936b7c47.html">http://qguizhan.top/posts/936b7c47.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -602,8 +577,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/CentOS8/">
+                                    <span class="chip bg-color">CentOS8</span>
                                 </a>
                             
                         </div>
@@ -819,16 +794,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/515d78b5.html">
+                <a href="/posts/936b7c47.html">
                     <div class="card-image">
                         
-                        <img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1gorcppuz15j30k00cijt9.jpg" class="responsive-img" alt="Java虚拟机">
+                        <img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gp1w1yc8j8j30rs0h63zy.jpg" class="responsive-img" alt="服务器实操笔记">
                         
-                        <span class="card-title">Java虚拟机</span>
+                        <span class="card-title">服务器实操笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -838,30 +814,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JAVA/" class="post-category">
-                                    JAVA
+                            <a href="/categories/CentOS8/" class="post-category">
+                                    CentOS8
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JAVA/">
-                        <span class="chip bg-color">JAVA</span>
-                    </a>
-                    
-                    <a href="/tags/JVM/">
-                        <span class="chip bg-color">JVM</span>
+                    <a href="/tags/CentOS8/">
+                        <span class="chip bg-color">CentOS8</span>
                     </a>
                     
                 </div>
@@ -875,12 +848,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/5532fc86.html">
+                <a href="/posts/67f01115.html">
                     <div class="card-image">
                         
-                        <img src="https://tvax4.sinaimg.cn/large/0085EwgIgy1gorcs09f9ij30k00b9wfe.jpg" class="responsive-img" alt="计算机网络知识点">
+                        <img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gp15hmiinhj30k00dc0u0.jpg" class="responsive-img" alt="位运算专题">
                         
-                        <span class="card-title">计算机网络知识点</span>
+                        <span class="card-title">位运算专题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -891,14 +864,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    计算机基础
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -908,12 +881,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">计算机基础</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">计算机网络</span>
+                    <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+                        <span class="chip bg-color">位运算</span>
                     </a>
                     
                 </div>
