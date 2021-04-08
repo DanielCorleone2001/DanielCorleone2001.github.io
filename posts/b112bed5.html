@@ -449,21 +449,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-07
+                    2021-04-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8k
+                    8.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    34 分
+                    36 分
                 </div>
                 
 
@@ -1341,6 +1341,37 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="153-寻找旋转排序数组中的最小值"><a href="#153-寻找旋转排序数组中的最小值" class="headerlink" title="153.寻找旋转排序数组中的最小值"></a>153.寻找旋转排序数组中的最小值</h2><blockquote>
+<p>问题：</p>
+<p>已知一个长度为 n 的数组，预先按照升序排列，经由 1 到 n 次 旋转 后，得到输入数组。例如，原数组 nums = [0,1,2,4,5,6,7] 在变化后可能得到：<br>若旋转 4 次，则可以得到 [4,5,6,7,0,1,2]<br>若旋转 7 次，则可以得到 [0,1,2,4,5,6,7]<br>注意，数组 [a[0], a[1], a[2], …, a[n-1]] 旋转一次 的结果为数组 [a[n-1], a[0], a[1], a[2], …, a[n-2]] 。</p>
+<p>给你一个元素值 互不相同 的数组 nums ，它原来是一个升序排列的数组，并按上述情形进行了多次旋转。请你找出并返回数组中的 最小元素 。</p>
+<p>示例 1：</p>
+<p>输入：nums = [3,4,5,1,2]<br>输出：1<br>解释：原数组为 [1,2,3,4,5] ，旋转 3 次得到输入数组。<br>示例 2：</p>
+<p>输入：nums = [4,5,6,7,0,1,2]<br>输出：0<br>解释：原数组为 [0,1,2,4,5,6,7] ，旋转 4 次得到输入数组。<br>示例 3：</p>
+<p>输入：nums = [11,13,15,17]<br>输出：11<br>解释：原数组为 [11,13,15,17] ，旋转 4 次得到输入数组。</p>
+<p>提示：</p>
+<p>n == nums.length<br>1 &lt;= n &lt;= 5000<br>-5000 &lt;= nums[i] &lt;= 5000<br>nums 中的所有整数 互不相同<br>nums 原来是一个升序排序的数组，并进行了 1 至 n 次旋转</p>
+</blockquote>
+<h3 id="思路：二分法"><a href="#思路：二分法" class="headerlink" title="思路：二分法"></a>思路：二分法</h3><h4 id="代码-16"><a href="#代码-16" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//二分法。</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">findMin</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> end <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span> start <span class="token operator">&lt;</span> end <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">int</span> mid <span class="token operator">=</span> start <span class="token operator">+</span> <span class="token punctuation">(</span> end <span class="token operator">-</span> start <span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+            <span class="token comment">//如果小于，那么通过画图就知道，mid到end是没有旋转点，这一部分都是递增有序的</span>
+            <span class="token comment">//因此结果不可能在这部分，而有可能是mid本身或者是他的之前。因此将end置为mid</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&lt;</span> nums<span class="token punctuation">[</span>end<span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                end <span class="token operator">=</span> mid <span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">//如果mid大于end，说明旋转点在这个部分，那么最小值也会在mid和end之间</span>
+                <span class="token comment">//这时候将start置为mid + 1。因为mid不可能是最小值(它已经比end要大了)</span>
+                start <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> nums<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1931,7 +1962,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">68.9k</span>&nbsp;字
+                class="white-color">69.4k</span>&nbsp;字
             
             
             
