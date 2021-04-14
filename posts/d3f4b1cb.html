@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-13
+                    2021-04-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    12 分
                 </div>
                 
 
@@ -889,6 +889,99 @@ class Node &#123;
     <span class="token punctuation">&#125;</span>
 
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="208-实现Trie-前缀树"><a href="#208-实现Trie-前缀树" class="headerlink" title="208.实现Trie(前缀树)"></a>208.实现Trie(前缀树)</h2><blockquote>
+<p>问题：</p>
+<p>Trie（发音类似 “try”）或者说 前缀树 是一种树形数据结构，用于高效地存储和检索字符串数据集中的键。这一数据结构有相当多的应用情景，例如自动补完和拼写检查。</p>
+<p>请你实现 Trie 类：</p>
+<p>Trie() 初始化前缀树对象。<br>void insert(String word) 向前缀树中插入字符串 word 。<br>boolean search(String word) 如果字符串 word 在前缀树中，返回 true（即，在检索之前已经插入）；否则，返回 false 。<br>boolean startsWith(String prefix) 如果之前已经插入的字符串 word 的前缀之一为 prefix ，返回 true ；否则，返回 false 。</p>
+<p>示例：</p>
+<p>输入<br>[“Trie”, “insert”, “search”, “search”, “startsWith”, “insert”, “search”]<br>[[], [“apple”], [“apple”], [“app”], [“app”], [“app”], [“app”]]<br>输出<br>[null, null, true, false, true, null, true]</p>
+<p>解释<br>Trie trie = new Trie();<br>trie.insert(“apple”);<br>trie.search(“apple”);   // 返回 True<br>trie.search(“app”);     // 返回 False<br>trie.startsWith(“app”); // 返回 True<br>trie.insert(“app”);<br>trie.search(“app”);     // 返回 True</p>
+<p>提示：</p>
+<p>1 &lt;= word.length, prefix.length &lt;= 2000<br>word 和 prefix 仅由小写英文字母组成<br>insert、search 和 startsWith 调用次数 总计 不超过 3 * 104 次</p>
+</blockquote>
+<h3 id="思路-5"><a href="#思路-5" class="headerlink" title="思路"></a>思路</h3><blockquote>
+<p>前缀树：一个多叉树，每个节点最多有26个子节点，分别对应26个字母。</p>
+<p><img src="https://tvax3.sinaimg.cn/large/0085EwgIgy1gpj3ilgrf5j30h107q751.jpg" alt="真实结构"></p>
+<p>除了节点元素外，还有一个布尔类型，用于表明该树存的节点是否是单词的末尾元素。</p>
+<p><img src="https://tva3.sinaimg.cn/large/0085EwgIgy1gpj3joquqxj30lq0d574k.jpg" alt="不考虑空链接"></p>
+<p><strong>基本操作：</strong></p>
+<blockquote>
+<p>插入：</p>
+<blockquote>
+<p>不断地进入对应的树节点位置，移动索引。如果某节点为空就初始化该节点。最后在末尾处标记为尾部</p>
+</blockquote>
+<p>搜索：</p>
+<blockquote>
+<p>不断向里遍历，并检查非空性，最后返回最后节点是否的isEnd是否为尾节点。</p>
+</blockquote>
+<p>前缀匹配：</p>
+<blockquote>
+<p>不断向里遍历，并检查非空性，最后返回true</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Trie</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">class</span> <span class="token class-name">Tree</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">private</span> <span class="token keyword">boolean</span> isEnd<span class="token punctuation">;</span>
+        <span class="token class-name">Tree</span><span class="token punctuation">[</span><span class="token punctuation">]</span> next<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">Tree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            isEnd <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            next <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tree</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Tree</span> root<span class="token punctuation">;</span>
+    <span class="token comment">/** Initialize your data structure here. */</span>
+    <span class="token keyword">public</span> <span class="token class-name">Trie</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">/** Inserts a word into the trie. */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">String</span> word<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Tree</span> cur <span class="token operator">=</span> root<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">char</span> c <span class="token operator">:</span> word<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>cur<span class="token punctuation">.</span>next<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                cur<span class="token punctuation">.</span>next<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Tree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        cur<span class="token punctuation">.</span>isEnd <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">/** Returns if the word is in the trie. */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token class-name">String</span> word<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Tree</span> cur <span class="token operator">=</span> root<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">char</span> c <span class="token operator">:</span> word<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> cur<span class="token punctuation">.</span>isEnd<span class="token punctuation">;</span> 
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token comment">/** Returns if there is any word in the trie that starts with the given prefix. */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token class-name">String</span> prefix<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Tree</span> cur <span class="token operator">=</span> root<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">char</span> c <span class="token operator">:</span> prefix<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            cur <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">[</span>c <span class="token operator">-</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie obj = new Trie();
+ * obj.insert(word);
+ * boolean param_2 = obj.search(word);
+ * boolean param_3 = obj.startsWith(prefix);
+ */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1472,7 +1565,7 @@ class Node &#123;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">71.4k</span>&nbsp;字
+                class="white-color">72.1k</span>&nbsp;字
             
             
             
