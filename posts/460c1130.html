@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="BFS专题, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="微服务, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>BFS专题 | Welcome to Daniel&#39;s Blog !</title>
+    <title>微服务 | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://tva3.sinaimg.cn/large/0085EwgIgy1govzefqt1bj30k00b9gmz.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">BFS专题</h1>
+                    <h1 class="description center-align post-title">微服务</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
-                            </a>
-                        
-                            <a href="/tags/BFS/">
-                                <span class="chip bg-color">BFS</span>
+                            <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                                <span class="chip bg-color">微服务</span>
                             </a>
                         
                     </div>
@@ -425,8 +421,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                微服务
                             </a>
                         
                     </div>
@@ -438,21 +434,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-25
+                    2021-04-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-25
+                    2021-04-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    359
+                    338
                 </div>
                 
 
@@ -482,67 +478,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="429-N叉树的层序遍历"><a href="#429-N叉树的层序遍历" class="headerlink" title="429.N叉树的层序遍历"></a>429.N叉树的层序遍历</h2><p>问题：</p>
+                <h2 id="微服务与单体应用"><a href="#微服务与单体应用" class="headerlink" title="微服务与单体应用"></a>微服务与单体应用</h2><h3 id="单体应用"><a href="#单体应用" class="headerlink" title="单体应用"></a>单体应用</h3><blockquote>
+<p>1.定义：以MVC架构为例子，将<strong>所有的服务代码</strong>编译到一个war包中，再部署到tomcat，监听某个端口即可。</p>
+<p>2.优点：在应对开发人员较小的时候，开发，部署以及运维的成本很小</p>
+<p>3.缺点</p>
 <blockquote>
-<p>给定一个 N 叉树，返回其节点值的层序遍历。（即从左到右，逐层遍历）。</p>
-<p>树的序列化输入是用层序遍历，每组子节点都由 null 值分隔（参见示例）。</p>
-<p>示例 1：</p>
-<p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1govygrydawj30lp0dymxk.jpg" alt="image"></p>
-<p>输入：root = [1,null,3,2,4,null,5,6]<br>输出：[[1],[3,2,4],[5,6]]</p>
+<p>①<strong>部署效率低下</strong>。当系统的功能不断添加时，依赖的资源也不断变多，导致项目部署的时间非常慢</p>
+<p>②<strong>协作开发成本高</strong>。多人协作coding时，需要合并到同一个分支，当出现问题的时候就得所有人员都参加debug，再编译打包部署。</p>
+<p>③<strong>系统可用性差</strong>。如果某个功能存在问题，会导致整个服务直接宕机，后果严重。</p>
+<p>④<strong>线上发布变慢</strong>。特别是对于Java应用来说，一旦代码膨胀，服务启动的时间就会变长，有些甚至超过10分钟以上，如果机器规模超过100台以上，假设每次发布的步长为10%，单次发布需要就需要100分钟之久。</p>
 </blockquote>
-<h3 id="思路：BFS"><a href="#思路：BFS" class="headerlink" title="思路：BFS"></a>思路：BFS</h3><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/*
-// Definition for a Node.
-class Node &#123;
-    public int val;
-    public List&lt;Node> children;
-
-    public Node() &#123;&#125;
-
-    public Node(int _val) &#123;
-        val = _val;
-    &#125;
-
-    public Node(int _val, List&lt;Node> _children) &#123;
-        val = _val;
-        children = _children;
-    &#125;
-&#125;;
-*/</span>
-
-<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token function">levelOrder</span><span class="token punctuation">(</span><span class="token class-name">Node</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span> root <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Queue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Node</span><span class="token punctuation">></span></span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//根节点入队</span>
-        queue<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span> <span class="token operator">!</span>queue<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token comment">//记录每一层的节点值</span>
-            <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> cur <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment">//一定要现在记录下当前队列的数目，这时候队列的大小就是这一层的节点数量</span>
-            <span class="token keyword">int</span> size <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment">//容易发生的错误就是，不用现在的size(),而是写成</span>
-            <span class="token comment">//for(int i = 0; i &lt; queue.size(); i++ )</span>
-            <span class="token comment">//这样是不对的，因为在下面的操作中，队列的大小在改变！！！</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token comment">//获取当前队头节点，加入到当前层的结果集合中</span>
-                <span class="token class-name">Node</span> temp <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                cur<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>temp<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment">//将该节点的子节点全部入队</span>
-                <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token class-name">Node</span> child <span class="token operator">:</span> temp<span class="token punctuation">.</span>children <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                    queue<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span>
-            <span class="token punctuation">&#125;</span>
-            res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>cur<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
+</blockquote>
+<h3 id="服务化的思想"><a href="#服务化的思想" class="headerlink" title="服务化的思想"></a>服务化的思想</h3><blockquote>
+<p>1.定义：将单体应用中jar包依赖产生的本地方法调用，变成通过RPC接口产生的远程方法调用。即从<strong>进程间调用</strong>-&gt;<strong>RPC远程调用</strong></p>
+</blockquote>
 
                 
             </div>
@@ -569,7 +518,7 @@ class Node &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://qguizhan.top/posts/2de37d56.html">http://qguizhan.top/posts/2de37d56.html</a>
+                    <a href="http://qguizhan.top/posts/460c1130.html">http://qguizhan.top/posts/460c1130.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -607,12 +556,8 @@ class Node &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
-                                </a>
-                            
-                                <a href="/tags/BFS/">
-                                    <span class="chip bg-color">BFS</span>
+                                <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                                    <span class="chip bg-color">微服务</span>
                                 </a>
                             
                         </div>
@@ -828,17 +773,18 @@ class Node &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/9f1288a3.html">
+                <a href="/posts/460c1130.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="递归专题">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="微服务">
                         
-                        <span class="card-title">递归专题</span>
+                        <span class="card-title">微服务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -848,30 +794,27 @@ class Node &#123;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                    微服务
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%80%92%E5%BD%92/">
-                        <span class="chip bg-color">递归</span>
+                    <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                        <span class="chip bg-color">微服务</span>
                     </a>
                     
                 </div>
@@ -885,12 +828,12 @@ class Node &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/d3f4b1cb.html">
+                <a href="/posts/aaba1da3.html">
                     <div class="card-image">
                         
-                        <img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gou78ljlcoj30k00b9tam.jpg" class="responsive-img" alt="二叉树专题">
+                        <img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1gq0e59ga0hj30k00b9q4h.jpg" class="responsive-img" alt="数据库笔记">
                         
-                        <span class="card-title">二叉树专题</span>
+                        <span class="card-title">数据库笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -901,14 +844,14 @@ class Node &#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    计算机基础
                                 </a>
                             
                             
@@ -918,12 +861,12 @@ class Node &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">计算机基础</span>
                     </a>
                     
-                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                        <span class="chip bg-color">二叉树</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
