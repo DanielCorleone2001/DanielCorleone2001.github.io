@@ -441,21 +441,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-30
+                    2021-05-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    338
+                    829
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -491,6 +491,22 @@
 </blockquote>
 <h3 id="服务化的思想"><a href="#服务化的思想" class="headerlink" title="服务化的思想"></a>服务化的思想</h3><blockquote>
 <p>1.定义：将单体应用中jar包依赖产生的本地方法调用，变成通过RPC接口产生的远程方法调用。即从<strong>进程间调用</strong>-&gt;<strong>RPC远程调用</strong></p>
+<p>2.优点：能解决单体应用膨胀，团队开发耦合度高，协作效率低下的问题。</p>
+<p>3.举例：</p>
+<blockquote>
+<p>以微博系统为例，微博既包含了内容模块，也包含了消息模块和用户模块等。其中消息模块依赖内容模块，消息模块和内容模块又都依赖用户模块。当这三个模块的代码耦合在一起，应用启动时，需要同时去加载每个模块的代码并连接对应的资源。一旦任何模块的代码出现bug，或者依赖的资源出现问题，整个单体应用都会受到影响。</p>
+<p>为此，首先可以把用户模块从单体应用中拆分出来，独立成一个服务部署，以RPC接口的形式对外提供服务。微博和消息模块调用用户接口，就从进程内的调用变成远程RPC调用。这样，用户模块就可以独立开发、测试、上线和运维，可以交由专门的团队来做，与主模块不耦合。进一步的可以再把消息模块也拆分出来作为独立的模块，交由专门的团队来开发和维护。</p>
+</blockquote>
+</blockquote>
+<h3 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h3><blockquote>
+<p>1.微服务是基于DevOps思想，将服务化的思想进一步演化。</p>
+<p>2.微服务与服务化的不同点：</p>
+<blockquote>
+<p>①<strong>服务拆分粒度更细</strong>。微服务将服务化划分得还要小。只要模块和其他模块没有关系，就可以拆分成微服务。</p>
+<p>②<strong>服务独立部署</strong>。每个微服务都遵循独立打包部署的原则。</p>
+<p>③<strong>服务独立维护</strong>。每个微服务可以独立的被一个人或一个团队来开发，测试，发布和维护，与其他服务互不影响</p>
+<p>④<strong>服务治理能力要求高</strong>。拆分成了微服务之后，需要有同理的服务治理平台。</p>
+</blockquote>
 </blockquote>
 
                 
@@ -1069,7 +1085,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">75.2k</span>&nbsp;字
+                class="white-color">75.7k</span>&nbsp;字
             
             
             
