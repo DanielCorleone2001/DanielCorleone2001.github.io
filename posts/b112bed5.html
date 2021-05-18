@@ -449,21 +449,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-09
+                    2021-05-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9k
+                    10.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    39 分
+                    48 分
                 </div>
                 
 
@@ -814,6 +814,186 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="92-反转链表II"><a href="#92-反转链表II" class="headerlink" title="92.反转链表II"></a>92.反转链表II</h2><blockquote>
+<p>给你单链表的头指针 head 和两个整数 left 和 right ，其中 left &lt;= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。</p>
+<p>示例 1：</p>
+<p>输入：head = [1,2,3,4,5], left = 2, right = 4<br>输出：[1,4,3,2,5]<br>示例 2：</p>
+<p>输入：head = [5], left = 1, right = 1<br>输出：[5]</p>
+<p>提示：</p>
+<p>链表中节点数目为 n<br>1 &lt;= n &lt;= 500<br>-500 &lt;= Node.val &lt;= 500<br>1 &lt;= left &lt;= right &lt;= n</p>
+<p>进阶： 你可以使用一趟扫描完成反转吗？</p>
+</blockquote>
+<h3 id="思路：递归"><a href="#思路：递归" class="headerlink" title="思路：递归"></a>思路：递归</h3><blockquote>
+<p>其实和反转链表一样，只是开始和结束是规定好的。那么也可以用上一题反转链表的方法来写。</p>
+<p>首先将问题拆分成两个子问题：</p>
+<p>①实现一个能反转N个节点的反转链表。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">></span><span class="token comment">//反转N个节点，不断减少n来判断是否已经反转结束。 </span>
+<span class="token operator">></span><span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">reverseN</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> cur<span class="token punctuation">,</span> <span class="token keyword">int</span> n <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       <span class="token keyword">if</span> <span class="token punctuation">(</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+           <span class="token comment">//存反转节点头节点原来的的next节点，也就是第n+1个节点，用来和反转后的头节点连接起来。</span>
+           end <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+           <span class="token keyword">return</span> cur<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+       <span class="token class-name">ListNode</span> next <span class="token operator">=</span> <span class="token function">reverseN</span><span class="token punctuation">(</span>cur<span class="token punctuation">.</span>next<span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+       cur<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">=</span> cur<span class="token punctuation">;</span>
+      <span class="token comment">//反转后的头节点指向后继节点</span>
+       cur<span class="token punctuation">.</span>next <span class="token operator">=</span> end<span class="token punctuation">;</span>
+       <span class="token keyword">return</span> next<span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>②找到反转链表开始的地方，然后使用上面的递归进行反转，反转之后需要将节点连起来。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">></span><span class="token comment">//这个递归函数返回的是当前节点的下一个节点是什么。</span>
+<span class="token operator">></span><span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">reverseBetween</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       <span class="token keyword">if</span> <span class="token punctuation">(</span> left <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//找到了需要反转的地方，进行反转，返回的是反转之后的头节点。</span>
+           <span class="token keyword">return</span> <span class="token function">reverseN</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+   	<span class="token comment">//获取当前节点的下一个节点是什么，如果遇到反转点，那么下一节点就是反转后的头节点。如果不是的话，返回的还是当前节点的下一节点。</span>
+       head<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">reverseBetween</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">,</span> left <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> right <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment">//不是反转点，返回原本的下一节点。</span>
+       <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode &#123;
+ *     int val;
+ *     ListNode next;
+ *     ListNode() &#123;&#125;
+ *     ListNode(int val) &#123; this.val = val; &#125;
+ *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;
+ * &#125;
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">ListNode</span> end <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">reverseBetween</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> left <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token function">reverseN</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        head<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">reverseBetween</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>next<span class="token punctuation">,</span> left <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> right <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">reverseN</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> cur<span class="token punctuation">,</span> <span class="token keyword">int</span> n <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> n <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            end <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> cur<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">ListNode</span> next <span class="token operator">=</span> <span class="token function">reverseN</span><span class="token punctuation">(</span>cur<span class="token punctuation">.</span>next<span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        cur<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next <span class="token operator">=</span> cur<span class="token punctuation">;</span>
+        cur<span class="token punctuation">.</span>next <span class="token operator">=</span> end<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> next<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="25-K个一组翻转链表"><a href="#25-K个一组翻转链表" class="headerlink" title="25.K个一组翻转链表"></a>25.K个一组翻转链表</h2><blockquote>
+<p>问题：</p>
+<p>给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。</p>
+<p>k 是一个正整数，它的值小于或等于链表的长度。</p>
+<p>如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。</p>
+<p>进阶：</p>
+<p>你可以设计一个只使用常数额外空间的算法来解决此问题吗？<br>你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。</p>
+<p>示例 1：</p>
+<p>输入：head = [1,2,3,4,5], k = 2<br>输出：[2,1,4,3,5]<br>示例 2：</p>
+<p>输入：head = [1,2,3,4,5], k = 3<br>输出：[3,2,1,4,5]<br>示例 3：</p>
+<p>输入：head = [1,2,3,4,5], k = 1<br>输出：[1,2,3,4,5]<br>示例 4：</p>
+<p>输入：head = [1], k = 1<br>输出：[1]<br>提示：</p>
+<p>列表中节点的数量在范围 sz 内<br>1 &lt;= sz &lt;= 5000<br>0 &lt;= Node.val &lt;= 1000<br>1 &lt;= k &lt;= sz</p>
+</blockquote>
+<h3 id="思路：分组后在一个组内反转"><a href="#思路：分组后在一个组内反转" class="headerlink" title="思路：分组后在一个组内反转"></a>思路：分组后在一个组内反转</h3><blockquote>
+<p>将问题划分成了两部分：</p>
+<p>①分组，k个就成一组。反转之后的头节点怎么和组之间连接起来？</p>
+<blockquote>
+<p>反转之后的头节点怎么和组之间连接起来：记下每一个分组的开始节点，让他的next节点指向我们组内递归的函数（注意传入这个函数的开始节点是当前分组的最后一个节点）</p>
+</blockquote>
+<blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">>></span><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+       <span class="token keyword">if</span> <span class="token punctuation">(</span> head <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+           <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+       <span class="token class-name">ListNode</span> start <span class="token operator">=</span> head<span class="token punctuation">;</span>
+       <span class="token class-name">ListNode</span> end <span class="token operator">=</span> head<span class="token punctuation">;</span>
+       <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+           <span class="token keyword">if</span> <span class="token punctuation">(</span> end <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+               <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+           <span class="token punctuation">&#125;</span>
+           end <span class="token operator">=</span> end<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+       <span class="token comment">//将当前分组进行反转</span>
+       <span class="token class-name">ListNode</span> newEndNode <span class="token operator">=</span> <span class="token function">reverserA2B</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token comment">//将反转后的头节点指向下一反转后的头节点</span>
+       start<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>end<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token comment">//该函数返回的是反转后的头节点</span>
+       <span class="token keyword">return</span> newEndNode<span class="token punctuation">;</span>
+       <span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<p>②组内怎么反转？</p>
+<blockquote>
+<p>定义了起点和终点的反转链表和之前的反转链表很类似。只不过之前的终点是当前节点不为空，同理这个迭代的终点是当前节点不为终点。</p>
+</blockquote>
+<blockquote>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">reverserA2B</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> <span class="token class-name">A</span><span class="token punctuation">,</span> <span class="token class-name">ListNode</span> <span class="token class-name">B</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+     <span class="token class-name">ListNode</span> pre <span class="token operator">=</span> <span class="token class-name">A</span><span class="token punctuation">;</span>
+     <span class="token class-name">ListNode</span> cur <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token comment">//当前节点不为终点B就继续迭代</span>
+     <span class="token keyword">while</span> <span class="token punctuation">(</span> pre <span class="token operator">!=</span> <span class="token class-name">B</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+         <span class="token class-name">ListNode</span> next <span class="token operator">=</span> pre<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+         pre<span class="token punctuation">.</span>next <span class="token operator">=</span> cur<span class="token punctuation">;</span>
+         cur <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+         pre <span class="token operator">=</span> next<span class="token punctuation">;</span>
+     <span class="token punctuation">&#125;</span> 
+     <span class="token keyword">return</span> cur<span class="token punctuation">;</span>
+ <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+</blockquote>
+<h4 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode &#123;
+ *     int val;
+ *     ListNode next;
+ *     ListNode() &#123;&#125;
+ *     ListNode(int val) &#123; this.val = val; &#125;
+ *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;
+ * &#125;
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> head <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">ListNode</span> start <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token class-name">ListNode</span> end <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> end <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            end <span class="token operator">=</span> end<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> 
+        <span class="token class-name">ListNode</span> newEndNode <span class="token operator">=</span> <span class="token function">reverserA2B</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        start<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">reverseKGroup</span><span class="token punctuation">(</span>end<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> newEndNode<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">reverserA2B</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> <span class="token class-name">A</span><span class="token punctuation">,</span> <span class="token class-name">ListNode</span> <span class="token class-name">B</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">ListNode</span> pre <span class="token operator">=</span> <span class="token class-name">A</span><span class="token punctuation">;</span>
+        <span class="token class-name">ListNode</span> cur <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span> pre <span class="token operator">!=</span> <span class="token class-name">B</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">ListNode</span> next <span class="token operator">=</span> pre<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            pre<span class="token punctuation">.</span>next <span class="token operator">=</span> cur<span class="token punctuation">;</span>
+            cur <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+            pre <span class="token operator">=</span> next<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> 
+        <span class="token keyword">return</span> cur<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="24-两两交换链表中的节点"><a href="#24-两两交换链表中的节点" class="headerlink" title="24.两两交换链表中的节点"></a>24.两两交换链表中的节点</h2><p>问题：</p>
 <blockquote>
 <p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p>
@@ -821,7 +1001,7 @@
 <p>输入：head = []<br>输出：[]<br>示例 3：</p>
 <p>输入：head = [1]<br>输出：[1]</p>
 </blockquote>
-<h3 id="思路：迭代-递归-1"><a href="#思路：迭代-递归-1" class="headerlink" title="思路：迭代/递归"></a>思路：迭代/递归</h3><h3 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h3><p>迭代：</p>
+<h3 id="思路：迭代-递归-1"><a href="#思路：迭代-递归-1" class="headerlink" title="思路：迭代/递归"></a>思路：迭代/递归</h3><h3 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h3><p>迭代：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * Definition for singly-linked list.
  * public class ListNode &#123;
@@ -898,7 +1078,7 @@
 <p>进阶：</p>
 <p>你能用 O(1)（即，常量）内存解决此问题吗？</p>
 </blockquote>
-<h3 id="思路：快慢指针"><a href="#思路：快慢指针" class="headerlink" title="思路：快慢指针"></a>思路：快慢指针</h3><h3 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+<h3 id="思路：快慢指针"><a href="#思路：快慢指针" class="headerlink" title="思路：快慢指针"></a>思路：快慢指针</h3><h3 id="代码-7"><a href="#代码-7" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * Definition for singly-linked list.
  * class ListNode &#123;
  *     int val;
@@ -954,7 +1134,7 @@
 <p>即在环的入口的步数，一定会是进环的步数加上绕圈圈的次数。</p>
 <p>而上面我们已经有了 s = nb，那么只要让他再走 a步，s就会到达环的入口。</p>
 <p>怎么找a步？很简单，头节点到环的距离也是a步，将快指针移回头节点，当快慢指针再次相遇时，那就是走了a步，问题解决。</p>
-<h3 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+<h3 id="代码-8"><a href="#代码-8" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * Definition for singly-linked list.
  * class ListNode &#123;
  *     int val;
@@ -1040,7 +1220,7 @@
 <p><strong>示例 2：</strong>输入：nums = [0,0,1,1,1,1,2,3,3]<br>输出：7, nums = [0,0,1,1,2,3,3]<br>解释：函数应返回新长度 length = 7, 并且原数组的前五个元素被修改为 0, 0, 1, 1, 2, 3, 3 。 不需要考虑数组中超出新长度后面的元素。</p>
 <p><strong>提示：</strong>1 &lt;= nums.length &lt;= 3 * 104<br>-104 &lt;= nums[i] &lt;= 104<br>nums 已按升序排列</p>
 </blockquote>
-<h3 id="思路：双指针-2"><a href="#思路：双指针-2" class="headerlink" title="思路：双指针"></a>思路：双指针</h3><h4 id="代码-7"><a href="#代码-7" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<h3 id="思路：双指针-2"><a href="#思路：双指针-2" class="headerlink" title="思路：双指针"></a>思路：双指针</h3><h4 id="代码-9"><a href="#代码-9" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
         <span class="token comment">//快慢指针，慢指针index用于记录正确的结果值，快指针i用于遍历</span>
@@ -1069,7 +1249,7 @@
 </blockquote>
 <h3 id="思路：直接拷贝-旋转三次"><a href="#思路：直接拷贝-旋转三次" class="headerlink" title="思路：直接拷贝/旋转三次"></a>思路：直接拷贝/旋转三次</h3><h4 id="直接拷贝"><a href="#直接拷贝" class="headerlink" title="直接拷贝"></a>直接拷贝</h4><p>获取索引的变换关系，直接将正确结果拷贝到新的数组，再拷贝回来。</p>
 <p>缺点：O(N)的空间复杂度。</p>
-<h5 id="代码-8"><a href="#代码-8" class="headerlink" title="代码"></a>代码</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<h5 id="代码-10"><a href="#代码-10" class="headerlink" title="代码"></a>代码</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>len<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -1086,7 +1266,7 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="旋转三次"><a href="#旋转三次" class="headerlink" title="旋转三次"></a>旋转三次</h4><h5 id="代码-9"><a href="#代码-9" class="headerlink" title="代码"></a>代码</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<h4 id="旋转三次"><a href="#旋转三次" class="headerlink" title="旋转三次"></a>旋转三次</h4><h5 id="代码-11"><a href="#代码-11" class="headerlink" title="代码"></a>代码</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//先将整个数组反转，再反转前k个，后反转n - k个</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span> nums<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> nums<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
@@ -1120,7 +1300,7 @@
 <p>输入：l1 = [], l2 = [0]<br>输出：[0]</p>
 </blockquote>
 <h3 id="思路：迭代"><a href="#思路：迭代" class="headerlink" title="思路：迭代"></a>思路：迭代</h3><p>很容易，只需要注意引入假的头节点，方便后续返回结果即可</p>
-<h3 id="代码-10"><a href="#代码-10" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+<h3 id="代码-12"><a href="#代码-12" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * Definition for singly-linked list.
  * public class ListNode &#123;
  *     int val;
@@ -1176,7 +1356,7 @@
 <p>nums1.length == m + n<br>nums2.length == n<br>0 &lt;= m, n &lt;= 200<br>1 &lt;= m + n &lt;= 200<br>-109 &lt;= nums1[i], nums2[i] &lt;= 109</p>
 </blockquote>
 <h3 id="思路：双指针-3"><a href="#思路：双指针-3" class="headerlink" title="思路：双指针"></a>思路：双指针</h3><p>下面的是最优解，其实还可以：先把nums1的前m个拷贝出来到temp数组，再慢慢对比nums2和temp即可。</p>
-<h3 id="代码-11"><a href="#代码-11" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<h3 id="代码-13"><a href="#代码-13" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums1<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums2<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token comment">//双指针，从尾部向头部逼近</span>
         <span class="token keyword">int</span> a <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> b <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> p <span class="token operator">=</span> m <span class="token operator">+</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -1212,7 +1392,7 @@
 <p>value：i，数组元素的索引。这样找到的时候就可以很快的把索引返回。</p>
 <p>遍历数组，如果不存在这样的key：target剪掉当前的nums[i],那就把它放入哈希表中，value是他的索引。</p>
 <p>不想写了，不会的请面壁。</p>
-<h3 id="代码-12"><a href="#代码-12" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<h3 id="代码-14"><a href="#代码-14" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> hashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1238,7 +1418,7 @@
 <p>提示：</p>
 <p>1 &lt;= digits.length &lt;= 100<br>0 &lt;= digits[i] &lt;= 9</p>
 </blockquote>
-<h3 id="思路：末尾遍历不断对十取余数"><a href="#思路：末尾遍历不断对十取余数" class="headerlink" title="思路：末尾遍历不断对十取余数"></a>思路：末尾遍历不断对十取余数</h3><h3 id="代码-13"><a href="#代码-13" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<h3 id="思路：末尾遍历不断对十取余数"><a href="#思路：末尾遍历不断对十取余数" class="headerlink" title="思路：末尾遍历不断对十取余数"></a>思路：末尾遍历不断对十取余数</h3><h3 id="代码-15"><a href="#代码-15" class="headerlink" title="代码"></a>代码</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//从最后一位开始遍历，让元素加一，然后让他和十取余数。</span>
     <span class="token comment">//如果它是九，加一变成十，余数为0，需要特殊处理</span>
     <span class="token comment">//如果它不是九，那么加一后取余数，余数会是它本身，不需要处理，直接返回</span>
@@ -1272,7 +1452,7 @@
 <p>进阶：</p>
 <p>尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。</p>
 </blockquote>
-<h3 id="思路：摩尔投票法"><a href="#思路：摩尔投票法" class="headerlink" title="思路：摩尔投票法"></a>思路：摩尔投票法</h3><h4 id="代码-14"><a href="#代码-14" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<h3 id="思路：摩尔投票法"><a href="#思路：摩尔投票法" class="headerlink" title="思路：摩尔投票法"></a>思路：摩尔投票法</h3><h4 id="代码-16"><a href="#代码-16" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//摩尔投票法</span>
     <span class="token comment">//维护一个计数器，遇到相同的数就加1，不相同的就减1，如果计数器为0了就用当前元素作为计数器的元素。</span>
     <span class="token comment">//因为元素一定会大于 n/2，所以无论怎么对碰，都能使得最后计数器不为0，那么这时候的数就是结果</span>
@@ -1302,7 +1482,7 @@
 <p>进阶：</p>
 <p>这是 搜索旋转排序数组 的延伸题目，本题中的 nums  可能包含重复元素。<br>这会影响到程序的时间复杂度吗？会有怎样的影响，为什么？</p>
 </blockquote>
-<h3 id="思路：二分查找-边界判断单调性"><a href="#思路：二分查找-边界判断单调性" class="headerlink" title="思路：二分查找+边界判断单调性"></a>思路：二分查找+边界判断单调性</h3><h4 id="代码-15"><a href="#代码-15" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<h3 id="思路：二分查找-边界判断单调性"><a href="#思路：二分查找-边界判断单调性" class="headerlink" title="思路：二分查找+边界判断单调性"></a>思路：二分查找+边界判断单调性</h3><h4 id="代码-17"><a href="#代码-17" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//使用二分查找，难点在于边界的确认</span>
     <span class="token comment">//只要通过边界进行简单的单调性来判断即可。</span>
     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">search</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1352,7 +1532,7 @@
 <p>提示：</p>
 <p>n == nums.length<br>1 &lt;= n &lt;= 5000<br>-5000 &lt;= nums[i] &lt;= 5000<br>nums 中的所有整数 互不相同<br>nums 原来是一个升序排序的数组，并进行了 1 至 n 次旋转</p>
 </blockquote>
-<h3 id="思路：二分法"><a href="#思路：二分法" class="headerlink" title="思路：二分法"></a>思路：二分法</h3><h4 id="代码-16"><a href="#代码-16" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<h3 id="思路：二分法"><a href="#思路：二分法" class="headerlink" title="思路：二分法"></a>思路：二分法</h3><h4 id="代码-18"><a href="#代码-18" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//二分法。</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">findMin</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> end <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -1384,7 +1564,7 @@
 <p>进阶：</p>
 <p>这道题是 寻找旋转排序数组中的最小值 的延伸题目。<br>允许重复会影响算法的时间复杂度吗？会如何影响，为什么？</p>
 </blockquote>
-<h3 id="思路：二分法-重复则缩减边界"><a href="#思路：二分法-重复则缩减边界" class="headerlink" title="思路：二分法+重复则缩减边界"></a>思路：二分法+重复则缩减边界</h3><h4 id="代码-17"><a href="#代码-17" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<h3 id="思路：二分法-重复则缩减边界"><a href="#思路：二分法-重复则缩减边界" class="headerlink" title="思路：二分法+重复则缩减边界"></a>思路：二分法+重复则缩减边界</h3><h4 id="代码-19"><a href="#代码-19" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//二分查找，特殊情况是遇到了重复的元素，那么直接将右边界减一即可。</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">findMin</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> end <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -1406,6 +1586,126 @@
         <span class="token keyword">return</span> nums<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="125-验证回文串"><a href="#125-验证回文串" class="headerlink" title="125.验证回文串"></a>125.验证回文串</h2><blockquote>
+<p>给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。</p>
+<p>说明：本题中，我们将空字符串定义为有效的回文串。</p>
+<p>示例 1:</p>
+<p>输入: “A man, a plan, a canal: Panama”<br>输出: true<br>示例 2:</p>
+<p>输入: “race a car”<br>输出: false</p>
+</blockquote>
+<h3 id="思路：去掉字符后首尾指针向内逼近"><a href="#思路：去掉字符后首尾指针向内逼近" class="headerlink" title="思路：去掉字符后首尾指针向内逼近"></a>思路：去掉字符后首尾指针向内逼近</h3><blockquote>
+<p>要解决两个问题：</p>
+<p>①去掉字符:调用库函数isLetterOrDigit</p>
+<p>②首尾逼近：双指针</p>
+</blockquote>
+<h4 id="代码-20"><a href="#代码-20" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span> left <span class="token operator">&lt;</span> right <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span> left <span class="token operator">&lt;</span> right <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token class-name">Character</span><span class="token punctuation">.</span><span class="token function">isLetterOrDigit</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                left<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> 
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token class-name">Character</span><span class="token punctuation">.</span><span class="token function">isLetterOrDigit</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                right<span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> left <span class="token operator">&lt;</span> right <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Character</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token class-name">Character</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            left<span class="token operator">++</span><span class="token punctuation">;</span>
+            right<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234.回文链表"></a>234.回文链表</h2><blockquote>
+<p>请判断一个链表是否为回文链表。</p>
+<p>示例 1:</p>
+<p>输入: 1-&gt;2<br>输出: false<br>示例 2:</p>
+<p>输入: 1-&gt;2-&gt;2-&gt;1<br>输出: true<br>进阶：<br>你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题</p>
+</blockquote>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><h4 id="次优解：反转后头尾对比值"><a href="#次优解：反转后头尾对比值" class="headerlink" title="次优解：反转后头尾对比值"></a>次优解：反转后头尾对比值</h4><blockquote>
+<p>直接递归的反转链表，然后将尾节点和头节点对比。</p>
+</blockquote>
+<h5 id="代码-21"><a href="#代码-21" class="headerlink" title="代码"></a>代码</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode &#123;
+ *     int val;
+ *     ListNode next;
+ *     ListNode() &#123;&#125;
+ *     ListNode(int val) &#123; this.val = val; &#125;
+ *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;
+ * &#125;
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">ListNode</span> left <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        left <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">reverse</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">reverse</span><span class="token punctuation">(</span> <span class="token class-name">ListNode</span> cur <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> cur <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">boolean</span> res <span class="token operator">=</span> <span class="token function">reverse</span><span class="token punctuation">(</span>cur<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res <span class="token operator">=</span> res <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>cur<span class="token punctuation">.</span>val <span class="token operator">==</span> left<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        left <span class="token operator">=</span> left<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="最优解：寻找到中间节点的链表，将后半部分反转后双指针一一对比"><a href="#最优解：寻找到中间节点的链表，将后半部分反转后双指针一一对比" class="headerlink" title="最优解：寻找到中间节点的链表，将后半部分反转后双指针一一对比"></a>最优解：寻找到中间节点的链表，将后半部分反转后双指针一一对比</h4><blockquote>
+<p>将空间复杂度降低到了常数。</p>
+</blockquote>
+<h5 id="代码-22"><a href="#代码-22" class="headerlink" title="代码"></a>代码</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * public class ListNode &#123;
+ *     int val;
+ *     ListNode next;
+ *     ListNode() &#123;&#125;
+ *     ListNode(int val) &#123; this.val = val; &#125;
+ *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;
+ * &#125;
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isPalindrome</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">ListNode</span> fast <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token class-name">ListNode</span> slow <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span> fast <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> fast<span class="token punctuation">.</span>next <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> fast <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">ListNode</span> left <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token class-name">ListNode</span> right <span class="token operator">=</span> <span class="token function">reverse</span><span class="token punctuation">(</span>slow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>left<span class="token punctuation">.</span>val <span class="token operator">!=</span> right<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            left <span class="token operator">=</span> left<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            right <span class="token operator">=</span> right<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">ListNode</span> <span class="token function">reverse</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">ListNode</span> pre <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token class-name">ListNode</span> cur <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span> pre <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">ListNode</span> next <span class="token operator">=</span> pre<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            pre<span class="token punctuation">.</span>next <span class="token operator">=</span> cur<span class="token punctuation">;</span>
+            cur <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+            pre <span class="token operator">=</span> next<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> cur<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1997,7 +2297,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">115.6k</span>&nbsp;字
+                class="white-color">117.5k</span>&nbsp;字
             
             
             
