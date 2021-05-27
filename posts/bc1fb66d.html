@@ -456,14 +456,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    268
+                    548
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -518,6 +518,53 @@
 <p>3.how to handle failure</p>
 </blockquote>
 <p>Those questions makes the computation more difficult and complex.</p>
+</blockquote>
+<h2 id="Programming-Model"><a href="#Programming-Model" class="headerlink" title="Programming Model"></a>Programming Model</h2><h3 id="Map-function"><a href="#Map-function" class="headerlink" title="Map function"></a>Map function</h3><p>Map function is <strong><em>written by user.</em></strong></p>
+<p>Map function’s input &amp; output</p>
+<blockquote>
+<p>input: key-value pairs</p>
+<p>output: a set of intermediate key-value pairs</p>
+</blockquote>
+<p>after that, <strong><em>MapReduce Library</em></strong> does these jobs:</p>
+<blockquote>
+<ol>
+<li> Group all intermediate values associated with the <em>same intermediate key</em></li>
+<li> Pass them(same intermediate key and a set of values for that key) tho the Reduce function</li>
+</ol>
+</blockquote>
+<h3 id="Reduce-function"><a href="#Reduce-function" class="headerlink" title="Reduce function"></a>Reduce function</h3><p>Reduce function is <strong><em>written by user.</em></strong></p>
+<p>Reduce function’s input &amp; output</p>
+<blockquote>
+<p><strong>input</strong>: <em>intermediate key and a set of values</em> for that key</p>
+<p><strong>intermediate process</strong>: merges these values together to form a possibly smaller set of values</p>
+<p><strong>output</strong>: per Reduce function typically just produces zero or one output value.</p>
+</blockquote>
+<h3 id="overall-flow"><a href="#overall-flow" class="headerlink" title="overall flow"></a>overall flow</h3><p>what is the over flow of MapReduce function ? </p>
+<blockquote>
+<ol>
+<li><strong>MapReduce library splits the input files into M pieces</strong>.Then start up copies of the program on a cluster of machines.</li>
+</ol>
+<blockquote>
+<p>①each pieces typically is between 16 MB and 64 MB.User can controll M by an optional parameter.</p>
+</blockquote>
+<blockquote>
+<p>②one of the copies of program is called the <strong>master worker</strong></p>
+</blockquote>
+<ol start="2">
+<li>Master worker assigns works to other workers. There are M Map tasks and R Reduce tasks.  Each idle workers will be assigned a map task and a reduce task.</li>
+<li>Worker read the contents of the input split, parses key-value pairs and passes each key-value pair to the user-defined Map function</li>
+</ol>
+<blockquote>
+<p>:key: The intermediate key-value pairs are buffered in memory(缓存在内存中)</p>
+</blockquote>
+<ol start="4">
+<li><p>Periodically, the buffered pairs will be written to <strong>local disk</strong>, <strong>partitioned into R region</strong> by the partition function. </p>
+<blockquote>
+<p>:key:the location of  partitioned pairs on the local disk will be pass back to  master. Master send these location to the reduce worker.</p>
+</blockquote>
+</li>
+<li></li>
+</ol>
 </blockquote>
 
                 
@@ -1107,7 +1154,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">115.7k</span>&nbsp;字
+                class="white-color">116k</span>&nbsp;字
             
             
             
