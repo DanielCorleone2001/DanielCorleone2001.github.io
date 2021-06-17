@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="BFS专题, Welcome to Daniel&#39;s Blog !">
+    <meta name="keywords" content="the way to Go, Welcome to Daniel&#39;s Blog !">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>BFS专题 | Welcome to Daniel&#39;s Blog !</title>
+    <title>the way to Go | Welcome to Daniel&#39;s Blog !</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://tva3.sinaimg.cn/large/0085EwgIgy1govzefqt1bj30k00b9gmz.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">BFS专题</h1>
+                    <h1 class="description center-align post-title">the way to Go</h1>
                 </div>
             </div>
         </div>
@@ -407,29 +407,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
-                            </a>
-                        
-                            <a href="/tags/BFS/">
-                                <span class="chip bg-color">BFS</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -438,28 +421,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-25
+                    2021-06-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-25
+                    2021-06-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    359
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -482,67 +465,313 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="429-N叉树的层序遍历"><a href="#429-N叉树的层序遍历" class="headerlink" title="429.N叉树的层序遍历"></a>429.N叉树的层序遍历</h2><p>问题：</p>
-<blockquote>
-<p>给定一个 N 叉树，返回其节点值的层序遍历。（即从左到右，逐层遍历）。</p>
-<p>树的序列化输入是用层序遍历，每组子节点都由 null 值分隔（参见示例）。</p>
-<p>示例 1：</p>
-<p><img src="https://tvax1.sinaimg.cn/large/0085EwgIgy1govygrydawj30lp0dymxk.jpg" alt="image"></p>
-<p>输入：root = [1,null,3,2,4,null,5,6]<br>输出：[[1],[3,2,4],[5,6]]</p>
+                <p><a target="_blank" rel="noopener" href="https://learnku.com/docs/the-way-to-go">the way to go个人笔记</a></p>
+<h2 id="基本结构和要素"><a href="#基本结构和要素" class="headerlink" title="基本结构和要素"></a>基本结构和要素</h2><h3 id="程序的基本结构和要素"><a href="#程序的基本结构和要素" class="headerlink" title="程序的基本结构和要素"></a>程序的基本结构和要素</h3><h4 id="包"><a href="#包" class="headerlink" title="包"></a>包</h4><h5 id="包的基本概念"><a href="#包的基本概念" class="headerlink" title="包的基本概念"></a>包的基本概念</h5><blockquote>
+<p>1.每个go文件的非注释第一行声明该文件所属的包</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token keyword">package</span> main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2.包是编译的最小单元。某个包的内容变更时，其他引用了该包的文件也需要重新进行编译。</p>
+<p>3.go文件引用包使用import关键字</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token keyword">import</span> <span class="token punctuation">(</span>
+<span class="token operator">></span><span class="token string">"fmt"</span>
+<span class="token operator">></span><span class="token string">"os"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </blockquote>
-<h3 id="思路：BFS"><a href="#思路：BFS" class="headerlink" title="思路：BFS"></a>思路：BFS</h3><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/*
-// Definition for a Node.
-class Node &#123;
-    public int val;
-    public List&lt;Node> children;
+<h5 id="包的可见性规则"><a href="#包的可见性规则" class="headerlink" title="包的可见性规则"></a>包的可见性规则</h5><blockquote>
+<p>1.包中某个go文件中的标识符：such as 变量，常量，类型，函数名，结构字段等首字母大写时，表明该包若被其他文件引用(即import)，那么这些元素是可见的，相当于public。同理，如果是小写开头，那就是private。</p>
+<p>2.引用了某个包的可见性标识符，需要通过**<em>包名.元素**</em>来引用。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token keyword">package</span> test
 
-    public Node() &#123;&#125;
+<span class="token operator">></span><span class="token keyword">import</span><span class="token punctuation">(</span>
+<span class="token operator">></span><span class="token string">"fmt"</span>
+<span class="token operator">></span><span class="token string">"main"</span><span class="token punctuation">)</span>
 
-    public Node(int _val) &#123;
-        val = _val;
-    &#125;
-
-    public Node(int _val, List&lt;Node> _children) &#123;
-        val = _val;
-        children = _children;
-    &#125;
-&#125;;
-*/</span>
-
-<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token function">levelOrder</span><span class="token punctuation">(</span><span class="token class-name">Node</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span> root <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Queue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Node</span><span class="token punctuation">></span></span> queue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//根节点入队</span>
-        queue<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">while</span> <span class="token punctuation">(</span> <span class="token operator">!</span>queue<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token comment">//记录每一层的节点值</span>
-            <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> cur <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment">//一定要现在记录下当前队列的数目，这时候队列的大小就是这一层的节点数量</span>
-            <span class="token keyword">int</span> size <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment">//容易发生的错误就是，不用现在的size(),而是写成</span>
-            <span class="token comment">//for(int i = 0; i &lt; queue.size(); i++ )</span>
-            <span class="token comment">//这样是不对的，因为在下面的操作中，队列的大小在改变！！！</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token comment">//获取当前队头节点，加入到当前层的结果集合中</span>
-                <span class="token class-name">Node</span> temp <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                cur<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>temp<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment">//将该节点的子节点全部入队</span>
-                <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token class-name">Node</span> child <span class="token operator">:</span> temp<span class="token punctuation">.</span>children <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                    queue<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span>
-            <span class="token punctuation">&#125;</span>
-            res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>cur<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">></span><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token operator">></span>fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"这里调用了Println,需要使用包名.元素来引用"</span><span class="token punctuation">)</span>
+<span class="token operator">></span>main<span class="token punctuation">.</span><span class="token function">func1</span><span class="token punctuation">(</span>var1<span class="token punctuation">)</span><span class="token comment">//这里调用了Println,需要使用包名.元素来引用</span>
+<span class="token operator">></span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
+</blockquote>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><h5 id="函数的基本定义形式"><a href="#函数的基本定义形式" class="headerlink" title="函数的基本定义形式"></a>函数的基本定义形式</h5><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//第一个分号必须和函数名在同一行。</span>
+<span class="token keyword">func</span> funcName <span class="token punctuation">(</span>parameter1 type1<span class="token punctuation">,</span> parameter2 type2<span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>returnType1<span class="token punctuation">,</span> returnType2<span class="token punctuation">,</span> <span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> returnType1<span class="token punctuation">,</span> returnTypr2<span class="token punctuation">,</span> <span class="token operator">...</span><span class="token punctuation">.</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><h6 id="注释的基本约束"><a href="#注释的基本约束" class="headerlink" title="注释的基本约束"></a>注释的基本约束</h6><blockquote>
+<p>1.每个包都应该有注释。共同的包只要在一个地方进行注释。并且第一行简要描述，空一行再具体描述</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token comment">// Package superman implements methods for saving the world.</span>
+<span class="token operator">></span><span class="token comment">//</span>
+<span class="token operator">></span><span class="token comment">// Experience has shown that a small number of procedures can prove</span>
+<span class="token operator">></span><span class="token comment">// helpful when attempting to save the world.</span>
+<span class="token operator">></span><span class="token keyword">package</span> superman<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2.函数需要注释的时候，第一个词必须是函数名</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token comment">// enterOrbit causes Superman to fly into low Earth orbit, a position</span>
+<span class="token operator">></span><span class="token comment">// that presents several possibilities for planet salvation.</span>
+<span class="token operator">></span><span class="token keyword">func</span> <span class="token function">enterOrbit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">&#123;</span>
+<span class="token operator">></span><span class="token operator">...</span>
+<span class="token operator">></span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h4><h5 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h5><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>基本数据类型</td>
+</tr>
+<tr>
+<td>float</td>
+<td>基本数据类型</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>基本数据类型</td>
+</tr>
+<tr>
+<td>string</td>
+<td>基本数据类型</td>
+</tr>
+<tr>
+<td>struct</td>
+<td>结构(复合)的数据类型</td>
+</tr>
+<tr>
+<td>array</td>
+<td>结构(复合)的数据类型</td>
+</tr>
+<tr>
+<td>slice</td>
+<td>结构(复合)的数据类型</td>
+</tr>
+<tr>
+<td>map</td>
+<td>结构(复合)的数据类型</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>结构(复合)的数据类型</td>
+</tr>
+</tbody></table>
+<p>结构的数据类型的初始值为nil，相当于Java中的null。</p>
+<h4 id="程序的一般结构"><a href="#程序的一般结构" class="headerlink" title="程序的一般结构"></a>程序的一般结构</h4><blockquote>
+<p>1.第一行声明包名</p>
+<p>2.接下来是import包</p>
+<p>3.对常量，变量进行声明</p>
+<p>4.如果是main包，需要先定义main函数</p>
+<p>5.定义其他函数</p>
+</blockquote>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><blockquote>
+<p>隐式定义常量：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token keyword">const</span> PI <span class="token operator">=</span> <span class="token number">3.14159</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>显式定义常量：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token keyword">const</span> PI <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">3.14159</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>数字型的常量是没有大小和符号的，并且可以使用任何精度而不会导致溢出：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token keyword">const</span> Ln2<span class="token operator">=</span> <span class="token number">0.693147180559945309417232121458</span>\
+      <span class="token number">176568075500134360255254120680009</span>
+<span class="token operator">></span><span class="token keyword">const</span> Log2E<span class="token operator">=</span> <span class="token number">1</span><span class="token operator">/</span>Ln2 <span class="token comment">// this is a precise reciprocal</span>
+<span class="token operator">></span><span class="token keyword">const</span> Billion <span class="token operator">=</span> <span class="token number">1e9</span> <span class="token comment">// float constant</span>
+<span class="token operator">></span><span class="token keyword">const</span> hardEight <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">97</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>反斜杠在常量定义时可充当多行的连接符号的作用。</p>
+</blockquote>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><blockquote>
+<p>定义变量的方式</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token comment">//var 变量名 变量类型</span>
+<span class="token operator">></span><span class="token keyword">var</span> var1 <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token operator">></span><span class="token comment">//因式分解的方法进行定义，用于声明全局变量</span>
+<span class="token operator">></span><span class="token keyword">var</span> <span class="token punctuation">(</span>
+<span class="token operator">></span>a <span class="token builtin">int</span> 
+<span class="token operator">></span>b <span class="token builtin">bool</span>
+<span class="token operator">></span>c <span class="token builtin">string</span>
+<span class="token operator">></span>d <span class="token builtin">float32</span>
+<span class="token operator">></span>e <span class="token builtin">float64</span>
+<span class="token operator">></span><span class="token punctuation">)</span>
+
+<span class="token operator">></span><span class="token comment">//短声明，用于局部变量的声明</span>
+<span class="token operator">></span>var2 <span class="token operator">:=</span> <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h3 id="基本类型和运算符"><a href="#基本类型和运算符" class="headerlink" title="基本类型和运算符"></a>基本类型和运算符</h3><h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><blockquote>
+<p>1,和Java一样，只不过关键字是bool</p>
+<p>2.类型相同的值才能进行比较，如果值的类型是interface，那么如果他们要比较的话，需要二者都实现相同的接口。</p>
+</blockquote>
+<h4 id="基本运算符号"><a href="#基本运算符号" class="headerlink" title="基本运算符号"></a>基本运算符号</h4><blockquote>
+<p>和Java一样，与，或，非；按位与，按位或，按位异或。</p>
+<p>位左移：&lt;&lt;.将位左移n位，左边空白部分补零。效果相当于乘以2的n次方</p>
+<p>位右移：&gt;&gt;.将位右移n位，右边空白部分补零，效果相当于除以2的n次方。</p>
+</blockquote>
+<h4 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h4><h5 id="整数类型int"><a href="#整数类型int" class="headerlink" title="整数类型int"></a>整数类型int</h5><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int8</td>
+<td>-(2^7 -1)  ~ 2^7</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>-(2^15 -1 ) ~ 2^15</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>-(2^31 - 1) ~ 2^31</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>-(2^63 - 1) ~ 2^63</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>0 ~ 2^8-1</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>0 ~ 2^16 - 1</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>0~ 2^32 -1</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>0 ~ 2^64 - 1</td>
+</tr>
+</tbody></table>
+<h5 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h5><p>只有<em>float32</em>和<em>float64</em>。不指定类型的定义一个小数时，值默认为float64.</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>范围</th>
+<th>精确范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>float32</td>
+<td>+- 1e-45 -&gt; +- 3.4 * 1e38</td>
+<td>小数点后7位</td>
+</tr>
+<tr>
+<td>float64</td>
+<td>+- 5  <em>1e-324 -&gt; 107</em>  1e308</td>
+<td>小数点后15位</td>
+</tr>
+</tbody></table>
+<h5 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a>字符类型</h5><p>严格来说，这并不算是go的数据类型，字符类型是整数类型的特殊类型。</p>
+<p>字符类型是byte，其取值范围是0~2^8-1,很明显其实是uint8.</p>
+<h5 id="特殊表示"><a href="#特殊表示" class="headerlink" title="特殊表示"></a>特殊表示</h5><table>
+<thead>
+<tr>
+<th>表示的形式</th>
+<th>表示方法</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>表示成八进制</td>
+<td><strong>在前面补0</strong></td>
+<td>比如077，表示7x8 + 7x8^2</td>
+</tr>
+<tr>
+<td>表示成十六进制</td>
+<td><strong>在前面补0x</strong></td>
+<td>比如0xFF</td>
+</tr>
+<tr>
+<td>表示成科学计数法</td>
+<td>e接数字表示十的几次方</td>
+<td>1000就是1e3</td>
+</tr>
+</tbody></table>
+<h4 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h4><blockquote>
+<p>即在print中怎么输出数值的类型,和C语言类似</p>
+<p>直接按变量的类型输出：%v</p>
+<p>整数：%d</p>
+<p>浮点数：%f</p>
+<p>科学计数法：%e</p>
+<p>按比特位：%b</p>
+<p>%.mg：精确到小数点后m位</p>
+</blockquote>
+<h4 id="复数"><a href="#复数" class="headerlink" title="复数"></a>复数</h4><blockquote>
+<p>go有两种复数类型：complex64，complex128。</p>
+</blockquote>
+<h5 id="复数的表示"><a href="#复数的表示" class="headerlink" title="复数的表示"></a>复数的表示</h5><p>复数是这么表示的</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> a <span class="token builtin">complex64</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token number">1i</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="获取实部和虚部"><a href="#获取实部和虚部" class="headerlink" title="获取实部和虚部"></a>获取实部和虚部</h5><blockquote>
+<p>实部：real()函数</p>
+<p>虚部：imag()函数</p>
+</blockquote>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><blockquote>
+<p>字符串是定长数组，创建之后不能再修改。即Java的String类型同理。</p>
+</blockquote>
+<p>获取字符串的长度：使用len()函数</p>
+<p>获取某个索引的字符：str[i]</p>
+<h4 id="strings封装的方法"><a href="#strings封装的方法" class="headerlink" title="strings封装的方法"></a>strings封装的方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>strings.HasPrefix(s string, prefix string) bool</td>
+<td>是否以prefix开头</td>
+</tr>
+<tr>
+<td>strings.HasSuffix(s string, suffix string) bool</td>
+<td>是否以suffix结尾</td>
+</tr>
+<tr>
+<td>strings.Contains(s string, substr string) bool</td>
+<td>s中是否有字串substr</td>
+</tr>
+<tr>
+<td>strings.Index(s string, str string) int</td>
+<td>返回str在s中的索引，返回的是str的第一个字符，-1表示s中没有该str</td>
+</tr>
+<tr>
+<td>strings.LastIndex(s string, str string)</td>
+<td>返回最后一个str在s中的索引，-1表示没有</td>
+</tr>
+<tr>
+<td>strings.Replace(str, old, new , n) string</td>
+<td>将str中前n个字符串old替换成new，然后返回。n=-1表示将所有的old替换成new</td>
+</tr>
+<tr>
+<td>strings.Count(s string, str string) int</td>
+<td>统计str在s中出现的次数</td>
+</tr>
+<tr>
+<td>strings.Repeat(s string, count int) string</td>
+<td>将s重复count次，返回重复后的字符串。比如strings.Repeat(“hi “,2)的值为”hi hi “.其实就是拼接count次</td>
+</tr>
+<tr>
+<td>strings.ToLower(s string) string</td>
+<td>将s全改为小写</td>
+</tr>
+<tr>
+<td>strings.ToUpper(s string)string</td>
+<td>将s全改为大写</td>
+</tr>
+<tr>
+<td>strings.TrimSpace(s)</td>
+<td>剔除掉开头和结尾的空格，剔除左边：TrimLeft()，右边：TrimRight()</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 
                 
             </div>
@@ -569,7 +798,7 @@ class Node &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://qguizhan.top/posts/2de37d56.html">http://qguizhan.top/posts/2de37d56.html</a>
+                    <a href="http://qguizhan.top/posts/f609af8a.html">http://qguizhan.top/posts/f609af8a.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -606,15 +835,7 @@ class Node &#123;
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
-                                </a>
-                            
-                                <a href="/tags/BFS/">
-                                    <span class="chip bg-color">BFS</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -828,69 +1049,18 @@ class Node &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/9f1288a3.html">
+                <a href="/posts/f609af8a.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="递归专题">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="the way to Go">
                         
-                        <span class="card-title">递归专题</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-25
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%80%92%E5%BD%92/">
-                        <span class="chip bg-color">递归</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/d3f4b1cb.html">
-                    <div class="card-image">
-                        
-                        <img src="https://tva1.sinaimg.cn/large/0085EwgIgy1gou78ljlcoj30k00b9tam.jpg" class="responsive-img" alt="二叉树专题">
-                        
-                        <span class="card-title">二叉树专题</span>
+                        <span class="card-title">the way to Go</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -901,14 +1071,51 @@ class Node &#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Daniel
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/bc1fb66d.html">
+                    <div class="card-image">
+                        
+                        <img src="https://tva4.sinaimg.cn/large/0085EwgIgy1gqw9h84aujj3069069mx1.jpg" class="responsive-img" alt="MapReduce">
+                        
+                        <span class="card-title">MapReduce</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/MapReduce/" class="post-category">
+                                    MapReduce
                                 </a>
                             
                             
@@ -918,12 +1125,16 @@ class Node &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/MapReduce/">
+                        <span class="chip bg-color">MapReduce</span>
                     </a>
                     
-                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                        <span class="chip bg-color">二叉树</span>
+                    <a href="/tags/6-824/">
+                        <span class="chip bg-color">6.824</span>
+                    </a>
+                    
+                    <a href="/tags/Distributed-System/">
+                        <span class="chip bg-color">Distributed System</span>
                     </a>
                     
                 </div>
