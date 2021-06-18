@@ -441,21 +441,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-17
+                    2021-06-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -729,7 +729,7 @@
 </blockquote>
 <p>获取字符串的长度：使用len()函数</p>
 <p>获取某个索引的字符：str[i]</p>
-<h4 id="strings封装的方法"><a href="#strings封装的方法" class="headerlink" title="strings封装的方法"></a>strings封装的方法</h4><table>
+<h3 id="strings封装的方法"><a href="#strings封装的方法" class="headerlink" title="strings封装的方法"></a>strings封装的方法</h3><table>
 <thead>
 <tr>
 <th>方法</th>
@@ -780,11 +780,57 @@
 <td>strings.TrimSpace(s)</td>
 <td>剔除掉开头和结尾的空格，剔除左边：TrimLeft()，右边：TrimRight()</td>
 </tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
+<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> ptr <span class="token operator">*</span><span class="token builtin">int</span>
+<span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">5</span>
+ptr <span class="token operator">=</span> <span class="token operator">&amp;</span>i<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>1.指针未被赋值时，值为nil</p>
+<p>2.指针在print中用的是%p</p>
+<p>3.获取指针指向的值：*ptr</p>
+</blockquote>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">var</span> i <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">1</span>
+	<span class="token keyword">var</span> ptr <span class="token operator">*</span><span class="token builtin">int</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>i
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"初始值：%d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"i的地址：%v\n"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>i<span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"i的地址：%p\n"</span><span class="token punctuation">,</span> ptr<span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"获取指针指向的内容：%d\n"</span><span class="token punctuation">,</span> <span class="token operator">*</span>ptr<span class="token punctuation">)</span><span class="token comment">//指针的反引用</span>
+<span class="token punctuation">&#125;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出结果：</p>
+<pre class="line-numbers language-none"><code class="language-none">初始值：1
+i的地址：0xc00000a0e0
+i的地址：0xc00000a0e0
+获取指针指向的内容：1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>指针的一个高级应用是你可以传递一个变量的引用（如函数的参数），这样不会传递变量的拷贝。指针传递是很廉价的，只占用 4 个或 8 个字节。当程序在工作中需要占用大量的内存，或很多变量，或者两者都有，使用指针会减少内存占用和提高效率。被指向的变量也保存在内存中，直到没有任何指针指向它们，所以从它们被创建开始就具有相互独立的生命周期。 </p>
+</blockquote>
+<h2 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h2><h3 id="if-else结构"><a href="#if-else结构" class="headerlink" title="if-else结构"></a>if-else结构</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">if</span> condition1 <span class="token punctuation">&#123;</span>
+    <span class="token comment">//code</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> condition2 <span class="token punctuation">&#123;</span>
+    <span class="token comment">//code</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//code</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>1.和Java不同的地方是，判断条件不需要加括号。</p>
+<p>2.大括号必须在同一行：关键字 if 和 else 之后的左大括号 <code>&#123;</code> 必须和关键字在同一行，如果你使用了 else-if 结构，则前段代码块的右大括号 <code>&#125;</code> 必须和 else-if 关键字在同一行。</p>
+</blockquote>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">if</span> x<span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">else</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 无效的</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1365,7 +1411,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">117.5k</span>&nbsp;字
+                class="white-color">117.9k</span>&nbsp;字
             
             
             
