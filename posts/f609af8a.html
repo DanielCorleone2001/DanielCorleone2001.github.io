@@ -448,14 +448,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    12 分
                 </div>
                 
 
@@ -831,6 +831,144 @@ i的地址：0xc00000a0e0
 <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 无效的</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="测试多返回值函数的错误"><a href="#测试多返回值函数的错误" class="headerlink" title="测试多返回值函数的错误"></a>测试多返回值函数的错误</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go">an<span class="token punctuation">,</span> err <span class="token operator">:=</span> strconv<span class="token punctuation">.</span><span class="token function">Atoi</span><span class="token punctuation">(</span>orig<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"orig %s is not an integer - exiting with error\n"</span><span class="token punctuation">,</span> orig<span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+    <span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>1.Atoi函数返回两个值。err用于接受错误与否。</p>
+<p>2.如果想要忽略错误，可以使用以下格式，也就是用下划线替代</p>
+</blockquote>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">an<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> strconv<span class="token punctuation">.</span><span class="token function">Atoi</span><span class="token punctuation">(</span>orig<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="switch结构"><a href="#switch结构" class="headerlink" title="switch结构"></a>switch结构</h3><blockquote>
+<p>1.switch判断的类型不像C那样只有整型。所有的类型都可以判断</p>
+<p>2.不用写break，默认是满足条件就帮你break</p>
+<p>3.如果需要顺延执行的话，需要加关键字fullthrough</p>
+</blockquote>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">switch</span> i <span class="token punctuation">&#123;</span>
+    <span class="token keyword">case</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">fallthrough</span>
+    <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 当 i == 0 时函数也会被调用</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="for循环结构"><a href="#for循环结构" class="headerlink" title="for循环结构"></a>for循环结构</h3><h4 id="基于计数器的迭代"><a href="#基于计数器的迭代" class="headerlink" title="基于计数器的迭代"></a>基于计数器的迭代</h4><blockquote>
+<p>1.条件不用写括号</p>
+</blockquote>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//基本形式</span>
+<span class="token keyword">for</span> 初始化语句<span class="token punctuation">;</span>判断条件<span class="token punctuation">;</span>修饰语句 <span class="token punctuation">&#123;</span>
+	<span class="token comment">//code</span>
+<span class="token punctuation">&#125;</span>								<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="基于条件判断的迭代"><a href="#基于条件判断的迭代" class="headerlink" title="基于条件判断的迭代"></a>基于条件判断的迭代</h4><blockquote>
+<p>1.相当于while循环</p>
+</blockquote>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">for</span> condition <span class="token punctuation">&#123;</span>
+    <span class="token comment">//code</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="无限循环"><a href="#无限循环" class="headerlink" title="无限循环"></a>无限循环</h4><blockquote>
+<p>1.没有条件的执行，跳出来可以用break或者return</p>
+<p>2.无限循环的经典应用是服务器，用于不断等待和接受新的请求。</p>
+</blockquote>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">for</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//code</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//无限循环的经典应用是服务器，用于不断等待和接受新的请求</span>
+<span class="token keyword">for</span> t<span class="token punctuation">,</span> err <span class="token operator">=</span> p<span class="token punctuation">.</span><span class="token function">Token</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">==</span> <span class="token boolean">nil</span><span class="token punctuation">;</span> t<span class="token punctuation">,</span> err <span class="token operator">=</span> p<span class="token punctuation">.</span><span class="token function">Token</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token operator">...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="for-range结构"><a href="#for-range结构" class="headerlink" title="for-range结构"></a>for-range结构</h3><blockquote>
+<p>1.类似于for-each结构。但除了能获取到值，还能获取到索引。</p>
+</blockquote>
+ <pre class="line-numbers language-go" data-language="go"><code class="language-go">str <span class="token operator">:=</span> <span class="token string">"Java is the best language ~"</span>
+<span class="token keyword">for</span> pos<span class="token punctuation">,</span> char <span class="token operator">:=</span> <span class="token keyword">range</span> str <span class="token punctuation">&#123;</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"Character on position %d is: %c \n"</span><span class="token punctuation">,</span> pos<span class="token punctuation">,</span> char<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//执行结果：</span>
+Character on position <span class="token number">0</span> is<span class="token punctuation">:</span> J 
+Character on position <span class="token number">1</span> is<span class="token punctuation">:</span> a 
+Character on position <span class="token number">2</span> is<span class="token punctuation">:</span> v 
+Character on position <span class="token number">3</span> is<span class="token punctuation">:</span> a 
+Character on position <span class="token number">4</span> is<span class="token punctuation">:</span>   
+Character on position <span class="token number">5</span> is<span class="token punctuation">:</span> i 
+Character on position <span class="token number">6</span> is<span class="token punctuation">:</span> s 
+Character on position <span class="token number">7</span> is<span class="token punctuation">:</span>   
+Character on position <span class="token number">8</span> is<span class="token punctuation">:</span> t 
+Character on position <span class="token number">9</span> is<span class="token punctuation">:</span> h 
+Character on position <span class="token number">10</span> is<span class="token punctuation">:</span> e 
+Character on position <span class="token number">11</span> is<span class="token punctuation">:</span>   
+Character on position <span class="token number">12</span> is<span class="token punctuation">:</span> b 
+Character on position <span class="token number">13</span> is<span class="token punctuation">:</span> e 
+Character on position <span class="token number">14</span> is<span class="token punctuation">:</span> s 
+Character on position <span class="token number">15</span> is<span class="token punctuation">:</span> t 
+Character on position <span class="token number">16</span> is<span class="token punctuation">:</span>   
+Character on position <span class="token number">17</span> is<span class="token punctuation">:</span> l 
+Character on position <span class="token number">18</span> is<span class="token punctuation">:</span> a 
+Character on position <span class="token number">19</span> is<span class="token punctuation">:</span> n 
+Character on position <span class="token number">20</span> is<span class="token punctuation">:</span> g 
+Character on position <span class="token number">21</span> is<span class="token punctuation">:</span> u 
+Character on position <span class="token number">22</span> is<span class="token punctuation">:</span> a 
+Character on position <span class="token number">23</span> is<span class="token punctuation">:</span> g 
+Character on position <span class="token number">24</span> is<span class="token punctuation">:</span> e 
+Character on position <span class="token number">25</span> is<span class="token punctuation">:</span>   
+Character on position <span class="token number">26</span> is<span class="token punctuation">:</span> ~ 
+
+Process finished with exit code <span class="token number">0</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Break与Continue"><a href="#Break与Continue" class="headerlink" title="Break与Continue"></a>Break与Continue</h3><blockquote>
+<p>1.和其他语言一样的用法</p>
+<p>2.continue可以跳到标签Lable处。</p>
+</blockquote>
+<h3 id="goto与标签"><a href="#goto与标签" class="headerlink" title="goto与标签"></a>goto与标签</h3><blockquote>
+<p>1.标签，相当于标记一段代码的开始位置，方便跳转</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token keyword">package</span> main
+
+<span class="token operator">></span><span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token operator">></span><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+<span class="token operator">></span>LABEL1<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>标准形式 lable名（全大写）接冒号
+   <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">&#123;</span>
+       <span class="token keyword">for</span> j <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">&#123;</span>
+           <span class="token keyword">if</span> j <span class="token operator">==</span> <span class="token number">4</span> <span class="token punctuation">&#123;</span>
+               <span class="token keyword">continue</span> LABEL1
+           <span class="token punctuation">&#125;</span>
+           fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"i is: %d, and j is: %d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> j<span class="token punctuation">)</span>
+       <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span>
+
+<span class="token operator">></span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2.Lable区分大小写，规范写法是全部大写。</p>
+<p>3.goto语句不推荐使用，C语言课上讲过。</p>
+</blockquote>
+<h2 id="函数-1"><a href="#函数-1" class="headerlink" title="函数"></a>函数</h2><blockquote>
+<p>1.go的函数不支持重载。因为函数重载对性能影响比较大</p>
+<p>2.没有范型，不像Java那样一个函数能支持多个类型的值</p>
+<p>3.go的函数可多值返回。</p>
+<p>4.函数的形参可以没有名字而只有类型</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token keyword">func</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">float64</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这种函数称为<strong>niladic函数</strong></p>
+<p>5.go的函数默认是传递参数的副本，传参数进去，如果参数的值在函数中改变了，并不影响原来的参数。如果需要按引用传递，就在参数前加上&amp;。</p>
+<p>6.传递指针给函数的开销比传递副本的开销要小得多，因为指针无非是32或64位系统中一个地址的长度，而参数副本类型可能是基本类型等。</p>
+</blockquote>
+<h3 id="传递变长参数"><a href="#传递变长参数" class="headerlink" title="传递变长参数"></a>传递变长参数</h3><blockquote>
+<p>1.函数的形参以 …type结尾，就是接受变长参数。</p>
+<p>2.变长参数就是，能再继续接受0个到多个这个类型的参数</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token operator">></span><span class="token keyword">func</span> <span class="token function">myFunc</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> arg <span class="token operator">...</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token operator">></span><span class="token comment">//调用</span>
+<span class="token operator">></span><span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">44</span><span class="token punctuation">,</span><span class="token number">55</span><span class="token punctuation">,</span><span class="token number">66</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">)</span>
+<span class="token operator">></span><span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">44</span><span class="token punctuation">,</span><span class="token number">55</span><span class="token punctuation">,</span><span class="token number">66</span><span class="token punctuation">,</span><span class="token number">77</span><span class="token punctuation">,</span><span class="token number">88</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</blockquote>
 
                 
             </div>
@@ -1411,7 +1549,7 @@ i的地址：0xc00000a0e0
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">117.9k</span>&nbsp;字
+                class="white-color">118.9k</span>&nbsp;字
             
             
             
