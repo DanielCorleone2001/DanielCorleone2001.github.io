@@ -502,7 +502,7 @@
 $ <span class="token identifier">cd</span> <span class="token number">6.824</span>
 $ <span class="token identifier">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>我们给你提供了一个简单的顺序的mapreduce实现，在src/main/mrsequential.go.它只在一个进程里执行一次maps和reduces。我们也给你提供了敌对MapReduce应用：在mrapps/wc.go的单词统计，以及在mrapps/indexer.go的一个文本索引。你可以依次运行下列这些指令来运行单词统计</p>
+<p>我们给你提供了一个简单的顺序的mapreduce实现，在<code>src/main/mrsequential.go</code>.它只在一个进程里执行一次maps和reduces。我们也给你提供了敌对MapReduce应用：在<code>mrapps/wc.go</code>的单词统计，以及在<code>mrapps/indexer.go</code>的一个文本索引。你可以依次运行下列这些指令来运行单词统计</p>
 <pre class="line-numbers language-livescript" data-language="livescript"><code class="language-livescript">$ <span class="token identifier">cd</span> <span class="token operator">~</span><span class="token operator">/</span><span class="token number">6.824</span>
 $ <span class="token identifier">cd</span> <span class="token identifier">src</span><span class="token operator">/</span><span class="token identifier">main</span>
 $ <span class="token identifier">go</span> <span class="token identifier">build</span> <span class="token operator">-</span><span class="token identifier">buildmode</span><span class="token operator">=</span><span class="token identifier">plugin</span> <span class="token operator">..</span><span class="token regex">/mrapps/</span><span class="token identifier">wc</span><span class="token punctuation">.</span><span class="token identifier">go</span>
@@ -512,10 +512,10 @@ $ <span class="token identifier">more</span> <span class="token identifier">mr-o
 
 
 
-<p>mrsequential.go将它的输出文件保存在mr-out-0、输入是<code>pg-xxx.txt</code></p>
-<p>你可以从mrsequential.go中借鉴代码，也应该看看mrapps/wc.go的代码，了解MapReduce应用的代码是啥样的。</p>
+<p><code>mrsequential.go</code>将它的输出文件保存在<code>mr-out-0</code>、输入是<code>pg-xxx.txt</code></p>
+<p>你可以从<code>mrsequential.go</code>中借鉴代码，也应该看看<code>mrapps/wc.go</code>的代码，了解MapReduce应用的代码是啥样的。</p>
 <h2 id="你的任务"><a href="#你的任务" class="headerlink" title="你的任务"></a>你的任务</h2><p>你的任务是实现一个分布式的MapReduce，有两个程序组成，master程序和worker程序。master只会有一个，而worker则会有很多个在并行的执行。在真正的系统中，worker应该运行在很多个机器上，但在这个lab中你会在单机上全部运行他们。worker会通过<code>RPC</code>和master进行通信。每个worker都会向master要一个任务，从一个甚至多个文件中读取任务的输入，执行任务，将任务的输出写到一个或者多个文件。master应该注意如果有某个worker在很长时间内（在这lab中，用10s作为判定）不能完成它的任务时，应该将它的任务给其他不用的worker去执行。</p>
-<p>我们给你提供了一些简单的代码让你去开始。main这个例子在main/mrmaster.go和main/mrworker.go，不要修改这两个文件，你应该把你实现的代码写在mr/master.go和mr/worker.go，以及mr/rpc.go</p>
+<p>我们给你提供了一些简单的代码让你去开始。main这个例子在<code>main/mrmaster.go</code>和<code>main/mrworker.go</code>，不要修改这两个文件，你应该把你实现的代码写在<code>mr/master.go</code>和<code>mr/worker.go</code>，以及<code>mr/rpc.go</code></p>
 <p>接下来是如何通过MapReduce应用来运行你的单词统计。首先，确保插件已经built了。</p>
 <pre class="line-numbers language-livescript" data-language="livescript"><code class="language-livescript">$ <span class="token identifier">go</span> <span class="token identifier">build</span> <span class="token operator">-</span><span class="token identifier">buildmode</span><span class="token operator">=</span><span class="token identifier">plugin</span> <span class="token operator">..</span><span class="token regex">/mrapps/</span><span class="token identifier">wc</span><span class="token punctuation">.</span><span class="token identifier">go</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -527,7 +527,7 @@ $ <span class="token identifier">go</span> <span class="token identifier">run</s
 <p>在一个或多个其他的窗口，运行一些workers</p>
 <pre class="line-numbers language-livescript" data-language="livescript"><code class="language-livescript">$ <span class="token identifier">go</span> <span class="token identifier">run</span> <span class="token identifier">mrworker</span><span class="token punctuation">.</span><span class="token identifier">go</span> <span class="token identifier">wc</span><span class="token punctuation">.</span><span class="token identifier">so</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>当worker和master结束时，查看输出文件，在mr-out-*。当你完成了lab时，这些已经排了序的输出文件应该和下面的顺序输出差不多：</p>
+<p>当worker和master结束时，查看输出文件，在<code>mr-out-*</code>。当你完成了lab时，这些已经排了序的输出文件应该和下面的顺序输出差不多：</p>
 <pre class="line-numbers language-livescript" data-language="livescript"><code class="language-livescript">$ <span class="token identifier">cat</span> <span class="token identifier">mr-out</span><span class="token operator">-</span><span class="token operator">*</span> <span class="token punctuation">|</span> <span class="token identifier">sort</span> <span class="token punctuation">|</span> <span class="token identifier">more</span>
 <span class="token identifier">A</span> <span class="token number">509</span>
 <span class="token identifier">ABOUT</span> <span class="token number">2</span>
