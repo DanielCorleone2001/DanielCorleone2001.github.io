@@ -460,14 +460,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    10 分
                 </div>
                 
 
@@ -579,7 +579,33 @@ $<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><s
 <p>· 应用的Map和Reduce函数从后缀为<code>.so</code>的文件，使用GO插件包，在运行时加载。</p>
 <p>·如果你修改了任何<code>mr/</code>目录下的东西，你可能需要重新build所有你用的MapReduce插件。就比如<code>go build -buildmode=plugin ../mrapps/wc.go</code></p>
 <p>·  这个lab依赖workrer共享一个文件系统。当所有的worker运行在一个机子时是直截了当的，但如果workers运行在不同的机器上，需要一个全局的文件系统，比如GFS。</p>
-<p>· todo</p>
+<p>· 中间文件合理的命名格式<code>mr-X-Y</code>,X是Map任务的任务号，Y是reduce任务的任务号</p>
+<p>· worker的map任务号需要存储到中间key-value键值对文件中，以便于当进行reduce任务时能正确的读回。一个可行的方式是使用Go的<code>encoding/json</code>包。将键值对写入到一个Json文件：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">enc <span class="token operator">:=</span> json<span class="token punctuation">.</span><span class="token function">NewEncoder</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> kv <span class="token operator">:=</span> <span class="token operator">...</span> <span class="token punctuation">&#123;</span>
+    err <span class="token operator">:=</span> enc<span class="token punctuation">.</span><span class="token function">Encode</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>kv<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>这么读文件</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">dec <span class="token operator">:=</span> json<span class="token punctuation">.</span><span class="token function">NewDecoder</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span>
+  <span class="token keyword">for</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> kv KeyValue
+    <span class="token keyword">if</span> err <span class="token operator">:=</span> dec<span class="token punctuation">.</span><span class="token function">Decode</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>kv<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">break</span>
+    <span class="token punctuation">&#125;</span>
+    kva <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>kva<span class="token punctuation">,</span> kv<span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>· worker的map部分，你可以使用<code>worker.go</code>中的<code>ihash</code>函数来给一个reduce任务一个key</p>
+<p>· 你可以从<code>mrsequential.go</code>中copy一些读Map输入文件的代码，实现在Map和Reduce之间排序中间键值对，以及排序Reduce输出文件的代码。</p>
+<p>· 作为RPC服务提供者的master，应该是并发的。因此不要忘了对共享数据上锁。</p>
+<p>· 通过<code>go build -race</code>和<code>go run -race</code>来使用Go的竞态检测器。<code>test-mr.sh</code>有一些关于你怎么使用竞态检测器来跑测试程序的注释。</p>
+<p>· worker有时是需要等待一段时间的，例如reduce在最后一个map结束任务前不能开始。一个可行的方式是worker定期的询问master来分配任务，在每次请求之间使用<code>time.Sleep()</code>进行休眠；另一种可行的方式就是master中相关的RPC处理者必须有个循环来进行等待，要么选择<code>time.Sleep()</code>，要么选择<code>sync.Cond</code>. Go会在自己的线程中为每个RPC运行handler，所以事实上一个handler在等待时不会阻止master处理其他的RPC。</p>
+<p>· master不能可靠的识别出宕机的worker，还存活但是已经因为某些原因阻塞或者无法运行(stall的含义不知道咋翻译)的worker，正在执行任务但是执行时间非常慢近似等于没有的worker。你能做的就是让master等待一些时间，然后放弃并重新分配相同的任务给其他worker。在这个lab中，master需等待10s。在这之后master应该假设worker已经消亡(当然，即使未消亡也应该这么任务)</p>
+<p>· 为了测试损坏恢复，你可以使用<code>mrapps/crash.go</code>此应用插件。它会随机的存在于Map和Reduce函数中。</p>
+<p>· 为了确保实现没人观察也能不将部分文件写入到已经crashed的worker中，MapReduce的论文提到了一种欺骗的方法：使用一个暂时的文件，一旦它被完成的写入时自动重命名它。你可以使用<code>ioutil.TempFile</code>来创建一个临时的文件，使用<code>os.Rename</code>来自动给他重命名。</p>
+<p>· <code>test-mr.sh</code>在子目录<code>mr-tmp</code>中跑了所有的程序，所以如果某些东西出错了或者你想看中间或者输出文件，可以看看这。</p>
+<h2 id="提交步骤"><a href="#提交步骤" class="headerlink" title="提交步骤"></a>提交步骤</h2><p>在确认前，请再跑依次<code>test-mr.sh</code>测试脚本。</p>
+<p>巴拉巴拉，剩下的是MIT大佬的提交方法，就不写了。</p>
 
                 
             </div>
@@ -1180,7 +1206,7 @@ $<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">125.8k</span>&nbsp;字
+                class="white-color">126.5k</span>&nbsp;字
             
             
             
