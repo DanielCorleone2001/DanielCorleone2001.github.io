@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 23 Apr 2022 12:48:16 +0800</lastBuildDate><atom:link href="https://danielcorleone2001.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>杂项文章</title>
+      <link>https://danielcorleone2001.github.io/mess/</link>
+      <pubDate>Sat, 23 Apr 2022 19:25:33 +0800</pubDate>
+      
+      <guid>https://danielcorleone2001.github.io/mess/</guid>
+      <description>无共同主题，用作日常记录:-)
+ 001 Hello World 002 Git Push超时  </description>
+    </item>
+    
+    <item>
       <title>Git推送超时</title>
       <link>https://danielcorleone2001.github.io/2022/04/23/git%E6%8E%A8%E9%80%81%E8%B6%85%E6%97%B6/</link>
       <pubDate>Sat, 23 Apr 2022 12:48:16 +0800</pubDate>
