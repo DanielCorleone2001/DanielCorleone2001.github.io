@@ -87,29 +87,6 @@
   </article>
 
   
-  
-<div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  const gitalk = new Gitalk({
-    clientID: '09b225875f63d645df6c',
-    clientSecret: '334f65ee945b1755ef61ddef9f9ea8d946af083b',
-    repo: 'DanielCorleone2001.github.io',
-    owner: 'DanielCorleone2001',
-    admin: ['DanielCorleone2001'],
-    id: md5(location.pathname), 
-    distractionFreeMode: false 
-  });
-  (function() {
-    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-      return;
-    }
-    gitalk.render('gitalk-container');
-  })();
-</script>
-
 
 </main>
 
@@ -120,6 +97,13 @@
             <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://danielcorleone2001.github.io/images/hugo-logo.png" width="22" height="22"></a>
           </li>
         </ul>
+        <script src="https://utteranc.es/client.js"
+                repo="DanielCorleone2001/DanielCorleone2001.github.io"
+                issue-term="title"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>  
+      </script>  
       </footer>
 
     </div>
