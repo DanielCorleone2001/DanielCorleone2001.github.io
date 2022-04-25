@@ -6,7 +6,20 @@
     <description>Recent content on Grunge</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Apr 2022 12:48:16 +0800</lastBuildDate><atom:link href="https://danielcorleone2001.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Apr 2022 13:45:21 +0800</lastBuildDate><atom:link href="https://danielcorleone2001.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github提交表情</title>
+      <link>https://danielcorleone2001.github.io/2022/04/25/github%E6%8F%90%E4%BA%A4%E8%A1%A8%E6%83%85/</link>
+      <pubDate>Mon, 25 Apr 2022 13:45:21 +0800</pubDate>
+      
+      <guid>https://danielcorleone2001.github.io/2022/04/25/github%E6%8F%90%E4%BA%A4%E8%A1%A8%E6%83%85/</guid>
+      <description>前言 让你的Github commit信息更加清爽/美观的小tips 😄
+食用方法 🥘
+那么你的提交信息会是这样：
+✨ finish lab0
+表情列表    emoji 表情 commit 说明 英文     🎨 (调色板) 改进代码结构/代码格式 art   ⚡ (闪电) 提升性能 zap   🐎 (赛马) 提升性能 racehorse   🔥 (火焰) 移除代码或文件 fire   🐛 (bug) 修复 bug bug   🚑 (急救车) 重要补丁 ambulance   ✨ (火花) 引入新功能 sparkles   📝 (备忘录) 撰写文档 memo   🚀 (火箭) 部署功能 rocket   💄 (口红) 更新 UI 和样式文件 lipstick   🎉 (庆祝) 初次提交 tada   ✅ (白色复选框) 增加测试 white_check_mark   🔒 (锁) 修复安全问题 lock   🍎 (苹果) 修复 macOS 下的内容 apple   🐧 (企鹅) 修复 Linux 下的内容 penguin   🏁 (旗帜) 修复 Windows 下的内容 checkered_flag   🤖 (机器人) 修复Android上某些内容 robot   🍏 (绿苹果) 解决iOS上的某些问题 green_apple   🔖 (书签) 发行/版本标签 bookmark   🚨 (警车灯) 移除 linter 警告 rotating_light   🚧 (施工) 工作进行中 construction   💚 (绿心) 修复 CI 构建问题 green_heart   ⬇️ (下降箭头) 降级依赖 arrow_dow   ⬆️ (上升箭头) 升级依赖 arrow_up   📌 (图钉) 将依赖关系固定到特定版本。 pushpin   👷‍♂️ (工人) 添加 CI 构建系统 construction_worker   📈 (上升趋势图) 添加分析或跟踪代码 chart_with_upwards_trend   ♻️ (循环箭头) 重构代码。 recycle   🔨 (锤子) 重大重构 hammer   ➖ (减号) 减少一个依赖 heavy_minus_sign   🐳 (鲸鱼) Docker 相关工作 whale   ➕ (加号) 增加一个依赖 heavy_plus_sign   🔧 (扳手) 修改配置文件 wrench   🌐 (地球) 国际化与本地化 globe_with_meridians   ✏️ (铅笔) 修复 typo pencil2   💩 (瞪眼) 编写需要改进的错误代码。 hankey   ⏪ (双左箭头) 恢复更改。 rewind   🔀 (双合并箭头) 合并分支。 twisted_rightwards_arrows   📦 (箱子) 更新编译的文件或包。 package   👽 (面具) 由于外部API更改而更新代码。 alien   🚚 (面包车) 移动或重命名文件。 truck   📄 (文档) 添加或更新许可证。 page_facing_up   💥 (爆炸) 介绍突破性变化。 boom   🍱 (装满餐盘) 添加或更新资产。 bento   👌 (OK手势) 由于代码审查更改而更新代码。 ok_hand   ♿ (坐姿) 提高可访问性。 wheelchair   💡 (灯泡) 记录源代码。 bulb   🍻 (干杯) 醉生梦死的写代码。 beers   💬 (提示栏) 更新文字和文字。 speech_balloon   🗃️ (卡片盒子) 执行与数据库相关的更改。 card_file_box   🔊 (有声喇叭) 添加日志。 loud_sound   🔇 (静音喇叭) 删除日志。 mute   👥 (两个人头) 添加贡献者。 busts_in_silhouette   🚸 (小盆友) 改善用户体验/可用性。 children_crossing   🏗️ (吊车) 进行架构更改。 building_construction   📱 (手机) 致力于响应式设计。 iphone   🤡 (小丑) 嘲笑事物。 clown_face   🥚 (彩蛋) 添加一个复活节彩蛋。 egg   🙈 (蒙眼猴子) 添加或更新.</description>
+    </item>
+    
     <item>
       <title>杂项文章</title>
       <link>https://danielcorleone2001.github.io/mess/</link>
@@ -14,7 +27,7 @@
       
       <guid>https://danielcorleone2001.github.io/mess/</guid>
       <description>无共同主题，用作日常记录:-)
- 001 Hello World 002 Git Push超时  </description>
+ 001 Hello World 002 Git Push超时 003 用Emoji美化Github commit  </description>
     </item>
     
     <item>
