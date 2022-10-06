@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.104.3" />
+
+
+<title>LSM tree论文翻译 - Grunge</title>
+<meta property="og:title" content="LSM tree论文翻译 - Grunge">
+
+
+  <link href='https://danielcorleone2001.github.io/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://danielcorleone2001.github.io/images/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="https://danielcorleone2001.github.io/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://danielcorleone2001.github.io/" class="nav-logo">
+    <img src="https://danielcorleone2001.github.io/images/logo.png" 
+         width="500" 
+         height="500" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/mess/">杂项</a></li>
+    
+    <li><a href="https://github.com/DanielCorleone2001">GitHub</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">LSM tree论文翻译</h1>
+
+    
+    <span class="article-date">October 6, 2022</span>
+    
+
+    <div class="article-content">
+      <p>​																								<a href="https://www.cs.umb.edu/~poneil/lsmtree.pdf">论文原文</a></p>
+<hr>
+<h2 id="0abstract">0.Abstract</h2>
+<p>高性能的事务性系统级别应用通常会在History表中插入行数据来提供操作记录的追踪;与此同时，事务系统出于系统故障恢复的目的，产生Log Records。这两种类型生成的信息可从有效的索引中受益。一个众所周知的例子是：TPC-A基准应用程序，修改后可支持在History表上对特定的账户的操作记录进行有效的查询。这需要在快速增长的History表上创建账户ID的索引。不幸的是，如B-Tree这种标准的面向磁盘的索引结构为了实时维护索引，会让事务系统的I/O成本翻一倍，使得整个系统开销增长50%。很明显，以低成本的方法去实时维护索引是有必要的。The Log-Structed Merge-tree(日志结构合并树， LSM-tree)，是基于磁盘的数据结构，设计出为经历高速率的行记录变更（插入和删除）的文件，提供低变更成本的索引。LSM-tree使用延缓和批量索引变更的算法，以一种类似于归并排序的有效方法，将变更从基于内存的组件级联到一个甚至多个基于磁盘的组件。在这个过程中，所有的索引值都可以通过内存组件或磁盘组件持续不断地(除了非常短时间的上锁期间)访问和获取。这个算法相较于传统的访问策略如B-Trees，大大减少了磁盘臂的移动，并在传统访问方法的插入操作的磁盘臂成本超过存储介质成本的领域改善成本性能(cost-performance)。LSM-tree方法同样在除了插入和删除以外的操作具有普适性，然而在某些需要立即响应的索引查找案例中将会降低I/O的效率，所以LSM-tree在索引插入比索引检索更频繁的应用中更加有用。例如，这似乎是 History 表和日志文件的一个共同属性。第 6 节的结论将 LSM-tree 访问方法中混合使用内存和磁盘组件和通常理解的混合方法在内存中缓冲（buffer）磁盘页的优势进行了比较。</p>
+<hr>
+<h2 id="1intruduction">1.Intruduction</h2>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://danielcorleone2001.github.io/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+        <script src="https://utteranc.es/client.js"
+                repo="DanielCorleone2001/DanielCorleone2001.github.io"
+                issue-term="title"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>  
+      </script>  
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

@@ -6,7 +6,18 @@
     <description>Recent content on Grunge</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Oct 2022 22:51:33 +0800</lastBuildDate><atom:link href="https://danielcorleone2001.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Oct 2022 11:29:20 +0800</lastBuildDate><atom:link href="https://danielcorleone2001.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LSM tree论文翻译</title>
+      <link>https://danielcorleone2001.github.io/2022/10/06/lsm-tree%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/</link>
+      <pubDate>Thu, 06 Oct 2022 11:29:20 +0800</pubDate>
+      
+      <guid>https://danielcorleone2001.github.io/2022/10/06/lsm-tree%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/</guid>
+      <description>​	论文原文
+0.Abstract 高性能的事务性系统级别应用通常会在History表中插入行数据来提供操作记录的追踪;与此同时，事务系统出于系统故障恢复的目的，产生Log Records。这两种类型生成的信息可从有效的索引中受益。一个众所周知的例子是：TPC-A基准应用程序，修改后可支持在History表上对特定的账户的操作记录进行有效的查询。这需要在快速增长的History表上创建账户ID的索引。不幸的是，如B-Tree这种标准的面向磁盘的索引结构为了实时维护索引，会让事务系统的I/O成本翻一倍，使得整个系统开销增长50%。很明显，以低成本的方法去实时维护索引是有必要的。The Log-Structed Merge-tree(日志结构合并树， LSM-tree)，是基于磁盘的数据结构，设计出为经历高速率的行记录变更（插入和删除）的文件，提供低变更成本的索引。LSM-tree使用延缓和批量索引变更的算法，以一种类似于归并排序的有效方法，将变更从基于内存的组件级联到一个甚至多个基于磁盘的组件。在这个过程中，所有的索引值都可以通过内存组件或磁盘组件持续不断地(除了非常短时间的上锁期间)访问和获取。这个算法相较于传统的访问策略如B-Trees，大大减少了磁盘臂的移动，并在传统访问方法的插入操作的磁盘臂成本超过存储介质成本的领域改善成本性能(cost-performance)。LSM-tree方法同样在除了插入和删除以外的操作具有普适性，然而在某些需要立即响应的索引查找案例中将会降低I/O的效率，所以LSM-tree在索引插入比索引检索更频繁的应用中更加有用。例如，这似乎是 History 表和日志文件的一个共同属性。第 6 节的结论将 LSM-tree 访问方法中混合使用内存和磁盘组件和通常理解的混合方法在内存中缓冲（buffer）磁盘页的优势进行了比较。
+1.Intruduction </description>
+    </item>
+    
     <item>
       <title>Wisckey Paper</title>
       <link>https://danielcorleone2001.github.io/2022/10/05/wisckey-paper/</link>
@@ -24,7 +35,8 @@
       <guid>https://danielcorleone2001.github.io/mess/</guid>
       <description>无共同主题，用作日常记录:-)
 001 Hello World
-002 WiscKey Paper</description>
+002 WiscKey Paper
+003 LSM tree论文翻译</description>
     </item>
     
     <item>
